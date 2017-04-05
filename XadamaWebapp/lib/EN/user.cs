@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lib
+namespace lib.EN
 {
-    public class Class1
+    class User
     {
+        private String email;
+
+        private String password;
     }
 }
