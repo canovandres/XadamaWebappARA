@@ -40,12 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAD\cadadmin.cs" />
+    <Compile Include="CAD\caduser.cs" />
+    <Compile Include="CAD\cadworker.cs" />
+    <Compile Include="EN\admin.cs" />
     <Compile Include="CAD\cadonline.cs" />
     <Compile Include="CAD\cadshop.cs" />
     <Compile Include="EN\online.cs" />
     <Compile Include="EN\physical.cs" />
     <Compile Include="EN\shop.cs" />
     <Compile Include="EN\user.cs" />
+    <Compile Include="EN\worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
