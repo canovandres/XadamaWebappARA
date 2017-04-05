@@ -40,12 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAD\cadadmin.cs" />
+    <Compile Include="CAD\caduser.cs" />
+    <Compile Include="CAD\cadworker.cs" />
+    <Compile Include="EN\admin.cs" />
     <Compile Include="EN\user.cs" />
+    <Compile Include="EN\worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CAD\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
