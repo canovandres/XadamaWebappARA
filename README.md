@@ -17,9 +17,8 @@ Accommodation | List of hotels, type of board (full board, half board...) and pr
 Events | Type of events (concerts, shows, parades) and its dates and prices.
 Theme | There will be different themes depending on popular festive days (Halloween, Christmas, Valentine’s day, carnival)  
 Zone | The park will be divided into different zones, each zone will represent a different continent (Oceania, America etc.)
-Bus | In the park, there will be a bus which will go around the park and the hotel area, the client would see in the public part its prices and bus stops.  
 
-* Public EN List: Ride, restaurant, merchandising, hotel, camping, event, season, zone, bus
+* Public EN List: Ride, restaurant, product, hotel, camping, event, season, zone
 
 * ##### Private part:  
 
@@ -27,10 +26,12 @@ Entity | Description
 :-------:|------------
 Client | The client would see its shopping history, its bookings and its profile.
 Employee | The employee will be able to see its working schedule.
-Administrator | Will be able to change information of the web page, like prices, descriptions...
-Services | Shop (ticket, merchandising, bus...), bookings (hotel, restaurant…), shopping cart, personalized planning.  
+Administrator | Will be able to change information of the web page, like prices, descriptions... 
 
-* Private EN List: Client, employee, administrator, ticket
+* Private EN List: 
+  * Client: The client will be able to see information about public entities, make bookings, buy products and make a personalized tour
+  * Employee: The employee will be ablo to see its time table and do the same things than a client
+  * Administrator: The administrator will be able to update de information of the database and register employees
 
 * ##### Possible improvements  
   - [ ] Social networks
@@ -39,4 +40,10 @@ Services | Shop (ticket, merchandising, bus...), bookings (hotel, restaurant…)
   - [ ] Internationalization
   - [ ] Virtual assistant
   
-* Participants: @JoseAlde @marbonora @canovandres @andreadiaz @diegacu @alvmrs
+* Participants:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;José Aldeguer Sastre (@JoseAlde)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mar Bonora Ortega (@marbonora)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Andrés Cánovas Cutillas (@canovandres)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Andrea Díaz Contra (@andreadiaaz)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diego García Cutillas (@diegacu)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alvaro Martín Resel (@alvmrs)  
