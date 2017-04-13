@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class User
+    public interface User
     {
-        private String email;
+        String email { get; set; }
 
-        private String password;
+        String password { get; set; }
     }
 }
