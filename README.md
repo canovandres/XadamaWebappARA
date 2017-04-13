@@ -23,13 +23,13 @@ See Zones | The park will be divided into different zones, each zone will repres
 
 Actions | Description
 :-------:|------------
-Buy | The user will be able to buy products
+Buy | The user will be able to buy products and tickets
 Book | The user will be able to book rooms in the hotel
 Reserve | The user will be able to reserve tables in restaurants
 Consult timetable | The worker will be able to consult its timetable
 Modify | The administrator will be able to modify information about the webpage and the database  
 
-* Private EN List: Client, Worker, Booking, Order, Promo, Reservation
+* Private EN List: Ticket, Client, Worker, Booking, Order, Promo, Reservation
 
 * ##### Possible improvements  
   - [ ] Social networks
