@@ -43,10 +43,14 @@
     <Compile Include="CAD\cadproduct.cs" />
     <Compile Include="CAD\cadpromo.cs" />
     <Compile Include="EN\product.cs" />
+    <Compile Include="CAD\cadorder.cs" />
     <Compile Include="EN\promo.cs" />
     <Compile Include="CAD\cadadmin.cs" />
+    <Compile Include="EN\ticket.cs" />
     <Compile Include="CAD\caduser.cs" />
     <Compile Include="CAD\cadworker.cs" />
+    <Compile Include="CAD\cadticket.cs" />
+    <Compile Include="EN\order.cs" />
     <Compile Include="EN\admin.cs" />
     <Compile Include="CAD\cadonline.cs" />
     <Compile Include="CAD\cadshop.cs" />

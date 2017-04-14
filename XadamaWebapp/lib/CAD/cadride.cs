@@ -16,7 +16,7 @@ namespace lib.CAD
 
         ~CADRide()
         {
-            
+
         }
 
         public void Create(EN.Ride en)
@@ -40,6 +40,6 @@ namespace lib.CAD
 
         }
 
-        
+
     }
 }

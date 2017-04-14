@@ -18,7 +18,7 @@ namespace lib.EN
 
         public int height { get; set; }
 
-        public Ride(String cod="", String name="", int minHeight=0, int speed=0, int height=0)
+        public Ride(String cod = "", String name = "", int minHeight = 0, int speed = 0, int height = 0)
         {
             this.cod = cod;
             this.name = name;
@@ -36,7 +36,7 @@ namespace lib.EN
         public void read(String db, String cod)
         {
             CAD.CADRide cadride = new CAD.CADRide(db);
-            Ride ride = (Ride) cadride.Read(cod);
+            Ride ride = (Ride)cadride.Read(cod);
             this.cod = ride.cod;
             this.name = ride.name;
             this.minHeight = ride.minHeight;

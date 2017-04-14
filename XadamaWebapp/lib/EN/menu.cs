@@ -28,7 +28,7 @@ namespace lib.EN
 
 
 
-        public Menu(String id = "", String first1="", String first2 = "", String second1 = "", String second2 = "", String dessert1 = "", String dessert2 = "", int price = 0, String restaurant="")
+        public Menu(String id = "", String first1 = "", String first2 = "", String second1 = "", String second2 = "", String dessert1 = "", String dessert2 = "", int price = 0, String restaurant = "")
         {
             this.id = id;
             this.price = price;
@@ -50,7 +50,7 @@ namespace lib.EN
         public void read(String db, String id)
         {
             CAD.CADMenu cadmenu = new CAD.CADMenu(db);
-            Menu menu = (Menu) cadmenu.Read(id);
+            Menu menu = (Menu)cadmenu.Read(id);
             this.id = menu.id;
             this.price = menu.price;
             this.first1 = menu.first1;
