@@ -5,16 +5,12 @@ XadamaWebapp/.vs/config/applicationhost.config
 *.user
 *.sln.docstates
 
-[Dd]ebug/
-[Rr]elease/
-x64/
-build/
-[Bb]in/
-[Oo]bj/
+**/Debug/
+**/build/
 
 **/packages/*
 !**/packages/build/
 
-*.vs/
+**.vs/
 *.vc.vc.opendb
 *.vc.db
