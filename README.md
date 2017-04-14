@@ -36,6 +36,7 @@ Modify | | The administrator will be able to modify information about the webpag
   - [ ] Park map
   - [ ] Internationalization
   - [ ] Virtual assistant
+  - [ ] Adapted to different screen sizes
   
 * Participants:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;José Aldeguer Sastre (@JoseAlde)  
