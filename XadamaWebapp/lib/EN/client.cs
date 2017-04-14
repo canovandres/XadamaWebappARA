@@ -30,7 +30,7 @@ namespace lib.EN
             c.Create(this);
         }
 
-        void Read(String dbname)//calls the cadproduct method to read a product with the same id as the actual one
+        void Read(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             Client p = c.Read(email);
@@ -42,13 +42,13 @@ namespace lib.EN
             address = p.address;
         }
 
-        void Update(String dbname)//updates the product with the same id as the actual one by calling the cadproduct's appropiate method
+        void Update(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             c.Update(this);
         }
 
-        void Delete(String dbname)//deletes the product by calling cadproduct
+        void Delete(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             c.Delete(email);

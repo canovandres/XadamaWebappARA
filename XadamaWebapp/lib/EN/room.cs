@@ -24,7 +24,7 @@ namespace lib.EN
             r.Create(this);
         }
 
-        void Read(String dbname)//calls the cadproduct method to read a product with the same id as the actual one
+        void Read(String dbname)
         {
             CAD.CADRoom r = new CAD.CADRoom(dbname);
             Room p = r.Read(id, num);
@@ -33,13 +33,13 @@ namespace lib.EN
             type = p.type;
         }
 
-        void Update(String dbname)//updates the product with the same id as the actual one by calling the cadproduct's appropiate method
+        void Update(String dbname)
         {
             CAD.CADRoom r = new CAD.CADRoom(dbname);
             r.Update(this);
         }
 
-        void Delete(String dbname)//deletes the product by calling cadproduct
+        void Delete(String dbname)
         {
             CAD.CADRoom r = new CAD.CADRoom(dbname);
             r.Delete(id, num);
