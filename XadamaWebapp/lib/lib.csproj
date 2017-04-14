@@ -40,23 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAD\cadmenu.cs" />
     <Compile Include="CAD\cadproduct.cs" />
     <Compile Include="CAD\cadpromo.cs" />
+    <Compile Include="CAD\cadride.cs" />
+    <Compile Include="EN\menu.cs" />
     <Compile Include="EN\product.cs" />
     <Compile Include="CAD\cadorder.cs" />
     <Compile Include="EN\promo.cs" />
-    <Compile Include="CAD\cadadmin.cs" />
+    <Compile Include="EN\ride.cs" />
     <Compile Include="EN\ticket.cs" />
     <Compile Include="CAD\caduser.cs" />
     <Compile Include="CAD\cadworker.cs" />
     <Compile Include="CAD\cadticket.cs" />
     <Compile Include="EN\order.cs" />
-    <Compile Include="EN\admin.cs" />
-    <Compile Include="CAD\cadonline.cs" />
-    <Compile Include="CAD\cadshop.cs" />
-    <Compile Include="EN\online.cs" />
-    <Compile Include="EN\physical.cs" />
-    <Compile Include="EN\shop.cs" />
     <Compile Include="EN\user.cs" />
     <Compile Include="EN\worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
