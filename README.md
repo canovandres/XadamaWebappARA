@@ -21,13 +21,13 @@ See Zones | The park will be divided into different zones, each zone will repres
 
 * ##### Private part:  
 
-Actions | Description
-:-------:|------------
-Buy | The user will be able to buy products and tickets
-Book | The user will be able to book rooms in the hotel
-Reserve | The user will be able to reserve tables in restaurants
-Consult timetable | The worker will be able to consult its timetable
-Modify | The administrator will be able to modify information about the webpage and the database  
+Actions | Entities | Description
+:-------:|:-------:|------------
+Buy | Client, Ticket, Order, Promo | The user will be able to buy products and tickets
+Book | Client, Booking | The user will be able to book rooms in the hotel
+Reserve | Client, Reservation | The user will be able to reserve tables in restaurants
+Consult timetable | Worker | The worker will be able to consult its timetable
+Modify | | The administrator will be able to modify information about the webpage and the database  
 
 * Private EN List: Ticket, Client, Worker, Booking, Order, Promo, Reservation
 
@@ -36,6 +36,7 @@ Modify | The administrator will be able to modify information about the webpage 
   - [ ] Park map
   - [ ] Internationalization
   - [ ] Virtual assistant
+  - [ ] Adapted to different screen sizes
   
 * Participants:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;José Aldeguer Sastre (@JoseAlde)  
