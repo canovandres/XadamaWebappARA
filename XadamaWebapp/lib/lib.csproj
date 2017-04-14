@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAD\cadproduct.cs" />
+    <Compile Include="CAD\cadpromo.cs" />
+    <Compile Include="EN\product.cs" />
+    <Compile Include="EN\promo.cs" />
     <Compile Include="CAD\cadadmin.cs" />
     <Compile Include="CAD\caduser.cs" />
     <Compile Include="CAD\cadworker.cs" />
