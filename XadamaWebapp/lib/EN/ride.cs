@@ -18,7 +18,7 @@ namespace lib.EN
 
         public int height { get; set; }
 
-        public Ride(String cod = "", String name = "", int minHeight = 0, int speed = 0, int height = 0)
+        public Ride(String cod, String name, int minHeight = 0, int speed = 0, int height = 0)
         {
             this.cod = cod;
             this.name = name;
@@ -55,10 +55,5 @@ namespace lib.EN
             CAD.CADRide cadride = new CAD.CADRide(db);
             cadride.Delete(this);
         }
-
-
-
-
-
     }
 }

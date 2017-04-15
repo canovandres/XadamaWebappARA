@@ -10,18 +10,18 @@ namespace lib.EN
     {
         private List<Product> _products = new List<Product>();
 
-        public Order(int cod, String date, String email)
+        public Order(String cod, Client client = null, String date = "")
         {
             this.cod = cod;
             this.date = date;
-            this.email = email;
+            this.client = client;
         }
 
-        public int cod { get; set; }
+        public String cod { get; set; }
 
         public String date { get; set; }
 
-        public String email { get; set; }
+        public Client client { get; set; }
 
         public List<Product> products
         {
@@ -44,13 +44,13 @@ namespace lib.EN
             cadorder.Create(this);
         }
 
-        public void read(String dbname, int cod, String email)
+        public void read(String dbname, String cod, String email)
         {
             CAD.CADOrder cadorder = new CAD.CADOrder(dbname);
             Order order = (Order)cadorder.Read(cod, email);
             this.cod = order.cod;
             this.date = order.date;
-            this.email = order.email;
+            this.client = order.client;
         }
 
         public void update(String dbname, Order order)
@@ -59,10 +59,10 @@ namespace lib.EN
             cadorder.Update(this);
         }
 
-        public void delete(String dbname, int cod, String email)
+        public void delete(String dbname, String cod)
         {
             CAD.CADOrder cadorder = new CAD.CADOrder(dbname);
-            cadorder.Delete(cod, email);
+            cadorder.Delete(cod);
         }
     }
 }

@@ -7,37 +7,39 @@ using lib.EN;
 
 namespace lib.CAD
 {
-    class CADRide
+    class CADShow
     {
-        public CADRide(String db)
+        public CADShow(string dbname)
         {
 
         }
 
-        ~CADRide()
+        ~CADShow()
         {
 
         }
 
-        public void Create(EN.Ride en)
+        public void Create(EN.Show s)
         {
 
         }
 
-        public EN.Ride Read(String cod)
+        public Show Read(string name)
         {
-            Ride ride = new Ride("", "");
-            return ride;
+            Show show = new Show(name);
+            return show;
         }
 
-        public void Update(EN.Ride en)
-        {
-
-        }
-
-        public void Delete(EN.Ride en)
+        public void Update(Show s)
         {
 
         }
+
+        public void Delete(string name)
+        {
+
+        }
+
+
     }
 }

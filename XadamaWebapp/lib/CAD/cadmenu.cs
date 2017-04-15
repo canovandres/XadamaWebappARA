@@ -26,7 +26,7 @@ namespace lib.CAD
 
         public EN.Menu Read(String cod)
         {
-            Menu menu = new Menu();
+            Menu menu = new Menu(cod);
             return menu;
         }
 

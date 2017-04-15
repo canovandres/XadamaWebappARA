@@ -8,7 +8,7 @@ namespace lib.EN
 {
     class Ticket
     {
-        public Ticket(int cod, String date, int price, String email)
+        public Ticket(String cod, String date = "", int price = 0, String email = "")
         {
             this.cod = cod;
             this.date = date;
@@ -16,7 +16,7 @@ namespace lib.EN
             this.email = email;
         }
 
-        public int cod { get; set; }
+        public String cod { get; set; }
 
         public String date { get; set; }
 
@@ -30,10 +30,10 @@ namespace lib.EN
             cadticket.Create(this);
         }
 
-        public void read(String dbname, int cod)
+        public void read(String dbname, String cod)
         {
             CAD.CADTicket cadticket = new CAD.CADTicket(dbname);
-            Ticket ticket = (Ticket)cadticket.Read(cod);
+            Ticket ticket = (Ticket) cadticket.Read(cod);
             this.cod = ticket.cod;
             this.date = ticket.date;
             this.price = ticket.price;
@@ -46,7 +46,7 @@ namespace lib.EN
             cadticket.Update(this);
         }
 
-        public void delete(String dbname, int cod)
+        public void delete(String dbname, String cod)
         {
             CAD.CADTicket cadticket = new CAD.CADTicket(dbname);
             cadticket.Delete(cod);

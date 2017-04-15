@@ -8,7 +8,7 @@ namespace lib.EN
 {
     class Menu
     {
-        public String id { get; set; }
+        public String cod { get; set; }
 
         public String first1 { get; set; }
 
@@ -25,12 +25,10 @@ namespace lib.EN
         public int price { get; set; }
 
         public String restaurant { get; set; }
-
-
-
-        public Menu(String id = "", String first1 = "", String first2 = "", String second1 = "", String second2 = "", String dessert1 = "", String dessert2 = "", int price = 0, String restaurant = "")
+        
+        public Menu(String cod, String first1 = "", String first2 = "", String second1 = "", String second2 = "", String dessert1 = "", String dessert2 = "", int price = 0, String restaurant = "")
         {
-            this.id = id;
+            this.cod = cod;
             this.price = price;
             this.first1 = first1;
             this.first2 = first2;
@@ -47,11 +45,11 @@ namespace lib.EN
             cadmenu.Create(this);
         }
 
-        public void read(String db, String id)
+        public void read(String db, String cod)
         {
             CAD.CADMenu cadmenu = new CAD.CADMenu(db);
-            Menu menu = (Menu)cadmenu.Read(id);
-            this.id = menu.id;
+            Menu menu = (Menu)cadmenu.Read(cod);
+            this.cod = menu.cod;
             this.price = menu.price;
             this.first1 = menu.first1;
             this.first2 = menu.first2;
