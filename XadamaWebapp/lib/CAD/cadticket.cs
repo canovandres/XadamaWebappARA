@@ -19,9 +19,9 @@ namespace lib.CAD
 
         }
 
-        public Ticket Read(int cod)
+        public Ticket Read(String cod)
         {
-            Ticket ticket = new EN.Ticket(0, "", 0, "");
+            Ticket ticket = new EN.Ticket("", "", 0, "");
 
             return ticket;
         }
@@ -31,7 +31,7 @@ namespace lib.CAD
 
         }
 
-        public void Delete(int cod)
+        public void Delete(String cod)
         {
 
         }
