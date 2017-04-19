@@ -7,34 +7,35 @@ using lib.EN;
 
 namespace lib.CAD
 {
-    class CADOnline
+    class CADRide
     {
-        public CADOnline (int id)
+        public CADRide(String db)
         {
 
         }
 
-        ~CADOnline ()
+        ~CADRide()
         {
 
         }
 
-        public void create (Shop nshop)
+        public void Create(EN.Ride en)
         {
 
         }
 
-        public Shop read (int id)
+        public EN.Ride Read(String cod)
+        {
+            Ride ride = new Ride("", "");
+            return ride;
+        }
+
+        public void Update(EN.Ride en)
         {
 
         }
 
-        public void update (Shop nshop)
-        {
-
-        }
-
-        public void delete (int id)
+        public void Delete(EN.Ride en)
         {
 
         }

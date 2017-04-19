@@ -1,8 +1,16 @@
 XadamaWebapp/.vs/config/applicationhost.config
 *.suo
-XadamaWebapp/lib/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-XadamaWebapp/XadamaWebapp/bin/roslyn/VBCSCompiler.exe
-XadamaWebapp/XadamaWebapp/bin/roslyn/csc.exe
-XadamaWebapp/XadamaWebapp/bin/roslyn/vbc.exe, XadamaWebapp/packages/Microsoft.Net.Compilers.1.0.0/tools/VBCSCompiler.exe
-XadamaWebapp/packages/Microsoft.Net.Compilers.1.0.0/tools/csc.exe
-XadamaWebapp/packages/Microsoft.Net.Compilers.1.0.0/tools/vbc.exe
+*.exe
+*.cache
+*.user
+*.sln.docstates
+
+**/Debug/
+**/build/
+
+**/packages/*
+!**/packages/build/
+
+**.vs/
+*.vc.vc.opendb
+*.vc.db

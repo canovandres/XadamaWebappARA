@@ -13,29 +13,30 @@ Consult Rides | List of the rides with picture, descriptions, minimum height...
 See Restaurants | List of restaurants, menus of each restaurant and location in the park
 See Merchandising | List of the shops and products, with information of the location and prices
 Consult Accommodation | List of hotels, type of board (full board, half board...) and prices for each one, and types of room (suite, double, individual, familiar)
-See Events | Type of events (concerts, shows, parades) and its dates and prices
+See Shows | Type of events (concerts, shows, parades) and its dates and prices
 Consult Themes | There will be different themes depending on popular festive days (Halloween, Christmas, Valentine’s day, carnival)  
 See Zones | The park will be divided into different zones, each zone will represent a different continent (Oceania, America etc.)
 
-* Public EN List: Ride, Menu, Product, Room, Event
+* Public EN List: Ride, Menu, Product, Room, Show
 
 * ##### Private part:  
 
-Actions | Description
-:-------:|------------
-Buy | The user will be able to buy products
-Book | The user will be able to book rooms in the hotel
-Reserve | The user will be able to reserve tables in restaurants
-Consult timetable | The worker will be able to consult its timetable
-Modify | The administrator will be able to modify information about the webpage and the database  
+Actions | Entities | Description
+:-------:|:-------:|------------
+Buy | Client, Ticket, Order, Promo | The user will be able to buy products and tickets
+Book | Client, Booking | The user will be able to book rooms in the hotel
+Reserve | Client, Reservation | The user will be able to reserve tables in restaurants
+Consult timetable | Worker | The worker will be able to consult its timetable
+Modify | | The administrator will be able to modify information about the webpage and the database  
 
-* Private EN List: Client, Worker, Booking, Order, Promo, Reservation
+* Private EN List: Ticket, Client, Worker, Booking, Order, Promo, Reservation
 
 * ##### Possible improvements  
   - [ ] Social networks
   - [ ] Park map
   - [ ] Internationalization
   - [ ] Virtual assistant
+  - [ ] Adapted to different screen sizes
   
 * Participants:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;José Aldeguer Sastre (@JoseAlde)  
