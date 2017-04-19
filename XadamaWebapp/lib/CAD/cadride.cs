@@ -26,7 +26,7 @@ namespace lib.CAD
 
         public EN.Ride Read(String cod)
         {
-            Ride ride = new Ride();
+            Ride ride = new Ride("", "");
             return ride;
         }
 
@@ -39,7 +39,5 @@ namespace lib.CAD
         {
 
         }
-
-
     }
 }

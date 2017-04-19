@@ -7,36 +7,39 @@ using lib.EN;
 
 namespace lib.CAD
 {
-    class CADOnline
+    class CADShow
     {
-        public CADOnline (int id)
+        public CADShow(string dbname)
         {
 
         }
 
-        ~CADOnline ()
+        ~CADShow()
         {
 
         }
 
-        public void create (Shop nshop)
+        public void Create(EN.Show s)
         {
 
         }
 
-        public Shop read (int id)
+        public Show Read(string name)
+        {
+            Show show = new Show(name);
+            return show;
+        }
+
+        public void Update(Show s)
         {
 
         }
 
-        public void update (Shop nshop)
+        public void Delete(string name)
         {
 
         }
 
-        public void delete (int id)
-        {
 
-        }
     }
 }

@@ -9,7 +9,7 @@ namespace lib.EN
     class Promo
     {
         private int pdiscount;
-        public String id { get; set; }
+        public String cod { get; set; }
         public String initialdate { get; set; }
         public String enddate { get; set; }
         public String description { get; set; }
@@ -30,9 +30,9 @@ namespace lib.EN
             }
         }
 
-        public Promo(String id,String initialdate,String enddate,String description,int discount)
+        public Promo(String cod, String initialdate = "", String enddate = "", String description = "", int discount = 0)
         {
-            this.id = id;
+            this.cod = cod;
             this.initialdate = initialdate;
             this.enddate = enddate;
             this.description = description;
@@ -48,7 +48,7 @@ namespace lib.EN
         public void Read(String dbname)//Reads the promo that has the same id as the actual one from the database by calling the appropiate method in cadpromo
         {
             CAD.CADPromo c = new CAD.CADPromo(dbname);
-            Promo p = c.Read(id);
+            Promo p = c.Read(cod);
             this.initialdate = p.initialdate;
             this.enddate = p.enddate;
             this.description = p.description;
@@ -65,7 +65,7 @@ namespace lib.EN
         public void Delete(String dbname)//Deletes the promo from the database by calling the appropiate method of cadpromo
         {
             CAD.CADPromo c = new CAD.CADPromo(dbname);
-            c.Delete(id);
+            c.Delete(cod);
         }
 
         public List<String> getPromos(String dbname, String currentdate)//returns a list of promos that are active during the date passed by parameter by calling the appropiate method in cadpromo
@@ -73,6 +73,5 @@ namespace lib.EN
             CAD.CADPromo c = new CAD.CADPromo(dbname);
             return c.getPromos(currentdate);
         }
-
     }
 }
