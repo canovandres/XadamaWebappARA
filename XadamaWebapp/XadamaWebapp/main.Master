@@ -3,9 +3,30 @@
 <head>
     <style type="text/css">
         .auto-style1 {
-            width: 1138px;
+            width: 1150px;
         }
-    </style>
+        .auto-style2 {
+            width: 434px;
+        }
+        .auto-style3 {
+            width: 420px;
+        }
+        .auto-style4 {
+            width: 859px;
+            height: 338px;
+        }
+        .auto-style5 {
+            width: 923px;
+            height: 338px;
+        }
+        .auto-style6 {
+            width: 418px;
+        }
+        .auto-style9 {
+            width: 335px;
+            height: 110px;
+        }
+        </style>
 </head>
 
 <form id="form1" runat="server">
@@ -20,6 +41,7 @@
                             <asp:menuitem text="Home"></asp:menuitem>
                             <asp:menuitem text="About"></asp:menuitem>
                             <asp:menuitem text="Hotels"></asp:menuitem>
+                            <asp:menuitem text="Zones"></asp:menuitem>
                             <asp:menuitem text="Contact"></asp:menuitem>
                         </items>
                     </asp:menu>
@@ -92,8 +114,139 @@
         </table>
     </div>
 
+    <div>
+        <p>
+        <asp:Label ID="Label2" runat="server" Height="16px" Text="ZONES" Width="111px"></asp:Label>
+        </p>
+        <p>
+            Our park is distributed in 5 zones, one for each continent. Find them out!</p>
+        <table style="width: 1282px; height: 340px">
+            <tr>
+                <td class="auto-style3">
+
+                    <asp:ImageButton ID="Image9" runat="server" Height="335px" ImageUrl="~/App_LocalResources/AfricanPyramid.jpg" Width="425px" />
+
+                    <asp:Label ID="Label7" runat="server" Text="AFRICA"></asp:Label>
+
+                </td>
+                <td class="auto-style2">
+
+                    <asp:ImageButton ID="Image10" runat="server" Height="335px" ImageUrl="~/App_LocalResources/AmericanHollywood.jpg" Width="432px" />
+
+                    <asp:Label ID="Label8" runat="server" Text="AMERICA"></asp:Label>
+
+                </td>
+                <td class="auto-style6">
+
+                    <asp:ImageButton ID="Image11" runat="server" Height="336px" ImageUrl="~/App_LocalResources/EuropeanLondonEye.jpg" Width="414px"/>
+
+                    <asp:Label ID="Label9" runat="server" Text="EUROPE"></asp:Label>
+
+                </td>
+            </tr>
+            
+        </table>
+
+
+        <table style="width: 1282px; height: 340px">
+            <tr>
+                <td class="auto-style5">
+
+                    <asp:ImageButton ID="Image12" runat="server" Height="333px" ImageUrl="~/App_LocalResources/AsianChina.jpg" Width="664px" style="margin-top: 0px" />
+
+                    <asp:Label ID="Label10" runat="server" Text="ASIA"></asp:Label>
+
+                </td>
+                <td class="auto-style4">
+
+                    <asp:ImageButton ID="Image13" runat="server" Height="334px" ImageUrl="~/App_LocalResources/OceanianTurtleaux.jpg" Width="609px" />
+
+                    <asp:Label ID="Label11" runat="server" Text="OCEANIA"></asp:Label>
+
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div>
+        <p>
+        <asp:Label ID="Label3" runat="server" Height="16px" Text="CONTACT" Width="111px"></asp:Label>
+        </p>
+
+        <p>
+            You can find us here:
+        </p>
+    </div>
+    <div class="col m4 container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29068.54208097489!2d-0.5360552693342719!3d38.32360685377032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDE5JzI2LjEiTiAwwrAzMScxNy43Ilc!5e1!3m2!1ses!2ses!4v1492372950166" width="100%" height="400"></iframe>
+    </div>
+
+    <div>
+        <p>
+        Alicante, ES<br>
+        Phone: +34 123 456 789<br>
+        E-mail: <a href="mailto:xadama@xadama.com">xadama@xadama.com</a></p>
+        <p>
+            <br>
+        </p>
+    </div>
+
+    <div>
+        <p>Send a suggestion:</p>
+
+    </div>
+
+
+        <asp:Label ID="Label4" runat="server" Text="Name:"></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="Label5" runat="server" Text="Email:"></asp:Label>
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="Label6" runat="server" Text="Message:"></asp:Label>
+            <asp:TextBox ID="TextBox3" runat="server" Height="95px" Width="605px"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" Text="Send Message" />
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            Follow us!</p>
+        <table class="auto-style9">
+           <tr>
+                <td>
+
+                    <asp:ImageButton ID="Image14" runat="server" Height="100px" ImageUrl="~/App_LocalResources/facebook.png" Width="100px" />
+
+                </td>
+                <td>
+
+                    <asp:ImageButton ID="Image15" runat="server" Height="100px" ImageUrl="~/App_LocalResources/twitter.png" Width="100px" />
+
+                </td>
+                <td>
+
+                    <asp:ImageButton ID="Image16" runat="server" ImageUrl="~/App_LocalResources/instagram.png"  Width="100px"/>
+
+                </td>
+               <td>
+
+                    <asp:ImageButton ID="Image17" runat="server" Height="100px" ImageUrl="~/App_LocalResources/snapchat.png" Width="100px" />
+
+                </td>
+                <td>
+
+                    <asp:ImageButton ID="Image18" runat="server" ImageUrl="~/App_LocalResources/youtube.png"  Width="100px"/>
+
+                </td>
+            </tr>
+            
+        </table>
+
 
 </form>
+
 
 
     
