@@ -104,6 +104,26 @@
     <Content Include="App_Data\XadamaDB_log.ldf">
       <DependentUpon>XadamaDB.mdf</DependentUpon>
     </Content>
+    <Content Include="App_LocalResources\africansavannah.jpg" />
+    <Content Include="App_LocalResources\africansavannah2.jpg" />
+    <Content Include="App_LocalResources\africansavannah3.jpg" />
+    <Content Include="App_LocalResources\americanluxury.jpg" />
+    <Content Include="App_LocalResources\americanluxury2.jpg" />
+    <Content Include="App_LocalResources\americanluxury3.jpg" />
+    <Content Include="App_LocalResources\asiangardens.jpg" />
+    <Content Include="App_LocalResources\asiangardens2.jpg" />
+    <Content Include="App_LocalResources\asiangardens3.jpg" />
+    <Content Include="App_LocalResources\europeanpalace.jpg" />
+    <Content Include="App_LocalResources\europeanpalace2.jpg" />
+    <Content Include="App_LocalResources\europeanpalace3.jpg" />
+    <Content Include="App_LocalResources\facebook.png" />
+    <Content Include="App_LocalResources\instagram.png" />
+    <Content Include="App_LocalResources\oceanicparadise.jpg" />
+    <Content Include="App_LocalResources\oceanicparadise2.jpg" />
+    <Content Include="App_LocalResources\snapchat.png" />
+    <Content Include="App_LocalResources\twitter.png" />
+    <Content Include="App_LocalResources\xadamaLogoSmall.png" />
+    <Content Include="App_LocalResources\youtube.png" />
     <Content Include="mainstyle.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
