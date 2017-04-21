@@ -1,21 +1,102 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="XadamaWebapp.main" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+<head>
+    <style type="text/css">
+        .auto-style1 {
+            width: 1138px;
+        }
+    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
+
+<form id="form1" runat="server">
+        <table style="width: 100%;">
+            <tr>
+                <td class="auto-style1">
+                    <asp:ImageButton ID="ImageButton1" runat="server" Height="26px" ImageUrl="~/App_LocalResources/xadamaLogoSmall.png" OnClick="ImageButton1_Click" Width="187px" />
+                </td>
+                <td>
+                    <asp:menu runat="server" Orientation="Horizontal">
+                        <items>
+                            <asp:menuitem text="Home"></asp:menuitem>
+                            <asp:menuitem text="About"></asp:menuitem>
+                            <asp:menuitem text="Hotels"></asp:menuitem>
+                            <asp:menuitem text="Contact"></asp:menuitem>
+                        </items>
+                    </asp:menu>
+                </td>
+            </tr>
+        </table>
+
+
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
+        <asp:Label ID="Label1" runat="server" Height="16px" Text="XADAMA" Width="111px"></asp:Label>
     </div>
-    </form>
-</body>
-</html>
+
+    <div>
+           <h2>XADAMA</h2>
+<p>Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for a family getaway in the Costa Blanca, one of Spain&#39;s most popular tourist areas; and just half an hour from Alicante!</p>
+        <asp:image runat="server" Height="353px" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/6/65/Luna_Park_Melbourne_scenic_railway.jpg" Width="297px"></asp:image>
+        <p>Xadama is the perfect destination to spend a great holiday with your family, partner or friends while you enjoy the best entertainment that southern Europe has to offer; and all in a setting with perfect weather where you will have a fantastic time at Europe’s leading theme park and water park while enjoying the sun, beach and the exquisite Mediterranean cuisine. Xadama is located on the Costa Blanca and is one of the main destinations for tourism and holidays in Spain. Our facilities are ideally situated close to Alicante and the towns of Elche, Benidorm and Calpe. At Xadama you can enjoy a theme park, a water park and fabulous hotels. And thanks to its exceptional location, your holiday is completed by surrounding beaches, shopping areas, sports facilities, outdoor activities and restaurants where you can discover the delicious Mediterranean cuisine. Xadama has 4 and 5-star hotels. Staying at any of these Xadama hotels is the perfect guarantee of first-rate service and comfort while enjoying the Xadama parks and spending a few delightful days at the coast.</p>
+    </div>
+
+    <div>
+        <asp:label runat="server" text="HOTELS"></asp:label>
+    </div>
+    <div>
+        <p><em>Here are some of our hotels.</em></p>
+        <table>
+            <tr>
+                <td>
+
+                    <asp:Image ID="Image1" runat="server" Height="161px" ImageUrl="~/App_LocalResources/americanluxury.jpg" Width="293px" />
+
+                </td>
+                <td>
+
+                    <asp:Image ID="Image2" runat="server" Height="160px" ImageUrl="~/App_LocalResources/africansavannah.jpg" Width="273px" />
+
+                </td>
+                <td>
+
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/App_LocalResources/europeanpalace2.jpg" />
+
+                </td>
+                <td>
+
+                    <asp:Image ID="Image7" runat="server" Height="163px" ImageUrl="~/App_LocalResources/europeanpalace.jpg" style="margin-left: 0px" Width="290px" />
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <asp:Image ID="Image4" runat="server" ImageUrl="~/App_LocalResources/asiangardens3.jpg" Width="297px" />
+
+                </td>
+                <td>
+
+                    <asp:Image ID="Image5" runat="server" Height="159px" ImageUrl="~/App_LocalResources/oceanicparadise.jpg" Width="274px" />
+
+                </td>
+                <td>
+
+                    <asp:Image ID="Image6" runat="server" Height="155px" ImageUrl="~/App_LocalResources/europeanpalace3.jpg" Width="301px" />
+
+                </td>
+                <td>
+
+                    <asp:Image ID="Image8" runat="server" Height="157px" ImageUrl="~/App_LocalResources/asiangardens.jpg" Width="286px" />
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+</form>
+
+
+    
+
+
+
