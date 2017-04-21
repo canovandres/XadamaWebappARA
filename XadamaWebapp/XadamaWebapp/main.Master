@@ -1,255 +1,173 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="XadamaWebapp.main" %>
 
-<head>
-    <style type="text/css">
-        .auto-style1 {
-            width: 1150px;
-        }
-        .auto-style2 {
-            width: 434px;
-        }
-        .auto-style3 {
-            width: 420px;
-        }
-        .auto-style4 {
-            width: 859px;
-            height: 338px;
-        }
-        .auto-style5 {
-            width: 923px;
-            height: 338px;
-        }
-        .auto-style6 {
-            width: 418px;
-        }
-        .auto-style9 {
-            width: 335px;
-            height: 110px;
-        }
-        </style>
+<!DOCTYPE HTML>
+
+<html>
+<head runat="server">
+    <title>Xadama</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
+<body>
 <form id="form1" runat="server">
-        <table style="width: 100%;">
-            <tr>
-                <td class="auto-style1">
-                    <asp:ImageButton ID="ImageButton1" runat="server" Height="26px" ImageUrl="~/App_LocalResources/xadamaLogoSmall.png" OnClick="ImageButton1_Click" Width="187px" />
-                </td>
-                <td>
-                    <asp:menu runat="server" Orientation="Horizontal">
-                        <items>
-                            <asp:menuitem text="Home"></asp:menuitem>
-                            <asp:menuitem text="About"></asp:menuitem>
-                            <asp:menuitem text="Hotels"></asp:menuitem>
-                            <asp:menuitem text="Zones"></asp:menuitem>
-                            <asp:menuitem text="Contact"></asp:menuitem>
-                        </items>
-                    </asp:menu>
-                </td>
-            </tr>
-        </table>
-
-
-    <div>
-        <asp:Label ID="Label1" runat="server" Height="16px" Text="XADAMA" Width="111px"></asp:Label>
+    <div class="top">
+        <div class="bar">
+            <asp:ImageButton ID="ImageButton1" runat="server" CssClass="logo-small margin-medium" ImageUrl="~/App_LocalResources/xadamaLogoSmall.png" />
+            <asp:menu runat="server" Orientation="Horizontal">
+                <items>
+                    <asp:menuitem text="Home"></asp:menuitem>
+                    <asp:menuitem text="About"></asp:menuitem>
+                    <asp:menuitem text="Hotels"></asp:menuitem>
+                    <asp:menuitem text="Zones"></asp:menuitem>
+                    <asp:menuitem text="Contact"></asp:menuitem>
+                </items>
+            </asp:menu>
+        </div>
     </div>
 
-    <div>
-           <h2>XADAMA</h2>
-<p>Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for a family getaway in the Costa Blanca, one of Spain&#39;s most popular tourist areas; and just half an hour from Alicante!</p>
-        <asp:image runat="server" Height="353px" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/6/65/Luna_Park_Melbourne_scenic_railway.jpg" Width="297px"></asp:image>
-        <p>Xadama is the perfect destination to spend a great holiday with your family, partner or friends while you enjoy the best entertainment that southern Europe has to offer; and all in a setting with perfect weather where you will have a fantastic time at Europe’s leading theme park and water park while enjoying the sun, beach and the exquisite Mediterranean cuisine. Xadama is located on the Costa Blanca and is one of the main destinations for tourism and holidays in Spain. Our facilities are ideally situated close to Alicante and the towns of Elche, Benidorm and Calpe. At Xadama you can enjoy a theme park, a water park and fabulous hotels. And thanks to its exceptional location, your holiday is completed by surrounding beaches, shopping areas, sports facilities, outdoor activities and restaurants where you can discover the delicious Mediterranean cuisine. Xadama has 4 and 5-star hotels. Staying at any of these Xadama hotels is the perfect guarantee of first-rate service and comfort while enjoying the Xadama parks and spending a few delightful days at the coast.</p>
+    <div class="backimg1 display-container opacity-min">
+        <div class="display-middle">
+            <asp:Label ID="Label1" runat="server" CssClass="center padding-large black xxlarge wide appear no-opacity" Text="XADAMA"></asp:Label>
+        </div>
     </div>
 
-    <div>
+    <div class="content container padding-64">
+        <h2 class="center xlarge">XADAMA</h2>
+        <p class="center">Amusement Park in Alicante</p>
+        <p>Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for 
+            a family getaway in the Costa Blanca, one of Spain&#39;s most popular tourist areas; 
+            and just half an hour from Alicante!</p>
+        <asp:image runat="server" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/6/65/Luna_Park_Melbourne_scenic_railway.jpg"></asp:image>
+        <p>Xadama is the perfect destination to spend a great holiday with your family, partner or friends while you 
+            enjoy the best entertainment that southern Europe has to offer; and all in a setting with perfect weather 
+            where you will have a fantastic time at Europe’s leading theme park and water park while enjoying the sun, 
+            beach and the exquisite Mediterranean cuisine. Xadama is located on the Costa Blanca and is one of the main 
+            destinations for tourism and holidays in Spain. Our facilities are ideally situated close to Alicante and the 
+            towns of Elche, Benidorm and Calpe. At Xadama you can enjoy a theme park, a water park and fabulous hotels. 
+            And thanks to its exceptional location, your holiday is completed by surrounding beaches, shopping areas, 
+            sports facilities, outdoor activities and restaurants where you can discover the delicious Mediterranean cuisine. 
+            Xadama has 4 and 5-star hotels. Staying at any of these Xadama hotels is the perfect guarantee of first-rate service 
+            and comfort while enjoying the Xadama parks and spending a few delightful days at the coast.</p>
+    </div>
+
+    <div class="backimg2 display-container opacity-min">
+        <div class="display-middle">
         <asp:label runat="server" text="HOTELS"></asp:label>
-    </div>
-    <div>
-        <p><em>Here are some of our hotels.</em></p>
-        <table>
-            <tr>
-                <td>
-
-                    <asp:Image ID="Image1" runat="server" Height="161px" ImageUrl="~/App_LocalResources/americanluxury.jpg" Width="293px" />
-
-                </td>
-                <td>
-
-                    <asp:Image ID="Image2" runat="server" Height="160px" ImageUrl="~/App_LocalResources/africansavannah.jpg" Width="273px" />
-
-                </td>
-                <td>
-
-                    <asp:Image ID="Image3" runat="server" ImageUrl="~/App_LocalResources/europeanpalace2.jpg" />
-
-                </td>
-                <td>
-
-                    <asp:Image ID="Image7" runat="server" Height="163px" ImageUrl="~/App_LocalResources/europeanpalace.jpg" style="margin-left: 0px" Width="290px" />
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-
-                    <asp:Image ID="Image4" runat="server" ImageUrl="~/App_LocalResources/asiangardens3.jpg" Width="297px" />
-
-                </td>
-                <td>
-
-                    <asp:Image ID="Image5" runat="server" Height="159px" ImageUrl="~/App_LocalResources/oceanicparadise.jpg" Width="274px" />
-
-                </td>
-                <td>
-
-                    <asp:Image ID="Image6" runat="server" Height="155px" ImageUrl="~/App_LocalResources/europeanpalace3.jpg" Width="301px" />
-
-                </td>
-                <td>
-
-                    <asp:Image ID="Image8" runat="server" Height="157px" ImageUrl="~/App_LocalResources/asiangardens.jpg" Width="286px" />
-
-                </td>
-            </tr>
-        </table>
+        </div>
     </div>
 
-    <div>
-        <p>
-        <asp:Label ID="Label2" runat="server" Height="16px" Text="ZONES" Width="111px"></asp:Label>
-        </p>
-        <p>
-            Our park is distributed in 5 zones, one for each continent. Find them out!</p>
-        <table style="width: 1282px; height: 340px">
-            <tr>
-                <td class="auto-style3">
-
-                    <asp:ImageButton ID="Image9" runat="server" Height="335px" ImageUrl="~/App_LocalResources/AfricanPyramid.jpg" Width="425px" />
-
-                    <asp:Label ID="Label7" runat="server" Text="AFRICA"></asp:Label>
-
-                </td>
-                <td class="auto-style2">
-
-                    <asp:ImageButton ID="Image10" runat="server" Height="335px" ImageUrl="~/App_LocalResources/AmericanHollywood.jpg" Width="432px" />
-
-                    <asp:Label ID="Label8" runat="server" Text="AMERICA"></asp:Label>
-
-                </td>
-                <td class="auto-style6">
-
-                    <asp:ImageButton ID="Image11" runat="server" Height="336px" ImageUrl="~/App_LocalResources/EuropeanLondonEye.jpg" Width="414px"/>
-
-                    <asp:Label ID="Label9" runat="server" Text="EUROPE"></asp:Label>
-
-                </td>
-            </tr>
-            
-        </table>
-
-
-        <table style="width: 1282px; height: 340px">
-            <tr>
-                <td class="auto-style5">
-
-                    <asp:ImageButton ID="Image12" runat="server" Height="333px" ImageUrl="~/App_LocalResources/AsianChina.jpg" Width="664px" style="margin-top: 0px" />
-
-                    <asp:Label ID="Label10" runat="server" Text="ASIA"></asp:Label>
-
-                </td>
-                <td class="auto-style4">
-
-                    <asp:ImageButton ID="Image13" runat="server" Height="334px" ImageUrl="~/App_LocalResources/OceanianTurtleaux.jpg" Width="609px" />
-
-                    <asp:Label ID="Label11" runat="server" Text="OCEANIA"></asp:Label>
-
-                </td>
-            </tr>
-            
-        </table>
+    <div class="content container padding-64">
+        <p class="center"><em>Here are some of our hotels.</em></p>
+        <div>
+            <div>
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/App_LocalResources/americanluxury.jpg" />
+            </div>
+            <div>
+                <asp:Image ID="Image2" runat="server" ImageUrl="~/App_LocalResources/africansavannah.jpg" />
+            </div>
+            <div>
+                <asp:Image ID="Image3" runat="server" ImageUrl="~/App_LocalResources/europeanpalace2.jpg" />
+            </div>
+            <div>
+                <asp:Image ID="Image7" runat="server" ImageUrl="~/App_LocalResources/europeanpalace.jpg" />
+            </div>
+            <div>
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/App_LocalResources/asiangardens3.jpg" />
+            </div>
+            <div>
+                <asp:Image ID="Image5" runat="server" Height="159px" ImageUrl="~/App_LocalResources/oceanicparadise.jpg" />
+            </div>
+            <div>
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/App_LocalResources/europeanpalace3.jpg" />
+            </div>
+            <div>
+                <asp:Image ID="Image8" runat="server" ImageUrl="~/App_LocalResources/asiangardens.jpg" />
+            </div>
+        </div>
     </div>
 
-    <div>
-        <p>
-        <asp:Label ID="Label3" runat="server" Height="16px" Text="CONTACT" Width="111px"></asp:Label>
-        </p>
-
-        <p>
-            You can find us here:
-        </p>
-    </div>
-    <div class="col m4 container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29068.54208097489!2d-0.5360552693342719!3d38.32360685377032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDE5JzI2LjEiTiAwwrAzMScxNy43Ilc!5e1!3m2!1ses!2ses!4v1492372950166" width="100%" height="400"></iframe>
+    <div class="backimg3 display-container opacity-min">
+        <div class="display-middle">
+        <asp:label runat="server" text="ZONES"></asp:label>
+        </div>
     </div>
 
-    <div>
-        <p>
-        Alicante, ES<br>
-        Phone: +34 123 456 789<br>
-        E-mail: <a href="mailto:xadama@xadama.com">xadama@xadama.com</a></p>
-        <p>
-            <br>
-        </p>
+    <div class="content container padding-64">
+        <p class="center">Our park is distributed in 5 zones, one for each continent. Find them out!</p>
+        <div>
+            <div>
+                <asp:ImageButton ID="Image9" runat="server" ImageUrl="~/App_LocalResources/AfricanPyramid.jpg" />
+                <asp:Label ID="Label7" runat="server" Text="AFRICA"></asp:Label>
+            </div>
+            <div>
+                <asp:ImageButton ID="Image10" runat="server" ImageUrl="~/App_LocalResources/AmericanHollywood.jpg" />
+                <asp:Label ID="Label8" runat="server" Text="AMERICA"></asp:Label>
+            </div>
+            <div>
+                <asp:ImageButton ID="Image11" runat="server" ImageUrl="~/App_LocalResources/EuropeanLondonEye.jpg" />
+                <asp:Label ID="Label9" runat="server" Text="EUROPE"></asp:Label>
+            </div>
+        </div>
+        <div>
+            <div>
+                <asp:ImageButton ID="Image12" runat="server" ImageUrl="~/App_LocalResources/AsianChina.jpg" />
+                <asp:Label ID="Label10" runat="server" Text="ASIA"></asp:Label>
+            </div>
+            <div>
+                <asp:ImageButton ID="Image13" runat="server" ImageUrl="~/App_LocalResources/OceanianTurtleaux.jpg" />
+                <asp:Label ID="Label11" runat="server" Text="OCEANIA"></asp:Label>
+            </div>
+        </div>
     </div>
 
-    <div>
-        <p>Send a suggestion:</p>
-
+    <div class="backimg3 display-container opacity-min">
+        <div class="display-middle">
+            <asp:label runat="server" text="CONTACT"></asp:label>
+        </div>
     </div>
 
+    <div class="content container padding-64">
+        <p class="center"><em>You can find us here:</em></p>
+
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29068.54208097489!2d-0.5360552693342719!3d38.32360685377032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDE5JzI2LjEiTiAwwrAzMScxNy43Ilc!5e1!3m2!1ses!2ses!4v1492372950166" ></iframe>
+        </div>
+
+        <div>
+            <p class="large">
+                Alicante, ES<br>
+                Phone: +34 123 456 789<br>
+                E-mail: <a href="mailto:xadama@xadama.com">xadama@xadama.com</a></p>
+        </div>
+
+        <div>
+            <p>Send a suggestion:</p>
+        </div>
 
         <asp:Label ID="Label4" runat="server" Text="Name:"></asp:Label>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <p>
+        <div>
             <asp:Label ID="Label5" runat="server" Text="Email:"></asp:Label>
             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-        </p>
-        <p>
+        </div>
+        <div>
             <asp:Label ID="Label6" runat="server" Text="Message:"></asp:Label>
-            <asp:TextBox ID="TextBox3" runat="server" Height="95px" Width="605px"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" Text="Send Message" />
-        </p>
-        <p>
-            &nbsp;</p>
-        <p>
-            Follow us!</p>
-        <table class="auto-style9">
-           <tr>
-                <td>
+        </div>
+    </div>
 
-                    <asp:ImageButton ID="Image14" runat="server" Height="100px" ImageUrl="~/App_LocalResources/facebook.png" Width="100px" />
-
-                </td>
-                <td>
-
-                    <asp:ImageButton ID="Image15" runat="server" Height="100px" ImageUrl="~/App_LocalResources/twitter.png" Width="100px" />
-
-                </td>
-                <td>
-
-                    <asp:ImageButton ID="Image16" runat="server" ImageUrl="~/App_LocalResources/instagram.png"  Width="100px"/>
-
-                </td>
-               <td>
-
-                    <asp:ImageButton ID="Image17" runat="server" Height="100px" ImageUrl="~/App_LocalResources/snapchat.png" Width="100px" />
-
-                </td>
-                <td>
-
-                    <asp:ImageButton ID="Image18" runat="server" ImageUrl="~/App_LocalResources/youtube.png"  Width="100px"/>
-
-                </td>
-            </tr>
-            
-        </table>
-
-
+    <div class="center">
+        <div class="xlarge">
+            <p>Follow us!</p>
+             <asp:ImageButton ID="Image14" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/App_LocalResources/facebook.png" />
+             <asp:ImageButton ID="Image15" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/App_LocalResources/twitter.png" />
+             <asp:ImageButton ID="Image16" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/App_LocalResources/instagram.png" />
+             <asp:ImageButton ID="Image17" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/App_LocalResources/snapchat.png" />
+             <asp:ImageButton ID="Image18" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/App_LocalResources/youtube.png" />
+        </div>
+    </div>
 </form>
-
-
-
-    
-
-
-
+</body>
+</html>
