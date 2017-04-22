@@ -1,0 +1,341 @@
+﻿body,h1,h2,h3,h4,h5,h6 {
+    font-family: sans-serif;
+}
+
+body, html, form {
+    height: 100%;
+    background-color: #FFFFFF;
+    margin: 0;
+}
+
+/*Font sizes*/
+
+.small{
+    font-size: 6px !important;
+}
+
+.medium{
+    font-size: 12px !important;
+}
+
+.large{
+    font-size: 18px !important;
+}
+
+.xlarge{
+    font-size: 24px !important;
+}
+
+.xxlarge{
+    font-size: 36px !important;
+}
+
+/*Paddings*/
+
+.padding-small{
+    padding: 2px 4px !important;
+}
+
+.padding-medium{
+    padding: 6px 12px !important;
+}
+
+.padding-large{
+    padding: 12px 24px !important;
+}
+
+.padding-right{
+    padding-right: 8px !important;
+}
+
+.padding-left{
+    padding-left: 8px !important;
+}
+
+.padding-top{
+    padding-top: 8px !important;
+}
+
+.padding-bottom{
+    padding-bottom: 8px !important;
+}
+
+.padding-16{
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+.padding-32{
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+}
+
+.padding-64{
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+}
+
+/*Margins*/
+
+.margin-small{
+    margin: 2px 4px !important;
+}
+
+.margin-medium{
+    margin: 6px 12px !important;
+}
+
+.margin-large{
+    margin: 12px 24px !important;
+}
+
+.margin-right{
+    margin-right: 16px !important;
+}
+
+.margin-left{
+    margin-left: 16px !important;
+}
+
+.margin-top{
+    margin-top: 16px !important;
+}
+
+.margin-bottom{
+    margin-bottom: 16px !important;
+}
+
+.margin-16{
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.margin-32{
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+}
+
+.margin-64{
+    margin-top: 64px !important;
+    margin-bottom: 64px !important;
+}
+
+/*Opacity*/
+
+.opacity-min{
+    opacity: 0.8;
+}
+
+.appear{
+    animation: appear 0.8s;
+}
+
+@keyframes appear{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+.hover-opacity:hover{
+    opacity: 0.7;
+}
+
+/*Position*/
+
+.top{
+    top: 0;
+}
+
+.right{
+    float: right !important;
+}
+
+.left{
+    float: left !important;
+}
+
+.display-middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+
+.front {
+    z-index: 10;
+}
+
+/*Text*/
+
+.center{
+    text-align: center !important;
+}
+
+.wide{
+    letter-spacing: 4px;
+}
+
+.text-white, .hover-text-white:hover{
+    color: #fff !important;
+}
+
+.text-black, .hover-text-black:hover{
+    color: #000 !important;
+}
+
+.black, .hover-black:hover{
+    color: #fff !important;
+    background-color: #000 !important;
+}
+
+.grey, .hover-grey:hover{
+    color: #360704 !important;
+    background-color: #AEAEAE !important;
+}
+
+.text-blue, .hover-text-blue:hover{
+    color: #1B2630 !important;
+}
+
+.text-red, .hover-text-red:hover{
+    color: #360704 !important;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+/*Background images*/
+
+video { 
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+    left: 0px;
+    background-size: cover;
+}
+
+.backimg1, .backimg2, .backimg3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.backimg1 {
+    background-image: url("/Media/Hotels/americanluxury.jpg");
+    min-height: 400px;
+}
+
+.backimg2 {
+    background-image: url("/Media/Hotels/asiangardens2.jpg");
+    min-height: 400px;
+}
+
+.backimg3 {
+    background-image: url("/Media/Hotels/europeanpalace.jpg");
+    min-height: 400px;
+}
+
+.logo-small{
+    height: 2.5em;
+    width: auto;
+}
+
+.bar{
+    width: 100%;
+    overflow: hidden;
+}
+
+.bar.bar-item{
+    padding: 8px 16px;
+    float: right;
+    width: auto;
+    border: none;
+    outline: none;
+    display:block;
+}
+
+.button{
+    display: inline-block;
+    outline: 0;
+    padding: 8px 16px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+.display-container{
+    position: relative;
+}
+
+.content{
+    max-width: 85%;
+    margin:auto;
+}
+
+.container{
+    padding: 0px 16px;
+}
+
+.row-padding{
+    padding:0 8px;
+}
+
+.container:after, .container:before, .row:after, .row:before, .row-padding:after, .row-padding:before, .bar:before, .bar:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col{
+    float: left;
+    width: 100%;
+}
+
+.half{
+    width: 49.99999%;
+}
+
+.third {
+    width: 33.33333%;
+}
+
+.quarter{
+    width: 24.99999%;
+}
+
+.image-menu {
+    height: 200px;
+    width: auto;
+}
+
+.image-menu-text {
+    position: relative;
+}
+
+.footer{
+    background-color: #1B2630;
+}

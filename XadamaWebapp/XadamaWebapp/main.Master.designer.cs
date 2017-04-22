@@ -112,15 +112,6 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Image Image8;
         
         /// <summary>
-        /// Control Image9.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Image9;
-        
-        /// <summary>
         /// Control Label7.
         /// </summary>
         /// <remarks>
@@ -130,13 +121,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control Image10.
+        /// Control Image9.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Image10;
+        protected global::System.Web.UI.WebControls.ImageButton Image9;
         
         /// <summary>
         /// Control Label8.
@@ -148,13 +139,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Control Image11.
+        /// Control Image10.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Image11;
+        protected global::System.Web.UI.WebControls.ImageButton Image10;
         
         /// <summary>
         /// Control Label9.
@@ -166,13 +157,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// Control Image12.
+        /// Control Image11.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Image12;
+        protected global::System.Web.UI.WebControls.ImageButton Image11;
         
         /// <summary>
         /// Control Label10.
@@ -184,13 +175,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
-        /// Control Image13.
+        /// Control Image12.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Image13;
+        protected global::System.Web.UI.WebControls.ImageButton Image12;
         
         /// <summary>
         /// Control Label11.
@@ -200,6 +191,15 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label11;
+        
+        /// <summary>
+        /// Control Image13.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton Image13;
         
         /// <summary>
         /// Control Label4.
