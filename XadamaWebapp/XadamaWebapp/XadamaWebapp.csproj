@@ -104,33 +104,58 @@
     <Content Include="App_Data\XadamaDB_log.ldf">
       <DependentUpon>XadamaDB.mdf</DependentUpon>
     </Content>
-    <Content Include="App_LocalResources\africansavannah.jpg" />
-    <Content Include="App_LocalResources\africansavannah2.jpg" />
-    <Content Include="App_LocalResources\africansavannah3.jpg" />
-    <Content Include="App_LocalResources\americanluxury.jpg" />
-    <Content Include="App_LocalResources\americanluxury2.jpg" />
-    <Content Include="App_LocalResources\americanluxury3.jpg" />
-    <Content Include="App_LocalResources\asiangardens.jpg" />
-    <Content Include="App_LocalResources\asiangardens2.jpg" />
-    <Content Include="App_LocalResources\asiangardens3.jpg" />
-    <Content Include="App_LocalResources\europeanpalace.jpg" />
-    <Content Include="App_LocalResources\europeanpalace2.jpg" />
-    <Content Include="App_LocalResources\europeanpalace3.jpg" />
-    <Content Include="App_LocalResources\facebook.png" />
-    <Content Include="App_LocalResources\instagram.png" />
-    <Content Include="App_LocalResources\oceanicparadise.jpg" />
-    <Content Include="App_LocalResources\oceanicparadise2.jpg" />
-    <Content Include="App_LocalResources\snapchat.png" />
-    <Content Include="App_LocalResources\twitter.png" />
-    <Content Include="App_LocalResources\xadamaLogoSmall.png" />
-    <Content Include="App_LocalResources\youtube.png" />
-    <Content Include="mainstyle.css" />
+    <Content Include="Media\Hotels\africansavannah.jpg" />
+    <Content Include="Media\Hotels\africansavannah2.jpg" />
+    <Content Include="Media\Hotels\africansavannah3.jpg" />
+    <Content Include="Media\Hotels\americanluxury.jpg" />
+    <Content Include="Media\Hotels\americanluxury2.jpg" />
+    <Content Include="Media\Hotels\americanluxury3.jpg" />
+    <Content Include="Media\Hotels\asiangardens.jpg" />
+    <Content Include="Media\Hotels\asiangardens2.jpg" />
+    <Content Include="Media\Hotels\asiangardens3.jpg" />
+    <Content Include="Media\Hotels\europeanpalace.jpg" />
+    <Content Include="Media\Hotels\europeanpalace2.jpg" />
+    <Content Include="Media\Hotels\europeanpalace3.jpg" />
+    <Content Include="Media\Logo\XadamaSpot.mp4" />
+    <Content Include="Media\Rides\Africa\AfricanCobra.jpg" />
+    <Content Include="Media\Rides\Africa\AfricanDinosaur.jpg" />
+    <Content Include="Media\Rides\Africa\AfricanKid.jpg" />
+    <Content Include="Media\Rides\Africa\AfricanPyramid.jpg" />
+    <Content Include="Media\Rides\America\AmericanHollywood.jpg" />
+    <Content Include="Media\Rides\America\AmericanLasVegas.jpg" />
+    <Content Include="Media\Rides\America\AmericanMayas.jpg" />
+    <Content Include="Media\Rides\America\AmericanMayasaux.jpg" />
+    <Content Include="Media\Rides\America\AmericanNiagaraFalls.jpeg" />
+    <Content Include="Media\Rides\America\AmericanSimpsons.jpg" />
+    <Content Include="Media\Rides\Asia\AsianCars.jpg" />
+    <Content Include="Media\Rides\Asia\AsianChina.jpg" />
+    <Content Include="Media\Rides\Asia\AsianGreatwall.jpg" />
+    <Content Include="Media\Rides\Asia\AsianHelloKitty.jpg" />
+    <Content Include="Media\Rides\Europe\EuropeanCastle.jpeg" />
+    <Content Include="Media\Rides\Europe\EuropeanFrance.jpg" />
+    <Content Include="Media\Rides\Europe\EuropeanGreece.jpg" />
+    <Content Include="Media\Rides\Europe\EuropeanLondonEye.jpg" />
+    <Content Include="Media\Rides\Europe\EuropeanVeniceGondola.JPG" />
+    <Content Include="Media\Rides\Oceania\OceanianIsland.jpg" />
+    <Content Include="Media\Rides\Oceania\OceanianKangaroo.jpg" />
+    <Content Include="Media\Rides\Oceania\OceanianPacificCity.jpg" />
+    <Content Include="Media\Rides\Oceania\OceanianTurtleaux.jpg" />
+    <Content Include="Media\Social\facebook.png" />
+    <Content Include="Media\Social\instagram.png" />
+    <Content Include="Media\Hotels\oceanicparadise.jpg" />
+    <Content Include="Media\Hotels\oceanicparadise2.jpg" />
+    <Content Include="Media\Social\snapchat.png" />
+    <Content Include="Media\Social\twitter.png" />
+    <Content Include="Media\Logo\xadamaLogoSmall.png" />
+    <Content Include="Media\Social\youtube.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="main.Master" />
     <Content Include="app.config" />
+    <Content Include="main.aspx" />
+    <Content Include="Media\Logo\XadamaSpot.webm" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,7 +164,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Style\style.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.Master.cs">
@@ -150,6 +178,13 @@
       <DependentUpon>main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup Condition="$(VisualStudioVersion) == '15.0'">
