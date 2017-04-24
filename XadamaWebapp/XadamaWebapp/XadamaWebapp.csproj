@@ -82,6 +82,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,6 +120,8 @@
     <Content Include="Media\Hotels\europeanpalace2.jpg" />
     <Content Include="Media\Hotels\europeanpalace3.jpg" />
     <Content Include="Media\Logo\XadamaSpot.mp4" />
+    <Content Include="Media\Others\Shop.jpg" />
+    <Content Include="Media\Others\Worldmap.jpeg" />
     <Content Include="Media\Rides\Africa\AfricanCobra.jpg" />
     <Content Include="Media\Rides\Africa\AfricanDinosaur.jpg" />
     <Content Include="Media\Rides\Africa\AfricanKid.jpg" />

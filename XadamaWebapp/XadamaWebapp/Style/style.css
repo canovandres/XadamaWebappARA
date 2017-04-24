@@ -90,19 +90,23 @@ body, html, form {
 }
 
 .margin-right{
-    margin-right: 16px !important;
+    margin-right: 18px !important;
 }
 
 .margin-left{
-    margin-left: 16px !important;
+    margin-left: 18px !important;
 }
 
 .margin-top{
-    margin-top: 16px !important;
+    margin-top: 18px !important;
 }
 
 .margin-bottom{
-    margin-bottom: 16px !important;
+    margin-bottom: 18px !important;
+}
+
+.margin-bottom-large{
+    margin-bottom: 46px !important;
 }
 
 .margin-16{
@@ -162,8 +166,17 @@ body, html, form {
     -webkit-transform: translate(-50%,-50%);
 }
 
+.display-middle-sub{
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+
 .front {
-    z-index: 10;
+    z-index: 100;
 }
 
 /*Text*/
@@ -176,34 +189,57 @@ body, html, form {
     letter-spacing: 4px;
 }
 
-.text-white, .hover-text-white:hover{
+.text-white, .hover-text-white:hover {
     color: #fff !important;
 }
 
-.text-black, .hover-text-black:hover{
+.text-black, .hover-text-black:hover {
     color: #000 !important;
 }
 
-.black, .hover-black:hover{
+.black, .hover-black:hover {
     color: #fff !important;
     background-color: #000 !important;
 }
 
-.grey, .hover-grey:hover{
-    color: #360704 !important;
-    background-color: #AEAEAE !important;
+.white, .hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important;
 }
 
-.text-blue, .hover-text-blue:hover{
-    color: #1B2630 !important;
+.text-orange, .hover-text-black:hover {
+    color: #F26101 !important;
 }
 
-.text-red, .hover-text-red:hover{
-    color: #360704 !important;
+.orange, .hover-orange:hover {
+    color: #fff !important;
+    background-color: #F26101 !important;
+}
+
+.text-darkblue, .hover-text-darkblue:hover {
+    color: #1B253B !important;
+}
+
+.darkblue, .hover-darkblue:hover {
+    color: #fff !important;
+    background-color: #1B253B !important;
+}
+
+.text-blue, .hover-text-blue:hover {
+    color: #83ABBF !important;
+}
+
+.blue, .hover-blue:hover {
+    color: #fff !important;
+    background-color: #83ABBF !important;
 }
 
 .bold{
     font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 /*Background images*/
@@ -227,7 +263,7 @@ video {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #000;
+    background-color: #000000;
     left: 0px;
     background-size: cover;
 }
@@ -237,40 +273,47 @@ video {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
 }
 
 .backimg1 {
-    background-image: url("/Media/Hotels/americanluxury.jpg");
+    background-image: url("/Media/Hotels/europeanpalace3.jpg");
     min-height: 400px;
 }
 
 .backimg2 {
-    background-image: url("/Media/Hotels/asiangardens2.jpg");
+    background-image: url("/Media/Others/Worldmap.jpeg");
     min-height: 400px;
 }
 
 .backimg3 {
-    background-image: url("/Media/Hotels/europeanpalace.jpg");
+    background-image: url("/Media/Others/Shop.jpg");
     min-height: 400px;
 }
 
+/*Top menu*/
+
 .logo-small{
-    height: 2.5em;
+    height: 40px;
     width: auto;
+	top: 50%;
+	left: 50%;
 }
 
 .bar{
     width: 100%;
-    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
 }
 
-.bar.bar-item{
+.bar-item{
     padding: 8px 16px;
     float: right;
     width: auto;
     border: none;
     outline: none;
-    display:block;
+    display: block;
 }
 
 .button{
@@ -285,7 +328,131 @@ video {
     cursor: pointer;
 }
 
+.button-sign {
+    display: inline-block;
+    outline: 0;
+    padding: 12px 24px;
+    margin-right: 12px;
+    vertical-align: middle;
+    text-decoration: none;
+    border: none;
+    color: inherit;
+    background-color: rgba(27, 37, 59, 0.8);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px 3px;
+}
 
+.button-sign:hover {
+    background-color: rgb(42, 56, 88);
+}
+
+.dynamic-menu {
+    background-color: #23304C;
+}
+
+/*Swiper*/
+
+.slider-container {
+    overflow: visible;
+    width: 100%;
+    margin: 20px auto 0px auto;
+    direction: ltr;
+    backface-visibility: hidden;
+    z-index: 1;
+    position: relative;
+}
+
+.swiper {
+    width: 100%;
+    height: 380px;
+    position: relative;
+}
+
+.slide {
+    width: 33.33333%;
+    height: 380px;
+    float: left;
+    box-sizing: content-box;
+    display: normal;
+}
+
+.slide.hide {
+    display: none;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+
+.show-text {
+    position: absolute;
+    width: 29.33333%;
+    height: 20px;
+    bottom: 0;
+    padding: 1% 2%;
+    text-align: left;
+    -webkit-transition: height 2s;
+    transition: height 1s;
+}
+
+.show-text-africa {
+    background-color: rgba(61, 139, 75, 0.90);
+}
+
+.show-text-asia {
+    background-color: rgba(153, 108, 55, 0.90);
+}
+
+.show-text-europe {
+    background-color: rgba(77, 132, 156, 0.90);
+}
+
+.show-text-america {
+    background-color: rgba(143, 53, 53, 0.90);
+}
+
+.show-text-oceania {
+    background-color: rgba(57, 65, 130, 0.90);
+}
+
+.slide .slide-hide {
+    opacity: 0;
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+}
+
+.slide:hover .show-text {
+    height: 100px;
+}
+
+.slide:hover .slide-hide {
+    opacity: 1;
+}
+
+.arrow {
+    display: block;
+    width: 40px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    cursor: pointer;
+    background-color: rgba(83, 115, 183, 0.90);
+}
+
+.arrow-next {
+    border-radius: 30px 0px 0px 30px;
+    right: 0px;
+}
+    
+.arrow-prev {
+    border-radius: 0px 30px 30px 0px;
+    left: 0px;
+}
+
+/*Others*/
 
 .display-container{
     position: relative;
@@ -304,7 +471,7 @@ video {
     padding:0 8px;
 }
 
-.container:after, .container:before, .row:after, .row:before, .row-padding:after, .row-padding:before, .bar:before, .bar:after{
+.container:after, .container:before, .row:after, .row:before, .row-padding:after, .row-padding:before, .bar:before, .bar:after, .slider-container:after, .slider-container:before{
     content: "";
     display: table;
     clear: both;
@@ -332,10 +499,27 @@ video {
     width: auto;
 }
 
-.image-menu-text {
-    position: relative;
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
 }
 
 .footer{
     background-color: #1B2630;
+}
+
+.to-top {
+	padding: 6px 14px;
+	background: #024959;
+	cursor: pointer;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+    margin: 0px;
+}
+
+.to-top a {
+	font-size: 20px;
+    text-decoration: none;
+	color: #fff;
 }
