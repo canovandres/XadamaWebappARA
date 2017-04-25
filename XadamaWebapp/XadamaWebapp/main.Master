@@ -68,7 +68,7 @@
         </video>
     </div>
 
-    <div class="content container padding-64">
+    <!--<div class="content container padding-64">
         <p>Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for 
             a family getaway in the Costa Blanca, one of Spain&#39;s most popular tourist areas; 
             and just half an hour from Alicante!</p>
@@ -89,6 +89,13 @@
                     and comfort while enjoying the Xadama parks and spending a few delightful days at the coast.</p>
             </div>
         </div>
+    </div>-->
+
+    <div class="content container padding-64">
+        <p class="center xxlarge text-orange margin-bottom-large bold uppercase">Our park is distributed in 5 zones, one for each continent. Find them out!</p>
+        <p class="center large text-orange margin-bottom-large bold">Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for 
+            a family getaway in the Costa Blanca, one of Spain&#39;s most popular tourist areas; 
+            and just half an hour from Alicante!</p>
     </div>
 
     <div class="backimg2 display-container">
@@ -116,7 +123,7 @@
                     <asp:Label ID="Label12" runat="server" CssClass="text-white" Text="AMERICA"></asp:Label>
                     <div class="slide-hide text-white">
                         <p>Bla bla blaaa ffdd fssdpkhfda sdvojsg gsfaos sdvdlf</p>
-                        <asp:Button runat="server" text="GO!" />
+                        <asp:Button runat="server" text="GO!" CssClass="button-america button-sign" />
                     </div>
                 </div>
             </div>
@@ -126,7 +133,7 @@
                     <asp:Label ID="Label13" runat="server" CssClass="text-white" Text="EUROPE"></asp:Label>
                     <div class="slide-hide text-white">
                         <p>Bla bla blaaa ffdd fssdpkhfda sdvojsg gsfaos sdvdlf</p>
-                        <asp:Button runat="server" text="GO!" />
+                        <asp:Button runat="server" text="GO!" CssClass="button-europe button-sign" />
                     </div>
                 </div>
             </div>
@@ -136,7 +143,7 @@
                     <asp:Label ID="Label10" runat="server" CssClass="text-white" Text="ASIA"></asp:Label>
                     <div class="slide-hide text-white">
                         <p>Bla bla blaaa ffdd fssdpkhfda sdvojsg gsfaos sdvdlf</p>
-                        <asp:Button runat="server" text="GO!" />
+                        <asp:Button runat="server" text="GO!" CssClass="button-asia button-sign" />
                     </div>
                 </div>
             </div>
@@ -205,7 +212,7 @@
             <div class="col quarter">
                 <div class="shadow" style="transform: rotate(-5deg);">
                     <asp:Image ID="Image4" runat="server" CssClass="image-menu" ImageUrl="~/Media/Hotels/asiangardens3.jpg" />
-                    <div class="center padding-16">
+                    <div class="center padding-16 white">
                         <p>Hola hola hola</p>
                     </div>
                 </div>
@@ -213,7 +220,7 @@
             <div class="col quarter">
                 <div class="shadow" style="transform: rotate(2deg);">
                     <asp:Image ID="Image5" runat="server" CssClass="image-menu" ImageUrl="~/Media/Hotels/oceanicparadise.jpg" />
-                    <div class="center padding-16">
+                    <div class="center padding-16 white">
                         <p>Hola hola hola</p>
                     </div>
                 </div>
@@ -221,7 +228,7 @@
             <div class="col quarter">
                 <div class="shadow" style="transform: rotate(-1deg);">
                     <asp:Image ID="Image6" runat="server" CssClass="image-menu" ImageUrl="~/Media/Hotels/europeanpalace3.jpg" />
-                    <div class="center padding-16">
+                    <div class="center padding-16 white">
                         <p>Hola hola hola</p>
                     </div>
                 </div>
@@ -229,7 +236,7 @@
             <div class="col quarter">
                 <div class="shadow" style="transform: rotate(6deg);">
                     <asp:Image ID="Image8" runat="server" CssClass="image-menu" ImageUrl="~/Media/Hotels/asiangardens.jpg" />
-                    <div class="center padding-16">
+                    <div class="center padding-16 white">
                         <p>Hola hola hola</p>
                     </div>
                 </div>

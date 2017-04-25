@@ -367,6 +367,7 @@ video {
     width: 100%;
     height: 380px;
     position: relative;
+    overflow: hidden;
 }
 
 .slide {
@@ -374,7 +375,6 @@ video {
     height: 380px;
     float: left;
     box-sizing: content-box;
-    display: normal;
 }
 
 .slide.hide {
@@ -389,12 +389,16 @@ video {
 .show-text {
     position: absolute;
     width: 29.33333%;
-    height: 20px;
+    height: 100px;
     bottom: 0;
     padding: 1% 2%;
     text-align: left;
-    -webkit-transition: height 2s;
-    transition: height 1s;
+    top: 335px;
+    transition: top ease-out 1s;
+}
+
+.slide:hover .show-text {
+    top: 255px;
 }
 
 .show-text-africa {
@@ -417,20 +421,6 @@ video {
     background-color: rgba(57, 65, 130, 0.90);
 }
 
-.slide .slide-hide {
-    opacity: 0;
-    -webkit-transition: opacity 2s;
-    transition: opacity 2s;
-}
-
-.slide:hover .show-text {
-    height: 100px;
-}
-
-.slide:hover .slide-hide {
-    opacity: 1;
-}
-
 .arrow {
     display: block;
     width: 40px;
@@ -450,6 +440,46 @@ video {
 .arrow-prev {
     border-radius: 0px 30px 30px 0px;
     left: 0px;
+}
+
+.button-africa {
+    background-color: rgb(48, 109, 59);
+}
+
+.button-asia {
+    background-color: rgb(118, 84, 44);
+}
+
+.button-europe {
+    background-color: rgb(60, 103, 123);
+}
+
+.button-america {
+    background-color: rgb(105, 41, 41);
+}
+
+.button-oceania {
+    background-color: rgb(42, 47, 95);
+}
+
+.button-africa:hover {
+    background-color: rgb(38, 86, 47);
+}
+
+.button-asia:hover {
+    background-color: rgb(102, 73, 39);
+}
+
+.button-europe:hover {
+    background-color: rgb(53, 91, 108);
+}
+
+.button-america:hover {
+    background-color: rgb(84, 34, 34);
+}
+
+.button-oceania:hover {
+    background-color: rgb(33, 37, 75);
 }
 
 /*Others*/
