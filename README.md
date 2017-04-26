@@ -13,11 +13,11 @@ Consult Rides | List of the rides with picture, descriptions, minimum height...
 See Restaurants | List of restaurants, menus of each restaurant and location in the park
 See Merchandising | List of the shops and products, with information of the location and prices
 Consult Accommodation | List of hotels, type of board (full board, half board...) and prices for each one, and types of room (suite, double, individual, familiar)
-See Events | Type of events (concerts, shows, parades) and its dates and prices
+See Shows | Type of events (concerts, shows, parades) and its dates and prices
 Consult Themes | There will be different themes depending on popular festive days (Halloween, Christmas, Valentine’s day, carnival)  
 See Zones | The park will be divided into different zones, each zone will represent a different continent (Oceania, America etc.)
 
-* Public EN List: Ride, Menu, Product, Room, Event
+* Public EN List: Ride, Menu, Product, Room, Show
 
 * ##### Private part:  
 

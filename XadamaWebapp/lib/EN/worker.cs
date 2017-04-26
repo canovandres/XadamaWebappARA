@@ -8,7 +8,7 @@ namespace lib.EN
 {
     class Worker : User
     {
-        public Worker(String email, String password, String name, int age = 0, int phone = 0, String address = "")
+        public Worker(String email, String password, String name = "", int age = 0, int phone = 0, String address = "")
         {
             this.password = password;
             this.email = email;
@@ -30,13 +30,13 @@ namespace lib.EN
 
         public String address { get; set; }
 
-        public void save (String dbname)
+        public void save (String dbname) //Creates a new worker
         {
             CAD.CADWorker cadworker = new CAD.CADWorker(dbname);
             cadworker.Create(this);
         }
 
-        public void read (String dbname, String email)
+        public void read (String dbname, String email) //Reads the information of a worker
         {
             CAD.CADWorker cadworker = new CAD.CADWorker(dbname);
             Worker worker = (Worker) cadworker.Read(email);
@@ -48,16 +48,22 @@ namespace lib.EN
             this.address = worker.address;
         }
 
-        public void update (String dbname, Worker worker)
+        public void update (String dbname) //Update the information about a worker
         {
             CAD.CADWorker cadworker = new CAD.CADWorker(dbname);
             cadworker.Update(this);
         }
 
-        public void delete (String dbname, String email)
+        public void delete (String dbname, String email) //Deletes a worker
         {
             CAD.CADWorker cadworker = new CAD.CADWorker(dbname);
             cadworker.Delete(email);
+        }
+
+        public bool works (String dbname, String date) //True if the worker works in the date passes as a parameter
+        {
+            CAD.CADWorker cadworker = new CAD.CADWorker(dbname);
+            return cadworker.Works(date);
         }
     }
 }

@@ -1,3 +1,16 @@
 XadamaWebapp/.vs/config/applicationhost.config
 *.suo
 *.exe
+*.cache
+*.user
+*.sln.docstates
+
+**/Debug/
+**/build/
+
+**/packages/*
+!**/packages/build/
+
+**.vs/
+*.vc.vc.opendb
+*.vc.db

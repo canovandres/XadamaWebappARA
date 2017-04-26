@@ -58,7 +58,6 @@
     <Compile Include="EN\shop.cs" />
     <Compile Include="EN\ticket.cs" />
     <Compile Include="EN\user.cs" />
-    <Compile Include="EN\worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

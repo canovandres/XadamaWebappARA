@@ -19,9 +19,9 @@ namespace lib.CAD
 
         }
 
-        public Order Read(int cod, String email)
+        public Order Read(String cod, String email)
         {
-            Order order = new Order(0, "", "");
+            Order order = new Order("", null, "");
 
             return order;
         }
@@ -31,7 +31,7 @@ namespace lib.CAD
 
         }
 
-        public void Delete(int cod, String email)
+        public void Delete(String cod)
         {
 
         }
