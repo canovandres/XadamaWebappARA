@@ -107,6 +107,7 @@
     <Content Include="App_Data\XadamaDB_log.ldf">
       <DependentUpon>XadamaDB.mdf</DependentUpon>
     </Content>
+    <Content Include="client.aspx" />
     <Content Include="Media\Hotels\africansavannah.jpg" />
     <Content Include="Media\Hotels\africansavannah2.jpg" />
     <Content Include="Media\Hotels\africansavannah3.jpg" />
@@ -175,6 +176,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="client.aspx.cs">
+      <DependentUpon>client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="client.aspx.designer.cs">
+      <DependentUpon>client.aspx</DependentUpon>
+    </Compile>
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
