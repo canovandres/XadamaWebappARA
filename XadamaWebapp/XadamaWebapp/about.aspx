@@ -6,7 +6,7 @@
 
 <html>
 <head runat="server">
-    <title>Xadama</title>
+    <title>Xadama About</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
     <link rel="stylesheet" type="text/css" href="Style/about.css" />
@@ -120,6 +120,7 @@
         </div>
     </div>
 
+    <!--How to arrive-->
     <div class="backimgarrive display-container">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="HOW TO ARRIVE"></asp:Label>
@@ -139,6 +140,8 @@
         </div>
     </div>
 
+
+    <!--Social Networks-->
     <div class="backimgsocial display-container">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="SOCIAL NETWORKS"></asp:Label>
@@ -149,6 +152,7 @@
         <p class="xxlarge">Social networks will be displayed here</p>
     </div>
 
+    <!--Contact Form-->
     <div class="backimgcontact display-container">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="CONTACT"></asp:Label>
