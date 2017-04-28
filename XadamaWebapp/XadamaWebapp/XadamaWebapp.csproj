@@ -176,6 +176,7 @@
     </Content>
     <Content Include="main.Master" />
     <Content Include="app.config" />
+    <Content Include="client.aspx" />
     <Content Include="main.aspx" />
     <Content Include="Media\Logo\XadamaSpot.webm" />
     <None Include="Web.Debug.config">
@@ -187,9 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Style\about.css" />
-    <Content Include="Services.aspx" />
+    <Content Include="services.aspx" />
     <Content Include="Style\style.css" />
-    <Content Include="Style\style-services.css" />
+    <Content Include="Style\services.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -210,6 +211,13 @@
       <DependentUpon>main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="client.aspx.cs">
+      <DependentUpon>client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="client.aspx.designer.cs">
+      <DependentUpon>client.aspx</DependentUpon>
+    </Compile>
     <Compile Include="main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,12 +225,12 @@
     <Compile Include="main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Services.aspx.cs">
-      <DependentUpon>Services.aspx</DependentUpon>
+    <Compile Include="services.aspx.cs">
+      <DependentUpon>services.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Services.aspx.designer.cs">
-      <DependentUpon>Services.aspx</DependentUpon>
+    <Compile Include="services.aspx.designer.cs">
+      <DependentUpon>services.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
