@@ -120,12 +120,8 @@
     <Content Include="Media\Hotels\europeanpalace2.jpg" />
     <Content Include="Media\Hotels\europeanpalace3.jpg" />
     <Content Include="Media\Logo\XadamaSpot.mp4" />
-    <Content Include="Media\Others\roller-coaster2.png" />
-    <Content Include="Media\Others\roller-coaster.png" />
     <Content Include="Media\Others\roller-coaster3.png" />
     <Content Include="Media\Others\Shop.jpg" />
-    <Content Include="Media\Others\Worldmap-icon.png" />
-    <Content Include="Media\Others\Worldmap-icon2.png" />
     <Content Include="Media\Others\Worldmap-icon3.png" />
     <Content Include="Media\Others\Worldmap.jpeg" />
     <Content Include="Media\Rides\Africa\AfricanCobra.jpg" />
