@@ -1,0 +1,88 @@
+﻿.backimgarrive {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
+    background-image: url("/Media/Others/arrive.PNG");
+    min-height: 400px;
+}
+
+.backimgcontact {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
+    background-image: url("/Media/Others/contact.jpg");
+    min-height: 400px;
+}
+
+.backimgsocial {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
+    background-image: url("/Media/Others/social.jpg");
+    min-height: 400px;
+}
+
+.image-about {
+    height: 40px;
+    width: auto;
+}
+
+.field {
+    display: inline-block;
+    margin-right: -8px;
+    width: 100%;
+    padding-right: 4%;
+    margin-top: 30px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.form-content {
+    max-width: 75%;
+    margin: auto;
+    display: block;
+}
+
+.form-content .form-label {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px 0px 8px 0px;
+    color: #000;
+    vertical-align: top;
+}
+
+.field input, .field select {
+    border: solid 1px #1B253B;
+    height: 45px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 15px;
+    color: #1B253B;
+    font-weight: 300;
+    box-sizing: border-box;
+    line-height: normal;
+    margin: 0;
+    outline: 0;
+    border-radius: 0;
+}
+
+.send-button {
+    width: 200px;
+    float: right;
+    margin: 20px;
+}
+
+.image-slideshow-about {
+    height: 350px;
+    min-width: 400px;
+    max-width: 700px;
+}
