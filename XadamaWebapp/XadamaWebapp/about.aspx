@@ -1,4 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="XadamaWebapp.main" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="about.aspx.cs" Inherits="XadamaWebapp.about" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <!DOCTYPE HTML>
 
@@ -7,6 +9,7 @@
     <title>Xadama</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
+    <link rel="stylesheet" type="text/css" href="Style/about.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -24,8 +27,6 @@
                     $('#nav-menu .menu').css({ transition: 'margin 1s', margin: '6px 12px' });
                     $('.bar-item').css({ transition: 'font-size 1s', 'font-size': '14px' });
                     $('.button-sign').css({ transition: 'font-size 1s, padding 1s', 'font-size': '12px', padding: '6px 12px' });
-                    $('#buyButton').removeClass('buy-button');
-                    $('#buyButton').addClass('buy-button-small');
                     $('.to-top').css({ display: 'inherit' });
                 }
                 else {
@@ -34,22 +35,7 @@
                     $('#nav-menu .menu').css({ transition: 'margin 1s', margin: '12px 24px' });
                     $('.bar-item').css({ transition: 'font-size 1s', 'font-size': '18px' });
                     $('.button-sign').css({ transition: 'font-size 1s, padding 1s', 'font-size': '18px', padding: '12px 24px' });
-                    $('#buyButton').removeClass('buy-button-small');
-                    $('#buyButton').addClass('buy-button');
                     $('.to-top').css({ display: 'none' });
-                }
-                
-                if (window.pageYOffset >= 1850) {
-                    $('.image-appear1').css({ transition: 'transform 2s', transform: 'translateX(0px)' });
-                    $('.image-appear2').css({ transition: 'transform 1.8s', transform: 'translateX(0px)' });
-                    $('.image-appear3').css({ transition: 'transform 1.6s', transform: 'translateX(0px)' });
-                    $('.image-appear4').css({ transition: 'transform 1.4s', transform: 'translateX(0px)' });
-                }
-                else {
-                    $('.image-appear3').css({ transition: 'transform 2s', transform: 'translateX(2000px)' });
-                    $('.image-appear2').css({ transition: 'transform 1.8s', transform: 'translateX(2000px)' });
-                    $('.image-appear4').css({ transition: 'transform 1.6s', transform: 'translateX(2000px)' });
-                    $('.image-appear1').css({ transition: 'transform 1.4s', transform: 'translateX(2000px)' });
                 }
             }
         });
@@ -62,8 +48,6 @@
     <div class="to-top front blue" id="toTop">
         <a href="#nav-menu">TOP ↑</a>
     </div>
-
-    <asp:Button id="buyButton" runat="server" Text="BUY Tickets" CssClass="buy-button front orange center padding-left-large"/>
 
     <!--Top menu-->
     <div class="top menu front">
@@ -108,35 +92,104 @@
         </div>
     </div>
 
-    <!--Video-->
-    <div class="video-container display-container">
-        <div class="display-middle front">
-            <asp:Label ID="Label1" runat="server" CssClass="center padding-large black xxlarge wide appear" Text="XADAMA"></asp:Label>
-        </div>
-        <div class="display-middle-sub front">
-            <asp:Label ID="Label2" runat="server" CssClass="center padding-large black large wide appear" Text="Amusement Park in Alicante"></asp:Label>
-        </div>
-        <video loop muted autoplay>
-            <source src="/Media/Logo/XadamaSpot.webm" type="video/webm">
-            <source src="/Media/Logo/XadamaSpot.mp4" type="video/mp4">
-        </video>
+    <div class="padding-64" style="margin-bottom: -50px">
+        <asp:Image runat="server" ImageUrl="~/Media/Others/about-us.jpg" CssClass="col" Height="350px" />
     </div>
 
     <div class="content container padding-64">
-        <p class="center xxlarge text-orange margin-bottom-large bold uppercase padding-large">Our park is distributed in 5 zones, one for each continent. Find them out!</p>
-        <p class="center large text-darkblue margin-bottom-large padding-large margin-large">Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for 
-            a family getaway in the Costa Blanca, one of Spain&#39;s most popular tourist areas; 
-            and just half an hour from Alicante!</p>
-    </div>
-
-    <div class="backimg2 display-container">
-        <div class="display-middle no-opacity">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium xxlarge wide button-slice" text="ZONES"></asp:LinkButton>
+        <p class="center xxlarge text-orange margin-bottom-large bold uppercase padding-large">Xadama Amusement Park</p>
+        <div class="col half">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Media/Hotels/americanluxury2.jpg" CssClass="image-slideshow-about" />
+            <ajaxToolkit:SlideShowExtender ID="SlideShowExtender1" runat="server" 
+                TargetControlID="Image1"
+                SlideShowServiceMethod="GetSlides"
+                AutoPlay="true"
+                Loop="true" />
+        </div>
+        <div class="col half">
+            <p class="center large text-darkblue margin-bottom-large padding-large margin-large">Xadama is the perfect destination to spend a great holiday 
+                with your family, partner or friends while you enjoy the best entertainment that southern Europe has to offer; and all in a setting with perfect weather 
+                where you will have a fantastic time at Europe’s leading theme park and water park while enjoying the sun, beach and the exquisite Mediterranean cuisine.
+                Xadama is located on the Costa Blanca and is one of the main destinations for tourism and holidays in Spain. Our facilities are ideally 
+                situated close to Alicante and the towns of Elche and Calpe. At Xadama you can enjoy a theme park and fabulous hotels. And thanks to its exceptional 
+                location, your holiday is completed by surrounding beaches, shopping areas, sports facilities, outdoor activities and restaurants where you can 
+                discover the delicious Mediterranean cuisine.
+                Xadama has 4 and 5-star hotels. Staying at any of these Xadama hotels is the perfect guarantee of first-rate service and comfort 
+                while enjoying the Xadama parks and spending a few delightful days at the coast.</p>
         </div>
     </div>
 
-    <div class="slider-container padding-64 margin-32">
-        <p class="center xlarge text-orange margin-bottom-large bold uppercase">Our park is distributed in 5 zones, one for each continent. Find them out!</p>
+    <div class="backimgarrive display-container">
+        <div class="display-middle no-opacity">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="HOW TO ARRIVE"></asp:Label>
+        </div>
+    </div>
+
+    <div class="content container center padding-64">
+        <div class="row-padding">
+            <div class="col half">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6270.52780188392!2d-0.5171617125935198!3d38.323325877376675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62361b1c9736fd%3A0xf455cc4450eae028!2sPartida+Agua+Amarga%2C+2A%2C+03008%2C+Alicante!5e1!3m2!1ses!2ses!4v1493334554674" height="400" frameborder="0" style="border:0; width: 100%" allowfullscreen></iframe>
+            </div>
+            <div class="col half xlarge text-darkblue margin-64">
+                <asp:Image runat="server" ImageUrl="~/Media/Icons/map.png" CssClass="image-about margin-right" /><span style="vertical-align: super;"> Alicante, Spain</span><br/>
+                <asp:Image runat="server" ImageUrl="~/Media/Icons/phone.png" CssClass="image-about margin-right" /><span style="vertical-align: super;"> +34 123 456 789</span><br/>
+                <asp:Image runat="server" ImageUrl="~/Media/Icons/email.png" CssClass="image-about margin-right" /><span style="vertical-align: super;"> xadama@xadama.com</span><br/>
+            </div>
+        </div>
+    </div>
+
+    <div class="backimgsocial display-container">
+        <div class="display-middle no-opacity">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="SOCIAL NETWORKS"></asp:Label>
+        </div>
+    </div>
+
+    <div class="content container center padding-64">
+        <p class="xxlarge">Social networks will be displayed here</p>
+    </div>
+
+    <div class="backimgcontact display-container">
+        <div class="display-middle no-opacity">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="CONTACT"></asp:Label>
+        </div>
+    </div>
+    
+    <div class="form-content container padding-64">
+        <div class="field">
+            <asp:Label runat="server" Text="Name: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+        </div>
+        <div class="field half">
+            <asp:Label runat="server" Text="First Surname: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBox1Surname" runat="server"></asp:TextBox>
+        </div>
+        <div class="field half">
+            <asp:Label runat="server" Text="Second Surname: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBox2Surname" runat="server"></asp:TextBox>
+        </div>
+        <div class="field half">
+            <asp:Label runat="server" Text="Email: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
+        </div>
+        <div class="field half">
+            <asp:Label runat="server" Text="Phone: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
+        </div>
+        <div class="field">
+            <asp:Label runat="server" Text="Type: " CssClass="form-label"></asp:Label>
+            <asp:DropDownList ID="DropDownType" runat="server"></asp:DropDownList>
+        </div>
+        <div class="field">
+            <asp:Label runat="server" Text="Message: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        </div>
+        <div class="send-button">
+            <asp:Button runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="SEND"></asp:Button>
+        </div>
+    </div>
+
+    <div class="slider-container margin-top">
         <div class="swiper">
             <div class="slide hide">
                 <asp:Image ID="Image9" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Africa/AfricanPyramid.jpg" />
@@ -197,96 +250,6 @@
         </div>
     </div>
 
-    <div class="backimg1 display-container">
-        <div class="display-middle front">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="RIDES"></asp:LinkButton>
-        </div>
-    </div>
-
-    <div class="content container padding-64 margin-32 no-overflow">
-        <p class="center xlarge text-orange bold margin-bottom uppercase">Enjoy our best rides:</p>
-        <p class="center medium text-darkblue margin-bottom-large">Drag the images around</p>
-        <div class="row-padding center">
-            <div class="col quarter image-appear1 draggable">
-                <div class="shadow" style="transform: rotate(10deg); z-index: -1;">
-                    <asp:Image ID="Image1" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/Africa/AfricanCobra.jpg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">African Cobra</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col quarter image-appear3 draggable">
-                <div class="shadow" style="transform: rotate(-3deg)">
-                    <asp:Image ID="Image2" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/America/AmericanLasVegas.jpg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">American Las Vegas</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col quarter image-appear2 draggable">
-                <div class="shadow" style="transform: rotate(9deg)">
-                    <asp:Image ID="Image3" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/Asia/AsianCars.jpg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">Asian Cars</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col quarter image-appear4 draggable" style="transform: rotate(1deg)">
-                <div class="shadow">
-                    <asp:Image ID="Image7" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/Europe/EuropeanCastle.jpeg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">European Castle</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row-padding center">
-            <div class="col quarter image-appear3 draggable">
-                <div class="shadow" style="transform: rotate(-5deg);">
-                    <asp:Image ID="Image4" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/Asia/AsianCars.jpg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">Asian Cars</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col quarter image-appear2 draggable">
-                <div class="shadow" style="transform: rotate(2deg);">
-                    <asp:Image ID="Image5" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/Oceania/OceanianTurtleaux.jpg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">Oceanian Turtleaux</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col quarter image-appear4 draggable">
-                <div class="shadow" style="transform: rotate(-1deg);">
-                    <asp:Image ID="Image6" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/America/AmericanNiagaraFalls.jpeg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">American Niagara Falls</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col quarter image-appear1 draggable">
-                <div class="shadow" style="transform: rotate(6deg);">
-                    <asp:Image ID="Image8" runat="server" CssClass="image-menu" ImageUrl="~/Media/Rides/Africa/AfricanDinosaur.jpg" />
-                    <div class="center padding-16 white">
-                        <p class="text-darkblue large">African Dinosaur</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="backimg3 display-container">
-        <div class="display-middle">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="SHOP"></asp:LinkButton>
-        </div>
-    </div>
-    <div class="backimg4 display-container">
-        <div class="display-middle">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="HOTELS"></asp:LinkButton>
-        </div>
-    </div>
-
     <div class="container center footer padding-64" id="footer-bar">
         <div class="row-padding center">
             <div class="col half">
@@ -297,7 +260,6 @@
                         <items>
                             <asp:menuitem text="Home" NavigateUrl="main.aspx"></asp:menuitem>
                             <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
-                            <asp:menuitem text="Contact" NavigateUrl="about.aspx"></asp:menuitem>
                         </items>
                     </asp:menu>
 
