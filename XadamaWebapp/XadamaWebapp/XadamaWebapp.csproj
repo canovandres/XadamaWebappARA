@@ -123,8 +123,8 @@
     <Content Include="Media\Icons\tickets.png" />
     <Content Include="Media\Logo\xadamaLogo.png" />
     <Content Include="Media\Logo\XadamaSpot.mp4" />
-    <Content Include="Media\Others\Rides.jpg" />
     <Content Include="Media\Others\Shop.jpg" />
+    <Content Include="Media\Others\Worldmap-icon3.png" />
     <Content Include="Media\Others\Worldmap.jpeg" />
     <Content Include="Media\Rides\Africa\AfricanCobra.jpg" />
     <Content Include="Media\Rides\Africa\AfricanDinosaur.jpg" />
@@ -173,7 +173,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services.aspx" />
     <Content Include="Style\style.css" />
+    <Content Include="Style\style-services.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -200,6 +202,13 @@
     </Compile>
     <Compile Include="main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
