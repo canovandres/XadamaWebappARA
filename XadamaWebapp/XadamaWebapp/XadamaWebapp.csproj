@@ -49,6 +49,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=17.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -120,11 +124,18 @@
     <Content Include="Media\Hotels\europeanpalace.jpg" />
     <Content Include="Media\Hotels\europeanpalace2.jpg" />
     <Content Include="Media\Hotels\europeanpalace3.jpg" />
+    <Content Include="Media\Icons\email.png" />
+    <Content Include="Media\Icons\map.png" />
+    <Content Include="Media\Icons\phone.png" />
     <Content Include="Media\Icons\tickets.png" />
     <Content Include="Media\Logo\xadamaLogo.png" />
     <Content Include="Media\Logo\XadamaSpot.mp4" />
+    <Content Include="Media\Others\about-us.jpg" />
+    <Content Include="Media\Others\arrive.PNG" />
+    <Content Include="Media\Others\contact.jpg" />
     <Content Include="Media\Others\Rides.jpg" />
     <Content Include="Media\Others\Shop.jpg" />
+    <Content Include="Media\Others\social.jpg" />
     <Content Include="Media\Others\Worldmap.jpeg" />
     <Content Include="Media\Rides\Africa\AfricanCobra.jpg" />
     <Content Include="Media\Rides\Africa\AfricanDinosaur.jpg" />
@@ -173,6 +184,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Style\about.css" />
     <Content Include="Style\style.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
