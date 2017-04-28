@@ -23,6 +23,10 @@ C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.ApplicationInsights.dll
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.Data.Tools.Schema.Sql.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.Data.Tools.Utilities.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.SqlServer.Types.dll
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.AI.Web.xml
@@ -30,6 +34,19 @@ C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.ApplicationInsights.xml
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\es\Microsoft.Data.Tools.Schema.Sql.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\es\Microsoft.Data.Tools.Utilities.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\es\Microsoft.SqlServer.TransactSql.ScriptDom.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\obj\Debug\XadamaWebapp.csprojResolveAssemblyReference.cache
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\obj\Debug\XadamaWebapp.dll
 C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\obj\Debug\XadamaWebapp.pdb
@@ -70,4 +87,3 @@ C:\Users\Andrés\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\obj\
 C:\Users\Andrés\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\obj\Debug\XadamaWebapp.pdb
 C:\Users\Andrés\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\Microsoft.QualityTools.Testing.Fakes.dll
 C:\Users\Andrés\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
-C:\Users\usuario\Documents\GitHub\XadamaWebappARA\XadamaWebapp\XadamaWebapp\bin\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
