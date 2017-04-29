@@ -11,11 +11,11 @@
     top: -10px;
     left: 0px;
     height: 5px;
-    width: 1352px;
+    width: auto;
 }
 
 .backimgt1 {
-    background-image: url("/Media/Others/ticketsback.jpg");
+    background-image: url("/Media/Others/ticketsback2.jpg");
     min-height: 400px;
     background-attachment: fixed;
     background-position: center;
@@ -26,7 +26,7 @@
     top: -17px;
     left: 0px;
     height: 600px;
-    width: 1352px;
+    width:auto;
 }
 
 .wrapt {
@@ -54,7 +54,7 @@ ul#tickets {
 }
 
 .topt {
-    background-color: #202060;
+    background-color: #1B253B;
     color: #fff;
     height: 75px;
 }
@@ -67,7 +67,7 @@ ul#tickets {
     color: #fff;
     line-height: 60px;
     text-align: center;
-    background: #ff0048;
+    background: #F26101;
     border: dotted;
     border-color: white;
     margin-left: 70px;
@@ -90,19 +90,13 @@ ul#tickets {
     color: #1b2630;
 }
 
-.darkgrey {
-    color: #fff !important;
-    background-color: #1b2630 !important;
-}
-
 td {
     border-bottom: solid 1px #d7dce9;
-  
     text-align: center;
 }
 
 caption {
-    background-color: #ff0048;
+    background-color: #F26101;
     font: bold 30px 'Franklin Gothic Medium Cond';
     color: white;
     margin-top: 20px;
@@ -116,19 +110,19 @@ caption {
 th {
     color: #fff;
     padding: 0 4em 0 4em;
-    background-color: #202060;
-    border-top: 1px solid #202060;
-    border-bottom: 1px solid #202060;
-    text-align:center;
+    background-color: #1B253B;
+    border-top: 1px solid #1B253B;
+    border-bottom: 1px solid #1B253B;
+    text-align: center;
     padding-bottom: 5px;
-    padding-top:5px;
+    padding-top: 5px;
 }
 
 
 table {
     border-collapse: collapse;
     text-align: center;
-    font-family: 'Franklin Gothic Medium Cond';
+    font-family: Calibri;
     color: #4e4a4a;
     font-size: large;
 }
