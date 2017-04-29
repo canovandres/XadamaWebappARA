@@ -1,0 +1,114 @@
+﻿body {
+}
+
+.backimgh1 {
+    background-image: url("/Media/Hotels/oceanicparadise2.jpg");
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
+    top: -17px;
+    left: 0px;
+    height: 600px;
+    width: 1352px;
+}
+
+.backimgh2 {
+    background-image: url("/Media/Others/tickets.jpg");
+    min-height: 10px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
+    top: -10px;
+    left: 0px;
+    height: 200px;
+    width: 1352px;
+}
+
+
+.back3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1b2630;
+    opacity: 0.95;
+    top: -10px;
+    left: 0px;
+    height: 2px;
+    width: 1352px;
+}
+
+th {
+    padding: 0 6em 0 1em;
+    color:#fff;
+    background-color: #1b2630;
+    border-top: 1px solid #192f76;
+    border-bottom: 1px solid #192f76
+}
+
+.double{
+    background-color: #ececf5;
+}
+
+td{
+  
+    border-bottom: solid 1px #d7dce9;
+    padding: 0 0em 0 1em;
+    text-align:left;
+}
+
+.ninios{
+   top: 333px;
+}
+
+.asianlabel{
+    font-family:'Agency FB';
+    font-size: 30px;
+    margin-top: 10px !important;
+}
+
+table{
+    border-collapse:collapse;
+    margin-left: 40px;
+    text-align:left;
+    font-family:Calibri;
+    color: #4e4a4a;
+    font-size:large;
+}
+
+.price {
+    color: #1b2630;
+    margin-left:10px;
+    font-family:'Berlin Sans FB';
+    font-size:x-large;
+    height: 21px;
+    padding: 0 2px 0 0.5px;
+    max-width: 132px;
+}
+
+.button-small {
+    height: 33px;
+}
+
+.black-translucid{
+    color:#fff !important;
+    background-color:black !important;
+    opacity: 0.75;
+}
+.hover-black-op:hover {
+    color: #fff !important;
+    background-color: black !important;
+    opacity:1;
+}
+
+.darkgrey{
+    color: #fff !important;
+    background-color: #1b2630 !important;
+}
