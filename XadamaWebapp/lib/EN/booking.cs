@@ -9,6 +9,7 @@ namespace lib.EN
     class Booking
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         public String client { get; set; } 
         public String calendar { get; set; } 
         public int room { get; set; } 
@@ -17,12 +18,17 @@ namespace lib.EN
 
         public Booking(String client, String calendar, int room, String hotel, float price)
 =======
+=======
+>>>>>>> origin/48792973Z
         public String client { get; set; } //FK + NNV
         public String calendar { get; set; } //PK + FK
         public int room { get; set; } // PK + FK
         public String hotel { get; set; } //PK + FK
 
         public Booking(String client, String calendar, int room, String hotel)
+<<<<<<< HEAD
+>>>>>>> origin/48792973Z
+=======
 >>>>>>> origin/48792973Z
         {
             this.client = client;
@@ -30,7 +36,10 @@ namespace lib.EN
             this.room = room;
             this.hotel = hotel;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.price = price;
+=======
+>>>>>>> origin/48792973Z
 =======
 >>>>>>> origin/48792973Z
         }
@@ -45,7 +54,11 @@ namespace lib.EN
         {
             CAD.CADBooking b = new CAD.CADBooking(dbname);
 <<<<<<< HEAD
+<<<<<<< HEAD
             Booking p = b.Read(calendar, room, hotel);
+=======
+            Booking p = b.Read(calendar, hotel, room);
+>>>>>>> origin/48792973Z
 =======
             Booking p = b.Read(calendar, hotel, room);
 >>>>>>> origin/48792973Z
@@ -54,7 +67,10 @@ namespace lib.EN
             room = p.room;
             hotel = p.hotel;
 <<<<<<< HEAD
+<<<<<<< HEAD
             price = p.price;
+=======
+>>>>>>> origin/48792973Z
 =======
 >>>>>>> origin/48792973Z
         }
@@ -69,8 +85,14 @@ namespace lib.EN
         {
             CAD.CADBooking b = new CAD.CADBooking(dbname);
 <<<<<<< HEAD
+<<<<<<< HEAD
             b.Delete(calendar, room, hotel);
         }
+=======
+            b.Delete(calendar, hotel, room);
+        }
+
+>>>>>>> origin/48792973Z
 =======
             b.Delete(calendar, hotel, room);
         }
