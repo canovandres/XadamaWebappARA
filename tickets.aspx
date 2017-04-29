@@ -132,7 +132,7 @@
     </div>
 
     <div class="content container padding-16">
-        <div class="center padding-medium darkgrey xlarge wide">
+        <div class="center padding-medium darkblue xlarge wide">
             <a>TICKET PRICES: </a>
         </div>
     </div>

@@ -136,17 +136,17 @@
     </div>
 
     <div class="content container padding-64">
-        <div class="center padding-medium darkgrey xlarge wide">
+        <div class="center padding-medium darkblue xlarge wide">
             <a>OUR HOTEL SELECTION: </a>
         </div>
     </div>
 
     <div class="content container padding-16">
-      <table id="#hotelAfrica" class="margin-64" style="height: 247px; width: 610px">
+      <table id="#hotelAfrica" class="margin-64" style="height: 247px; width: 610px;">
        
         <caption>
             <asp:Image ID="Image1" runat="server" CssClass="left margin-16" ImageUrl="~/Media/Hotels/africansavannah2.jpg" Width="356px" Height="231px" />
-             <asp:Label ID="Label1" runat="server" CssClass="margin-medium left top asianlabel">AFRICAN SAVANNAH HOTEL<br class="left" /></asp:Label>
+             <asp:Label ID="Label1" runat="server" CssClass="margin-medium left top hotel-label">AFRICAN SAVANNAH HOTEL<br class="left" /></asp:Label>
         </caption>
         <tr>
             <th>Room</th>
@@ -267,7 +267,7 @@
        
         <caption>
             <asp:Image ID="Image2" runat="server" CssClass="left margin-16" ImageUrl="~/Media/Hotels/americanluxury2.jpg" Width="434px" Height="215px" />
-             <asp:Label ID="Label2" runat="server" CssClass="margin-medium left top asianlabel">AMERICAN LUXURY HOTEL<br class="left" /></asp:Label>
+             <asp:Label ID="Label2" runat="server" CssClass="margin-medium left top hotel-label">AMERICAN LUXURY HOTEL<br class="left" /></asp:Label>
         </caption>
         <tr>
             <th>Room</th>
@@ -388,7 +388,7 @@
        
         <caption>
             <asp:Image ID="asiangardenh" runat="server" CssClass="left margin-16" ImageUrl="~/Media/Hotels/asiangardens3.jpg" Width="419px" Height="222px" />
-             <asp:Label ID="asiangard" runat="server" CssClass="margin-medium left top asianlabel">ASIAN GARDEN HOTEL<br class="left" /></asp:Label>
+             <asp:Label ID="asiangard" runat="server" CssClass="margin-medium left top hotel-label">ASIAN GARDEN HOTEL<br class="left" /></asp:Label>
         </caption>
         <tr>
             <th>Room</th>
@@ -509,7 +509,7 @@
        
         <caption>
             <asp:Image ID="Image3" runat="server" CssClass="left margin-16" ImageUrl="~/Media/Hotels/europeanpalace.jpg" Width="422px" Height="216px" />
-             <asp:Label ID="Label3" runat="server" CssClass="margin-medium left top asianlabel">EUROPEAN PALACE HOTEL<br class="left" /></asp:Label>
+             <asp:Label ID="Label3" runat="server" CssClass="margin-medium left top hotel-label">EUROPEAN PALACE HOTEL<br class="left" /></asp:Label>
         </caption>
         <tr>
             <th>Room</th>
@@ -630,7 +630,7 @@
        
         <caption>
             <asp:Image ID="Image4" runat="server" CssClass="left margin-16" ImageUrl="~/Media/Hotels/oceanicparadise.jpg" Width="351px" Height="215px" />
-             <asp:Label ID="Label4" runat="server" CssClass="margin-medium left top asianlabel">OCEANIC PARADISE HOTEL<br class="left" /></asp:Label>
+             <asp:Label ID="Label4" runat="server" CssClass="margin-medium left top hotel-label">OCEANIC PARADISE HOTEL<br class="left" /></asp:Label>
         </caption>
         <tr>
             <th>Room</th>
