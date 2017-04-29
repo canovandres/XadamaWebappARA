@@ -136,17 +136,15 @@
        <div class="buttons-zone">
            <div class="zone">
                 <asp:Image ID="Image1" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/europeanpalace4.jpg" />
-                 
-            </div>
+           </div>
 
             <div class="zone">
                 <asp:Image ID="Image2" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/europeanpalace7.jpg" />
-                 
             </div>
 
            <div class="zone-aux">
                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Reserve now!" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Reserve now!" CssClass="center button padding-medium xxlarge wide button-slice" />
                 </div>
                  
             </div>
@@ -203,7 +201,7 @@
 
            <div class="zone-aux">
                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Reserve now!" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Reserve now!" CssClass="center button padding-medium xxlarge wide button-slice" />
                 </div>
                  
             </div>
@@ -260,7 +258,7 @@
 
            <div class="zone-aux">
                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Reserve now!" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Reserve now!" CssClass="center button padding-medium xxlarge wide button-slice" />
                 </div>
                  
             </div>
@@ -318,7 +316,7 @@
 
            <div class="zone-aux">
                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Reserve now!" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Reserve now!" CssClass="center button padding-medium xxlarge wide button-slice" />
                 </div>
                  
             </div>
@@ -374,7 +372,7 @@
 
            <div class="zone-aux">
                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Reserve now!" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Reserve now!" CssClass="center button padding-medium xxlarge wide button-slice" />
                 </div>
                  
             </div>
