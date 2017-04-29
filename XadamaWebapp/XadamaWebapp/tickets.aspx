@@ -5,18 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>BUY Tickets</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <link rel="icon" type="image/ico" href="~/Media/Icons/tickets-icon.ico" />
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
-    <link rel="stylesheet" type="text/css" href="Style/styletickets.css" />
+    <link rel="stylesheet" type="text/css" href="Style/tickets.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $( function() {
-            $( ".draggable" ).draggable();
-        } );
-    </script>
     <script type="text/javascript">
         $(document).ready(function(){
             window.onscroll = function() {
@@ -37,19 +32,6 @@
                     $('.bar-item').css({ transition: 'font-size 1s', 'font-size': '18px' });
                     $('.button-sign').css({ transition: 'font-size 1s, padding 1s', 'font-size': '18px', padding: '12px 24px' });
                     $('.to-top').css({ display: 'none' });
-                }
-                
-                if (window.pageYOffset >= 1850) {
-                    $('.image-appear1').css({ transition: 'transform 2s', transform: 'translateX(0px)' });
-                    $('.image-appear2').css({ transition: 'transform 1.8s', transform: 'translateX(0px)' });
-                    $('.image-appear3').css({ transition: 'transform 1.6s', transform: 'translateX(0px)' });
-                    $('.image-appear4').css({ transition: 'transform 1.4s', transform: 'translateX(0px)' });
-                }
-                else {
-                    $('.image-appear3').css({ transition: 'transform 2s', transform: 'translateX(2000px)' });
-                    $('.image-appear2').css({ transition: 'transform 1.8s', transform: 'translateX(2000px)' });
-                    $('.image-appear4').css({ transition: 'transform 1.6s', transform: 'translateX(2000px)' });
-                    $('.image-appear1').css({ transition: 'transform 1.4s', transform: 'translateX(2000px)' });
                 }
             }
         });
