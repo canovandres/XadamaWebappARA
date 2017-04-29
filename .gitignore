@@ -14,3 +14,9 @@ XadamaWebapp/.vs/config/applicationhost.config
 **.vs/
 *.vc.vc.opendb
 *.vc.db
+XadamaWebapp/XadamaWebapp/bin/XadamaWebapp.dll
+XadamaWebapp/XadamaWebapp/bin/XadamaWebapp.pdb
+*.cache
+XadamaWebapp/lib/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+XadamaWebapp/.vs/XadamaWebapp/v14/.suo
+XadamaWebapp/.vs/config/applicationhost.config

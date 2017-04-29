@@ -112,6 +112,7 @@
     <Content Include="App_Data\XadamaDB_log.ldf">
       <DependentUpon>XadamaDB.mdf</DependentUpon>
     </Content>
+    <Content Include="bookhotel.aspx" />
     <Content Include="Media\Hotels\africansavannah.jpg" />
     <Content Include="Media\Hotels\africansavannah2.jpg" />
     <Content Include="Media\Hotels\africansavannah3.jpg" />
@@ -124,9 +125,13 @@
     <Content Include="Media\Hotels\europeanpalace.jpg" />
     <Content Include="Media\Hotels\europeanpalace2.jpg" />
     <Content Include="Media\Hotels\europeanpalace3.jpg" />
+    <Content Include="Media\Icons\addticket.png" />
+    <Content Include="Media\Icons\bookhotel-icon.ico" />
+    <Content Include="Media\Icons\buy-tickets-button.png" />
     <Content Include="Media\Icons\email.png" />
     <Content Include="Media\Icons\map.png" />
     <Content Include="Media\Icons\phone.png" />
+    <Content Include="Media\Icons\tickets-icon.ico" />
     <Content Include="Media\Icons\tickets.png" />
     <Content Include="Media\Logo\xadamaLogo.png" />
     <Content Include="Media\Logo\XadamaSpot.mp4" />
@@ -136,7 +141,8 @@
     <Content Include="Media\Others\Rides.jpg" />
     <Content Include="Media\Others\Shop.jpg" />
     <Content Include="Media\Others\social.jpg" />
-    <Content Include="Media\Others\Shop.jpg" />
+    <Content Include="Media\Others\tickets.jpg" />
+    <Content Include="Media\Others\ticketsback.jpg" />
     <Content Include="Media\Others\Worldmap-icon3.png" />
     <Content Include="Media\Others\Worldmap.jpeg" />
     <Content Include="Media\Rides\Africa\AfricanCobra.jpg" />
@@ -191,6 +197,9 @@
     <Content Include="services.aspx" />
     <Content Include="Style\style.css" />
     <Content Include="Style\services.css" />
+    <Content Include="Style\bookhotel.css" />
+    <Content Include="Style\tickets.css" />
+    <Content Include="tickets.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -202,6 +211,13 @@
     </Compile>
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bookhotel.aspx.cs">
+      <DependentUpon>bookhotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bookhotel.aspx.designer.cs">
+      <DependentUpon>bookhotel.aspx</DependentUpon>
     </Compile>
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
@@ -231,6 +247,13 @@
     </Compile>
     <Compile Include="services.aspx.designer.cs">
       <DependentUpon>services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tickets.aspx.cs">
+      <DependentUpon>tickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tickets.aspx.designer.cs">
+      <DependentUpon>tickets.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
