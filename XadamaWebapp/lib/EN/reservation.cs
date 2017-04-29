@@ -27,7 +27,7 @@ namespace lib.EN
             reservation.Create(this);
         }
 
-        public void read(String dbname, int id)
+        public void read(String dbname, String id)
         {
             CAD.CADReservation reservation = new CAD.CADReservation(dbname);
             Reservation r = (Reservation)reservation.Read(id);
