@@ -113,6 +113,7 @@
       <DependentUpon>XadamaDB.mdf</DependentUpon>
     </Content>
     <Content Include="bookhotel.aspx" />
+    <Content Include="hotels.aspx" />
     <Content Include="Media\Hotels\africansavannah.jpg" />
     <Content Include="Media\Hotels\africansavannah2.jpg" />
     <Content Include="Media\Hotels\africansavannah3.jpg" />
@@ -185,6 +186,9 @@
     <Content Include="client.aspx" />
     <Content Include="main.aspx" />
     <Content Include="Media\Logo\XadamaSpot.webm" />
+    <Content Include="Style\hotels.css" />
+    <Content Include="Style\zoneeurope.css" />
+    <Content Include="zoneeurope.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -218,6 +222,13 @@
     </Compile>
     <Compile Include="bookhotel.aspx.designer.cs">
       <DependentUpon>bookhotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="hotels.aspx.cs">
+      <DependentUpon>hotels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hotels.aspx.designer.cs">
+      <DependentUpon>hotels.aspx</DependentUpon>
     </Compile>
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
@@ -254,6 +265,13 @@
     </Compile>
     <Compile Include="tickets.aspx.designer.cs">
       <DependentUpon>tickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zoneeurope.aspx.cs">
+      <DependentUpon>zoneeurope.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zoneeurope.aspx.designer.cs">
+      <DependentUpon>zoneeurope.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
