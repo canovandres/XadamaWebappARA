@@ -116,12 +116,12 @@
         The bar is open till late at night and offers tasty snacks and excellent cocktails prepared by the skilled barman.</p>
     
         <div class="buttons-zone">
-           <div class="zone">
+           <div class="zone ">
                 <asp:Image ID="Image10" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/europeanpalace5.jpg" />
 
             </div>
 
-            <div class="zone">
+            <div class="zone ">
                 <asp:Image ID="Image11" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/europeanpalace3.jpg" />
                  
             </div>
@@ -134,15 +134,15 @@
         </div>
 
        <div class="buttons-zone">
-           <div class="zone">
+           <div class="zone ">
                 <asp:Image ID="Image1" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/europeanpalace4.jpg" />
            </div>
 
-            <div class="zone">
+            <div class="zone ">
                 <asp:Image ID="Image2" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/europeanpalace7.jpg" />
             </div>
 
-           <div class="zone-aux">
+           <div class="zone">
                 <div class="show-text1 text-white">
                     <asp:Button runat="server" text="Reserve now!" CssClass="center button padding-medium xxlarge wide button-slice" />
                 </div>
@@ -304,7 +304,7 @@
         </div>
 
        <div class="buttons-zone">
-           <div class="zone">
+           <div class="zone ">
                 <asp:Image ID="Image20" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/americanluxury3.jpg" />
                  
             </div>
