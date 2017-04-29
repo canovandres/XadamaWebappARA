@@ -79,6 +79,11 @@ body, html, form {
     padding-bottom: 64px !important;
 }
 
+.padding-128{
+    padding-top: 128px !important;
+    padding-bottom: 128px !important;
+}
+
 /*Margins*/
 
 .margin-small{
@@ -200,6 +205,14 @@ body, html, form {
 .darkblue, .hover-darkblue:hover {
     color: #fff !important;
     background-color: #1B253B !important;
+}
+
+.lightblue {
+
+}
+
+.grey {
+    background-color: rgba(232, 229, 229, 0.80);
 }
 
 .text-blue, .hover-text-blue:hover {
@@ -632,6 +645,10 @@ video {
 .col{
     float: left;
     width: 100%;
+}
+
+.three-quarter{
+    width: 74.99999% !important;
 }
 
 .half{

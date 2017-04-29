@@ -10,7 +10,7 @@
 namespace XadamaWebapp {
     
     
-    public partial class client1 {
+    public partial class worker {
         
         /// <summary>
         /// Control form1.

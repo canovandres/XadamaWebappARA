@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="client.aspx.cs" Inherits="XadamaWebapp.client1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="worker.aspx.cs" Inherits="XadamaWebapp.worker" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
     <link rel="stylesheet" type="text/css" href="Style/register.css" />
-    <link rel="stylesheet" type="text/css" href="Style/client.css" />
+    <link rel="stylesheet" type="text/css" href="Style/worker.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -112,8 +112,7 @@
                 <items>
                     <asp:menuitem text="Account"></asp:menuitem>
                     <asp:menuitem text="Password"></asp:menuitem>
-                    <asp:menuitem text="Bank Account"></asp:menuitem>
-                    <asp:menuitem text="Orders"></asp:menuitem>
+                    <asp:menuitem text="Schedule"></asp:menuitem>
                 </items>
             </asp:menu>
         </div>

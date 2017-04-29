@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="client.aspx.cs" Inherits="XadamaWebapp.client1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="XadamaWebapp.client" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,6 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
     <link rel="stylesheet" type="text/css" href="Style/register.css" />
-    <link rel="stylesheet" type="text/css" href="Style/client.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -104,24 +103,83 @@
         </div>
     </div>
 
-    <div class="padding-128">  <!--1-->
-        <div class="col fifteen blue">      <!--3-->
-            <asp:menu runat="server" Orientation="Vertical" CssClass="left menu full">
-                <StaticMenuItemStyle CssClass="client-bar-item button text-white center border-menu"/>
-                <StaticMenuStyle CssClass="full"/>
-                <items>
-                    <asp:menuitem text="Account"></asp:menuitem>
-                    <asp:menuitem text="Password"></asp:menuitem>
-                    <asp:menuitem text="Bank Account"></asp:menuitem>
-                    <asp:menuitem text="Orders"></asp:menuitem>
-                </items>
-            </asp:menu>
-        </div>
-
-        <div class="col three-quarter">  <!--3-->
-            <div class="">
+    <!--Register/Login-->
+    <div class="content container padding-64">  <!--1-->
+        <div class="padding-64">    <!--2-->
+            <div class="col half">      <!--3-->
+                <asp:Label runat="server" Text="Create a New Account " CssClass="form-label margin-large xxlarge"></asp:Label>
                 <div class="register form-content padding-large margin-medium grey shadow">    <!--4-->
-                    <asp:Label runat="server" Text="INFORMATION WILL BE SHOWN HERE" CssClass="form-label medium"></asp:Label>
+                    <div class="field half">
+                        <asp:Label runat="server" Text="EMAIL*: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field half">
+                        <asp:Label runat="server" Text="PASSWORD*: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBoxPassword" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field half">
+                        <asp:Label runat="server" Text="CONFIRM PASSWORD*: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBoxRepeatPassword" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field">
+                        <asp:Label runat="server" Text="NAME*: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field half">
+                        <asp:Label runat="server" Text="FIRST SURNAME*: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBox1Surname" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field half">
+                        <asp:Label runat="server" Text="SECOND SURNAME*: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBox2Surname" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field">
+                        <asp:Label runat="server" Text="BIRTHDAY: " CssClass="form-label medium"></asp:Label>
+                        <asp:Calendar ID="Calendario" runat="server"></asp:Calendar>
+                    </div>
+
+                    <div class="field half">
+                        <asp:Label runat="server" Text="PHONE: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field half">
+                        <asp:Label runat="server" Text="ADDRESS: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBoxAddress" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field">
+                        <div class="create-button">
+                            <asp:Button runat="server" CssClass="right button padding-medium large button-slice wide" text="Create Account"></asp:Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col half">  <!--3-->
+                <asp:Label runat="server" Text="Sign In " CssClass="form-label margin-large xxlarge"></asp:Label>
+                <div class="register form-content padding-large margin-medium grey shadow">    <!--4-->
+                    <div class="field half">
+                        <asp:Label runat="server" Text="EMAIL: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field half">
+                        <asp:Label runat="server" Text="PASSWORD: " CssClass="form-label medium"></asp:Label>
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="field">
+                        <div class="signin-button">
+                            <asp:Button runat="server" CssClass="right button padding-medium large button-slice wide" text="Sign In"></asp:Button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
