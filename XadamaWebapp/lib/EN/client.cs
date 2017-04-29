@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Client
+    class Client : User
     {
         public String email { get; set; }
         public String password { get; set; }
@@ -14,7 +14,7 @@ namespace lib.EN
         public int age { get; set; }
         public int phone { get; set; }
         public String address { get; set; }
-        public Client(String email, String password, String name="", int age=0,  int phone=0, String address="")
+        public Client(String email, String password, String name = "", int age = 0, int phone = 0, String address = "")
         {
             this.email = email;
             this.password = password;
@@ -30,10 +30,10 @@ namespace lib.EN
             c.Create(this);
         }
 
-        void Read(String dbname)//calls the cadproduct method to read a product with the same id as the actual one
+        void Read(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
-            Client p = c.Read(email);
+            Client p = (Client)c.Read(email);
             email = p.email;
             password = p.password;
             name = p.name;
@@ -42,13 +42,13 @@ namespace lib.EN
             address = p.address;
         }
 
-        void Update(String dbname)//updates the product with the same id as the actual one by calling the cadproduct's appropiate method
+        void Update(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             c.Update(this);
         }
 
-        void Delete(String dbname)//deletes the product by calling cadproduct
+        void Delete(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             c.Delete(email);
@@ -56,3 +56,4 @@ namespace lib.EN
 
     }
 }
+

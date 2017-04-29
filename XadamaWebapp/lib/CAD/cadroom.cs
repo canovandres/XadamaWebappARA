@@ -13,7 +13,7 @@ namespace lib.CAD
         }
 
         public void Create(lib.EN.Room r) { }
-        public lib.EN.Hotel Read(String id, int num) { }
+        public lib.EN.Room Read(String id, int num) { }
         public void Update(lib.EN.Room r) { }
         public void Delete(String id, int num) { }
     }

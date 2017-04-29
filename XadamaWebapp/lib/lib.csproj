@@ -41,11 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAD\cadadmin.cs" />
+    <Compile Include="CAD\cadbooking.cs" />
+    <Compile Include="CAD\cadclient.cs" />
     <Compile Include="CAD\caduser.cs" />
     <Compile Include="CAD\cadworker.cs" />
     <Compile Include="EN\admin.cs" />
     <Compile Include="CAD\cadonline.cs" />
     <Compile Include="CAD\cadshop.cs" />
+    <Compile Include="EN\booking.cs" />
+    <Compile Include="EN\client.cs" />
     <Compile Include="EN\online.cs" />
     <Compile Include="EN\physical.cs" />
     <Compile Include="EN\shop.cs" />

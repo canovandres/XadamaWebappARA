@@ -10,10 +10,12 @@ namespace lib.EN
     {
         public String id { get; set; }
         public String name { get; set; }
-        public Hotel(String id, String name="")
+        public String zone { get; set; } // Relationship with zone 1,1
+        public Hotel(String id, String name="", String zone)
         {
             this.id = id;
             this.name = name;
+            this.zone = zone;
         }
 
         void Create(String dbname)
@@ -22,7 +24,7 @@ namespace lib.EN
             h.Create(this);
         }
 
-        void Read(String dbname)//calls the cadproduct method to read a product with the same id as the actual one
+        void Read(String dbname)
         {
             CAD.CADHotel h = new CAD.CADHotel(dbname);
             Hotel p = h.Read(id);
@@ -30,13 +32,13 @@ namespace lib.EN
             name = p.name;
         }
 
-        void Update(String dbname)//updates the product with the same id as the actual one by calling the cadproduct's appropiate method
+        void Update(String dbname)
         {
             CAD.CADHotel h = new CAD.CADHotel(dbname);
             h.Update(this);
         }
 
-        void Delete(String dbname)//deletes the product by calling cadproduct
+        void Delete(String dbname)
         {
             CAD.CADHotel h = new CAD.CADHotel(dbname);
             h.Delete(id);
