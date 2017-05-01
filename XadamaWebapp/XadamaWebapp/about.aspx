@@ -14,11 +14,6 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
-        $( function() {
-            $( ".draggable" ).draggable();
-        } );
-    </script>
-    <script type="text/javascript">
         $(document).ready(function(){
             window.onscroll = function() {
                 if (window.pageYOffset >= 100){
@@ -65,11 +60,11 @@
                         <asp:menuitem text="Home" NavigateUrl="main.aspx"></asp:menuitem>
                         <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
                         <asp:menuitem text="Zones" NavigateUrl="zones.aspx">
-                            <asp:MenuItem text="Europe" NavigateUrl="europe.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceania" NavigateUrl="africa.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="America" NavigateUrl="america.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Asia" NavigateUrl="asia.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Africa" NavigateUrl="africa.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Europe" NavigateUrl="zoneseurope.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="America" NavigateUrl="zonesamerica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asia" NavigateUrl="zonesasia.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Africa" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
                         </asp:menuitem>
                         <asp:menuitem text="Hotels" NavigateUrl="hotels.aspx">
                             <asp:MenuItem text="European Palace" NavigateUrl="hotels.aspx"></asp:MenuItem>
