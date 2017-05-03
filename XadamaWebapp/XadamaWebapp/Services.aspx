@@ -92,8 +92,8 @@
     <!--Drop-down-lists-->
     <div class="drop-container center padding-64 content text-orange bold xxlarge uppercase"> <!--class="container padding-64 center"-->
         <p>explore the rides, restaurants and shows of each zone</p>
-        <div class="padding-32">
-            <asp:DropDownList ID="ListZones" runat="server" CssClass="dropdown-border text-orange bold large backimgdrop dropdown-border" Width ="300px" Height="30px" >
+        <div>
+            <asp:DropDownList ID="ListZones" runat="server" CssClass="dropdown-border text-orange center bold large margin-bottom backimgdrop dropdown-border" Width ="300px" Height="30px" >
                 <asp:ListItem Text="--" Value="0"></asp:ListItem>
                 <asp:ListItem Text="Africa" Value="1"></asp:ListItem>
                 <asp:ListItem Text="America" Value="2"></asp:ListItem>
