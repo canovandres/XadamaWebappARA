@@ -6,18 +6,13 @@
 
 <html>
 <head runat="server">
-    <title>Xadama</title>
+    <title>Xadama About</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
     <link rel="stylesheet" type="text/css" href="Style/about.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript">
-        $( function() {
-            $( ".draggable" ).draggable();
-        } );
-    </script>
     <script type="text/javascript">
         $(document).ready(function(){
             window.onscroll = function() {
@@ -65,11 +60,11 @@
                         <asp:menuitem text="Home" NavigateUrl="main.aspx"></asp:menuitem>
                         <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
                         <asp:menuitem text="Zones" NavigateUrl="zones.aspx">
-                            <asp:MenuItem text="Europe" NavigateUrl="europe.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceania" NavigateUrl="africa.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="America" NavigateUrl="america.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Asia" NavigateUrl="asia.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Africa" NavigateUrl="africa.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Europe" NavigateUrl="zoneseurope.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="America" NavigateUrl="zonesamerica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asia" NavigateUrl="zonesasia.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Africa" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
                         </asp:menuitem>
                         <asp:menuitem text="Hotels" NavigateUrl="hotels.aspx">
                             <asp:MenuItem text="European Palace" NavigateUrl="hotels.aspx"></asp:MenuItem>
@@ -120,6 +115,7 @@
         </div>
     </div>
 
+    <!--How to arrive-->
     <div class="backimgarrive display-container">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="HOW TO ARRIVE"></asp:Label>
@@ -139,6 +135,8 @@
         </div>
     </div>
 
+
+    <!--Social Networks-->
     <div class="backimgsocial display-container">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="SOCIAL NETWORKS"></asp:Label>
@@ -149,6 +147,7 @@
         <p class="xxlarge">Social networks will be displayed here</p>
     </div>
 
+    <!--Contact Form-->
     <div class="backimgcontact display-container">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="CONTACT"></asp:Label>
