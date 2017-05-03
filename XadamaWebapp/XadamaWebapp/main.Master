@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <script type="text/javascript">
         $( function() {
             $( ".draggable" ).draggable();
         } );
@@ -26,8 +26,6 @@
                     $('.button-sign').css({ transition: 'font-size 1s, padding 1s', 'font-size': '12px', padding: '6px 12px' });
                     $('#buyButton').removeClass('buy-button');
                     $('#buyButton').addClass('buy-button-small');
-                    $('#toTop').removeClass('hide');
-                    $('#toTop').addClass('show');
                     $('.to-top').css({ display: 'inherit' });
                 }
                 else {
@@ -125,8 +123,8 @@
     </div>
 
     <div class="content container padding-64">
-        <p class="center xxlarge text-orange margin-bottom-large bold uppercase">Our park is distributed in 5 zones, one for each continent. Find them out!</p>
-        <p class="center large text-black margin-bottom-large padding-large">Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for 
+        <p class="center xxlarge text-orange margin-bottom-large bold uppercase padding-large">Our park is distributed in 5 zones, one for each continent. Find them out!</p>
+        <p class="center large text-darkblue margin-bottom-large padding-large margin-large">Discover the six continents of one of Europe&#39;s most iconic theme parks. An ideal destination for 
             a family getaway in the Costa Blanca, one of Spain&#39;s most popular tourist areas; 
             and just half an hour from Alicante!</p>
     </div>
@@ -283,83 +281,91 @@
             <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="SHOP"></asp:LinkButton>
         </div>
     </div>
+    <div class="backimg4 display-container">
+        <div class="display-middle">
+            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="HOTELS"></asp:LinkButton>
+        </div>
+    </div>
 
     <div class="container center footer padding-64" id="footer-bar">
-        <div class="left margin-large padding-large">
-            <div class="left">
-                <asp:Label runat="server" Text="Xadama" CssClass="label text-white large bold container"></asp:Label>
-                <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
-                    <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
-                    <items>
-                        <asp:menuitem text="Home" NavigateUrl="main.aspx"></asp:menuitem>
-                        <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
-                    </items>
-                </asp:menu>
+        <div class="row-padding center">
+            <div class="col half">
+                <div class="left">
+                    <asp:Label runat="server" Text="Xadama" CssClass="label text-white large bold container"></asp:Label>
+                    <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
+                        <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
+                        <items>
+                            <asp:menuitem text="Home" NavigateUrl="main.aspx"></asp:menuitem>
+                            <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
+                            <asp:menuitem text="Contact" NavigateUrl="about.aspx"></asp:menuitem>
+                        </items>
+                    </asp:menu>
 
-                <asp:Label runat="server" Text="Services" CssClass="label text-white large bold container"></asp:Label>
-                <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
-                    <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
-                    <items>
-                        <asp:MenuItem Text="Rides" NavigateUrl="services.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Shows" NavigateUrl="services.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Restaurants" NavigateUrl="services.aspx"></asp:MenuItem>
-                    </items>
-                </asp:menu>
+                    <asp:Label runat="server" Text="Services" CssClass="label text-white large bold container"></asp:Label>
+                    <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
+                        <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
+                        <items>
+                            <asp:MenuItem Text="Rides" NavigateUrl="services.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Shows" NavigateUrl="services.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Restaurants" NavigateUrl="services.aspx"></asp:MenuItem>
+                        </items>
+                    </asp:menu>
+                </div>
+
+                <div class="left">
+                    <asp:Label runat="server" Text="Hotels" CssClass="label text-white large bold container"></asp:Label>
+                    <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
+                        <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
+                        <items>
+                            <asp:MenuItem text="European Palace" NavigateUrl="hotels.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceanic Paradise" NavigateUrl="hotels.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="American Luxury" NavigateUrl="hotels.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asian Gardens" NavigateUrl="hotels.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="African Savannah" NavigateUrl="hotels.aspx"></asp:MenuItem>
+                        </items>
+                    </asp:menu>
+                </div>
+                <div class="left">
+                    <asp:Label runat="server" Text="Zones" CssClass="label text-white large bold container"></asp:Label>
+                    <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
+                        <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
+                        <items>
+                            <asp:MenuItem text="Europe" NavigateUrl="europe.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="africa.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="America" NavigateUrl="america.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asia" NavigateUrl="asia.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Africa" NavigateUrl="africa.aspx"></asp:MenuItem>
+                        </items>
+                    </asp:menu>
+                </div>
+
+                <div class="left">
+                    <asp:Label runat="server" Text="Shop" CssClass="label text-white large bold container"></asp:Label>
+                    <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
+                        <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
+                        <items>
+                            <asp:menuitem text="Shop"  NavigateUrl="shop.aspx"></asp:menuitem>
+                            <asp:MenuItem Text="Tickets" NavigateUrl="tickets.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Promotions"  NavigateUrl="promotions.aspx"></asp:MenuItem>
+                        </items>
+                    </asp:menu>
+                </div>
             </div>
 
-            <div class="left">
-                <asp:Label runat="server" Text="Hotels" CssClass="label text-white large bold container"></asp:Label>
-                <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
-                    <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
-                    <items>
-                        <asp:MenuItem text="European Palace" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="Oceanic Paradise" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="American Luxury" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="Asian Gardens" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="African Savannah" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                    </items>
-                </asp:menu>
+            <div class="xlarge text-white col half">
+                <p>Follow us!</p>
+                <div>
+                    <p class="large">
+                        Alicante, ES<br>
+                        Phone: +34 123 456 789<br>
+                        E-mail: <a class="text-white" href="mailto:xadama@xadama.com">xadama@xadama.com</a></p>
+                </div>
+                 <asp:ImageButton ID="Image14" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/facebook.png" />
+                 <asp:ImageButton ID="Image15" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/twitter.png" />
+                 <asp:ImageButton ID="Image16" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/instagram.png" />
+                 <asp:ImageButton ID="Image17" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/snapchat.png" />
+                 <asp:ImageButton ID="Image18" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/youtube.png" />
             </div>
-            <div class="left">
-                <asp:Label runat="server" Text="Zones" CssClass="label text-white large bold container"></asp:Label>
-                <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
-                    <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
-                    <items>
-                        <asp:MenuItem text="Europe" NavigateUrl="europe.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="Oceania" NavigateUrl="africa.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="America" NavigateUrl="america.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="Asia" NavigateUrl="asia.aspx"></asp:MenuItem>
-                        <asp:MenuItem text="Africa" NavigateUrl="africa.aspx"></asp:MenuItem>
-                    </items>
-                </asp:menu>
-            </div>
-
-            <div class="left">
-                <asp:Label runat="server" Text="Shop" CssClass="label text-white large bold container"></asp:Label>
-                <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
-                    <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
-                    <items>
-                        <asp:menuitem text="Shop"  NavigateUrl="shop.aspx"></asp:menuitem>
-                        <asp:MenuItem Text="Tickets" NavigateUrl="tickets.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Promotions"  NavigateUrl="promotions.aspx"></asp:MenuItem>
-                    </items>
-                </asp:menu>
-            </div>
-        </div>
-
-        <div class="xlarge text-white right margin-large padding-large">
-            <p>Follow us!</p>
-            <div>
-                <p class="large">
-                    Alicante, ES<br>
-                    Phone: +34 123 456 789<br>
-                    E-mail: <a class="text-white" href="mailto:xadama@xadama.com">xadama@xadama.com</a></p>
-            </div>
-             <asp:ImageButton ID="Image14" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/Media/Social/facebook.png" />
-             <asp:ImageButton ID="Image15" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/Media/Social/twitter.png" />
-             <asp:ImageButton ID="Image16" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/Media/Social/instagram.png" />
-             <asp:ImageButton ID="Image17" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/Media/Social/snapchat.png" />
-             <asp:ImageButton ID="Image18" runat="server" CssClass="logo-small hover-opacity" ImageUrl="~/Media/Social/youtube.png" />
         </div>
     </div>
     <div class="sub-footer">
