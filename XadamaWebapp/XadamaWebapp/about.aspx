@@ -117,7 +117,7 @@
 
     <!--How to arrive-->
     <div class="backimgarrive display-container">
-        <div class="display-middle no-opacity">
+        <div class="display-middle">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="HOW TO ARRIVE"></asp:Label>
         </div>
     </div>
