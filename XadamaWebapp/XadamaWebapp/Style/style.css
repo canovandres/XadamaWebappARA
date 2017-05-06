@@ -114,6 +114,10 @@ body, html, form {
     margin-top: 18px !important;
 }
 
+.margin-top-large {
+    margin-top: 46px !important;
+}
+
 .margin-bottom{
     margin-bottom: 18px !important;
 }
@@ -205,10 +209,6 @@ body, html, form {
 .darkblue, .hover-darkblue:hover {
     color: #fff !important;
     background-color: #1B253B !important;
-}
-
-.lightblue {
-
 }
 
 .grey {
@@ -380,7 +380,7 @@ video {
     overflow: hidden;
 }
 
-.slide {
+.slide-carr {
     width: 33.33333%;
     height: 380px;
     float: left;
@@ -407,7 +407,7 @@ video {
     transition: top ease-out 0.8s;
 }
 
-.slide:hover .show-text {
+.slide-carr:hover .show-text {
     top: 245px;
 }
 
