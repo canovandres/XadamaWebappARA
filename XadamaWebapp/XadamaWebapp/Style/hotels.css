@@ -1,120 +1,185 @@
-﻿
-.imgbeg {
-    width: 100%;
-    height: 450px;
-    box-sizing: content-box;
-}
-
-.zone {
-    width: 30%;
-    height: 200px;
-    float: left;
-    box-sizing: content-box;
-}
-
-.zone-aux {
-    width: 40%;
-    height: 200px;
-    float: right;
-    box-sizing: content-box;
-}
-
-.zone-image {
-    width: 97%;
-    height: 96%;
-}
-
-.buttons-zone {
-    
-    height: 200px;
+﻿.hotel-name {
+    margin: 80px 30px 30px 30px;
     position: relative;
 }
 
-.botonimagen{
-    display: inline-block;
-    outline: 0;
-    padding: 12px 24px;
-    margin-right: 12px;
-    vertical-align: middle;
-    text-decoration: none;
-    border: none;
-    color: inherit;
-    /*background-color: rgba(27, 37, 59, 0.8);*/
-    text-align: center;
+.hotel-stars {
+    margin: 20px 30px 30px 30px;
+    position: relative;
+}
+
+.hotel-image-small {
+    height: auto;
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: height 1s, width 1s, box-shadow 1s;
+}
+
+.hotel-image-small:hover {
+    height: auto;
+    width: 28%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 12px 30px 0 rgba(0, 0, 0, 0.49);
     cursor: pointer;
-    border-radius: 50% 50%;
-    font-size: 32px !important;
+    transition: height 1s, width 1s, box-shadow 1s;
 }
 
-.show-text1 {
-    position: absolute;
-    width: 45%;
-    height: 10%;
-    bottom: 0;
-    padding: 1% 2%;
-    text-align: center;
+.margin-top-button {
+    position: relative;
+    margin-top: 10%;
 }
 
-.button-aux{
-     background-color: #F26101;
+.europe {
+    color: #fff !important;
+    background-color: rgb(3, 56, 80) !important;
 }
 
-.button-aux:hover{
-    background-color: rgba(150, 76, 6, 0.80);
+.asia {
+    color: #fff !important;
+    background-color: rgb(144, 81, 6) !important;
 }
 
+.africa {
+    color: #fff !important;
+    background-color: rgb(13, 101, 29) !important;
+}
 
-.backimg4, .backimg5, .backimg6, .backimg7, .backimg8 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+.america {
+    color: #fff !important;
+    background-color: rgb(117, 8, 8) !important;
+}
+
+.oceania {
+    color: #fff !important;
+    background-color: rgb(10, 19, 99) !important;
+}
+
+.background {
+    background-color: #000;
     background-size: cover;
-    background-color: #000000;
-    opacity: 0.95;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+    height: 130vh;
+    position: fixed;
+    width: 100%;
+    transform: translateY(30vh);
+    transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
 }
 
-.backimg4 {
-    background-image: url("/Media/Hotels/europeanpalace6.jpg");
-    min-height: 400px;
-}
-
-.backimg5 {
-    background-image: url("/Media/Hotels/asiangardens4.jpg");
-    min-height: 400px;
-}
-
-.backimg6 {
-    background-image: url("/Media/Hotels/africansavannah4.jpg");
-    min-height: 400px;
-}
-
-.backimg7 {
-    background-image: url("/Media/Hotels/americanluxury5.tif");
-    min-height: 400px;
-}
-
-.backimg8 {
-    background-image: url("/Media/Hotels/oceanicparadise2.jpg");
-    min-height: 400px;
-}
-
-
-.border-style {
-    border-style: solid;
-    border-width: 5px;
-}
-
-.display-middle-sub-aux{
+.background:before {
+    content: "";
     position: absolute;
-    top: 64%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.margin-small-aux{
-    margin: 0.5% 0.5% !important;
+.background:first-child {
+    background-image: url(/Media/Hotels/americanluxury.jpg);
+    transform: translateY(-15vh);
 }
 
+.background:first-child .content-wrapper {
+    transform: translateY(15vh);
+}
 
+.background:nth-child(2) {
+    background-image: url(/Media/Hotels/europeanpalace6-opacity.png);
+}
+
+.background:nth-child(3) {
+    background-image: url(/Media/Hotels/asiangardens4-opacity.png);
+}
+
+.background:nth-child(4) {
+    background-image: url(/Media/Hotels/africansavannah4-opacity.png);
+}
+
+.background:nth-child(5) {
+    background-image: url(/Media/Hotels/americanluxury5-opacity.png);
+}
+
+.background:nth-child(6) {
+    background-image: url(/Media/Hotels/oceanicparadise2-opacity.png);
+}
+
+.background:nth-child(1) {
+    z-index: 6;
+}
+
+.background:nth-child(2) {
+    z-index: 5;
+}
+
+.background:nth-child(3) {
+    z-index: 4;
+}
+
+.background:nth-child(4) {
+    z-index: 3;
+}
+
+.background:nth-child(5) {
+    z-index: 2;
+}
+
+.background:nth-child(6) {
+    z-index: 1;
+}
+
+.content-wrapper {
+    transform: translateY(40vh);
+    will-change: transform;
+    backface-visibility: hidden;
+    transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+}
+
+.content-tittle {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-flow: column nowrap;
+}
+
+.background.up-scroll {
+    transform: translate3d(0, -15vh, 0);
+}
+
+.background.up-scroll .content-wrapper {
+    transform: translateY(15vh);
+}
+
+.background.up-scroll + .background {
+    transform: translate3d(0, 30vh, 0);
+}
+
+.background.up-scroll + .background .content-wrapper {
+    transform: translateY(30vh);
+}
+
+.background.down-scroll {
+    transform: translate3d(0, -130vh, 0);
+}
+
+.background.down-scroll .content-wrapper {
+    transform: translateY(40vh);
+}
+
+.background.down-scroll + .background:not(.down-scroll) {
+    transform: translate3d(0, -15vh, 0);
+}
+
+.background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+    transform: translateY(15vh);
+}
+
+.padding-top-128 {
+    padding-top: 128px;
+}
