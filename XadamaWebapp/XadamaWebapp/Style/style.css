@@ -380,7 +380,7 @@ video {
     overflow: hidden;
 }
 
-.slide-carr {
+.slide {
     width: 33.33333%;
     height: 380px;
     float: left;
@@ -407,7 +407,7 @@ video {
     transition: top ease-out 0.8s;
 }
 
-.slide-carr:hover .show-text {
+.slide:hover .show-text {
     top: 245px;
 }
 
