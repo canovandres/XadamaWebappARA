@@ -30,27 +30,27 @@
 
 .europe {
     color: #fff !important;
-    background-color: rgb(3, 56, 80) !important;
+    background-color: rgba(3, 56, 80, 0.7) !important;
 }
 
 .asia {
     color: #fff !important;
-    background-color: rgb(144, 81, 6) !important;
+    background-color: rgba(144, 81, 6, 0.7) !important;
 }
 
 .africa {
     color: #fff !important;
-    background-color: rgb(13, 101, 29) !important;
+    background-color: rgba(13, 101, 29, 0.7) !important;
 }
 
 .america {
     color: #fff !important;
-    background-color: rgb(117, 8, 8) !important;
+    background-color: rgba(117, 8, 8, 0.7) !important;
 }
 
 .oceania {
     color: #fff !important;
-    background-color: rgb(10, 19, 99) !important;
+    background-color: rgba(10, 19, 99, 0.7) !important;
 }
 
 .background {

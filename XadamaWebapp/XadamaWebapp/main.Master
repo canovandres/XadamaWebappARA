@@ -91,7 +91,7 @@
 
     <div class="container center footer padding-64" id="footer-bar">
         <div class="row-padding center">
-            <div class="col half">
+            <div class="col three-quarter">
                 <div class="left">
                     <asp:Label runat="server" Text="Xadama" CssClass="label text-white large bold container"></asp:Label>
                     <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
@@ -154,7 +154,7 @@
                 </div>
             </div>
 
-            <div class="xlarge text-white col half">
+            <div class="xlarge text-white col quarter">
                 <p>Follow us!</p>
                 <div>
                     <p class="large">
