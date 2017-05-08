@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, Helvetica, Verdana, sans-serif;
 }
 
 body, html, form {
@@ -114,6 +114,10 @@ body, html, form {
     margin-top: 18px !important;
 }
 
+.margin-top-large {
+    margin-top: 46px !important;
+}
+
 .margin-bottom{
     margin-bottom: 18px !important;
 }
@@ -205,10 +209,6 @@ body, html, form {
 .darkblue, .hover-darkblue:hover {
     color: #fff !important;
     background-color: #1B253B !important;
-}
-
-.lightblue {
-
 }
 
 .grey {
