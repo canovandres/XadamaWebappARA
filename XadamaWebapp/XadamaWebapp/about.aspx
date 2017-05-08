@@ -67,6 +67,7 @@
 
     <div class="content container center padding-64">
         <p class="xxlarge">Social networks will be displayed here</p>
+        <a class="twitter-timeline" data-tweet-limit="5" href="https://twitter.com/XadamaPark">Tweets by XadamaPark</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
     <!--Contact Form-->
