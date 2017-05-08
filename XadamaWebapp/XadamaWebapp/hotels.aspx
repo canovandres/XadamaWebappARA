@@ -7,17 +7,69 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
     <script type="text/javascript">
         $(window).load(function () {
-            $("#europe1").click(function () {
+            $("#ContentPlaceHolder1_europe1").click(function () {
                 $('.background:nth-child(2)').css({ 'background-image': 'url("/Media/Hotels/europeanpalace5-opacity.png")' });
             });
-            $("#europe2").click(function () {
+            $("#ContentPlaceHolder1_europe2").click(function () {
                 $('.background:nth-child(2)').css({ 'background-image': 'url("/Media/Hotels/europeanpalace3-opacity.png")' });
             });
-            $("#europe3").click(function () {
+            $("#ContentPlaceHolder1_europe3").click(function () {
                 $('.background:nth-child(2)').css({ 'background-image': 'url("/Media/Hotels/europeanpalace6-opacity.png")' });
             });
-            $("#europe4").click(function () {
+            $("#ContentPlaceHolder1_europe4").click(function () {
                 $('.background:nth-child(2)').css({ 'background-image': 'url("/Media/Hotels/europeanpalace7-opacity.png")' });
+            });
+
+            $("#ContentPlaceHolder1_asia1").click(function () {
+                $('.background:nth-child(3)').css({ 'background-image': 'url("/Media/Hotels/asiangardens4-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_asia2").click(function () {
+                $('.background:nth-child(3)').css({ 'background-image': 'url("/Media/Hotels/asiangardens5-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_asia3").click(function () {
+                $('.background:nth-child(3)').css({ 'background-image': 'url("/Media/Hotels/asiangardens6-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_asia4").click(function () {
+                $('.background:nth-child(3)').css({ 'background-image': 'url("/Media/Hotels/asiangardens7-opacity.png")' });
+            });
+
+            $("#ContentPlaceHolder1_america1").click(function () {
+                $('.background:nth-child(5)').css({ 'background-image': 'url("/Media/Hotels/americanluxury4-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_america2").click(function () {
+                $('.background:nth-child(5)').css({ 'background-image': 'url("/Media/Hotels/americanluxury2-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_america3").click(function () {
+                $('.background:nth-child(5)').css({ 'background-image': 'url("/Media/Hotels/americanluxury3-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_america4").click(function () {
+                $('.background:nth-child(5)').css({ 'background-image': 'url("/Media/Hotels/americanluxury5-opacity.png")' });
+            });
+
+            $("#ContentPlaceHolder1_oceania1").click(function () {
+                $('.background:nth-child(6)').css({ 'background-image': 'url("/Media/Hotels/oceanicparadise2-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_oceania2").click(function () {
+                $('.background:nth-child(6)').css({ 'background-image': 'url("/Media/Hotels/oceanicparadise3-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_oceania3").click(function () {
+                $('.background:nth-child(6)').css({ 'background-image': 'url("/Media/Hotels/oceanicparadise4-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_oceania4").click(function () {
+                $('.background:nth-child(6)').css({ 'background-image': 'url("/Media/Hotels/oceanicparadise5-opacity.png")' });
+            });
+
+            $("#ContentPlaceHolder1_africa1").click(function () {
+                $('.background:nth-child(4)').css({ 'background-image': 'url("/Media/Hotels/africansavannah4-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_africa2").click(function () {
+                $('.background:nth-child(4)').css({ 'background-image': 'url("/Media/Hotels/africansavannah2-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_africa3").click(function () {
+                $('.background:nth-child(4)').css({ 'background-image': 'url("/Media/Hotels/africansavannah3-opacity.png")' });
+            });
+            $("#ContentPlaceHolder1_africa4").click(function () {
+                $('.background:nth-child(4)').css({ 'background-image': 'url("/Media/Hotels/africansavannah4-opacity.png")' });
             });
         });
     </script>
@@ -163,10 +215,10 @@
                     restaurant, as well as 3 distinctive bars.</p>
     
                 <div class="col three-quarter">
-                    <asp:Image ID="Image1" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens.jpg" />
-                    <asp:Image ID="Image2" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens5.jpg" />
-                    <asp:Image ID="Image10" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens6.jpg" />
-                    <asp:Image ID="Image11" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens7.jpg" />
+                    <asp:Image ID="asia1" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens4.jpg" />
+                    <asp:Image ID="asia2" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens5.jpg" />
+                    <asp:Image ID="asia3" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens6.jpg" />
+                    <asp:Image ID="asia4" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/asiangardens7.jpg" />
                 </div>
 
                 <div class="col quarter margin-top-button">
@@ -193,10 +245,10 @@
                     you wish for, out of your stay.</p>
     
                 <div class="col three-quarter">
-                        <asp:Image ID="Image14" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah.jpg" />
-                        <asp:Image ID="Image15" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah2.jpg" />
-                        <asp:Image ID="Image16" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah3.jpg" />
-                        <asp:Image ID="Image17" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah5.jpg" />
+                        <asp:Image ID="africa1" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah4.jpg" />
+                        <asp:Image ID="africa2" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah2.jpg" />
+                        <asp:Image ID="africa3" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah3.jpg" />
+                        <asp:Image ID="africa4" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/africansavannah5.jpg" />
                 </div>
 
                 <div class="col quarter margin-top-button">
@@ -222,10 +274,10 @@
                     gallery are open for viewing.</p>
     
                 <div class="col three-quarter">
-                        <asp:Image ID="Image3" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury.jpg" />
-                        <asp:Image ID="Image4" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury2.jpg" />
-                        <asp:Image ID="Image5" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury3.jpg" />
-                        <asp:Image ID="Image6" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury5.tif" />
+                        <asp:Image ID="america1" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury4.tif" />
+                        <asp:Image ID="america2" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury2.jpg" />
+                        <asp:Image ID="america3" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury3.jpg" />
+                        <asp:Image ID="america4" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/americanluxury5.tif" />
                 </div>
 
                 <div class="col quarter margin-top-button">
@@ -251,10 +303,10 @@
                     with a private bathroom equipped with either a bath or shower.</p>
     
                 <div class="col three-quarter">
-                        <asp:Image ID="Image13" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise.jpg" />
-                        <asp:Image ID="Image19" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise3.jpg" />
-                        <asp:Image ID="Image20" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise4.jpg" />
-                        <asp:Image ID="Image21" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise5.jpg" />
+                        <asp:Image ID="oceania1" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise2.jpg" />
+                        <asp:Image ID="oceania2" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise3.jpg" />
+                        <asp:Image ID="oceania3" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise4.jpg" />
+                        <asp:Image ID="oceania4" runat="server" CssClass="hotel-image-small" ImageUrl="~/Media/Hotels/oceanicparadise5.jpg" />
                 </div>
 
                 <div class="col quarter margin-top-button">

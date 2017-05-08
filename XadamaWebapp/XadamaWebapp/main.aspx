@@ -11,12 +11,12 @@
         $(document).ready(function () {
             window.onscroll = function () {
                 if (window.pageYOffset >= 100) {
-                    $('#buyButton').removeClass('buy-button');
-                    $('#buyButton').addClass('buy-button-small');
+                    $('#ContentPlaceHolder1_buyButton').removeClass('buy-button');
+                    $('#ContentPlaceHolder1_buyButton').addClass('buy-button-small');
                 }
                 else {
-                    $('#buyButton').removeClass('buy-button-small');
-                    $('#buyButton').addClass('buy-button');
+                    $('#ContentPlaceHolder1_buyButton').removeClass('buy-button-small');
+                    $('#ContentPlaceHolder1_buyButton').addClass('buy-button');
                 }
 
                 if (window.pageYOffset >= 1850) {

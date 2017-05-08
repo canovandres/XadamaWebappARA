@@ -19,6 +19,7 @@ namespace XadamaWebapp
         {
             string conString;
             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
+            conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
 
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
