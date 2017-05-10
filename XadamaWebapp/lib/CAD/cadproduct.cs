@@ -117,5 +117,27 @@ namespace lib.CAD
                 con.Close();
             }
         }
+
+        public DataSet showTypeProducts(String type)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select* from product where type= '" + type + "' ", con);
+                da.Fill(bdvirtual, "producto");
+                return bdvirtual;
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return bdvirtual;
+        }
     }
 }

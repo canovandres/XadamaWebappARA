@@ -37,13 +37,13 @@
             <ItemTemplate>
                 <div>
                     <div>
-                        <asp:Label ID="Label1" runat="server" Text="<%#Eval("name") %>"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="<%#Eval("producto.name") %>"></asp:Label>
                     </div>
                     <div>
-                        <asp:Image ID="Image1" runat="server" ImageUrl="<%#Eval("image") %>" />
+                        <asp:Image ID="Image1" runat="server" ImageUrl="<%#Eval("producto.image") %>" />
                     </div>
                     <div>
-                        <asp:TextBox ID="TextBox1" runat="server" Text="<%#Eval("description") %>"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text="<%#Eval("producto.description") %>"></asp:TextBox>
                     </div>
                     <div>
                         <asp:LinkButton ID="LinkButton1" Text="See more!" runat="server"></asp:LinkButton>

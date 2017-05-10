@@ -111,4 +111,30 @@
             <p style="margin: 15px">❯</p>
         </div>
     </div>
+
+    <div>
+        <asp:ListView ID="ListView1" runat="server">
+            <ItemTemplate>
+                <div>
+                    <div>
+                        <asp:Label ID="Label1" runat="server" Text="<%#Eval("name") %>"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Image ID="Image1" runat="server" ImageUrl="<%#Eval("image") %>" />
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox1" runat="server" Text="<%#Eval("description") %>"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="LinkButton1" Text="See more!" runat="server"></asp:LinkButton>
+                    </div>
+                </div>
+            </ItemTemplate>
+
+            <GroupTemplate>
+                <div id="itemPlaceholder">
+                </div>
+            </GroupTemplate>
+        </asp:ListView>
+    </div>
 </asp:Content>
