@@ -4,7 +4,6 @@
 
 <html>
 <head runat="server">
-    <title>Xadama</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
@@ -42,7 +41,9 @@
     <!--To Top Button-->
     <div class="to-top front blue" id="toTop">
         <a href="#nav-menu">TOP ↑</a>
-    </div>
+
+    </div><iframe src='https://webchat.botframework.com/embed/xadama_assistant?s=cuamQVM-CKY.cwA.5V8.42O5pmBf73ZjZUeOSN5DT5wyfXS-1J5jJFMux7j7e78' class="chat front"></iframe>
+    
     <!--Top menu-->
     <div class="top menu front">
         <div class="bar front" id="nav-menu">
@@ -171,7 +172,7 @@
         </div>
     </div>
     <div class="sub-footer">
-        <asp:ImageButton ID="ImageButton2" runat="server" CssClass="logo-small margin-large left" ImageUrl="~/Media/Logo/xadamaLogoSmall.png" />
+        <asp:ImageButton ID="ImageButton2" runat="server" CssClass="logo-small margin-large left" ImageUrl="~/Media/Logo/xadamaLogo.png" />
         <p style="float: left; top: 10px">© Información legal 2017. Xadama. Todos los derechos reservados.</p>
     </div>
 </form>

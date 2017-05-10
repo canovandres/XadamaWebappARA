@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Client : User
+    public class Client : User
     {
         public String email { get; set; }
         public String password { get; set; }
