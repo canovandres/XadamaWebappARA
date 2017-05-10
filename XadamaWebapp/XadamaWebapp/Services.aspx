@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content0" ContentPlaceHolderID="head" runat="server">
     <title>Xadama Services</title>
+    <link rel="stylesheet" type="text/css" href="Style/services.css" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -31,7 +32,79 @@
     <div id="ListViewContainer" class="display-border padding-64">
         THIS BOX WILL CONTAIN A LIST VIEW DEPENDING ON WHAT OPTIONS HAS THE USER SELECTED IN THE PREVIOUS DROPDOWN LISTS, FOR EXAMPLE IF -- IS SELECTED IN BOTH, THE RESTAURANTS, RIDES AND SHOWS OF EVERY ZONE WILL BE SHOWN, IF ASIA AND RIDES WERE SELECTED THEN THE PAGE WILL SHOW THE RIDES WHICH BELONG TO THE ASIAN ZONE.
         EACH ITEM OF THE LIST VIEW WILL REPRESENT A SERVICE (RESTAURANT,RIDE OR SHOW) OF A ZONE CONTAIN INFORMATION ABOUT IT AND THE ITEMS REPRESENTING A RESTAURANT WILL HAVE A LINK TO THE PAGE OF THE RESTAURANT.
-        <asp:ListView ID="ListView1" runat="server"></asp:ListView>
+        <asp:ListView ID="ListView1" runat="server" GroupItemCount="3">
+
+            <ItemTemplate>
+                <div>
+                    <div>
+                        <asp:Label ID="Label1" runat="server" Text="<%#Eval("name") %>"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Image ID="Image1" runat="server" ImageUrl="<%#Eval("image") %>" />
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox1" runat="server" Text="<%#Eval("description") %>"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="LinkButton1" Text="See more!" runat="server"></asp:LinkButton>
+                    </div>
+                </div>
+            </ItemTemplate>
+
+            <GroupTemplate>
+                <div id="itemPlaceholder">
+                </div>
+            </GroupTemplate>
+            
+        </asp:ListView>
+            
+        <asp:ListView ID="ListView2" runat="server" GroupItemCount="3">
+             <ItemTemplate>
+                <div>
+                    <div>
+                        <asp:Label ID="Label1" runat="server" Text="<%#Eval("name") %>"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Image ID="Image1" runat="server" ImageUrl="<%#Eval("image") %>" />
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox1" runat="server" Text="<%#Eval("description") %>"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="LinkButton1" Text="See more!" runat="server"></asp:LinkButton>
+                    </div>
+                </div>
+            </ItemTemplate>
+
+            <GroupTemplate>
+                <div id="itemPlaceholder">
+                </div>
+            </GroupTemplate>
+        </asp:ListView>
+
+        <asp:ListView ID="ListView3" runat="server" GroupItemCount="3">
+             <ItemTemplate>
+                <div>
+                    <div>
+                        <asp:Label ID="Label1" runat="server" Text="<%#Eval("name") %>"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Image ID="Image1" runat="server" ImageUrl="<%#Eval("image") %>" />
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox1" runat="server" Text="<%#Eval("description") %>"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="LinkButton1" Text="See more!" runat="server"></asp:LinkButton>
+                    </div>
+                </div>
+            </ItemTemplate>
+
+            <GroupTemplate>
+                <div id="itemPlaceholder">
+                </div>
+            </GroupTemplate>
+        </asp:ListView>
     </div>
 
 </asp:Content>

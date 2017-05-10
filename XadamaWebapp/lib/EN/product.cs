@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Product
+    public class Product
     {
         public String cod { get; set; }
         public String name { get; set; }
@@ -22,15 +22,15 @@ namespace lib.EN
             this.stock = stock;
         }
 
-        void Create(String dbname)//calls the cadproduct method to create a new product in the database
+        void Create()//calls the cadproduct method to create a new product in the database
         {
-            CAD.CADProduct c = new CAD.CADProduct(dbname);
+            CAD.CADProduct c = new CAD.CADProduct();
             c.Create(this);
         }
 
         void Read(String dbname, String cod)//calls the cadproduct method to read a product with the same id as the actual one
         {
-            CAD.CADProduct c = new CAD.CADProduct(dbname);
+            CAD.CADProduct c = new CAD.CADProduct();
             Product p = c.Read(cod);
             cod = p.cod;
             name = p.name;
@@ -41,13 +41,13 @@ namespace lib.EN
 
         void Update(String dbname)//updates the product with the same id as the actual one by calling the cadproduct's appropiate method
         {
-            CAD.CADProduct c = new CAD.CADProduct(dbname);
+            CAD.CADProduct c = new CAD.CADProduct();
             c.Update(this);
         }
 
         void Delete(String dbname, String cod)//deletes the product by calling cadproduct
         {
-            CAD.CADProduct c = new CAD.CADProduct(dbname);
+            CAD.CADProduct c = new CAD.CADProduct();
             c.Delete(cod);
         }
 
