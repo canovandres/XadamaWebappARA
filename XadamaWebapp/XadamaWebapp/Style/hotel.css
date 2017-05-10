@@ -1,0 +1,53 @@
+﻿.slideshow {
+    left: 50%;
+    right: 50%;
+    width: 60%;
+    height: 450px;
+}
+
+.hotel-tittle {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(3, 56, 80);
+    height: 300px;
+    border-radius: 100px / 50px;
+    margin-top: -100px;
+}
+
+.rating-star {
+    font-size: 0pt;
+    width: 20px;
+    height: 18px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+.filled-rating-star {
+    background-image: url(/Media/Icons/FilledStar.png);
+}
+
+.empty-rating-star {
+    background-image: url(/Media/Icons/EmptyStar.png);
+}
+
+.text-review {
+    width: 100%;
+}
+
+.field {
+    border: solid 1px #1B253B;
+    height: 35px;
+    width: 60%;
+    padding: 0 5px;
+    font-size: 15px;
+    color: #1B253B;
+    font-weight: 300;
+    box-sizing: border-box;
+    line-height: normal;
+    margin: 0;
+    outline: 0;
+    border-radius: 0;
+}

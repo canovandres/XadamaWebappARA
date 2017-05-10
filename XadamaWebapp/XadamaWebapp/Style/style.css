@@ -114,6 +114,10 @@ body, html, form {
     margin-top: 18px !important;
 }
 
+.margin-top-large {
+    margin-top: 46px !important;
+}
+
 .margin-bottom{
     margin-bottom: 18px !important;
 }
@@ -205,10 +209,6 @@ body, html, form {
 .darkblue, .hover-darkblue:hover {
     color: #fff !important;
     background-color: #1B253B !important;
-}
-
-.lightblue {
-
 }
 
 .grey {
@@ -584,19 +584,19 @@ video {
 
 /*Position*/
 
-.top{
+.top {
     top: 0;
 }
 
-.right{
+.right {
     float: right !important;
 }
 
-.left{
+.left {
     float: left !important;
 }
 
-.display-middle{
+.display-middle {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -605,7 +605,7 @@ video {
     -webkit-transform: translate(-50%,-50%);
 }
 
-.display-middle-sub{
+.display-middle-sub {
     position: absolute;
     top: 58%;
     left: 50%;
@@ -618,40 +618,40 @@ video {
     z-index: 100;
 }
 
-.display-container{
+.display-container {
     position: relative;
 }
 
-.content{
+.content {
     max-width: 85%;
     margin: auto;
 }
 
-.container{
+.container {
     padding: 0px 16px;
 }
 
-.row-padding{
+.row-padding {
     padding: 0 8px;
 }
 
 .container:after, .container:before, .row:after, .row:before, .row-padding:after, .row-padding:before, .bar:before, .bar:after, 
-.slider-container:after, .slider-container:before{
+.slider-container:after, .slider-container:before {
     content: "";
     display: table;
     clear: both;
 }
 
-.col{
+.col {
     float: left;
     width: 100%;
 }
 
-.three-quarter{
+.three-quarter {
     width: 74.99999% !important;
 }
 
-.half{
+.half {
     width: 49.99999% !important;
 }
 
@@ -659,13 +659,17 @@ video {
     width: 33.33333%;
 }
 
-.quarter{
+.quarter {
     width: 24.99999%;
+}
+
+.fifth {
+    width: 19.99999%;
 }
 
 /*Footer*/
 
-.footer{
+.footer {
     background-color: #1B2630;
 }
 
@@ -679,7 +683,7 @@ video {
      text-decoration: underline;
 }
 
-.icon-small{
+.icon-small {
     height: 40px;
     width: auto;
 	top: 50%;
