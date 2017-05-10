@@ -1,8 +1,7 @@
 ﻿body {
 }
 
-
-input[type="date"] {
+.Calendar {
     color: #95a5a6;
     font-family: "Helvetica", arial, sans-serif;
     font-size: 18px;
@@ -13,7 +12,7 @@ input[type="date"] {
     visibility: visible !important;
 }
 
-input[type="date"], focus {
+.Calendar {
     color: #1B253B;
     box-shadow: none;
     -webkit-box-shadow: none;
