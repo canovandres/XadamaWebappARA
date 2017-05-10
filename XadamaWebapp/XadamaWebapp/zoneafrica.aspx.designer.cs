@@ -10,7 +10,7 @@
 namespace XadamaWebapp {
     
     
-    public partial class zoneeurope {
+    public partial class zoneafrica {
         
         /// <summary>
         /// Control Imageeur.

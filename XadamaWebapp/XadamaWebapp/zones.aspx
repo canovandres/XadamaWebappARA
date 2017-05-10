@@ -1,61 +1,48 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="zoneeurope.aspx.cs" Inherits="XadamaWebapp.zoneeurope" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="zones.aspx.cs" Inherits="XadamaWebapp.zones" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
-    <title>Xadama Europe</title>
+    <title>Xadama Zones</title>
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
-    <link rel="stylesheet" type="text/css" href="Style/zoneeurope.css" />
+    <link rel="stylesheet" type="text/css" href="Style/zones.css" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="display-container">
-         <asp:Image ID="Imageeur" runat="server" CssClass="imgbeg" ImageUrl="~/Media/Zones/europe.jpg" />
-        <div class="display-middle no-opacity">
-        <asp:label runat="server" CssClass="center padding-medium blue xxlarge wide" text="EUROPE"></asp:label>
-        </div>
+
+    <div class="display-container padding-128-z">
+         <asp:Image ID="Imageeur" runat="server" CssClass="imgbeg" ImageUrl="~/Media/Others/title_zones.jpg" />
     </div>
-
-    <div class="content container padding-32">
-        <p class="center large text-darkblue margin-bottom-large bold">Inspired by the most enchanting locations on the old continent,
-             this charming fishing village warmly welcomes you to the park. Here you will find
-             heart-stopping rides as well as quieter areas to relax in and enjoy together as a family.</p>
-        <div class="buttons-zone">
-           <div class="zone">
-                <asp:Image ID="Image10" runat="server" CssClass="zone-image" ImageUrl="~/Media/Zones/restaurantim.jpg" />
-                <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Restaurants" CssClass="button-aux botonimagen" />
-                </div>
-            </div>
-
-            <div class="zone">
-                <asp:Image ID="Image11" runat="server" CssClass="zone-image" ImageUrl="~/Media/Zones/showim.jpeg" />
-                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Shows" CssClass="button-aux botonimagen" />
-                </div>
-            </div>
     
+    <div class="content-1 container padding-32 padding-ame">
+        <div class="zone">
+             <asp:ImageButton ID="Image1" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapamericabueno.png" />
         </div>
-
-       <div class="buttons-zone">
-           <div class="zone">
-                <asp:Image ID="Image1" runat="server" CssClass="zone-image" ImageUrl="~/Media/Rides/Europe/EuropeanCastle.jpeg" />
-                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Rides" CssClass="button-aux botonimagen" />
-                </div>
+         <div class="zone-4">
+            <div class="zone-5">
+                <asp:ImageButton ID="ImageButton5" runat="server" CssClass="imgeur-1" ImageUrl="~/Media/Others/mapasiabueno1.png" />
+            </div>
+            <div class="zone-6">
+                <asp:ImageButton ID="ImageButton6" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapaoceaniabueno.png" />
             </div>
 
-            <div class="zone">
-                <asp:Image ID="Image2" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/americanluxury3.jpg" />
-                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Hotels" CssClass="button-aux botonimagen" />
-                </div>
-            </div>
-    
-        </div>
-          
-    </div>
 
-     <div class="slider-container margin-top">
+         </div>
+        <div class="zone-1">
+            <div class="zone-2">
+                <asp:ImageButton ID="ImageButton4" runat="server" CssClass="imgeur-1" ImageUrl="~/Media/Others/mapaeuropabueno1.png" />
+            </div>
+             <div class="zone-3">
+                <asp:ImageButton ID="ImageButton3" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapafricabueno.png" />
+            </div>
+        </div>
+        
+
+    </div> 
+
+     <div class="content container padding-32">
+        <p class="center xxlarge text-darkblue margin-bottom-large bold">CLICK ON THE ZONE YOU WANT TO VISIT!</p>
+     </div>
+
+    <div class="slider-container margin-top">
         <div class="swiper">
             <div class="slide hide">
                 <asp:Image ID="Image9" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Africa/AfricanPyramid.jpg" />
