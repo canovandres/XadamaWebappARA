@@ -66,11 +66,11 @@
                             <asp:MenuItem text="Africa" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
                         </asp:menuitem>
                         <asp:menuitem text="Hotels" NavigateUrl="hotels.aspx">
-                            <asp:MenuItem text="European Palace" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceanic Paradise" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="American Luxury" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Asian Gardens" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="African Savannah" NavigateUrl="hotels.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="European Palace" NavigateUrl="europeanpalace.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceanic Paradise" NavigateUrl="oceanicparadise.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="American Luxury" NavigateUrl="americanluxury.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asian Gardens" NavigateUrl="asiangardens.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="African Savannah" NavigateUrl="africansavannah.aspx"></asp:MenuItem>
                         </asp:menuitem>
                         <asp:MenuItem Text="Tickets" NavigateUrl="tickets.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Services" NavigateUrl="services.aspx">
@@ -119,11 +119,11 @@
                     <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
                         <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
                         <items>
-                            <asp:MenuItem text="European Palace" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceanic Paradise" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="American Luxury" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Asian Gardens" NavigateUrl="hotels.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="African Savannah" NavigateUrl="hotels.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="European Palace" NavigateUrl="europeanpalace.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceanic Paradise" NavigateUrl="oceanicparadise.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="American Luxury" NavigateUrl="americanluxury.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asian Gardens" NavigateUrl="asiangardens.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="African Savannah" NavigateUrl="africansavannah.aspx"></asp:MenuItem>
                         </items>
                     </asp:menu>
                 </div>
@@ -162,11 +162,11 @@
                         Phone: +34 123 456 789<br>
                         E-mail: <a class="text-white" href="mailto:xadama@xadama.com">xadama@xadama.com</a></p>
                 </div>
-                    <asp:ImageButton ID="Image14" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/facebook.png" />
-                    <asp:ImageButton ID="Image15" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/twitter.png" />
-                    <asp:ImageButton ID="Image16" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/instagram.png" />
-                    <asp:ImageButton ID="Image17" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/snapchat.png" />
-                    <asp:ImageButton ID="Image18" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/youtube.png" />
+                    <asp:ImageButton ID="Image14" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/facebook.png" PostBackUrl="http://www.facebook.es" />
+                    <asp:ImageButton ID="Image15" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/twitter.png" PostBackUrl="http://www.twitter.es/XadamaPark" />
+                    <asp:ImageButton ID="Image16" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/instagram.png" PostBackUrl="http://www.instagram.es" />
+                    <asp:ImageButton ID="Image17" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/snapchat.png" PostBackUrl="http://www.snapchat.es" />
+                    <asp:ImageButton ID="Image18" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/youtube.png" PostBackUrl="http://www.youtube.es" />
             </div>
         </div>
     </div>
