@@ -1,10 +1,13 @@
 ﻿<%@ Page Title="Xadama RESERVE Restaurant" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="bookrestaurant.aspx.cs" Inherits="XadamaWebapp.bookrestaurant" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="Style/bookrestaurant.css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="backimgr display-container">
         <div class="display-middle no-opacity">
             <asp:label runat="server" CssClass="center padding-medium black xxlarge wide" text="RESTAURANT"></asp:label>
@@ -29,13 +32,14 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" CssClass="margin-bottom center" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" CssClass="margin-bottom center text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
         </div>
         <div>
-            <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
+            <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <input type="date" required="required"/><br />
+            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender1" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox" />
         </div>
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" />
@@ -58,13 +62,14 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" CssClass="margin-bottom center" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" CssClass="margin-bottom center text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
         </div>
         <div>
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <input type="date" required="required"/><br />
+            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox1" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox1" />
         </div>
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" />
@@ -87,13 +92,14 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" CssClass="margin-bottom center" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" CssClass="margin-bottom center text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
         </div>
         <div>
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <input type="date" required="required"/><br />
+            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox2" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender3" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox2" />
         </div>
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" />
@@ -115,13 +121,14 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" CssClass="margin-bottom center" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" CssClass="margin-bottom center text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
         </div>
         <div>
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <input type="date" required="required"/><br />
+            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox3" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender4" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox3" />
         </div>
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" />
@@ -144,13 +151,14 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" CssClass="margin-bottom center" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" CssClass="margin-bottom center text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
         </div>
         <div>
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <input type="date" required="required"/><br />
+            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox4" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender5" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox4" />
         </div>
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" />
