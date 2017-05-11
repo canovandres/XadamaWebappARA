@@ -67,8 +67,7 @@
         </div>
     </div>
 
-    <div class="content container center padding-64">
-        <p class="xxlarge">Social networks will be displayed here</p>
+    <div class="content container center padding-64" align="center">
         <a class="twitter-timeline" data-tweet-limit="5" href="https://twitter.com/XadamaPark">Tweets by XadamaPark</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
@@ -78,11 +77,13 @@
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="CONTACT"></asp:Label>
         </div>
     </div>
-    
+
     <div class="form-content container padding-64">
         <div class="field">
-            <asp:Label runat="server" Text="Name: " CssClass="form-label"></asp:Label>
+            <asp:Label runat="server" Text="Name*: " CssClass="form-label"></asp:Label>
             <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="ValidatorName" runat="server" ControlToValidate="TextBoxName" CssClass="error-text" ErrorMessage="Name Required"></asp:RequiredFieldValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorName" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="First Surname: " CssClass="form-label"></asp:Label>
@@ -93,23 +94,41 @@
             <asp:TextBox ID="TextBox2Surname" runat="server"></asp:TextBox>
         </div>
         <div class="field half">
-            <asp:Label runat="server" Text="Email: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
+            <asp:Label runat="server" Text="Email*: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBoxEmail" runat="server" TextMode="Email"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="ValidatorEmail" runat="server" ControlToValidate="TextBoxEmail"  ErrorMessage="Email Required" CssClass="error-text"></asp:RequiredFieldValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="ValidatorEmail" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+            <asp:RegularExpressionValidator ID="ValidatorEmailRight" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Invalid Email" CssClass="error-text" ValidationExpression="\S+@+\S+\.\S+"></asp:RegularExpressionValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="ValidatorEmailRight" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="Phone: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPhone" runat="server" TextMode="Phone"></asp:TextBox>
         </div>
         <div class="field">
-            <asp:Label runat="server" Text="Type: " CssClass="form-label"></asp:Label>
-            <asp:DropDownList ID="DropDownType" runat="server"></asp:DropDownList>
+            <asp:Label runat="server" Text="Type*: " CssClass="form-label"></asp:Label>
+            <asp:DropDownList ID="DropDownType" runat="server">
+                <asp:ListItem Text="Get information" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Hotels Suggestion" Value="2"></asp:ListItem>
+                <asp:ListItem Text="Park Suggestion" Value="3"></asp:ListItem>
+                <asp:ListItem Text="Web Problem" Value="4"></asp:ListItem>
+            </asp:DropDownList>
         </div>
         <div class="field">
-            <asp:Label runat="server" Text="Message: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Label runat="server" Text="Message*: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBoxMessage" runat="server" TextMode="MultiLine" Height="50px" CssClass="message-box"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="ValidatorMessage" runat="server" ControlToValidate="TextBoxMessage" ErrorMessage="Message Required" CssClass="error-text"></asp:RequiredFieldValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="ValidatorMessage" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
         <div class="send-button">
-            <asp:Button runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="SEND"></asp:Button>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <fieldset style="border: none">
+                        <asp:Button runat="server" CssClass="center button padding-medium button-slice xxlarge wide right" text="SEND" OnClick="sendSuggestion"></asp:Button>
+                        <asp:Label runat="server" ID="sendLabel" Text="" CssClass="large orange margin-medium right padding-medium" Visible="False"></asp:Label>
+                    </fieldset>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
 

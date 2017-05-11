@@ -663,11 +663,11 @@ video {
 }
 
 .quarter {
-    width: 24.99999%;
+    width: 24.99999% !important;
 }
 
 .fifth {
-    width: 19.99999%;
+    width: 19.99999% !important;
 }
 
 /*Footer*/
