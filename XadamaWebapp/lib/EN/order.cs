@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Order
+    public class Order
     {
         private List<Product> _products = new List<Product>();
 

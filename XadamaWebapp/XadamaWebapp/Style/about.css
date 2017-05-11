@@ -60,7 +60,7 @@
     vertical-align: top;
 }
 
-.field input, .field select {
+.field input, .field select, .field textarea {
     border: solid 1px #1B253B;
     height: 45px;
     width: 100%;
@@ -73,10 +73,11 @@
     margin: 0;
     outline: 0;
     border-radius: 0;
+    background-color: #ffffff;
 }
 
 .send-button {
-    width: 200px;
+    width: 100%;
     float: right;
     margin: 20px;
 }
@@ -85,4 +86,23 @@
     height: 350px;
     min-width: 400px;
     max-width: 700px;
+}
+
+.form-error {
+    box-shadow: inset 0px 0px 20px -3px rgba(255,0,0,1);
+}
+
+.error-text {
+    color: #9d0000;
+}
+
+.ajax__validatorcallout_popup_table {
+    display: none !important;
+}
+
+.message-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 500px;
 }
