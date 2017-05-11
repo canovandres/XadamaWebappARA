@@ -26,6 +26,6 @@ namespace XadamaWebapp
             new AjaxControlToolkit.Slide("Media/Hotels/europeanpalace5.jpg", "", ""),
             new AjaxControlToolkit.Slide("Media/Hotels/europeanpalace6.jpg", "", ""),
             new AjaxControlToolkit.Slide("Media/Hotels/europeanpalace7.jpg", "", "")};
-    }
+        }
     }
 }
