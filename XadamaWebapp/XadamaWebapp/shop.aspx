@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <title>Xadama Shop</title>
     <link rel="stylesheet" type="text/css" href="Style/shop.css" />
+    <link rel="stylesheet" type="text/css" href="Style/services.css" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -51,7 +52,7 @@
         </div>
     </div>
 
-     <div class="slider-container margin-top">
+     <!-- <div class="slider-container margin-top">
         <div class="swiper">
             <div class="slide hide">
                 <asp:Image ID="Image9" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Africa/AfricanPyramid.jpg" />
@@ -110,30 +111,38 @@
         <div class="arrow arrow-next right front text-white xlarge">
             <p style="margin: 15px">❯</p>
         </div>
-    </div>
+    </div>-->
 
     <div>
-        <asp:ListView ID="ListView1" runat="server">
+        <asp:ListView ID="ListView1" runat="server" GroupItemCount="3">
+            <LayoutTemplate>
+                  <div align="center" class="margin-32 padding-64 display-border" runat="server"
+                        id="tblProducts">
+                        <div runat="server" id="groupPlaceholder">
+                        </div>
+                  </div>
+            </LayoutTemplate>
             <ItemTemplate>
-                <div>
+                <div class="quarter display-border col item-container text-orange uppercase large bold">
                     <div>
-                        <asp:Label ID="Label1" runat="server" Text="<%#Eval("name") %>"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
                     </div>
                     <div>
-                        <asp:Image ID="Image1" runat="server" ImageUrl="<%#Eval("image") %>" />
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("image") %>' />
                     </div>
                     <div>
-                        <asp:TextBox ID="TextBox1" runat="server" Text="<%#Eval("description") %>"></asp:TextBox>
+                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("description") %>'></asp:Label>
                     </div>
                     <div>
                         <asp:LinkButton ID="LinkButton1" Text="See more!" runat="server"></asp:LinkButton>
                     </div>
                 </div>
             </ItemTemplate>
-
-            <GroupTemplate>
-                <div id="itemPlaceholder">
-                </div>
+             <GroupTemplate>
+                    <div runat="server" id="productRow" class="margin-bottom" style="height:80px">
+                        <div runat="server" id="itemPlaceholder">
+                        </div>
+                    </div>
             </GroupTemplate>
         </asp:ListView>
     </div>

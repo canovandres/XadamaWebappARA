@@ -16,7 +16,8 @@ namespace XadamaWebapp
         protected void Page_Load(object sender, EventArgs e)
         {
             bdvirtual = p.showTypeProducts("Bags");
-            ListView1.DataSource = bdvirtual;
+            DataTable t = bdvirtual.Tables["producto"];
+            ListView1.DataSource = t;
             ListView1.DataBind();
 
         }

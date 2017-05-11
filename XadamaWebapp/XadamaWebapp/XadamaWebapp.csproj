@@ -189,6 +189,7 @@
     <Content Include="register.aspx" />
     <Content Include="shop.aspx" />
     <Content Include="Style\hotels.css" />
+    <Content Include="Style\shop.css" />
     <Content Include="Style\zoneeurope.css" />
     <Content Include="worker.aspx" />
     <Content Include="zoneeurope.aspx" />
