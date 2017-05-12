@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CAD\cadadmin.cs" />
     <Compile Include="CAD\cadbooking.cs" />
+    <Compile Include="CAD\cadreview.cs" />
     <Compile Include="CAD\cadclient.cs" />
     <Compile Include="CAD\cadmenu.cs" />
     <Compile Include="CAD\cadorder.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="CAD\cadworker.cs" />
     <Compile Include="EN\admin.cs" />
     <Compile Include="EN\booking.cs" />
+    <Compile Include="EN\review.cs" />
     <Compile Include="EN\client.cs" />
     <Compile Include="EN\menu.cs" />
     <Compile Include="EN\online.cs" />

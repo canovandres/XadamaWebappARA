@@ -30,7 +30,7 @@
                 <asp:Label runat="server" Text="From: "></asp:Label>
                 <asp:TextBox runat="server" ID="From" CssClass="field"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"
-                    TargetControlID="From" />
+                    TargetControlID="From" FirstDayOfWeek="Monday" PopupPosition="BottomRight" />
             </div>
             <div class="col fifth">
                 <asp:Label runat="server" Text="To: "></asp:Label>
@@ -58,7 +58,7 @@
                 </asp:DropDownList>
             </div>
             <div class="col fifth">
-                <asp:Button Text="BOOK NOW" runat="server" CssClass="button-slice large"></asp:Button>
+                <asp:Button Text="BOOK NOW" runat="server" CssClass="button-slice large" ValidateRequestMode="Disabled"></asp:Button>
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
         <div class="three-quarter">
             <div class="col half">
                 <asp:Label runat="server" Text="Name: "></asp:Label>
-                <asp:TextBox runat="server"></asp:TextBox>
+                <asp:TextBox id="TextBoxName" runat="server"></asp:TextBox>
             </div>
             <div class="col quarter">
                 <ajaxToolkit:Rating ID="ReviewRating" runat="server"
@@ -79,11 +79,14 @@
                     EmptyStarCssClass="empty-rating-star"></ajaxToolkit:Rating>
             </div>
             <div class="col quarter">
-                <asp:Button Text="SEND" runat="server" CssClass="button-slice large wide"></asp:Button>
+                <asp:Button Text="SEND" runat="server" CssClass="button-slice large wide" OnClick="sendReview"></asp:Button>
             </div>
             <div class="col padding-16">
-                <asp:TextBox runat="server" CssClass="text-review" TextMode="MultiLine" Height="100px"></asp:TextBox>
-                <asp:GridView ID="GridViewReviews" runat="server"></asp:GridView>
+                <asp:TextBox id="TextBoxReview" runat="server" CssClass="text-review" TextMode="MultiLine" Height="100px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ValidatorReview" runat="server" ControlToValidate="TextBoxReview" ErrorMessage="Review Required" CssClass="error-text"></asp:RequiredFieldValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="ValidatorReview" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+
+                <asp:GridView ID="GridViewReviews" runat="server" AllowPaging="True" PageSize="6"></asp:GridView>
             </div>
         </div>
     </div>

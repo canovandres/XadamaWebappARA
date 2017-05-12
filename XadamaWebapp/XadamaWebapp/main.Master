@@ -37,12 +37,6 @@
 
 <body>
 <form id="form1" runat="server">
-
-    <!--To Top Button-->
-    <div class="to-top front blue" id="toTop">
-        <a href="#nav-menu">TOP ↑</a>
-    </div>
-    
     <iframe src='https://webchat.botframework.com/embed/xadama_assistant?s=cuamQVM-CKY.cwA.5V8.42O5pmBf73ZjZUeOSN5DT5wyfXS-1J5jJFMux7j7e78' class="chat front"></iframe>
     
     <!--Top menu-->
@@ -101,7 +95,7 @@
                         <items>
                             <asp:menuitem text="Home" NavigateUrl="main.aspx"></asp:menuitem>
                             <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
-                            <asp:menuitem text="Contact" NavigateUrl="about.aspx"></asp:menuitem>
+                            <asp:menuitem text="Contact" NavigateUrl="about.aspx#contact"></asp:menuitem>
                         </items>
                     </asp:menu>
 
@@ -134,11 +128,11 @@
                     <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
                         <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
                         <items>
-                            <asp:MenuItem text="Europe" NavigateUrl="europe.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceania" NavigateUrl="africa.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="America" NavigateUrl="america.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Asia" NavigateUrl="asia.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Africa" NavigateUrl="africa.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Europe" NavigateUrl="zoneseurope.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="America" NavigateUrl="zonesamerica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asia" NavigateUrl="zonesasia.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Africa" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
                         </items>
                     </asp:menu>
                 </div>
