@@ -45,7 +45,7 @@ namespace lib.EN
             cadmenu.Create(this);
         }
 
-        public void read(String db, String cod)
+        public void read(String db)
         {
             CAD.CADMenu cadmenu = new CAD.CADMenu(db);
             Menu menu = (Menu)cadmenu.Read(cod);
@@ -60,16 +60,16 @@ namespace lib.EN
             this.restaurant = menu.restaurant;
         }
 
-        public void update(String db, EN.Ride ride)
+        public void update(String db)
         {
             CAD.CADMenu cadmenu = new CAD.CADMenu(db);
             cadmenu.Update(this);
         }
 
-        public void delete(String db, String cod)
+        public void delete(String db)
         {
             CAD.CADMenu cadmenu = new CAD.CADMenu(db);
-            cadmenu.Delete(this);
+            cadmenu.Delete(cod);
         }
     }
 }
