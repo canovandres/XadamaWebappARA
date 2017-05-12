@@ -49,6 +49,24 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.TextBox TextBoxName;
         
         /// <summary>
+        /// Control ValidatorName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorName;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
+        
+        /// <summary>
         /// Control TextBox1Surname.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,42 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
         
         /// <summary>
+        /// Control ValidatorEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorEmail;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender5;
+        
+        /// <summary>
+        /// Control ValidatorEmailRight.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidatorEmailRight;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender4;
+        
+        /// <summary>
         /// Control TextBoxPhone.
         /// </summary>
         /// <remarks>
@@ -94,102 +148,57 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.DropDownList DropDownType;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control TextBoxMessage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMessage;
         
         /// <summary>
-        /// Control Image9.
+        /// Control ValidatorMessage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image9;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorMessage;
         
         /// <summary>
-        /// Control Label3.
+        /// Control ValidatorCalloutExtender3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender3;
         
         /// <summary>
-        /// Control Image10.
+        /// Control UpdatePanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image10;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// Control Label12.
+        /// Control sendLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
+        protected global::System.Web.UI.WebControls.Label sendLabel;
         
         /// <summary>
-        /// Control Image11.
+        /// Control carousel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image11;
-        
-        /// <summary>
-        /// Control Label13.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
-        
-        /// <summary>
-        /// Control Image12.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image12;
-        
-        /// <summary>
-        /// Control Label10.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
-        
-        /// <summary>
-        /// Control Image13.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image13;
-        
-        /// <summary>
-        /// Control Label14.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label14;
+        protected global::XadamaWebapp.carousel carousel;
     }
 }

@@ -94,6 +94,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
         
         /// <summary>
+        /// Control TextBoxName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxName;
+        
+        /// <summary>
         /// Control ReviewRating.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,33 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.Rating ReviewRating;
+        
+        /// <summary>
+        /// Control TextBoxReview.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxReview;
+        
+        /// <summary>
+        /// Control ValidatorReview.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorReview;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender3;
         
         /// <summary>
         /// Control GridViewReviews.

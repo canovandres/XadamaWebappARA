@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="about.aspx.cs" Inherits="XadamaWebapp.about" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Src="~/carousel.ascx" TagPrefix="uc1" TagName="carousel" %>
+
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <title>Xadama About</title>
@@ -65,22 +67,23 @@
         </div>
     </div>
 
-    <div class="content container center padding-64">
-        <p class="xxlarge">Social networks will be displayed here</p>
+    <div class="content container center padding-64" align="center">
         <a class="twitter-timeline" data-tweet-limit="5" href="https://twitter.com/XadamaPark">Tweets by XadamaPark</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
     <!--Contact Form-->
-    <div class="backimgcontact display-container">
+    <div class="backimgcontact display-container" id="contact">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="CONTACT"></asp:Label>
         </div>
     </div>
-    
+
     <div class="form-content container padding-64">
         <div class="field">
-            <asp:Label runat="server" Text="Name: " CssClass="form-label"></asp:Label>
+            <asp:Label runat="server" Text="Name*: " CssClass="form-label"></asp:Label>
             <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="ValidatorName" runat="server" ControlToValidate="TextBoxName" CssClass="error-text" ErrorMessage="Name Required"></asp:RequiredFieldValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorName" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="First Surname: " CssClass="form-label"></asp:Label>
@@ -91,85 +94,44 @@
             <asp:TextBox ID="TextBox2Surname" runat="server"></asp:TextBox>
         </div>
         <div class="field half">
-            <asp:Label runat="server" Text="Email: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
+            <asp:Label runat="server" Text="Email*: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBoxEmail" runat="server" TextMode="Email"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="ValidatorEmail" runat="server" ControlToValidate="TextBoxEmail"  ErrorMessage="Email Required" CssClass="error-text"></asp:RequiredFieldValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="ValidatorEmail" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+            <asp:RegularExpressionValidator ID="ValidatorEmailRight" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Invalid Email" CssClass="error-text" ValidationExpression="\S+@+\S+\.\S+"></asp:RegularExpressionValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="ValidatorEmailRight" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="Phone: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPhone" runat="server" TextMode="Phone"></asp:TextBox>
         </div>
         <div class="field">
-            <asp:Label runat="server" Text="Type: " CssClass="form-label"></asp:Label>
-            <asp:DropDownList ID="DropDownType" runat="server"></asp:DropDownList>
+            <asp:Label runat="server" Text="Type*: " CssClass="form-label"></asp:Label>
+            <asp:DropDownList ID="DropDownType" runat="server">
+                <asp:ListItem Text="Get information" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Hotels Suggestion" Value="2"></asp:ListItem>
+                <asp:ListItem Text="Park Suggestion" Value="3"></asp:ListItem>
+                <asp:ListItem Text="Web Problem" Value="4"></asp:ListItem>
+            </asp:DropDownList>
         </div>
         <div class="field">
-            <asp:Label runat="server" Text="Message: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Label runat="server" Text="Message*: " CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TextBoxMessage" runat="server" TextMode="MultiLine" Height="50px" CssClass="message-box"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="ValidatorMessage" runat="server" ControlToValidate="TextBoxMessage" ErrorMessage="Message Required" CssClass="error-text"></asp:RequiredFieldValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="ValidatorMessage" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
         <div class="send-button">
-            <asp:Button runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="SEND"></asp:Button>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <fieldset style="border: none">
+                        <asp:Button runat="server" CssClass="center button padding-medium button-slice xxlarge wide right" text="SEND" OnClick="sendSuggestion"></asp:Button>
+                        <asp:Label runat="server" ID="sendLabel" Text="" CssClass="large orange margin-medium right padding-medium" Visible="False"></asp:Label>
+                    </fieldset>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
 
-    <div class="slider-container margin-top">
-        <div class="swiper">
-            <div class="slide hide">
-                <asp:Image ID="Image9" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Africa/AfricanPyramid.jpg" />
-                <div class="show-text show-text-africa">
-                    <asp:Label ID="Label3" runat="server" CssClass="text-white" Text="AFRICA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Enjoy the wild animals and beautiful sabannahs</p>
-                        <asp:Button runat="server" text="GO!" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <asp:Image ID="Image10" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/America/AmericanHollywood.jpg" />
-                <div class="show-text show-text-america">
-                    <asp:Label ID="Label12" runat="server" CssClass="text-white" Text="AMERICA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Live an authentic american expirience</p>
-                        <asp:Button runat="server" text="GO!" CssClass="button-america button-sign" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <asp:Image ID="Image11" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Europe/EuropeanLondonEye.jpg" />
-                <div class="show-text show-text-europe">
-                    <asp:Label ID="Label13" runat="server" CssClass="text-white" Text="EUROPE"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Immerse yourself in the different cultures Europe has to offer</p>
-                        <asp:Button runat="server" text="GO!" CssClass="button-europe button-sign" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <asp:Image ID="Image12" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Asia/AsianChina.jpg" />
-                <div class="show-text show-text-asia">
-                    <asp:Label ID="Label10" runat="server" CssClass="text-white" Text="ASIA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Travel to the amazing China and explore the oriental culture</p>
-                        <asp:Button runat="server" text="GO!" CssClass="button-asia button-sign" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide hide">
-                <asp:Image ID="Image13" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Oceania/OceanianTurtleaux.jpg" />
-                <div class="show-text show-text-oceania">
-                    <asp:Label ID="Label14" runat="server" CssClass="text-white" Text="OCEANIA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Love the long beaches and the paradisiac landscapes</p>
-                        <asp:Button runat="server" text="GO!" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class=" arrow arrow-prev left front text-white xlarge">
-            <p style="margin: 13px">❮</p>
-        </div>
-        <div class="arrow arrow-next right front text-white xlarge">
-            <p style="margin: 15px">❯</p>
-        </div>
-    </div>
+    <uc1:carousel runat="server" ID="carousel" />
 
 </asp:Content>

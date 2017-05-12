@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Ticket
+    public class Ticket
     {
         public Ticket(String cod, String date = "", int price = 0, String email = "")
         {
