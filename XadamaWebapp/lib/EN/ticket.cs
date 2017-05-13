@@ -8,48 +8,48 @@ namespace lib.EN
 {
     public class Ticket
     {
-        public Ticket(String cod, String date = "", int price = 0, String email = "")
+        public String cod { get; set; }
+        public String client { get; set; }
+        public String day { get; set; }
+        public int price { get; set; }
+        public String type { get; set; }
+
+        public Ticket(String cod, String client = "", String day = "", int price = 0, String type = "")
         {
             this.cod = cod;
-            this.date = date;
+            this.client = client;
+            this.day = day;
             this.price = price;
-            this.email = email;
+            this.type = type;
         }
 
-        public String cod { get; set; }
-
-        public String date { get; set; }
-
-        public int price { get; set; }
-
-        public String email { get; set; }
-
-        public void save(String dbname)
+        public void Create()
         {
-            CAD.CADTicket cadticket = new CAD.CADTicket(dbname);
+            CAD.CADTicket cadticket = new CAD.CADTicket();
             cadticket.Create(this);
         }
 
-        public void read(String dbname, String cod)
+        public void Read()
         {
-            CAD.CADTicket cadticket = new CAD.CADTicket(dbname);
-            Ticket ticket = (Ticket) cadticket.Read(cod);
-            this.cod = ticket.cod;
-            this.date = ticket.date;
-            this.price = ticket.price;
-            this.email = ticket.email;
+            CAD.CADTicket cadticket = new CAD.CADTicket();
+            Ticket t = (Ticket)cadticket.Read(cod);
+            this.cod = t.cod;
+            this.client = t.client;
+            this.day = t.day;
+            this.price = t.price;
+            this.type = t.type;
         }
 
-        public void update(String dbname, Ticket ticket)
+        public void Update()
         {
-            CAD.CADTicket cadticket = new CAD.CADTicket(dbname);
-            cadticket.Update(this);
+            CAD.CADTicket t = new CAD.CADTicket();
+            t.Update(this);
         }
 
-        public void delete(String dbname, String cod)
+        public void Delete()
         {
-            CAD.CADTicket cadticket = new CAD.CADTicket(dbname);
-            cadticket.Delete(cod);
+            CAD.CADTicket t = new CAD.CADTicket();
+            t.Delete(cod);
         }
     }
 }
