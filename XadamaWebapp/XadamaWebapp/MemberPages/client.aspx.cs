@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace XadamaWebapp
 {
-    public partial class bookrestaurant : System.Web.UI.Page
+    public partial class client : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

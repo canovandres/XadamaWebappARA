@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Reservation
+    public class Reservation
     {
         public Reservation(string cod, Client client = null, string date = "", string idrestaurant = "")
         {
