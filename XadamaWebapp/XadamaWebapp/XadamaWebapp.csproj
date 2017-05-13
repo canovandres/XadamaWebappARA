@@ -113,6 +113,9 @@
       <DependentUpon>XadamaDB.mdf</DependentUpon>
     </Content>
     <Content Include="bookhotel.aspx" />
+    <Content Include="bookrestaurant.aspx" />
+    <Content Include="carousel.ascx" />
+    <Content Include="europeanpalace.aspx" />
     <Content Include="hotels.aspx" />
     <Content Include="Media\Hotels\africansavannah.jpg" />
     <Content Include="Media\Hotels\africansavannah2.jpg" />
@@ -186,11 +189,26 @@
     <Content Include="client.aspx" />
     <Content Include="main.aspx" />
     <Content Include="Media\Logo\XadamaSpot.webm" />
+    <Content Include="product.aspx" />
+    <Content Include="promo.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="shop.aspx" />
+    <Content Include="shoptshirts.aspx" />
+    <Content Include="Style\bookrestaurant.css" />
+    <Content Include="Style\client.css" />
+    <Content Include="Style\hotel.css" />
     <Content Include="Style\hotels.css" />
+    <Content Include="Style\shop.css" />
+    <Content Include="Style\worker.css" />
     <Content Include="Style\zoneeurope.css" />
+    <Content Include="Style\zones.css" />
     <Content Include="worker.aspx" />
+    <Content Include="zoneafrica.aspx" />
+    <Content Include="zoneamerica.aspx" />
+    <Content Include="zoneasia.aspx" />
     <Content Include="zoneeurope.aspx" />
+    <Content Include="zoneoceania.aspx" />
+    <Content Include="zones.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -225,6 +243,27 @@
     <Compile Include="bookhotel.aspx.designer.cs">
       <DependentUpon>bookhotel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="bookrestaurant.aspx.cs">
+      <DependentUpon>bookrestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bookrestaurant.aspx.designer.cs">
+      <DependentUpon>bookrestaurant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="carousel.ascx.cs">
+      <DependentUpon>carousel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="carousel.ascx.designer.cs">
+      <DependentUpon>carousel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="europeanpalace.aspx.cs">
+      <DependentUpon>europeanpalace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="europeanpalace.aspx.designer.cs">
+      <DependentUpon>europeanpalace.aspx</DependentUpon>
+    </Compile>
     <Compile Include="hotels.aspx.cs">
       <DependentUpon>hotels.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,6 +277,20 @@
     </Compile>
     <Compile Include="main.Master.designer.cs">
       <DependentUpon>main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="product.aspx.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product.aspx.designer.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="promo.aspx.cs">
+      <DependentUpon>promo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="promo.aspx.designer.cs">
+      <DependentUpon>promo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="client.aspx.cs">
@@ -268,6 +321,20 @@
     <Compile Include="services.aspx.designer.cs">
       <DependentUpon>services.aspx</DependentUpon>
     </Compile>
+    <Compile Include="shop.aspx.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shop.aspx.designer.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shoptshirts.aspx.cs">
+      <DependentUpon>shoptshirts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shoptshirts.aspx.designer.cs">
+      <DependentUpon>shoptshirts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="tickets.aspx.cs">
       <DependentUpon>tickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -282,6 +349,27 @@
     <Compile Include="worker.aspx.designer.cs">
       <DependentUpon>worker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="zoneafrica.aspx.cs">
+      <DependentUpon>zoneafrica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zoneafrica.aspx.designer.cs">
+      <DependentUpon>zoneafrica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zoneamerica.aspx.cs">
+      <DependentUpon>zoneamerica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zoneamerica.aspx.designer.cs">
+      <DependentUpon>zoneamerica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zoneasia.aspx.cs">
+      <DependentUpon>zoneasia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zoneasia.aspx.designer.cs">
+      <DependentUpon>zoneasia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="zoneeurope.aspx.cs">
       <DependentUpon>zoneeurope.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -289,8 +377,27 @@
     <Compile Include="zoneeurope.aspx.designer.cs">
       <DependentUpon>zoneeurope.aspx</DependentUpon>
     </Compile>
+    <Compile Include="zoneoceania.aspx.cs">
+      <DependentUpon>zoneoceania.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zoneoceania.aspx.designer.cs">
+      <DependentUpon>zoneoceania.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zones.aspx.cs">
+      <DependentUpon>zones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zones.aspx.designer.cs">
+      <DependentUpon>zones.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\lib\lib.csproj">
+      <Project>{2d13b961-3221-4620-965e-c1b3f6cba44a}</Project>
+      <Name>lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup Condition="$(VisualStudioVersion) == '15.0'">
     <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=13.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>

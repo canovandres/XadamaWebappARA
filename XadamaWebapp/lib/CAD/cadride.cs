@@ -60,7 +60,7 @@ namespace lib.CAD
 
         public EN.Ride Read(String cod)
         {
-            Ride ride = new Ride("","","");
+            Ride ride = new Ride("", "", "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
@@ -78,7 +78,7 @@ namespace lib.CAD
                 ride.minHeight = Int32.Parse(t.Rows[0][4].ToString());
                 ride.speed = Int32.Parse(t.Rows[0][5].ToString());
                 ride.image = t.Rows[0][6].ToString();
-    
+
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -128,18 +128,33 @@ namespace lib.CAD
                 t = bdvirtual.Tables["ride"];
 
                 t.Rows[0].Delete();
-                t.Rows[1].Delete();
-                t.Rows[2].Delete();
-                t.Rows[3].Delete();
-                t.Rows[4].Delete();
-                t.Rows[5].Delete();
-                t.Rows[6].Delete();
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "ride");
             }
             catch (Exception ex) { }
             finally { con.Close(); }
+        }
+
+        public DataTable ShowAllRides()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            DataTable t = new DataTable();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select name, description, image from ride", con);
+                da.Fill(bdvirtual, "services");
+
+                t = bdvirtual.Tables["services"];
+
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return t;
+
+
         }
     }
 }
