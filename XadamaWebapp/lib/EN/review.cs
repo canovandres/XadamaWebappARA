@@ -53,7 +53,7 @@ namespace lib.EN
             c.Delete(cod);
         }
 
-        public DataSet ListReviews(String hotel)
+        public static DataSet ListReviews(String hotel)
         {
             CAD.CADReview c = new CAD.CADReview();
             DataSet reviews = c.ListReviews(hotel);
