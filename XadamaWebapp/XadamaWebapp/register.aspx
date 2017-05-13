@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="field">
-                        <asp:Label runat="server" Text="Credit Card" CssClass="form-label medium"></asp:Label>
+                        <asp:Label runat="server" Text="CREDIT CARD" CssClass="form-label medium"></asp:Label>
                         <asp:TextBox ID="TextBoxCreditCard" runat="server"></asp:TextBox>
                     </div>
 

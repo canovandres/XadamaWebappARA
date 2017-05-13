@@ -14,7 +14,10 @@ namespace XadamaWebapp
         private DataSet dbvirtual = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Page.IsPostBack)
+            {
+                
+            }
         }
 
         protected void OnCreateClick(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace XadamaWebapp
                 if (TextBoxEmail.Text != "" && TextBoxName.Text != "" && TextBox1Surname.Text != "" && TextBox2Surname.Text != ""
                     && (TextBoxPassword == TextBoxRepeatPassword))
                 {
-                    Client c = new Client("");
+                    Client c = new Client(TextBoxEmail.Text, TextBoxPassword.Text);
                     c.email = TextBoxEmail.Text;
                     c.password = TextBoxPassword.Text;
                     c.name = TextBoxName.Text;
@@ -35,7 +38,14 @@ namespace XadamaWebapp
                     c.address = TextBoxAddress.Text;
                     c.creditCard = TextBoxCreditCard.Text;
 
-                    c.Create("");
+                    c.Create();
+                    // Response.Write("Record was successfully added!");
+                    // ClearControls(Page);
+                }
+
+                else
+                {
+
                 }
             }
             catch (Exception ex)
