@@ -72,7 +72,7 @@
     </div>
 
     <!--Contact Form-->
-    <div class="backimgcontact display-container">
+    <div class="backimgcontact display-container" id="contact">
         <div class="display-middle no-opacity">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="CONTACT"></asp:Label>
         </div>
