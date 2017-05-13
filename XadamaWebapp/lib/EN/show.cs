@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace lib.EN
 {
-    class Show
+    public class Show
     {
-        public Show(string name, string zname = "")
+        public Show(string cod, string name = "", string description = "", string image = "", string zone = "")
         {
+            this.cod = cod;
             this.name = name;
-            this.zonename = zname;
+            this.description = description;
+            this.image = image;
+            this.zone = zone;
         }
 
+        public string cod { get; set; }
         public string name { get; set; }
-        public string zonename { get; set; }
+        public string description { get; set; }
+        public string image { get; set; }
+        public string zone { get; set; }
 
         public void save(string dbname)
         {
@@ -23,12 +30,15 @@ namespace lib.EN
             show.Create(this);
         }
 
-        public void Read(String dbname, String name)
+        public void Read(String dbname, String cod)
         {
             CAD.CADShow show = new CAD.CADShow(dbname);
-            Show s = (Show)show.Read(name);
+            Show s = (Show)show.Read(cod);
+            this.cod = s.cod;
             this.name = s.name;
-            this.zonename = s.zonename;
+            this.description = s.description;
+            this.image = s.image;
+            this.zone = s.zone;
         }
 
         public void Update(String dbname, Show s)
@@ -37,10 +47,16 @@ namespace lib.EN
             show.Update(s);
         }
 
-        public void Delete(String dbname, String name)
+        public void Delete(String dbname, String cod)
         {
             CAD.CADShow show = new CAD.CADShow(dbname);
-            show.Delete(name);
+            show.Delete(cod);
+        }
+
+        public DataTable zoneShows(String db, String zone)
+        {
+            CAD.CADShow show = new CAD.CADShow(db);
+            return show.zoneShows(zone);
         }
     }
 }
