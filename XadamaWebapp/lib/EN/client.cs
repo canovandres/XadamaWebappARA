@@ -13,11 +13,11 @@ namespace lib.EN
         public String name { get; set; }
         public String surname1 { get; set; }
         public String surname2 { get; set; }
-        public int age { get; set; }
+        public String age { get; set; }
         public int phone { get; set; }
         public String address { get; set; }
         public String creditCard { get; set; }
-        public Client(String email, String password, String name, String surname1 = "", String surname2 = "",  int age = 0, int phone = 0, String address = "", String creditCard = "")
+        public Client(String email, String password, String name = "", String surname1 = "", String surname2 = "", String age = "", int phone = 0, String address = "", String creditCard = "")
         {
             this.email = email;
             this.password = password;
@@ -30,15 +30,15 @@ namespace lib.EN
             this.creditCard = creditCard;
         }
 
-        public void Create(String dbname)
+        public void Create()
         {
-            CAD.CADClient c = new CAD.CADClient(dbname);
+            CAD.CADClient c = new CAD.CADClient();
             c.Create(this);
         }
 
-        public void Read(String dbname)
+        public void Read()
         {
-            CAD.CADClient c = new CAD.CADClient(dbname);
+            CAD.CADClient c = new CAD.CADClient();
             Client p = (Client)c.Read(email);
             this.email = p.email;
             this.password = p.password;
@@ -51,15 +51,15 @@ namespace lib.EN
             this.creditCard = p.creditCard;
         }
 
-        public void Update(String dbname)
+        public void Update()
         {
-            CAD.CADClient c = new CAD.CADClient(dbname);
+            CAD.CADClient c = new CAD.CADClient();
             c.Update(this);
         }
 
-        public void Delete(String dbname)
+        public void Delete()
         {
-            CAD.CADClient c = new CAD.CADClient(dbname);
+            CAD.CADClient c = new CAD.CADClient();
             c.Delete(email);
         }
 
