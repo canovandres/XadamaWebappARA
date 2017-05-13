@@ -191,7 +191,7 @@
                 </div>
 
                 <div class="col quarter margin-top-button">
-                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" />
+                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" PostBackUrl="europeanpalace.aspx" />
                 </div>
             </div>
         </section>
@@ -222,7 +222,7 @@
                 </div>
 
                 <div class="col quarter margin-top-button">
-                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" />
+                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" PostBackUrl="asiangardens.aspx" />
                 </div>
             </div>
         </section>
@@ -252,7 +252,7 @@
                 </div>
 
                 <div class="col quarter margin-top-button">
-                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" />
+                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" PostBackUrl="africansavannah.aspx" />
                 </div>
             </div>
         </section>
@@ -281,7 +281,7 @@
                 </div>
 
                 <div class="col quarter margin-top-button">
-                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" />
+                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" PostBackUrl="americanluxury.aspx" />
                 </div>
             </div>
         </section>
@@ -310,7 +310,7 @@
                 </div>
 
                 <div class="col quarter margin-top-button">
-                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" />
+                    <asp:Button runat="server" text="See more!" CssClass="center button padding-medium xxlarge wide button-slice" PostBackUrl="oceanicparadise.aspx" />
                 </div>
             </div>
         </section>

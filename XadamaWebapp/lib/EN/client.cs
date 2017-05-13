@@ -11,44 +11,53 @@ namespace lib.EN
         public String email { get; set; }
         public String password { get; set; }
         public String name { get; set; }
+        public String surname1 { get; set; }
+        public String surname2 { get; set; }
         public int age { get; set; }
         public int phone { get; set; }
         public String address { get; set; }
-        public Client(String email, String password, String name = "", int age = 0, int phone = 0, String address = "")
+        public String creditCard { get; set; }
+        public Client(String email, String password, String name, String surname1 = "", String surname2 = "",  int age = 0, int phone = 0, String address = "", String creditCard = "")
         {
             this.email = email;
             this.password = password;
             this.name = name;
+            this.surname1 = surname1;
+            this.surname2 = surname2;
             this.age = age;
             this.phone = phone;
             this.address = address;
+            this.creditCard = creditCard;
         }
 
-        void Create(String dbname)
+        public void Create(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             c.Create(this);
         }
 
-        void Read(String dbname)
+        public void Read(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             Client p = (Client)c.Read(email);
-            email = p.email;
-            password = p.password;
-            name = p.name;
-            age = p.age;
-            phone = p.phone;
-            address = p.address;
+            this.email = p.email;
+            this.password = p.password;
+            this.name = p.name;
+            this.surname1 = p.surname1;
+            this.surname2 = p.surname2;
+            this.age = p.age;
+            this.phone = p.phone;
+            this.address = p.address;
+            this.creditCard = p.creditCard;
         }
 
-        void Update(String dbname)
+        public void Update(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             c.Update(this);
         }
 
-        void Delete(String dbname)
+        public void Delete(String dbname)
         {
             CAD.CADClient c = new CAD.CADClient(dbname);
             c.Delete(email);

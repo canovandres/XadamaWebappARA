@@ -187,7 +187,9 @@
     <Content Include="main.aspx" />
     <Content Include="Media\Logo\XadamaSpot.webm" />
     <Content Include="register.aspx" />
+    <Content Include="shop.aspx" />
     <Content Include="Style\hotels.css" />
+    <Content Include="Style\shop.css" />
     <Content Include="Style\zoneeurope.css" />
     <Content Include="worker.aspx" />
     <Content Include="zoneeurope.aspx" />
@@ -268,6 +270,13 @@
     <Compile Include="services.aspx.designer.cs">
       <DependentUpon>services.aspx</DependentUpon>
     </Compile>
+    <Compile Include="shop.aspx.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shop.aspx.designer.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="tickets.aspx.cs">
       <DependentUpon>tickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,7 +299,12 @@
       <DependentUpon>zoneeurope.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\lib\lib.csproj">
+      <Project>{2D13B961-3221-4620-965E-C1B3F6CBA44A}</Project>
+      <Name>lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup Condition="$(VisualStudioVersion) == '15.0'">
     <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=13.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>

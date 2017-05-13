@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <title>Xadama Shop</title>
     <link rel="stylesheet" type="text/css" href="Style/shop.css" />
+    <link rel="stylesheet" type="text/css" href="Style/services.css" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -19,27 +20,29 @@
             Welcome to our shop. There are many items you can buy online or in our physical shop when you come to our park. 
         </div>
     </div>
-
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel runat="server" ID="hgfj">
+        <ContentTemplate>
     <div class="slider-container margin-top">
         <div class="picture-container">
             <div class="show-pictures">
                 <div class="backTshirt">
-                    <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">T-SHIRTS</a>
+                    <asp:LinkButton CssClass="display-middle darkblue center button padding-medium large wide bold button-slice" runat="server" Text="T-SHIRTS" style="cursor: pointer;" onclick="OnTShirtsClicked"></asp:LinkButton>
                 </div>
             </div>
             <div class="show-pictures">
                 <div class="backJumper">
-                     <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">JUMPERS</a>
+                     <asp:LinkButton runat="server" CssClass="display-middle darkblue center button padding-medium large wide bold button-slice" Text="JUMPERS" style="cursor: pointer;" onclick="OnJumpersClicked"></asp:LinkButton>
                 </div>            
             </div>
             <div class="show-pictures">
                 <div class="backCap">
-                     <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">CAPS</a>
+                     <asp:LinkButton runat="server" class="display-middle darkblue center button padding-medium large wide bold button-slice" style="cursor: pointer;" Text="CAPS" onclick="OnCapsClicked"></asp:LinkButton>
                 </div>
             </div>
             <div class="show-pictures">
                 <div class="backBag">
-                     <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">BAGS</a>
+                     <asp:LinkButton runat="server" Text="BAGS" class="display-middle darkblue center button padding-medium large wide bold button-slice" style="cursor: pointer;" onclick="OnBagsClicked"></asp:LinkButton>
                 </div>
             </div>
         </div>
@@ -51,7 +54,7 @@
         </div>
     </div>
 
-     <div class="slider-container margin-top">
+     <!-- <div class="slider-container margin-top">
         <div class="swiper">
             <div class="slide hide">
                 <asp:Image ID="Image9" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Africa/AfricanPyramid.jpg" />
@@ -110,5 +113,44 @@
         <div class="arrow arrow-next right front text-white xlarge">
             <p style="margin: 15px">❯</p>
         </div>
+    </div>-->
+       <div class="center">
+           <asp:Label ID="LabelLv" runat="server"></asp:Label>
+       </div>
+
+    <div>
+        <asp:ListView ID="ListView1" runat="server" GroupItemCount="3">
+            <LayoutTemplate>
+                  <div align="center" class="margin-32 padding-64" runat="server">
+                      <div runat="server" id="groupPlaceholder">
+                      </div>
+                  </div>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <div class="quarter display-border-grey col large text-orange item-container uppercase bold padding-16">
+                    <div>
+                        <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
+                    </div>
+                    <div style="height:70%">
+                        <asp:Image ID="Image1" runat="server" CssClass="image-template" ImageUrl='<%#Eval("image") %>' />
+                    </div>
+                    <div>
+                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label>
+                        €
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="LinkButton1" Text="See more!" CssClass="button button-slice" runat="server"></asp:LinkButton>
+                    </div>
+                </div>
+            </ItemTemplate>
+             <GroupTemplate>
+                    <div runat="server" id="productRow" class="margin-bottom-large" style="height:500px">
+                        <div runat="server" id="itemPlaceholder">
+                        </div>
+                    </div>
+            </GroupTemplate>
+        </asp:ListView>
     </div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
