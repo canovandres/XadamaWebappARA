@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace lib.EN
 {
@@ -66,6 +67,12 @@ namespace lib.EN
         {
             CAD.CADRide cadride = new CAD.CADRide(db);
             cadride.Delete(cod);
+        }
+
+        public DataTable ShowAllRides(String db)
+        {
+            CAD.CADRide cadride = new CAD.CADRide(db);
+            return cadride.ShowAllRides();
         }
     }
 }
