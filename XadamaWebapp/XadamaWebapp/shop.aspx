@@ -20,7 +20,9 @@
             Welcome to our shop. There are many items you can buy online or in our physical shop when you come to our park. 
         </div>
     </div>
-
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel runat="server" ID="hgfj">
+        <ContentTemplate>
     <div class="slider-container margin-top">
         <div class="picture-container">
             <div class="show-pictures">
@@ -149,4 +151,6 @@
             </GroupTemplate>
         </asp:ListView>
     </div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

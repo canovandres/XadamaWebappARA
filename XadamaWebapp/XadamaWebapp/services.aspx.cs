@@ -74,7 +74,7 @@ namespace XadamaWebapp
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "rides")
             {
-                f(ListZones.SelectedItem.ToString().ToLower() == "--")
+                if(ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
 
                 }
@@ -85,7 +85,7 @@ namespace XadamaWebapp
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "shows")
             {
-                f(ListZones.SelectedItem.ToString().ToLower() == "--")
+                if(ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
 
                 }
