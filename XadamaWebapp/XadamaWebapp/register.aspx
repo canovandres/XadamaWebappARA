@@ -103,7 +103,7 @@
 
                     <div class="field">
                         <div class="create-button">
-                            <asp:Button runat="server" id="Create" OnClientClick="OnCreateClick" CssClass="right button padding-medium large button-slice wide" text="Create Account"></asp:Button>
+                            <asp:Button runat="server" id="Create" OnClick="OnCreateClick" CssClass="right button padding-medium large button-slice wide" text="Create Account"></asp:Button>
                         </div>
                     </div>
                 </div>

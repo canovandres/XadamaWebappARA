@@ -24,29 +24,19 @@ namespace XadamaWebapp
         {
             try
             {
-                if (TextBoxEmail.Text != "" && TextBoxName.Text != "" && TextBox1Surname.Text != "" && TextBox2Surname.Text != ""
-                    && (TextBoxPassword == TextBoxRepeatPassword))
-                {
-                    Client c = new Client(TextBoxEmail.Text, TextBoxPassword.Text);
-                    c.email = TextBoxEmail.Text;
-                    c.password = TextBoxPassword.Text;
-                    c.name = TextBoxName.Text;
-                    c.surname1 = TextBox1Surname.Text;
-                    c.surname2 = TextBox2Surname.Text;
-                    c.age = Birthdate.Text;
-                    c.phone = Int32.Parse(TextBoxPhone.Text);
-                    c.address = TextBoxAddress.Text;
-                    c.creditCard = TextBoxCreditCard.Text;
+                Client c = new Client(TextBoxEmail.Text, TextBoxPassword.Text);
+                c.email = TextBoxEmail.Text;
+                c.password = TextBoxPassword.Text;
+                c.name = TextBoxName.Text;
+                c.surname1 = TextBox1Surname.Text;
+                c.surname2 = TextBox2Surname.Text;
+                c.age = Birthdate.Text;
+                c.phone = Int32.Parse(TextBoxPhone.Text);
+                c.address = TextBoxAddress.Text;
+                c.creditCard = TextBoxCreditCard.Text;
 
-                    c.Create();
-                    // Response.Write("Record was successfully added!");
-                    // ClearControls(Page);
-                }
-
-                else
-                {
-
-                }
+                c.Create();
+                // Response.Write("Record was successfully added!");
             }
             catch (Exception ex)
             {
