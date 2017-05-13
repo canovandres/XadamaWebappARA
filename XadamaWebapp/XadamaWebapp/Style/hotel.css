@@ -16,13 +16,14 @@
 
 .rating-star {
     font-size: 0pt;
-    width: 20px;
-    height: 18px;
+    width: 18px;
+    height: 15px;
     margin: 0px;
     padding: 0px;
     cursor: pointer;
     display: block;
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .filled-rating-star {
@@ -35,31 +36,4 @@
 
 .text-review {
     width: 100%;
-}
-
-.field {
-    border: solid 1px #1B253B;
-    height: 35px;
-    width: 60%;
-    padding: 0 5px;
-    font-size: 15px;
-    color: #1B253B;
-    font-weight: 300;
-    box-sizing: border-box;
-    line-height: normal;
-    margin: 0;
-    outline: 0;
-    border-radius: 0;
-}
-
-.form-error {
-    box-shadow: inset 0px 0px 20px -3px rgba(255,0,0,1);
-}
-
-.error-text {
-    color: #9d0000;
-}
-
-.ajax__validatorcallout_popup_table {
-    display: none !important;
 }

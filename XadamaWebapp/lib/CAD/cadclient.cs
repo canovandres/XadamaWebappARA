@@ -15,7 +15,7 @@ namespace lib.CAD
     {
         private string conString;
 
-        public CADClient(String dbname)
+        public CADClient()
         {
             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
@@ -58,7 +58,10 @@ namespace lib.CAD
                 da.Update(bdvirtual, "client");
                 da2.Update(bdvirtual, "usuario");
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Creating Client (CadClient): " + ex.ToString());
+            }
             finally { con.Close(); }
         }
 
@@ -84,7 +87,7 @@ namespace lib.CAD
                 client.name = t.Rows[0][1].ToString();
                 client.surname1 = t.Rows[0][2].ToString();
                 client.surname2 = t.Rows[0][3].ToString();
-                client.age = Int32.Parse(t.Rows[0][4].ToString());
+                client.age = t.Rows[0][4].ToString();
                 client.phone = Int32.Parse(t.Rows[0][5].ToString());
                 client.address = t.Rows[0][6].ToString();
                 client.creditCard = t.Rows[0][7].ToString();

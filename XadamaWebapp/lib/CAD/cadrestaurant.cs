@@ -12,93 +12,93 @@ using System.Configuration;
 
 namespace lib.CAD
 {
-    class CADShow
+    public class CADRestaurant
     {
         private string conString;
 
-        public CADShow(string dbname)
+        public CADRestaurant(string dbname)
         {
             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
         }
 
-       /* ~CADShow()
+       /* ~CADRestaurant()
         {
 
         }*/
 
-        public void Create(EN.Show show)
+        public void Create(EN.Restaurant restaurant)
         {
-            Show newShow = show;
+            Restaurant newRestaurant = restaurant;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from show", con);
-                da.Fill(bdvirtual, "show");
+                SqlDataAdapter da = new SqlDataAdapter("select * from restaurant", con);
+                da.Fill(bdvirtual, "restaurant");
 
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["show"];
+                t = bdvirtual.Tables["restaurant"];
 
                 DataRow newrow = t.NewRow();
-                newrow[0] = newShow.cod;
-                newrow[1] = newShow.name;
-                newrow[2] = newShow.description;
-                newrow[3] = newShow.image;
-                newrow[4] = newShow.zone;
+                newrow[0] = newRestaurant.cod;
+                newrow[1] = newRestaurant.name;
+                newrow[2] = newRestaurant.description;
+                newrow[3] = newRestaurant.zone;
+                newrow[4] = newRestaurant.image;
                 t.Rows.Add(newrow);
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(bdvirtual, "show");
+                da.Update(bdvirtual, "restaurant");
 
             }
             catch (Exception ex) { }
             finally { con.Close(); }
         }
 
-        public Show Read(string cod)
+        public Restaurant Read(string cod)
         {
-            Show show = new Show(cod, "", "", "", "");
+            Restaurant restaurant = new Restaurant(cod, "", "", "", "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from show where cod like '" + cod + "'", con);
-                da.Fill(bdvirtual, "show");
+                SqlDataAdapter da = new SqlDataAdapter("select * from restaurant where cod like '" + cod + "'", con);
+                da.Fill(bdvirtual, "restaurant");
 
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["show"];
+                t = bdvirtual.Tables["restaurant"];
 
-                show.cod = t.Rows[0][0].ToString();
-                show.name = t.Rows[0][1].ToString();
-                show.description = t.Rows[0][2].ToString();
-                show.image = t.Rows[0][3].ToString();
-                show.zone = t.Rows[0][4].ToString();
+                restaurant.cod = t.Rows[0][0].ToString();
+                restaurant.name = t.Rows[0][1].ToString();
+                restaurant.description = t.Rows[0][2].ToString();
+                restaurant.zone = t.Rows[0][3].ToString();
+                restaurant.image = t.Rows[0][4].ToString();
             }
             catch (Exception ex) { }
             finally { con.Close(); }
 
-            return show;
+            return restaurant;
         }
 
-        public void Update(Show show)
+        public void Update(Restaurant restaurant)
         {
-            Show newShow = show;
+            Restaurant newRestaurant = restaurant;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter();
-                da.Fill(bdvirtual, "show");
+                da.Fill(bdvirtual, "restaurant");
 
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["show"];
+                t = bdvirtual.Tables["restaurant"];
 
-                t.Rows[0][0] = newShow.cod;
+                t.Rows[0][0] = newRestaurant.cod;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(bdvirtual, "show");
+                da.Update(bdvirtual, "restaurant");
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -110,22 +110,22 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from show where cod like '" + cod + "'", con);
-                da.Fill(bdvirtual, "show");
+                SqlDataAdapter da = new SqlDataAdapter("select * from restaurant where cod like '" + cod + "'", con);
+                da.Fill(bdvirtual, "restaurant");
 
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["show"];
+                t = bdvirtual.Tables["restaurant"];
 
                 t.Rows[0].Delete();
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-                da.Update(bdvirtual, "show");
+                da.Update(bdvirtual, "restaurant");
             }
             catch (Exception ex) { }
             finally { con.Close(); }
         }
 
-        public DataTable zoneShows(String zone)
+        public DataTable zoneRestaurants(String zone)
         {
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
@@ -137,11 +137,12 @@ namespace lib.CAD
                 da.Fill(bdvirtual, "services");
 
                 t = bdvirtual.Tables["services"];
-
-            }catch (Exception e) { }
-            finally { con.Close();  }
+            }
+            catch (Exception e) { }
+            finally { con.Close(); }
 
             return t;
         }
     }
 }
+
