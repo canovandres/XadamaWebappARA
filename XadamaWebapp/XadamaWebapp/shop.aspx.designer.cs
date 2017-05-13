@@ -13,6 +13,15 @@ namespace XadamaWebapp {
     public partial class shop {
         
         /// <summary>
+        /// Control hgfj.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel hgfj;
+        
+        /// <summary>
         /// Control Image9.
         /// </summary>
         /// <remarks>
