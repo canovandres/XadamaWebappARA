@@ -134,14 +134,7 @@ namespace lib.CAD
                 t = bdvirtual.Tables["menu"];
 
                 t.Rows[0].Delete();
-                t.Rows[1].Delete();
-                t.Rows[2].Delete();
-                t.Rows[3].Delete();
-                t.Rows[4].Delete();
-                t.Rows[5].Delete();
-                t.Rows[6].Delete();
-                t.Rows[7].Delete();
-                t.Rows[8].Delete();
+                
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "menu");
