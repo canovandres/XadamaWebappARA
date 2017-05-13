@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Product
+    public class Product
     {
         public String cod { get; set; }
         public String name { get; set; }

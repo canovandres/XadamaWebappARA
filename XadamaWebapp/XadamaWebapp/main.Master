@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="/Media/Logo/xadamaIcon.ico">
     <link rel="stylesheet" type="text/css" href="Style/style.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -70,9 +71,9 @@
                         </asp:menuitem>
                         <asp:MenuItem Text="Tickets" NavigateUrl="tickets.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Services" NavigateUrl="services.aspx">
-                            <asp:MenuItem Text="Rides" NavigateUrl="services.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Shows" NavigateUrl="services.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Restaurants" NavigateUrl="services.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Rides" NavigateUrl="services.aspx?type=rides"></asp:MenuItem>
+                            <asp:MenuItem Text="Shows" NavigateUrl="services.aspx?type=shows"></asp:MenuItem>
+                            <asp:MenuItem Text="Restaurants" NavigateUrl="services.aspx?type=restaurants"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:menuitem text="Shop"  NavigateUrl="shop.aspx"></asp:menuitem>
                         <asp:MenuItem Text="Promotions"  NavigateUrl="promotions.aspx"></asp:MenuItem>
@@ -103,9 +104,9 @@
                     <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
                         <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
                         <items>
-                            <asp:MenuItem Text="Rides" NavigateUrl="services.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Shows" NavigateUrl="services.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Restaurants" NavigateUrl="services.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Rides" NavigateUrl="services.aspx?type=rides"></asp:MenuItem>
+                            <asp:MenuItem Text="Shows" NavigateUrl="services.aspx?type=shows"></asp:MenuItem>
+                            <asp:MenuItem Text="Restaurants" NavigateUrl="services.aspx?type=restaurants"></asp:MenuItem>
                         </items>
                     </asp:menu>
                 </div>
@@ -156,7 +157,7 @@
                     <p class="large">
                         Alicante, ES<br>
                         Phone: +34 123 456 789<br>
-                        E-mail: <a class="text-white" href="mailto:xadama@xadama.com">xadama@xadama.com</a></p>
+                        E-mail: <a class="text-white" href="mailto:xadama.park@gmail.com">xadama.park@gmail.com</a></p>
                 </div>
                     <asp:ImageButton ID="Image14" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/facebook.png" PostBackUrl="http://www.facebook.es" />
                     <asp:ImageButton ID="Image15" runat="server" CssClass="icon-small hover-opacity" ImageUrl="~/Media/Social/twitter.png" PostBackUrl="http://www.twitter.es/XadamaPark" />

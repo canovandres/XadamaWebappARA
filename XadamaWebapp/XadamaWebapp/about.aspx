@@ -81,21 +81,21 @@
     <div class="form-content container padding-64">
         <div class="field">
             <asp:Label runat="server" Text="Name*: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxName" runat="server" placeholder="Andrés"></asp:TextBox>
             <asp:RequiredFieldValidator ID="ValidatorName" runat="server" ControlToValidate="TextBoxName" CssClass="error-text" ErrorMessage="Name Required"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorName" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="First Surname: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBox1Surname" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox1Surname" runat="server" placeholder="Cánovas"></asp:TextBox>
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="Second Surname: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBox2Surname" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox2Surname" runat="server" placeholder="Cutillas"></asp:TextBox>
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="Email*: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBoxEmail" runat="server" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="TextBoxEmail" runat="server" TextMode="Email" placeholder="andres@gmail.com"></asp:TextBox>
             <asp:RequiredFieldValidator ID="ValidatorEmail" runat="server" ControlToValidate="TextBoxEmail"  ErrorMessage="Email Required" CssClass="error-text"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="ValidatorEmail" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
             <asp:RegularExpressionValidator ID="ValidatorEmailRight" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Invalid Email" CssClass="error-text" ValidationExpression="\S+@+\S+\.\S+"></asp:RegularExpressionValidator>
@@ -103,7 +103,7 @@
         </div>
         <div class="field half">
             <asp:Label runat="server" Text="Phone: " CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TextBoxPhone" runat="server" TextMode="Phone"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPhone" runat="server" TextMode="Phone" placeholder="123 456 789"></asp:TextBox>
         </div>
         <div class="field">
             <asp:Label runat="server" Text="Type*: " CssClass="form-label"></asp:Label>

@@ -11,11 +11,10 @@ namespace XadamaWebapp
 {
     public partial class europeanpalace : System.Web.UI.Page
     {
-        Review review = new Review("", 0, "", "");
         DataSet d = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            d = review.ListReviews("H1");
+            d = Review.ListReviews("H1");
 
             GridViewReviews.DataSource = d;
             GridViewReviews.DataBind();
@@ -43,10 +42,22 @@ namespace XadamaWebapp
 
         protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            d = review.ListReviews("H1");
+            d = Review.ListReviews("H1");
             GridViewReviews.PageIndex = e.NewPageIndex;
             GridViewReviews.DataSource = d;
             GridViewReviews.DataBind();
+        }
+
+        protected void book(object sender, EventArgs e)
+        {
+            Session["From"] = From.Text;
+            Session["To"] = To.Text;
+            Session["Modality"] = DropDownModality.Text;
+            Session["Single"] = DropDownSingle.DataValueField;
+            Session["Double"] = DropDownDouble.DataValueField;
+            Session["Hotel"] = "europeanpalace";
+
+            Response.Redirect("bookhotel.aspx");
         }
     }
 }
