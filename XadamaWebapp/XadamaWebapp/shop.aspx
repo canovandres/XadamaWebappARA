@@ -25,22 +25,22 @@
         <div class="picture-container">
             <div class="show-pictures">
                 <div class="backTshirt">
-                    <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">T-SHIRTS</a>
+                    <asp:LinkButton CssClass="display-middle darkblue center button padding-medium large wide bold button-slice" runat="server" Text="T-SHIRTS" style="cursor: pointer;" onclick="OnTShirtsClicked"></asp:LinkButton>
                 </div>
             </div>
             <div class="show-pictures">
                 <div class="backJumper">
-                     <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">JUMPERS</a>
+                     <asp:LinkButton runat="server" CssClass="display-middle darkblue center button padding-medium large wide bold button-slice" Text="JUMPERS" style="cursor: pointer;" onclick="OnJumpersClicked"></asp:LinkButton>
                 </div>            
             </div>
             <div class="show-pictures">
                 <div class="backCap">
-                     <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">CAPS</a>
+                     <asp:LinkButton runat="server" class="display-middle darkblue center button padding-medium large wide bold button-slice" style="cursor: pointer;" Text="CAPS" onclick="OnCapsClicked"></asp:LinkButton>
                 </div>
             </div>
             <div class="show-pictures">
                 <div class="backBag">
-                     <a class="display-middle darkblue center button padding-medium large wide bold" style="cursor: pointer;" href="shoptshirts.aspx">BAGS</a>
+                     <asp:LinkButton runat="server" Text="BAGS" class="display-middle darkblue center button padding-medium large wide bold button-slice" style="cursor: pointer;" onclick="OnBagsClicked"></asp:LinkButton>
                 </div>
             </div>
         </div>
@@ -112,34 +112,37 @@
             <p style="margin: 15px">❯</p>
         </div>
     </div>-->
+       <div class="center">
+           <asp:Label ID="LabelLv" runat="server"></asp:Label>
+       </div>
 
     <div>
         <asp:ListView ID="ListView1" runat="server" GroupItemCount="3">
             <LayoutTemplate>
-                  <div align="center" class="margin-32 padding-64 display-border" runat="server"
-                        id="tblProducts">
-                        <div runat="server" id="groupPlaceholder">
-                        </div>
+                  <div align="center" class="margin-32 padding-64" runat="server">
+                      <div runat="server" id="groupPlaceholder">
+                      </div>
                   </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <div class="quarter display-border col item-container text-orange uppercase large bold">
+                <div class="quarter display-border-grey col large text-orange item-container uppercase bold padding-16">
                     <div>
                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
                     </div>
-                    <div>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("image") %>' />
+                    <div style="height:70%">
+                        <asp:Image ID="Image1" runat="server" CssClass="image-template" ImageUrl='<%#Eval("image") %>' />
                     </div>
                     <div>
-                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("description") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label>
+                        €
                     </div>
                     <div>
-                        <asp:LinkButton ID="LinkButton1" Text="See more!" runat="server"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" Text="See more!" CssClass="button button-slice" runat="server"></asp:LinkButton>
                     </div>
                 </div>
             </ItemTemplate>
              <GroupTemplate>
-                    <div runat="server" id="productRow" class="margin-bottom" style="height:80px">
+                    <div runat="server" id="productRow" class="margin-bottom-large" style="height:500px">
                         <div runat="server" id="itemPlaceholder">
                         </div>
                     </div>

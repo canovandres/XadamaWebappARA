@@ -89,4 +89,22 @@
 }
 .item-container{
     margin-left:5%;
+    height:413px;
+}
+.image-template{
+    height:100%;
+    width:100%;
+}
+.display-border-grey{
+    border:2px solid #808080;
+    border-radius: 8px 8px 8px 8px;
+    transition: all 0.7s;
+}
+
+.display-border-grey:hover{
+    width:30%;
+    height:500px;
+    font-size:24px !important; 
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
+    transition-delay:0.5s;
 }

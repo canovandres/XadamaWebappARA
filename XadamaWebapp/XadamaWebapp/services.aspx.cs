@@ -10,20 +10,25 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using lib.EN;
 
 namespace XadamaWebapp
 {
     public partial class Services : System.Web.UI.Page
     {
-        /*private DataSet bdvirtual = new DataSet();
+        private DataSet bdvirtual = new DataSet();
         private DataTable t = new DataTable();
-        private Ride enride = new Ride();
-        private Show enshow = new Show();
+        //private Ride enride = new Ride("","");
+        /*private Show enshow = new Show();
         private Product enprod = new Product();
         private Restaurant enrest = new Restaurant();*/
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                //t = enride.ShowAllRides();
+            }
             /*if (!Page.IsPostBack) {
                 DataTable service = bdvirtual.Tables.Add("services");
                 service.Columns.Add("name", typeof(string));
@@ -47,6 +52,59 @@ namespace XadamaWebapp
              DataTable t = new DataTable();
              t = bdvirtual.Tables["ride"];
              Response.Write(t.Rows[0][2]);*/
+        }
+
+        protected void OnListZoneChanged(object sender,EventArgs e)
+        {
+            labl.Text = ListZones.SelectedItem.ToString().ToLower();
+        }
+
+        protected void OnListServiceChanged(object sender, EventArgs e)
+        {
+            if (ListServices.SelectedItem.ToString().ToLower()=="--")
+            {
+                if (ListZones.SelectedItem.ToString().ToLower()=="--")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else if (ListServices.SelectedItem.ToString().ToLower() == "rides")
+            {
+                f(ListZones.SelectedItem.ToString().ToLower() == "--")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else if (ListServices.SelectedItem.ToString().ToLower() == "shows")
+            {
+                f(ListZones.SelectedItem.ToString().ToLower() == "--")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else if (ListServices.SelectedItem.ToString().ToLower() == "restaurants")
+            {
+                if(ListZones.SelectedItem.ToString().ToLower() == "--")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }
