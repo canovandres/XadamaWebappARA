@@ -9,11 +9,15 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    
+    
     <div class="backimg3 display-container">
         <div class="display-middle front">
             <div class="center wide xxlarge black padding-large appear"> SHOP </div>
         </div>
     </div>
+
+    <asp:ImageButton id="cart" runat="server"  CssClass="imgbeg" ImageUrl="~/Media/Icons/carritonar.png" />
 
     <div class="content container padding-32 center">
         <div class="center large text-black margin-bottom-large margin-top bold">
