@@ -7,7 +7,7 @@ using System.Data;
 
 namespace lib.EN
 {
-    class Ride
+    public class Ride
     {
         public String cod { get; set; }
 

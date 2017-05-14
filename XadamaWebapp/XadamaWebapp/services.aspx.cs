@@ -18,16 +18,16 @@ namespace XadamaWebapp
     {
         private DataSet bdvirtual = new DataSet();
         private DataTable t = new DataTable();
-        //private Ride enride = new Ride("","");
-        /*private Show enshow = new Show();
-        private Product enprod = new Product();
-        private Restaurant enrest = new Restaurant();*/
+        private Ride enride = new Ride("","","");
+        private Show enshow = new Show("");
+        /*private Product enprod = new Product();*/
+        private Restaurant enrest = new Restaurant("");
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                //t = enride.ShowAllRides();
+                t = enride.ShowAllRides("");
             }
             /*if (!Page.IsPostBack) {
                 DataTable service = bdvirtual.Tables.Add("services");
@@ -61,48 +61,66 @@ namespace XadamaWebapp
 
         protected void OnListServiceChanged(object sender, EventArgs e)
         {
+            DataTable aux = new DataTable();
+            DataRow newrow = t.NewRow();
             if (ListServices.SelectedItem.ToString().ToLower()=="--")
             {
                 if (ListZones.SelectedItem.ToString().ToLower()=="--")
                 {
-
+                    t = enride.ShowAllRides("");
+                    aux = enshow.zoneShows("","*");
+                    foreach (DataRow r in aux.Rows)
+                    {
+                        newrow[0] = r[0];
+                        newrow[1] = r[1];
+                        newrow[2] = r[2];
+                    }
+                    aux = enrest.zoneRestaurants("","*");
+                    foreach (DataRow r in aux.Rows)
+                    {
+                        newrow[0] = r[0];
+                        newrow[1] = r[1];
+                        newrow[2] = r[2];
+                    }
                 }
                 else
                 {
-
+                    //hacer que busque rides por zona y rehacer el algoritmo
                 }
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "rides")
             {
                 if(ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
-
+                    t = enride.ShowAllRides("");
                 }
                 else
                 {
-
+                    //hacer metodo que busque rides por zona o modificar el actual
                 }
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "shows")
             {
                 if(ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
-
+                    t = enshow.zoneShows("", "*");
                 }
                 else
                 {
-
+                    t = enshow.zoneShows("", ListZones.SelectedItem.ToString().ToLower());
                 }
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "restaurants")
             {
                 if(ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
-
+                    t = enrest.zoneRestaurants("","*");
+                    //esperar a que andrea haga restaurants
                 }
                 else
                 {
-
+                    t = enrest.zoneRestaurants("", ListZones.SelectedItem.ToString().ToLower());
+                    //mismo que el anterior
                 }
             }
         }
