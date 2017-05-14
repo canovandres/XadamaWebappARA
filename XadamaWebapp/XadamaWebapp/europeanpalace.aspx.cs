@@ -1,4 +1,5 @@
-﻿using lib.EN;
+﻿using AjaxControlToolkit;
+using lib.EN;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,9 +16,8 @@ namespace XadamaWebapp
         protected void Page_Load(object sender, EventArgs e)
         {
             d = Review.ListReviews("H1");
-
-            GridViewReviews.DataSource = d;
-            GridViewReviews.DataBind();
+            ListViewReviews.DataSource = d;
+            ListViewReviews.DataBind();
         }
 
         [System.Web.Services.WebMethod]
@@ -36,16 +36,17 @@ namespace XadamaWebapp
 
         protected void sendReview(object sender, EventArgs e)
         {
-            Review review = new Review("EU", ReviewRating.CurrentRating, TextBoxReview.Text, TextBoxName.Text);
+            Review review = new Review("EU", TextBoxReview.Text, ReviewRating.CurrentRating, "H1");
+            if(TextBoxName.Text != "")
+            {
+                review.name = TextBoxName.Text;
+            }
             review.Create();
-        }
 
-        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
             d = Review.ListReviews("H1");
-            GridViewReviews.PageIndex = e.NewPageIndex;
-            GridViewReviews.DataSource = d;
-            GridViewReviews.DataBind();
+
+            ListViewReviews.DataSource = d;
+            ListViewReviews.DataBind();
         }
 
         protected void book(object sender, EventArgs e)
