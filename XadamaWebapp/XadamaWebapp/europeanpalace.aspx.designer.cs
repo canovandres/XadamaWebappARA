@@ -157,6 +157,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.DropDownList DropDownDouble;
         
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// Control TextBoxName.
         /// </summary>
         /// <remarks>
@@ -202,12 +211,12 @@ namespace XadamaWebapp {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender3;
         
         /// <summary>
-        /// Control GridViewReviews.
+        /// Control ListViewReviews.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewReviews;
+        protected global::System.Web.UI.WebControls.ListView ListViewReviews;
     }
 }
