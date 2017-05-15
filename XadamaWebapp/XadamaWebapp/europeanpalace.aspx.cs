@@ -51,14 +51,16 @@ namespace XadamaWebapp
 
         protected void book(object sender, EventArgs e)
         {
-            Session["From"] = From.Text;
-            Session["To"] = To.Text;
-            Session["Modality"] = DropDownModality.Text;
-            Session["Single"] = DropDownSingle.DataValueField;
-            Session["Double"] = DropDownDouble.DataValueField;
-            Session["Hotel"] = "europeanpalace";
+            string email = null;
+            if(Session["Client"] != null)
+            {
+                email = ((Client)Session["Client"]).email;
+            }
+            Booking booking = new Booking(email, 0, "H1", From.Text, To.Text);
+            Session["Booking"] = booking;
 
             Response.Redirect("bookhotel.aspx");
         }
+
     }
 }
