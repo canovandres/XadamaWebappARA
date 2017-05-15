@@ -56,7 +56,7 @@ namespace XadamaWebapp
             {
                 email = ((Client)Session["Client"]).email;
             }
-            Booking booking = new Booking(email, 0, "H1", From.Text, To.Text);
+            Booking booking = new Booking(email, 0, "H1", From.Text, To.Text, DropDownModality.Text, DropDownSingle.SelectedIndex, DropDownDouble.SelectedIndex);
             Session["Booking"] = booking;
 
             Response.Redirect("bookhotel.aspx");
