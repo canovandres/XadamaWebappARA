@@ -7,7 +7,7 @@ using System.Data;
 
 namespace lib.EN
 {
-    class Ride
+    public class Ride
     {
         public String cod { get; set; }
 
@@ -69,10 +69,10 @@ namespace lib.EN
             cadride.Delete(cod);
         }
 
-        public DataTable ShowAllRides(String db)
+        public DataTable zoneRides(String db, String zone)
         {
             CAD.CADRide cadride = new CAD.CADRide(db);
-            return cadride.ShowAllRides();
+            return cadride.zoneRides(zone);
         }
     }
 }
