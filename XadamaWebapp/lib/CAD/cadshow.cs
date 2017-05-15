@@ -134,12 +134,12 @@ namespace lib.CAD
             try
             {
                 if (zone!="*") {
-                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from restaurant where zone like '" + zone + "'", con);
+                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from show where zone like '" + zone + "'", con);
                     da.Fill(bdvirtual, "services");
                 }
                 else
                 {
-                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from restaurant", con);
+                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from show", con);
                     da.Fill(bdvirtual, "services");
                 }
 

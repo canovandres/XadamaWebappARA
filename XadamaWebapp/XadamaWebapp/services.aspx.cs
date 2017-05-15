@@ -18,111 +18,119 @@ namespace XadamaWebapp
     {
         private DataSet bdvirtual = new DataSet();
         private DataTable t = new DataTable();
-        private Ride enride = new Ride("","","");
+        private Ride enride = new Ride("", "", "");
         private Show enshow = new Show("");
-        /*private Product enprod = new Product();*/
         private Restaurant enrest = new Restaurant("");
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                t = enride.ShowAllRides("");
+
+                DataTable aux = new DataTable();
+                if (Request.QueryString["type"] == "rides")
+                {
+                    ListServices.SelectedIndex = 1;
+                }
+                else if (Request.QueryString["type"] == "restaurants")
+                {
+                    ListServices.SelectedIndex = 2;
+                }
+                else if (Request.QueryString["type"] == "shows")
+                {
+                    ListServices.SelectedIndex = 3;
+                }
+                OnListServiceChanged(sender, e);
             }
-            /*if (!Page.IsPostBack) {
-                DataTable service = bdvirtual.Tables.Add("services");
-                service.Columns.Add("name", typeof(string));
-                service.Columns.Add("image", typeof(string));
-                service.Columns.Add("description", typeof(string));
-                enride.readRides(bdvirtual, "*");
-                enshow.readShows(bdvirtual, "*");
-                enrest.readRestaurants(bdvirtual, "*");
-                ListView1.DataSource = bdvirtual;
-                ListView1.DataBind();
-            }*/
-            /* string conString;
-             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
-             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
-
-             SqlConnection con = new SqlConnection(conString);
-             DataSet bdvirtual = new DataSet();
-             SqlDataAdapter da = new SqlDataAdapter("select * from Ride", con);
-             da.Fill(bdvirtual, "ride");
-
-             DataTable t = new DataTable();
-             t = bdvirtual.Tables["ride"];
-             Response.Write(t.Rows[0][2]);*/
         }
 
-        protected void OnListZoneChanged(object sender,EventArgs e)
+        protected void OnListZoneChanged(object sender, EventArgs e)
         {
-            labl.Text = ListZones.SelectedItem.ToString().ToLower();
+            OnListServiceChanged(sender, e);
         }
 
         protected void OnListServiceChanged(object sender, EventArgs e)
         {
             DataTable aux = new DataTable();
-            DataRow newrow = t.NewRow();
-            if (ListServices.SelectedItem.ToString().ToLower()=="--")
+            if (ListServices.SelectedItem.ToString().ToLower() == "--")
             {
-                if (ListZones.SelectedItem.ToString().ToLower()=="--")
+                if (ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
-                    t = enride.ShowAllRides("");
-                    aux = enshow.zoneShows("","*");
+                    t = enride.zoneRides("", "*");
+                    aux = enshow.zoneShows("", "*");
                     foreach (DataRow r in aux.Rows)
                     {
-                        newrow[0] = r[0];
-                        newrow[1] = r[1];
-                        newrow[2] = r[2];
+                        t.ImportRow(r);
                     }
-                    aux = enrest.zoneRestaurants("","*");
+                    aux = enrest.zoneRestaurants("", "*");
                     foreach (DataRow r in aux.Rows)
                     {
-                        newrow[0] = r[0];
-                        newrow[1] = r[1];
-                        newrow[2] = r[2];
+                        t.ImportRow(r);
                     }
                 }
                 else
                 {
-                    //hacer que busque rides por zona y rehacer el algoritmo
+                    t = enride.zoneRides("", ListZones.SelectedItem.ToString());
+                    aux = enshow.zoneShows("", ListZones.SelectedItem.ToString());
+                    foreach (DataRow r in aux.Rows)
+                    {
+                        t.ImportRow(r);
+                    }
+                    aux = enrest.zoneRestaurants("", ListZones.SelectedItem.ToString());
+                    foreach (DataRow r in aux.Rows)
+                    {
+                        t.ImportRow(r);
+                    }
                 }
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "rides")
             {
-                if(ListZones.SelectedItem.ToString().ToLower() == "--")
+                if (ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
-                    t = enride.ShowAllRides("");
+                    t = enride.zoneRides("", "*");
                 }
                 else
                 {
-                    //hacer metodo que busque rides por zona o modificar el actual
+                    t = enride.zoneRides("", ListZones.SelectedItem.ToString());
                 }
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "shows")
             {
-                if(ListZones.SelectedItem.ToString().ToLower() == "--")
+                if (ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
                     t = enshow.zoneShows("", "*");
                 }
                 else
                 {
-                    t = enshow.zoneShows("", ListZones.SelectedItem.ToString().ToLower());
+                    t = enshow.zoneShows("", ListZones.SelectedItem.ToString());
                 }
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "restaurants")
             {
-                if(ListZones.SelectedItem.ToString().ToLower() == "--")
+                if (ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
-                    t = enrest.zoneRestaurants("","*");
-                    //esperar a que andrea haga restaurants
+                    t = enrest.zoneRestaurants("", "*");
                 }
                 else
                 {
-                    t = enrest.zoneRestaurants("", ListZones.SelectedItem.ToString().ToLower());
-                    //mismo que el anterior
+                    t = enrest.zoneRestaurants("", ListZones.SelectedItem.ToString());
                 }
             }
+
+            ListView1.DataSource = t;
+            ListView1.DataBind();
+        }
+
+        protected void OnSelectedItem(object sender, ListViewSelectEventArgs e)
+        {
+            ListViewItem item = ListView1.Items[e.NewSelectedIndex];
+            Label c = (Label)item.FindControl("Label1");
+            Label d = (Label)item.FindControl("Label2");
+            Image i = (Image)item.FindControl("Image1");
+            Session["ServiceName"] = c.Text;
+            Session["ServiceImage"] = i.ImageUrl;
+            Session["ServiceDescription"] = d.Text;
+            Response.Redirect("servicesinfo.aspx");
         }
     }
 }
