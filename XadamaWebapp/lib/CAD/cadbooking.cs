@@ -16,7 +16,7 @@ namespace lib.CAD
     {
         private string connectionString;
 
-        public CADBooking(String dbname)
+        public CADBooking()
         {
             connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             connectionString = connectionString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
@@ -81,7 +81,7 @@ namespace lib.CAD
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + b.client + "' and room like '" + b.room + "and hotel like '" + b.hotel + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + client + "' and room like '" + room + "and hotel like '" + hotel + "'", conn);
                 da.Fill(virtualdb, "booking");
 
                 DataTable t = new DataTable();
@@ -99,13 +99,13 @@ namespace lib.CAD
             catch (Exception ex) { }
             finally { conn.Close(); }
         }
-        public void Delete(String client, int room, String hotel)
+        public void Delete(Booking b)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + client + "' and room like '" + room + "and hotel like '" + hotel + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + b.client + "' and room like '" + b.room + "and hotel like '" + b.hotel + "'", conn);
                 da.Fill(virtualdb, "booking");
 
                 DataTable t = new DataTable();
@@ -123,38 +123,77 @@ namespace lib.CAD
             catch (Exception ex) { }
             finally { conn.Close(); }
         }
-
-        public bool bookRooms (Booking b, string type, int n)
+        public bool isAvalaible(Booking b)
         {
-            bool done = false;
-            int freerooms = 0; 
+            bool ok = false;
             SqlConnection conn = new SqlConnection(connectionString);
             DataSet virtualdb = new DataSet();
+
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from room where type like '" + type + "' and hotel like '"+b.hotel+"' and num not in (select room from booking)", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from room where type like 'single' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
                 da.Fill(virtualdb, "room");
 
                 DataTable t = new DataTable();
                 t = virtualdb.Tables["room"];
+                int freeSingle = Int32.Parse(t.Rows[0][0].ToString());
 
-                freerooms = Int32.Parse(t.Rows[0][0].ToString());
+                SqlDataAdapter da2 = new SqlDataAdapter("select count(*) from room where type like 'double' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                da2.Fill(virtualdb, "room");
 
-                if (freerooms == n)
+                DataTable t2 = new DataTable();
+                t2 = virtualdb.Tables["room"];
+                int freeDouble = Int32.Parse(t2.Rows[0][0].ToString());
+
+                if(freeSingle > b.nsingle && freeDouble > b.ndouble)
                 {
-                    for (int i = 0; i < n; i++)
+                    ok = true;
+                }
+
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return ok;
+        }
+        public bool bookRooms (Booking b)
+        {
+            bool done = false;
+            SqlConnection conn = new SqlConnection(connectionString);
+            DataSet virtualdb = new DataSet();
+            try
+            {
+                if (b.nsingle > 0 && isAvalaible(b))
+                {
+                    for (int i = 0; i < b.nsingle; i++)
                     {
-                        SqlDataAdapter da2 = new SqlDataAdapter("select * from room where type like '" + type + "' and hotel like '" + b.hotel + "' and num not in (select room from booking)", conn);
-                        da2.Fill(virtualdb, "room");
+                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'single' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                        da.Fill(virtualdb, "room");
 
-                        DataTable t2 = new DataTable();
-                        t2 = virtualdb.Tables["room"];
+                        DataTable t = new DataTable();
+                        t = virtualdb.Tables["room"];
 
-                        int roomnum = Int32.Parse(t2.Rows[0][0].ToString());
-                        String roomhotel = t2.Rows[0][1].ToString();
+                        int roomnum = Int32.Parse(t.Rows[0][0].ToString());
+                        String roomhotel = t.Rows[0][1].ToString();
                         Booking newBooking = new Booking(b.client, roomnum, roomhotel, b.datestart, b.dateend);
                         Create(newBooking);
+                    }
+                    done = true;
+                }
+                else done = false;
+                if (b.ndouble > 0 && isAvalaible(b))
+                {
+                    for (int i = 0; i < b.ndouble; i++)
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'double' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                        da.Fill(virtualdb, "room");
 
+                        DataTable t = new DataTable();
+                        t = virtualdb.Tables["room"];
+
+                        int roomnum = Int32.Parse(t.Rows[0][0].ToString());
+                        String roomhotel = t.Rows[0][1].ToString();
+                        Booking newBooking = new Booking(b.client, roomnum, roomhotel, b.datestart, b.dateend);
+                        Create(newBooking);
                     }
                     done = true;
                 }
