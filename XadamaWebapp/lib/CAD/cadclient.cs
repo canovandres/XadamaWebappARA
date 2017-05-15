@@ -13,7 +13,7 @@ namespace lib.CAD
 {
     class CADClient : CADUser
     {
-        private string conString;
+        private static string conString;
 
         public CADClient()
         {
@@ -27,15 +27,19 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from Client", con);
-                SqlDataAdapter da2 = new SqlDataAdapter("select * from Usuario", con);
-                da.Fill(bdvirtual, "client");
+                SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from client", con);
                 da2.Fill(bdvirtual, "usuario");
+                da.Fill(bdvirtual, "client");
 
-                DataTable t = new DataTable();
                 DataTable t2 = new DataTable();
-                t = bdvirtual.Tables["client"];
+                DataTable t = new DataTable();
                 t2 = bdvirtual.Tables["usuario"];
+                t = bdvirtual.Tables["client"];
+
+                DataRow newrow2 = t2.NewRow();
+                newrow2[0] = newClient.email;
+                newrow2[1] = newClient.password;
 
                 DataRow newrow = t.NewRow();
                 newrow[0] = newClient.email;
@@ -47,16 +51,13 @@ namespace lib.CAD
                 newrow[6] = newClient.address;
                 newrow[7] = newClient.creditCard;
 
-                DataRow newrow2 = t2.NewRow();
-                newrow[0] = newClient.email;
-                newrow[1] = newClient.password;
-
-                t.Rows.Add(newrow);
                 t2.Rows.Add(newrow2);
-                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                t.Rows.Add(newrow);
+                
                 SqlCommandBuilder cbuilder2 = new SqlCommandBuilder(da2);
-                da.Update(bdvirtual, "client");
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da2.Update(bdvirtual, "usuario");
+                da.Update(bdvirtual, "client");
             }
             catch (Exception ex)
             {
