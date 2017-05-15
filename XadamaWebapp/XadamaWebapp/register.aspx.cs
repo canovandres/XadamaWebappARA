@@ -54,11 +54,23 @@ namespace XadamaWebapp
                     c.name = TextBoxName.Text;
                     c.surname1 = TextBox1Surname.Text;
                     c.surname2 = TextBox2Surname.Text;
-                    c.age = (Birthdate.Text).ToString();
-                    c.phone = Int32.Parse(TextBoxPhone.Text);
-                    c.address = TextBoxAddress.Text;
+                    if(Birthdate.Text != "")
+                    {
+                        c.age = (Birthdate.Text).ToString();
+                    }
+                    if(TextBoxPhone.Text != "")
+                    {
+                        c.phone = Int32.Parse(TextBoxPhone.Text);
+                    }
+                    if(TextBoxAddress.Text != "")
+                    {
+                        c.address = TextBoxAddress.Text;
+                    }
                     c.creditCard = TextBoxCreditCard.Text;
                     c.Create();
+
+                    TextBoxEmail.Text = string.Empty;
+                    TextBoxEmail.Attributes.Add("placeholder", "Account created!");
 
                     Session["email"] = TextBoxEmail.Text;
                     Session["name"] = TextBoxName.Text;
