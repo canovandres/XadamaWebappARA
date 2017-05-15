@@ -37,34 +37,33 @@
                 <asp:ListView ID="ListView1" runat="server" GroupItemCount="3" OnSelectedIndexChanging="OnSelectedItem">
 
                    <LayoutTemplate>
-                  <div align="center" class="margin-32 padding-64" runat="server">
-                      <div runat="server" id="groupPlaceholder">
+                      <div align="center" class="margin-32 padding-64" runat="server">
+                          <div runat="server" id="groupPlaceholder">
+                          </div>
                       </div>
-                  </div>
-            </LayoutTemplate>
-            <ItemTemplate>
-                <div class="quarter display-border col large text-orange item-container uppercase bold padding-16">
-                    <div>
-                        <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
-                    </div>
-                    <div style="height:70%">
-                        <asp:Image ID="Image1" runat="server" CssClass="image-template" ImageUrl='<%#Eval("image") %>' />
-                    </div>
-                    <div>
-                        <asp:Label ID="Label2" Visible="false" runat="server" Text='<%#Eval("description") %>'></asp:Label>
-                    </div>
-                    <div>
-                        <asp:LinkButton runat="server" Text="See More!" CommandName="Select"></asp:LinkButton>
-                    </div>
-                </div>
-            </ItemTemplate>
-             <GroupTemplate>
-                    <div runat="server" id="productRow" class="margin-bottom-large" style="height:500px">
-                        <div runat="server" id="itemPlaceholder">
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <div class="quarter display-border-template col large item-container uppercase bold padding-16">
+                            <div>
+                                <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
+                            </div>
+                            <div style="height:70%">
+                                <asp:Image ID="Image1" runat="server" CssClass="image-template" ImageUrl='<%#Eval("image") %>' />
+                            </div>
+                            <div>
+                                <asp:Label ID="Label2" Visible="false" runat="server" Text='<%#Eval("description") %>'></asp:Label>
+                            </div>
+                            <div>
+                                <asp:LinkButton runat="server" CssClass="button-template" Text="See More!" CommandName="Select"></asp:LinkButton>
+                            </div>
                         </div>
-                    </div>
-            </GroupTemplate>
-            
+                    </ItemTemplate>
+                     <GroupTemplate>
+                            <div runat="server" id="productRow" class="margin-bottom-large" style="height:500px">
+                                <div runat="server" id="itemPlaceholder">
+                                </div>
+                            </div>
+                    </GroupTemplate>
                 </asp:ListView>
             </div>
         </ContentTemplate>

@@ -5,13 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <div id="title container">
-            <asp:Label runat="server"></asp:Label>
+            <asp:Label ID="ServiceTitle" runat="server"></asp:Label>
         </div>
         <div id="info container">
             <div id="image-contain">
-
+                <asp:Image ID="ServiceImage" runat="server"></asp:Image>
             </div>
-            <div id="description-contain"></div>
+            <div id="description-contain">
+                <asp:Label ID="ServiceDescription" runat="server"></asp:Label>
+            </div>
         </div>
     </div>
 </asp:Content>
