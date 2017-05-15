@@ -139,5 +139,27 @@ namespace lib.CAD
             }
             return bdvirtual;
         }
+
+        public DataSet searchProduct(String search)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select* from product where name like '%" + search + "%' ", con);
+                da.Fill(bdvirtual, "search");
+                return bdvirtual;
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return bdvirtual;
+        }
     }
 }

@@ -10,33 +10,28 @@ namespace XadamaWebapp
 {
     public partial class bookhotel : System.Web.UI.Page
     {
+        //Booking booking;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Booking booking = new Booking(null, "");
-            if (Session["Hotel"] != null)
+            if (Session["Booking"] != null)
             {
-                booking.hotel = Session["Hotel"].ToString();
+                /*booking = (Booking)Session["Booking"];
+                Session.Remove("Booking");
+
+                DropDownHotel.SelectedIndex = Convert.ToInt32(booking.hotel.Substring(1));
+                From.Text = booking.datestart;
+                To.Text = booking.dateend;
+                DropDownSingle.SelectedIndex = booking.nsingle;
+                DropDownDouble.SelectedIndex = booking.ndouble;*/
             }
-            if (Session["From"] != null)
+        }
+
+        protected void checkBooking(object sender, EventArgs e)
+        {
+            /*if (booking.isAvalaible())
             {
 
-            }
-            if (Session["To"] != null)
-            {
-
-            }
-            if (Session["Modality"] != null)
-            {
-
-            }
-            if (Session["Single"] != null)
-            {
-
-            }
-            if (Session["Double"] != null)
-            {
-
-            }
+            }*/
         }
     }
 }
