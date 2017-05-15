@@ -30,6 +30,7 @@ namespace XadamaWebapp
 
         protected void sendSuggestion(object sender, EventArgs e)
         {
+            sendLabel.Visible = true;
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
             MailMessage message = new MailMessage();
             try
