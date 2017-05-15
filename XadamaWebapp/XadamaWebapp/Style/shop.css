@@ -101,17 +101,18 @@
     width:100%;
 }
 .display-border-grey{
+    height:350px;
     border:2px solid #808080;
     border-radius: 8px 8px 8px 8px;
     transition: all 0.7s;
 }
 
 .display-border-grey:hover{
-    width:30%;
-    height:500px;
+    height:380px;
+    width:28% !important;
     font-size:24px !important; 
     box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
-    transition-delay:0.5s;
+    
 }
 
 .cart-button {
@@ -163,3 +164,56 @@
     width: 80px;
     transition: width ease-in 0.3s, height ease-in 0.3s, bottom ease-in 0.3s, left ease-in 0.3s, font-size ease-in 0.3s, box-shadow ease-in 0.3s, background-size ease-in 0.3s;
 }
+
+.form-content {
+    max-width: 75%;
+    margin: auto;
+    display: block;
+}
+
+.form-content .form-label {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px 0px 8px 0px;
+    color: #000;
+    vertical-align: top;
+}
+
+.container {
+    padding: 0px 16px;
+}
+
+.padding-64{
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+}
+
+.field {
+    display: inline-block;
+    margin-left: 180px;
+    width: 60%;
+    padding-right: 4%;
+    margin-top: -40px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.field-aux {
+    display: inline-block;
+    margin-left: 766px;
+    width: 10%;
+    padding-right: 4%;
+    margin-top: -68px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.imgbeg-aux{
+    padding: 6px;
+    height: 35px;
+    width: 35px;
+	cursor: pointer;
+	right: 0px;
+    margin: 5px;
+    z-index:300;
+    
+}
+
