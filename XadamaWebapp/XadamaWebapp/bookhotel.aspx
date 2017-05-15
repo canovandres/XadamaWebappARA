@@ -104,4 +104,7 @@
             </div>
         </div>
     </asp:Panel>
+    <asp:Panel runat="server" ID="okBooking">
+
+    </asp:Panel>
 </asp:Content>
