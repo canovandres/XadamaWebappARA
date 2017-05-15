@@ -130,7 +130,7 @@ namespace lib.CAD
 
         public List<EN.Promo> getPromos(String currentdate)//Returns a list of promos active in the date passed by parameter by executing appropiate commands
         {
-            List<EN.Promo> promos = new List<String>();
+            List<EN.Promo> promos = new List<EN.Promo>();
             EN.Promo promo = new EN.Promo("");
             SqlConnection con = new SqlConnection(conString);
             try
