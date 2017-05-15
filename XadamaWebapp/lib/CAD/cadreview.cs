@@ -35,7 +35,10 @@ namespace lib.CAD
 
                 DataRow newrow = t.NewRow();
                 newrow[0] = newReview.cod;
-                //Continuar y modificar segun DB
+                newrow[1] = newReview.description;
+                newrow[2] = newReview.score;
+                newrow[3] = newReview.hotel;
+                newrow[4] = newReview.name;
 
                 t.Rows.Add(newrow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
@@ -47,21 +50,22 @@ namespace lib.CAD
 
         public EN.Review Read(String cod)
         {
-            EN.Review review = new EN.Review("", 0, "", "");
+            EN.Review review = new EN.Review("", "", 0, "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from review where cod like '" + cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review where cod like '" + cod + "'", con);
                 da.Fill(bdvirtual, "review");
 
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["review"];
 
                 review.cod = t.Rows[0][0].ToString();
-                review.name = t.Rows[0][1].ToString();
+                review.description = t.Rows[0][1].ToString();
                 review.score = Int32.Parse(t.Rows[0][2].ToString());
-                //Continuar y modificar segun DB
+                review.hotel = t.Rows[0][3].ToString();
+                review.name = t.Rows[0][4].ToString();
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -75,14 +79,17 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from review where cod like '" + review.cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review where cod like '" + review.cod + "'", con);
                 da.Fill(bdvirtual, "review");
 
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["review"];
 
                 t.Rows[0][0] = newReview.cod;
-                //Continuar y modificar segun DB
+                t.Rows[0][1] = newReview.description;
+                t.Rows[0][2] = newReview.score;
+                t.Rows[0][3] = newReview.hotel;
+                t.Rows[0][4] = newReview.name;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "review");
@@ -96,14 +103,13 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from review where cod like '" + cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review where cod like '" + cod + "'", con);
                 da.Fill(bdvirtual, "review");
 
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["review"];
 
                 t.Rows[0].Delete();
-                //Continuar y modificar segun DB
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "review");
@@ -112,25 +118,25 @@ namespace lib.CAD
             finally { con.Close(); }
         }
 
-        public static int MaxCode(String hotel)
+        public static string NextCode()
         {
-            int code = 0;
+            int cod = 0;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select max(code) from review where hotel like '" + hotel + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from Review", con);
                 da.Fill(bdvirtual, "review");
 
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["review"];
 
-                code = Int32.Parse(t.Rows[0][0].ToString());
+                cod = Convert.ToInt32(t.Rows[0][0].ToString()) + 1;
             }
             catch (Exception ex) { }
             finally { con.Close(); }
 
-            return code;
+            return cod.ToString();
         }
 
         public DataSet ListReviews(String hotel)
@@ -139,7 +145,7 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from review where hotel like '" + hotel + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review where hotel like '" + hotel + "'", con);
                 da.Fill(bdvirtual, "review");
             }
             catch (Exception ex) { }
