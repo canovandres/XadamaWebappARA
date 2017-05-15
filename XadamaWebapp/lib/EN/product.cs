@@ -63,5 +63,11 @@ namespace lib.EN
             return c.showTypeProducts(type);
         }
 
+        public DataSet searchProduct(String search)
+        {
+            CAD.CADProduct c = new CAD.CADProduct();
+            return c.searchProduct(search);
+        }
+
     }
 }

@@ -1,8 +1,6 @@
 ﻿.slideshow {
     left: 50%;
     right: 50%;
-    width: 60%;
-    height: 450px;
 }
 
 .hotel-tittle {
@@ -36,4 +34,17 @@
 
 .text-review {
     width: 100%;
+}
+
+.content-review {
+    color: #4A4A4A;
+    padding: 20px;
+    position: relative;
+    overflow: visible;
+    border: 4px solid #dcdcdc;
+    border-radius: 4px;
+}
+
+.cursor-default {
+    cursor: default;
 }
