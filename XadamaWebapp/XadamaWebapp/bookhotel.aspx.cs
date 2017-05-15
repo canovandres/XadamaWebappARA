@@ -12,31 +12,7 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Booking booking = new Booking(null, "");
-            if (Session["Hotel"] != null)
-            {
-                booking.hotel = Session["Hotel"].ToString();
-            }
-            if (Session["From"] != null)
-            {
-
-            }
-            if (Session["To"] != null)
-            {
-
-            }
-            if (Session["Modality"] != null)
-            {
-
-            }
-            if (Session["Single"] != null)
-            {
-
-            }
-            if (Session["Double"] != null)
-            {
-
-            }
+            
         }
     }
 }
