@@ -20,28 +20,28 @@
         <asp:UpdatePanel runat="server" ID="hgfj">
         <ContentTemplate>
         <div>        
-        <asp:ListView ID="ListView1" runat="server" GroupItemCount="3" >
+        <asp:ListView ID="ListView1" runat="server" >
             <LayoutTemplate>
-                  <div align="center" class="margin-32 padding-64" runat="server">
+                  <div align="left" class="margin-32" runat="server">
                       <div runat="server" id="groupPlaceholder">
                       </div>
                   </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <div class="quarter display-border-grey large text-orange item-container uppercase bold padding-16">
+                <div class="large text-orange item-container uppercase bold padding-16">
+                    <div>
+                        <asp:Image ID="Image1" runat="server" CssClass="imgaux" ImageUrl='<%#Eval("image") %>' />
+                    </div>
+
                     <div>
                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
                     </div>
-                    <div style="height:70%">
-                        <asp:Image ID="Image1" runat="server" CssClass="image-template" ImageUrl='<%#Eval("image") %>' />
-                    </div>
+                    
                     <div>
                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label>
                         €
                     </div>
-                    <div>
-                        <asp:LinkButton ID="LinkButton1" CommandName="Select" Text="Add to cart" CssClass="button button-slice" runat="server"></asp:LinkButton>
-                    </div>
+                   
                 </div>
             </ItemTemplate>
              <GroupTemplate>
