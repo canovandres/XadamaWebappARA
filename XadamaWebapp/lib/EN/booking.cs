@@ -19,7 +19,7 @@ namespace lib.EN
         public int ndouble { get; set; }
 
 
-        public Booking(String client, String datestart, String dateend, int room = 0, String hotel = "", int nsingle = 0, int ndouble = 0)
+        public Booking(String client, int room, String hotel, String datestart, String dateend, int nsingle=0, int ndouble=0)
         {
             this.client = client;
             this.datestart = datestart;
@@ -30,35 +30,54 @@ namespace lib.EN
             this.ndouble = ndouble;
         }
 
-        void Create(String dbname)
+        public void Create()
         {
-            CAD.CADBooking b = new CAD.CADBooking(dbname);
+            CAD.CADBooking b = new CAD.CADBooking();
             b.Create(this);
         }
 
-        void Read(String dbname)
+        public void Read()
         {
-            CAD.CADBooking b = new CAD.CADBooking(dbname);
-            Booking p = b.Read(client, room);
+            CAD.CADBooking b = new CAD.CADBooking();
+            Booking p = b.Read(client, room, hotel);
             client = p.client;
             datestart = p.datestart;
             dateend = p.dateend;
             room = p.room;
             hotel = p.hotel;
-            nsingle = p.nsingle;
-            ndouble = p.ndouble;
         }
 
-        void Update(String dbname)
+        public void Update()
         {
-            CAD.CADBooking b = new CAD.CADBooking(dbname);
+            CAD.CADBooking b = new CAD.CADBooking();
             b.Update(this);
         }
 
-        void Delete(String dbname)
+        public void Delete()
         {
-            CAD.CADBooking b = new CAD.CADBooking(dbname);
-            b.Delete(client, room);
+            CAD.CADBooking b = new CAD.CADBooking();
+            b.Delete(this);
+        }
+
+        public float getPrice()
+        {
+            CAD.CADBooking b = new CAD.CADBooking();
+            float price = b.getPrice(this);
+            return price;
+        }
+
+        public bool isAvalaible()
+        {
+            CAD.CADBooking b = new CAD.CADBooking();
+            bool ok = b.isAvalaible(this);
+            return ok;
+        }
+
+        public bool bookRooms()
+        {
+            CAD.CADBooking b = new CAD.CADBooking();
+            bool ok = b.bookRooms();
+            return ok;
         }
     }
 }

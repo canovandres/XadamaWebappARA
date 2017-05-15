@@ -26,20 +26,27 @@
     </div>
     <div class="content container padding-32">
         <div align="center" class="blue" style="height: 100px">
-            <div class="input-line field col third" style="margin-left: 4%">
-                <div class="input-group-tag">From</div>
-                <asp:TextBox runat="server" ID="From" CssClass="field" style="border-radius: 0px;" ReadOnly="True"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="ValidatorFrom" runat="server" ControlToValidate="From" CssClass="error-text" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
-                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorFrom" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+            <div class="col third field" style="margin-left: 4%">
+                <div class="input-tag left" style="border-bottom-right-radius: 0px; border-top-right-radius: 0px;">From</div>
+                <asp:TextBox runat="server" ID="From" CssClass="left third" style="border-radius: 0px;" ReadOnly="True"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"
-                    TargetControlID="From" FirstDayOfWeek="Monday" PopupPosition="BottomRight" />
-                <div class="input-group-tag">to</div>
-                <asp:TextBox runat="server" ID="To" CssClass="field" ReadOnly="True"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="ValidatorTo" runat="server" ControlToValidate="To" CssClass="error-text" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
+                    TargetControlID="From" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
+
+                <div class="input-tag left" style="border-radius: 0px">to</div>
+                <asp:TextBox runat="server" ID="To" CssClass="left third" ReadOnly="True" style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="To" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
+                
+                <asp:RequiredFieldValidator ID="ValidatorFrom" runat="server" ControlToValidate="From" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorFrom" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                
+                <asp:RequiredFieldValidator ID="ValidatorTo" runat="server" ControlToValidate="To" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="ValidatorTo" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
-                <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="To" FirstDayOfWeek="Monday" PopupPosition="BottomRight" />
-                <asp:CompareValidator ID="CompareValidator" runat="server" ErrorMessage="Select a valid date range" CssClass="error-text" ControlToValidate="To" ControlToCompare="From" Type="Date" Operator="GreaterThan" ValidationGroup="booking"></asp:CompareValidator>
+
+                <asp:CompareValidator ID="CompareValidator" runat="server" ErrorMessage="Select a valid date range" CssClass="error-text" style="display: inline-block" ControlToValidate="From" ControlToCompare="To" Type="Date" Operator="LessThan" ValidationGroup="booking"></asp:CompareValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="CompareValidator" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="" CssClass="error-text" style="display: inline-block" ControlToValidate="To" ControlToCompare="From" Type="Date" Operator="GreaterThan" ValidationGroup="booking"></asp:CompareValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="CompareValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
             </div>
             <div class="field col seventh">
                 <asp:DropDownList id="DropDownModality" runat="server" CssClass="field">
