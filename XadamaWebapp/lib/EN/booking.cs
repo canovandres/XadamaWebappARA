@@ -15,19 +15,15 @@ namespace lib.EN
         public String hotel { get; set; }
         public float price { get; set; }
         public int nights { get; set; }
-        public int nsingle { get; set; }
-        public int ndouble { get; set; }
 
 
-        public Booking(String client, String datestart, String dateend, int room = 0, String hotel = "", int nsingle = 0, int ndouble = 0)
+        public Booking(String client, int room, String hotel, String datestart, String dateend)
         {
             this.client = client;
             this.datestart = datestart;
             this.dateend = dateend;
             this.room = room;
             this.hotel = hotel;
-            this.nsingle = nsingle;
-            this.ndouble = ndouble;
         }
 
         void Create(String dbname)
@@ -39,14 +35,12 @@ namespace lib.EN
         void Read(String dbname)
         {
             CAD.CADBooking b = new CAD.CADBooking(dbname);
-            Booking p = b.Read(client, room);
+            Booking p = b.Read(client, room, hotel);
             client = p.client;
             datestart = p.datestart;
             dateend = p.dateend;
             room = p.room;
             hotel = p.hotel;
-            nsingle = p.nsingle;
-            ndouble = p.ndouble;
         }
 
         void Update(String dbname)
@@ -58,7 +52,7 @@ namespace lib.EN
         void Delete(String dbname)
         {
             CAD.CADBooking b = new CAD.CADBooking(dbname);
-            b.Delete(client, room);
+            b.Delete(client, room, hotel);
         }
     }
 }

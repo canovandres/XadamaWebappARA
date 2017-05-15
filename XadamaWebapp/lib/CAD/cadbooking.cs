@@ -52,7 +52,7 @@ namespace lib.CAD
         }
         public Booking Read(String client, int room, String hotel)
         {
-            Booking booking = new Booking(null, "", 0, "");
+            Booking booking = new Booking("", 0, "", "", "");
             SqlConnection conn = new SqlConnection(connectionString);
             DataSet virtualdb = new DataSet();
             try
@@ -99,7 +99,7 @@ namespace lib.CAD
             catch (Exception ex) { }
             finally { conn.Close(); }
         }
-        public void Delete(String client, int room)
+        public void Delete(String client, int room, String hotel)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             DataSet virtualdb = new DataSet();
@@ -123,31 +123,50 @@ namespace lib.CAD
             catch (Exception ex) { }
             finally { conn.Close(); }
         }
-        public bool isAvailable(String start, String end, String type)
-        {
-            bool ok = false;
 
+        public bool bookRooms (Booking b, string type, int n)
+        {
+            bool done = false;
+            int freerooms = 0; 
             SqlConnection conn = new SqlConnection(connectionString);
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from booking where datestart like '" + start + "and dateend like '" + end + "and type like" + type + "'", conn);
-                SqlDataAdapter da2 = new SqlDataAdapter("select count(*) from room where datestart like '" + start + "and dateend like '" + end + "'", conn);
-
-                da.Fill(virtualdb, "booking");
-                da2.Fill(virtualdb, "room");
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from room where type like '" + type + "' and hotel like '"+b.hotel+"' and num not in (select room from booking)", conn);
+                da.Fill(virtualdb, "room");
 
                 DataTable t = new DataTable();
-                t = virtualdb.Tables["booking"];
+                t = virtualdb.Tables["room"];
 
+                freerooms = Int32.Parse(t.Rows[0][0].ToString());
 
+                if (freerooms == n)
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        SqlDataAdapter da2 = new SqlDataAdapter("select * from room where type like '" + type + "' and hotel like '" + b.hotel + "' and num not in (select room from booking)", conn);
+                        da2.Fill(virtualdb, "room");
+
+                        DataTable t2 = new DataTable();
+                        t2 = virtualdb.Tables["room"];
+
+                        int roomnum = Int32.Parse(t2.Rows[0][0].ToString());
+                        String roomhotel = t2.Rows[0][1].ToString();
+                        Booking newBooking = new Booking(b.client, roomnum, roomhotel, b.datestart, b.dateend);
+                        Create(newBooking);
+
+                    }
+                    done = true;
+                }
+                else done = false;
             }
             catch (Exception ex) { }
             finally { conn.Close(); }
 
-            return ok;
+            return done;
         }
-        public float getPrice(String client, int room, String hotel)
+       
+        public float getPrice(Booking b)
         {
             float price = 0;
 
@@ -155,8 +174,8 @@ namespace lib.CAD
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + client + "' and room like '" + room +"and hotel like '"+hotel+ "'", conn);
-                SqlDataAdapter da2 = new SqlDataAdapter("select * from booking where num like '" + room + "' and hotel like '" + hotel + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + b.client + "' and room like '" + b.room +"and hotel like '"+b.hotel+ "'", conn);
+                SqlDataAdapter da2 = new SqlDataAdapter("select * from room where num like '" + b.room + "' and hotel like '" + b.hotel + "'", conn);
                 da.Fill(virtualdb, "booking");
                 da2.Fill(virtualdb, "room");
 
@@ -166,7 +185,7 @@ namespace lib.CAD
                 t2 = virtualdb.Tables["room"];
 
                 float roomprice = float.Parse(t2.Rows[0][4].ToString());
-                price = roomprice*numberOfNights(client, room, hotel);
+                price = roomprice*numberOfNights(b);
                 
             }
             catch (Exception ex) { }
@@ -174,14 +193,14 @@ namespace lib.CAD
 
             return price;
         }
-        public int numberOfNights(String client, int room, String hotel)
+        public int numberOfNights(Booking b)
         {
             int num = 0;
             SqlConnection conn = new SqlConnection(connectionString);
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + client + "' and room like '" + room + "and hotel like '" + hotel + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + b.client + "' and room like '" + b.room + "and hotel like '" + b.hotel + "'", conn);
                 da.Fill(virtualdb, "booking");
 
                 DataTable t = new DataTable();
