@@ -76,7 +76,7 @@ namespace lib.EN
         public bool bookRooms()
         {
             CAD.CADBooking b = new CAD.CADBooking();
-            bool ok = b.bookRooms();
+            bool ok = b.bookRooms(this);
             return ok;
         }
     }
