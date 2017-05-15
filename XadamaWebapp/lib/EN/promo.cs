@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Promo
+    public class Promo
     {
         private int pdiscount;
         public String cod { get; set; }
+        public String name { get; set; }
         public String initialdate { get; set; }
         public String enddate { get; set; }
         public String description { get; set; }
@@ -68,7 +69,7 @@ namespace lib.EN
             c.Delete(cod);
         }
 
-        public List<String> getPromos(String currentdate)//returns a list of promos that are active during the date passed by parameter by calling the appropiate method in cadpromo
+        public List<Promo> getPromos(String currentdate)//returns a list of promos that are active during the date passed by parameter by calling the appropiate method in cadpromo
         {
             CAD.CADPromo c = new CAD.CADPromo();
             return c.getPromos(currentdate);

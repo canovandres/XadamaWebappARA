@@ -55,7 +55,12 @@ namespace lib.CAD
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
-                //igualar todos los parametros con product
+                promo.cod = t.Rows[0][0].ToString();
+                promo.name = t.Rows[0][1].ToString();
+                promo.description= t.Rows[0][2].ToString();
+                promo.discount = Int32.Parse(t.Rows[0][3].ToString());
+                promo.initialdate= t.Rows[0][4].ToString();
+                promo.enddate= t.Rows[0][5].ToString();
             }
             catch (Exception ex)
             {
@@ -78,8 +83,12 @@ namespace lib.CAD
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
-                DataRow newline = t.NewRow();
-                t.Rows.Add(newline);
+                t.Rows[0][0] = p.cod;
+                t.Rows[0][1] = p.name;
+                t.Rows[0][2] = p.description;
+                t.Rows[0][3] = p.discount;
+                t.Rows[0][4] = p.initialdate;
+                t.Rows[0][5] = p.enddate;
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "promocion");
 
@@ -108,7 +117,6 @@ namespace lib.CAD
                 t.Rows[0].Delete();
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "promocion");
-                //ver si devolver bool
             }
             catch (Exception ex)
             {
@@ -120,9 +128,9 @@ namespace lib.CAD
             }
         }
 
-        public List<String> getPromos(String currentdate)//Returns a list of promos active in the date passed by parameter by executing appropiate commands
+        public List<EN.Promo> getPromos(String currentdate)//Returns a list of promos active in the date passed by parameter by executing appropiate commands
         {
-            List<String> promos = new List<String>();
+            List<EN.Promo> promos = new List<String>();
             EN.Promo promo = new EN.Promo("");
             SqlConnection con = new SqlConnection(conString);
             try
@@ -132,6 +140,18 @@ namespace lib.CAD
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];//rellenar
+                int i = 0;
+                foreach(DataRow r in t.Rows)
+                {
+                    promo.cod = t.Rows[i][0].ToString();
+                    promo.name = t.Rows[i][1].ToString();
+                    promo.description = t.Rows[i][2].ToString();
+                    promo.discount = Int32.Parse(t.Rows[i][3].ToString());
+                    promo.initialdate = t.Rows[i][4].ToString();
+                    promo.enddate = t.Rows[i][5].ToString();
+                    promos.Add(promo);
+                    i++;
+                }
             }
             catch(Exception ex)
             {
