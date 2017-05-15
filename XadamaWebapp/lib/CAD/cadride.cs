@@ -136,15 +136,22 @@ namespace lib.CAD
             finally { con.Close(); }
         }
 
-        public DataTable ShowAllRides()
+        public DataTable zoneRides(String zone)
         {
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             DataTable t = new DataTable();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select name, description, image from ride", con);
-                da.Fill(bdvirtual, "services");
+                if (zone=="*") {
+                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from ride", con);
+                    da.Fill(bdvirtual, "services");
+                }
+                else
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from ride where zone like '" + zone + "'", con);
+                    da.Fill(bdvirtual, "services");
+                }
 
                 t = bdvirtual.Tables["services"];
 

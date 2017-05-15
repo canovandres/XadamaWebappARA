@@ -18,8 +18,10 @@ namespace lib.EN
         public int nsingle { get; set; }
         public int ndouble { get; set; }
 
+        public String board { get; set; }
 
-        public Booking(String client, int room, String hotel, String datestart, String dateend, int nsingle=0, int ndouble=0)
+
+        public Booking(String client, int room, String hotel, String datestart, String dateend, String board, int nsingle=0, int ndouble=0)
         {
             this.client = client;
             this.datestart = datestart;
@@ -28,6 +30,7 @@ namespace lib.EN
             this.hotel = hotel;
             this.nsingle = nsingle;
             this.ndouble = ndouble;
+            this.board = board;
         }
 
         public void Create()

@@ -224,6 +224,10 @@ body, html, form {
     background-color: #83ABBF !important;
 }
 
+.text-red, .hover-text-red:hover {
+    color: #b70101 !important;
+}
+
 .bold{
     font-weight: bold;
 }

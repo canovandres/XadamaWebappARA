@@ -1,0 +1,33 @@
+﻿.aux {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #83ABBF;
+    opacity: 0.95;
+    min-height: 400px;
+}
+
+ .productItem
+ {
+            width: 140px;
+            float: left;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+        .groupSeparator
+        {
+            border-top: 1px dotted Gray;
+            height: 1px;
+            clear: both;
+        }
+        .itemSeparator
+        {
+            height: 180px;
+            width: 1px;
+            border-left: 1px dotted Gray;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            float: left;
+        }
