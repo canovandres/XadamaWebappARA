@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lib.EN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -29,6 +30,7 @@ namespace XadamaWebapp
 
         protected void sendSuggestion(object sender, EventArgs e)
         {
+            sendLabel.Visible = true;
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
             MailMessage message = new MailMessage();
             try

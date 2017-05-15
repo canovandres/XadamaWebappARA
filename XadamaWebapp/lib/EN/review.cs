@@ -9,15 +9,15 @@ namespace lib.EN
 {
     public class Review
     {
-        public String cod { get; set; }
-        public String name { get; set; }
-        public String description { get; set; }
+        public string cod { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
         public int score { get; set; }
-        public String hotel { get; set; }
+        public string hotel { get; set; }
 
-        public Review(String cod, int score, String description, String hotel, String name = "Unknown")
+        public Review(string cod, string description, int score, string hotel, string name = "Unknown")
         {
-            this.cod = (Int32.Parse(cod) + CAD.CADReview.MaxCode(hotel) + 1).ToString();
+            this.cod = CAD.CADReview.NextCode();
             this.name = name;
             this.score = score;
             this.description = description;
@@ -53,7 +53,7 @@ namespace lib.EN
             c.Delete(cod);
         }
 
-        public DataSet ListReviews(String hotel)
+        public static DataSet ListReviews(String hotel)
         {
             CAD.CADReview c = new CAD.CADReview();
             DataSet reviews = c.ListReviews(hotel);

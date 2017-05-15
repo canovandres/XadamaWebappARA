@@ -1,4 +1,5 @@
-﻿using lib.EN;
+﻿using AjaxControlToolkit;
+using lib.EN;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,14 +12,12 @@ namespace XadamaWebapp
 {
     public partial class europeanpalace : System.Web.UI.Page
     {
-        Review review = new Review("", 0, "", "");
         DataSet d = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            d = review.ListReviews("H1");
-
-            GridViewReviews.DataSource = d;
-            GridViewReviews.DataBind();
+            d = Review.ListReviews("H1");
+            ListViewReviews.DataSource = d;
+            ListViewReviews.DataBind();
         }
 
         [System.Web.Services.WebMethod]
@@ -37,16 +36,29 @@ namespace XadamaWebapp
 
         protected void sendReview(object sender, EventArgs e)
         {
-            Review review = new Review("EU", ReviewRating.CurrentRating, TextBoxReview.Text, TextBoxName.Text);
+            Review review = new Review("EU", TextBoxReview.Text, ReviewRating.CurrentRating, "H1");
+            if(TextBoxName.Text != "")
+            {
+                review.name = TextBoxName.Text;
+            }
             review.Create();
+
+            d = Review.ListReviews("H1");
+
+            ListViewReviews.DataSource = d;
+            ListViewReviews.DataBind();
         }
 
-        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void book(object sender, EventArgs e)
         {
-            d = review.ListReviews("H1");
-            GridViewReviews.PageIndex = e.NewPageIndex;
-            GridViewReviews.DataSource = d;
-            GridViewReviews.DataBind();
+            Session["From"] = From.Text;
+            Session["To"] = To.Text;
+            Session["Modality"] = DropDownModality.Text;
+            Session["Single"] = DropDownSingle.DataValueField;
+            Session["Double"] = DropDownDouble.DataValueField;
+            Session["Hotel"] = "europeanpalace";
+
+            Response.Redirect("bookhotel.aspx");
         }
     }
 }

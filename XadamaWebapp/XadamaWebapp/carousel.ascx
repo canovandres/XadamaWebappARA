@@ -18,7 +18,7 @@
     });
 </script>
 
-<div class="slider-container padding-64 margin-32">
+<div class="slider-container padding-64">
     <p class="center xlarge text-orange margin-bottom-large bold uppercase">Our park is distributed in 5 zones, one for each continent. Find them out!</p>
     <div class="swiper">
         <div id="slide1" class="slide" style="left: -33.3333%">

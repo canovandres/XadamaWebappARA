@@ -8,7 +8,7 @@ namespace lib.EN
 {
     public class Order
     {
-        private List<Product> _products = new List<Product>();
+        public List<Product> _products = new List<Product>();
 
         public Order(String cod, Client client = null, String date = "")
         {

@@ -39,7 +39,7 @@
     border: solid 1px #1B253B;
     height: 35px;
     width: 100%;
-    padding: 0 5px;
+    padding: 0 10px;
     font-size: 15px;
     color: #1B253B;
     font-weight: 300;
@@ -47,5 +47,31 @@
     line-height: normal;
     margin: 0;
     outline: 0;
-    border-radius: 0;
+}
+
+.VeryWeekStrength {
+    background: #B10400;
+    color: White;
+}
+.WeakStrength {
+    background: #F97C01;
+    color: White;
+}
+.AverageStrength {
+    background: #FFC706;
+    color: White;
+}
+.GoodStrength {
+    background: #8AC316;
+    color: White;
+}
+.ExcellentStrength {
+    background: #39A31B;
+    color: White;
+}
+.BarBorderStyle {
+    border-style: solid;
+    border-color: Gray;
+    border-width: 1px;
+    width: 12%;
 }
