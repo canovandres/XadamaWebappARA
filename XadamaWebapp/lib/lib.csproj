@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D13B961-3221-4620-965E-C1B3F6CBA44A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lib</RootNamespace>
+    <AssemblyName>lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CAD\cadadmin.cs" />
+    <Compile Include="CAD\cadbooking.cs" />
+    <Compile Include="CAD\cadrestaurant.cs" />
+    <Compile Include="CAD\cadreview.cs" />
+    <Compile Include="CAD\cadclient.cs" />
+    <Compile Include="CAD\cadmenu.cs" />
+    <Compile Include="CAD\cadorder.cs" />
+    <Compile Include="CAD\cadproduct.cs" />
+    <Compile Include="CAD\cadpromo.cs" />
+    <Compile Include="CAD\cadreservation.cs" />
+    <Compile Include="CAD\cadride.cs" />
+    <Compile Include="CAD\cadshop.cs" />
+    <Compile Include="CAD\cadshow.cs" />
+    <Compile Include="CAD\cadticket.cs" />
+    <Compile Include="CAD\caduser.cs" />
+    <Compile Include="CAD\cadworker.cs" />
+    <Compile Include="EN\admin.cs" />
+    <Compile Include="EN\booking.cs" />
+    <Compile Include="EN\restaurant.cs" />
+    <Compile Include="EN\review.cs" />
+    <Compile Include="EN\client.cs" />
+    <Compile Include="EN\menu.cs" />
+    <Compile Include="EN\online.cs" />
+    <Compile Include="EN\order.cs" />
+    <Compile Include="EN\physical.cs" />
+    <Compile Include="EN\product.cs" />
+    <Compile Include="EN\promo.cs" />
+    <Compile Include="EN\reservation.cs" />
+    <Compile Include="EN\ride.cs" />
+    <Compile Include="EN\shop.cs" />
+    <Compile Include="EN\show.cs" />
+    <Compile Include="EN\ticket.cs" />
+    <Compile Include="EN\user.cs" />
+    <Compile Include="EN\worker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
