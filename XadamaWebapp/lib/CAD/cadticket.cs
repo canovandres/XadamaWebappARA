@@ -8,20 +8,22 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Configuration;
+using lib.EN;
 
 namespace lib.CAD
 {
     class CADTicket
     {
-        private string conString;
+        private static string conString;
         public CADTicket()
         {
             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
         }
 
-        public void Create(EN.Ticket ticket)
+        public void Create(Ticket ticket)
         {
+            Ticket newTicket = ticket;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
@@ -54,9 +56,9 @@ namespace lib.CAD
             }
         }
 
-        public EN.Ticket Read(String cod)
+        public Ticket Read(String cod)
         {
-            EN.Ticket ticket = new EN.Ticket(cod);
+            Ticket ticket = new Ticket(cod);
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
@@ -86,7 +88,7 @@ namespace lib.CAD
             return ticket;
         }
 
-        public void Update(EN.Ticket ticket)
+        public void Update(Ticket ticket)
         {
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
@@ -117,9 +119,29 @@ namespace lib.CAD
             }
         }
 
+        public static string NextCode()
+        {
+            int code = 0;
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from ticket", con);
+                da.Fill(bdvirtual, "ticket");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["ticket"];
+
+                code = Convert.ToInt32(t.Rows[0][0].ToString()) + 1;
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return code.ToString();
+        }
         public void Delete(String cod)
         {
-            EN.Ticket ticket = new EN.Ticket(cod);
+            Ticket ticket = new Ticket(cod);
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
@@ -168,6 +190,60 @@ namespace lib.CAD
 
             return bdvirtual;
         }
+
+        public bool buyTickets(Ticket t)
+        {
+            bool done = false;
+            SqlConnection conn = new SqlConnection(conString);
+            DataSet dbvirtual = new DataSet();
+            try
+            {
+                if (t.nadults > 0)
+                {
+                    for (int i = 0; i < t.nadults; i++)
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter("select * from tickettype where type like 'Adult'", conn);
+                        da.Fill(dbvirtual, "tickettype");
+
+                        DataTable dt = new DataTable();
+                        dt = dbvirtual.Tables["tickettype"];
+
+                        String type = dt.Rows[0][0].ToString();
+                        float price = Int32.Parse(dt.Rows[0][1].ToString());
+                        String roomhotel = dt.Rows[0][1].ToString();
+                        Ticket newTicket = new Ticket("", t.client, t.day, price, type);
+                        Create(newTicket);
+                    }
+                    done = true;
+                }
+                else done = false;
+
+                if (t.nchildren > 0)
+                {
+                    for (int i = 0; i < t.nchildren; i++)
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter("select * from tickettype where type like 'child'", conn);
+                        da.Fill(dbvirtual, "tickettype");
+
+                        DataTable dt = new DataTable();
+                        dt = dbvirtual.Tables["tickettype"];
+
+                        String type = dt.Rows[0][0].ToString();
+                        float price = Int32.Parse(dt.Rows[0][1].ToString());
+                        String roomhotel = dt.Rows[0][1].ToString();
+                        Ticket newTicket = new Ticket("", t.client, t.day, price, type);
+                        Create(newTicket);
+                    }
+                    done = true;
+                }
+                else done = false;
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+
+            return done;
+        }
+
     }
 }
 
