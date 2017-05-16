@@ -17,7 +17,7 @@ namespace lib.EN
         public int phone { get; set; }
         public String address { get; set; }
         public String creditCard { get; set; }
-        public Client(String email, String password, String name = "", String surname1 = "", String surname2 = "", String age = "", int phone = 0, String address = "", String creditCard = "")
+        public Client(String email, String password = "", String name = "", String surname1 = "", String surname2 = "", String age = "", int phone = 0, String address = "", String creditCard = "")
         {
             this.email = email;
             this.password = password;

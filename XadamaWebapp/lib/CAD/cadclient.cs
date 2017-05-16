@@ -73,7 +73,7 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from client usuario email like '" + email + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from client where usuario like '" + email + "'", con);
                 SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario where email like '" + email + "'", con);
                 da.Fill(bdvirtual, "client");
                 da2.Fill(bdvirtual, "usuario");
