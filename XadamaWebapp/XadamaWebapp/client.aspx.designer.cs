@@ -175,6 +175,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.TextBox TextBoxCreditCard;
         
         /// <summary>
+        /// Control CreditCardValidatorRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CreditCardValidatorRequired;
+        
+        /// <summary>
         /// Control CreditCardValidator.
         /// </summary>
         /// <remarks>
@@ -184,6 +193,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator CreditCardValidator;
         
         /// <summary>
+        /// Control ValidatorCalloutExtender11.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender11;
+        
+        /// <summary>
         /// Control ValidatorCalloutExtender9.
         /// </summary>
         /// <remarks>
@@ -191,5 +209,23 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender9;
+        
+        /// <summary>
+        /// Control SaveButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveButton;
+        
+        /// <summary>
+        /// Control SuccessfulyLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SuccessfulyLabel;
     }
 }

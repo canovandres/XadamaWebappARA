@@ -35,7 +35,7 @@
                         <asp:Label runat="server" Text="NAME" CssClass="form-label medium"></asp:Label>
                         <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="NameValidator" ErrorMessage="Name Required" Display="Dynamic"
-                                                    ForeColor="Red" ControlToValidate="TextBoxName" runat="server" ValidationGroup="CreateAccount" />
+                                                    ForeColor="Red" ControlToValidate="TextBoxName" runat="server" ValidationGroup="SaveChanges" />
                         <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="NameValidator"
                                                                 HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                     </div>
@@ -44,7 +44,7 @@
                         <asp:Label runat="server" Text="FIRST SURNAME" CssClass="form-label medium"></asp:Label>
                         <asp:TextBox ID="TextBox1Surname" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="FirstSurnameValidator" ErrorMessage="1st Surname Required" Display="Dynamic" ForeColor="Red"
-                                                    ControlToValidate="TextBox1Surname" runat="server" ValidationGroup="CreateAccount" />
+                                                    ControlToValidate="TextBox1Surname" runat="server" ValidationGroup="SaveChanges" />
                         <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="FirstSurnameValidator"
                                                                 HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                     </div>
@@ -55,7 +55,7 @@
                         <asp:Label runat="server" Text="SECOND SURNAME" CssClass="form-label medium"></asp:Label>
                         <asp:TextBox ID="TextBox2Surname" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="SecondSurnameValidator" ErrorMessage="2nd Surname Required" Display="Dynamic"
-                                                    ForeColor="Red" ControlToValidate="TextBox2Surname" runat="server" ValidationGroup="CreateAccount" />
+                                                    ForeColor="Red" ControlToValidate="TextBox2Surname" runat="server" ValidationGroup="SaveChanges" />
                         <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="SecondSurnameValidator"
                                                                 HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                     </div>
@@ -73,7 +73,7 @@
                     <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="PhoneValidator" runat="server" ForeColor="Red" Display="Dynamic"
                                                     ControlToValidate="TextBoxPhone" ErrorMessage="Introduce your 9 digit number without spaces" 
-                                                    ValidationExpression="[0-9]{9}" ValidationGroup="CreateAccount"></asp:RegularExpressionValidator>
+                                                    ValidationExpression="[0-9]{9}" ValidationGroup="SaveChanges"></asp:RegularExpressionValidator>
                     <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender8" runat="server" TargetControlID="PhoneValidator"
                                                                 HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                 </div>
@@ -86,11 +86,24 @@
                 <div class="field">
                     <asp:Label runat="server" Text="CREDIT CARD" CssClass="form-label medium"></asp:Label>
                     <asp:TextBox ID="TextBoxCreditCard" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="CreditCardValidator" runat="server" ForeColor="Red" Display="Dynamic"
-                                                    ControlToValidate="TextBoxCreditCard" ErrorMessage="Introduce your 16 digit card without spaces" 
-                                                    ValidationExpression="[0-9]{16}" ValidationGroup="CreateAccount"></asp:RegularExpressionValidator>
-                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender9" runat="server" TargetControlID="CreditCardValidator"
-                                                                HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                    <asp:RequiredFieldValidator ID="CreditCardValidatorRequired" ErrorMessage="Credit Card Required" Display="Dynamic"
+                                                        ForeColor="Red" ControlToValidate="TextBoxCreditCard" runat="server" ValidationGroup="CreateAccount" />
+                        <asp:RegularExpressionValidator ID="CreditCardValidator" runat="server" ForeColor="Red" Display="Dynamic"
+                                                        ControlToValidate="TextBoxCreditCard" ErrorMessage="Introduce your 16 digit card without spaces" 
+                                                        ValidationExpression="[0-9]{16}" ValidationGroup="CreateAccount"></asp:RegularExpressionValidator>
+                        <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender11" runat="server" TargetControlID="CreditCardValidatorRequired"
+                                                                  HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                        <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender9" runat="server" TargetControlID="CreditCardValidator"
+                                                                  HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                </div>
+                <div class="field">
+                    <div class="save-button">
+                        <asp:Button runat="server" id="SaveButton" OnClick="OnSaveChangesClick"
+                                    CssClass="right button padding-medium large button-slice wide"
+                                    text="Save Changes" ValidationGroup="SaveChanges"></asp:Button>
+                        <asp:Label runat="server" ID="SuccessfulyLabel" Text="" CssClass="large orange right margin-medium padding-medium shadow"
+                                    Visible="False"></asp:Label>
+                    </div>
                 </div>
             </div>
         </div>

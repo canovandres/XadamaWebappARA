@@ -62,3 +62,9 @@
     padding-top: 10px !important;
     padding-bottom: 0px !important;
 }
+
+.save-button {
+    width: 200px;
+    float: right;
+    margin: 20px;
+}
