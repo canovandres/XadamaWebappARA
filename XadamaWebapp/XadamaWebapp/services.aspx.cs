@@ -24,8 +24,8 @@ namespace XadamaWebapp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
+            //if (!Page.IsPostBack)
+            //{
 
                 DataTable aux = new DataTable();
                 if (Request.QueryString["type"] == "rides")
@@ -41,7 +41,7 @@ namespace XadamaWebapp
                     ListServices.SelectedIndex = 3;
                 }
                 OnListServiceChanged(sender, e);
-            }
+           // }
         }
 
         protected void OnListZoneChanged(object sender, EventArgs e)
@@ -123,13 +123,38 @@ namespace XadamaWebapp
 
         protected void OnSelectedItem(object sender, ListViewSelectEventArgs e)
         {
-            ListViewItem item = ListView1.Items[e.NewSelectedIndex];
+            if (t.Rows[e.NewSelectedIndex][0].ToString()[0] == 'E')
+            {
+                enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString();
+                enrest.Read("", enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString());
+                Session["Restaurant"] = enrest;
+                Session["Ride"] = null;
+                Session["Show"] = null;
+            }
+            else if (t.Rows[e.NewSelectedIndex][0].ToString()[0] == 'R')
+            {
+                enride.cod= t.Rows[e.NewSelectedIndex][0].ToString();
+                enride.read("");
+                Session["Restaurant"] = null;
+                Session["Ride"] = enride;
+                Session["Show"] = null;
+            }
+            else
+            {
+                enshow.cod= t.Rows[e.NewSelectedIndex][0].ToString();
+                enshow.Read("", t.Rows[e.NewSelectedIndex][0].ToString());
+                Session["Restaurant"] = null;
+                Session["Ride"] = null;
+                Session["Show"] = enshow;
+            }
+            //Response.Redirect("servicesinfo.aspx");
+            /*ListViewItem item = ListView1.Items[e.NewSelectedIndex];
             Label c = (Label)item.FindControl("Label1");
             Label d = (Label)item.FindControl("Label2");
-            Image i = (Image)item.FindControl("Image1");
-            Session["ServiceName"] = c.Text;
+            Image i = (Image)item.FindControl("Image1");*/
+            /*Session["ServiceName"] = c.Text;
             Session["ServiceImage"] = i.ImageUrl;
-            Session["ServiceDescription"] = d.Text;
+            Session["ServiceDescription"] = d.Text;*/
             Response.Redirect("servicesinfo.aspx");
         }
     }

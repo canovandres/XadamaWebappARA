@@ -22,13 +22,31 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label ServiceTitle;
         
         /// <summary>
-        /// Control ServiceImage.
+        /// Control minheight.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ServiceImage;
+        protected global::System.Web.UI.WebControls.Label minheight;
+        
+        /// <summary>
+        /// Control speed.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label speed;
+        
+        /// <summary>
+        /// Control Seadragon.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.Seadragon Seadragon;
         
         /// <summary>
         /// Control ServiceDescription.
@@ -38,5 +56,14 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ServiceDescription;
+        
+        /// <summary>
+        /// Control image.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image image;
     }
 }
