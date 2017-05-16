@@ -145,5 +145,30 @@ namespace lib.CAD
                 con.Close();
             }
         }
+
+        public DataSet typePrice()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from tickettype", con);
+                da.Fill(bdvirtual, "tickettype");
+                return bdvirtual;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return bdvirtual;
+        }
     }
 }
+
+

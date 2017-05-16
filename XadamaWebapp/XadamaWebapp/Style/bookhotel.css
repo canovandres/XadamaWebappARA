@@ -18,3 +18,11 @@
     height: 300px;
     width: auto;
 }
+
+.popUpConfirm {
+     min-width: 200px;
+     min-height: 150px;
+     background-color: #FFFFFF;
+     padding: 10px;
+     border: 1px solid;
+}
