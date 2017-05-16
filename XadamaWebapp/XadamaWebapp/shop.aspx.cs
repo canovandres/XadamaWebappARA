@@ -100,5 +100,15 @@ namespace XadamaWebapp
             //l.Text = "Add to cart";
                         
         }
+
+        protected void OnBrowseClick(object sender, ImageClickEventArgs e)
+        {
+            LabelLv.Text = "SEARCH";
+            String s = TextBox1.Text;
+            bdvirtual = p.searchProduct(s);
+            DataTable t = bdvirtual.Tables["search"];
+            ListView1.DataSource = t;
+            ListView1.DataBind();
+        }
     }
 }
