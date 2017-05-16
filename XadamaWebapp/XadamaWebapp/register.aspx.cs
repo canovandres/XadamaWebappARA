@@ -70,6 +70,7 @@ namespace XadamaWebapp
                     c.Create();
 
                     Session["email"] = TextBoxEmail.Text;
+                    Session["password"] = TextBoxPassword.Text;
                     Session["name"] = TextBoxName.Text;
 
                     TextBoxEmail.Text = string.Empty;
@@ -103,11 +104,13 @@ namespace XadamaWebapp
                 con.Close();
                 if (dt.Rows.Count > 0)
                 {
+                    Session["email"] = TextBoxEmailSignIn.Text;
+                    Session["password"] = TextBoxPasswordSignIn.Text;
+                    // Hay que hacerlo de otra forma, cuando se logeo no puedes acceder al nombre dsd textbox
+                    // Session["name"] = TextBoxName.Text;
+
                     TextBoxEmailSignIn.Text = string.Empty;
                     TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email!");
-
-                    Session["email"] = TextBoxEmail.Text;
-                    Session["name"] = TextBoxName.Text;
                 }
                 else
                 {
