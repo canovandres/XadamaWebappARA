@@ -670,6 +670,10 @@ video {
     width: 24.99999% !important;
 }
 
+.two-third {
+    width: 66.66666% !important;
+}
+
 .fifth {
     width: 19.99999% !important;
 }
@@ -819,4 +823,8 @@ video {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.vertical-bottom {
+    vertical-align: bottom;
 }

@@ -98,7 +98,7 @@
 }
 .image-template{
     height:100%;
-    width:100%;
+    width:33%;
 }
 .display-border-grey{
     height:350px;
@@ -215,5 +215,10 @@
     margin: 5px;
     z-index:300;
     
+}
+
+.image-aux{
+    height:10px;
+    width:10px;
 }
 

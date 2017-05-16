@@ -59,11 +59,11 @@
                         <asp:menuitem text="Home" NavigateUrl="main.aspx"></asp:menuitem>
                         <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
                         <asp:menuitem text="Zones" NavigateUrl="zones.aspx">
-                            <asp:MenuItem text="Europe" NavigateUrl="zoneseurope.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceania" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="America" NavigateUrl="zonesamerica.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Asia" NavigateUrl="zonesasia.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Africa" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Europe" NavigateUrl="zoneeurope.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="America" NavigateUrl="zoneamerica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asia" NavigateUrl="zoneasia.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Africa" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>
                         </asp:menuitem>
                         <asp:menuitem text="Hotels" NavigateUrl="hotels.aspx">
                             <asp:MenuItem text="European Palace" NavigateUrl="europeanpalace.aspx"></asp:MenuItem>
@@ -132,11 +132,11 @@
                     <asp:menu runat="server" Orientation="Vertical" CssClass="margin-large">
                         <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
                         <items>
-                            <asp:MenuItem text="Europe" NavigateUrl="zoneseurope.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceania" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="America" NavigateUrl="zonesamerica.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Asia" NavigateUrl="zonesasia.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Africa" NavigateUrl="zonesafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Europe" NavigateUrl="zoneeurope.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="America" NavigateUrl="zoneamerica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Asia" NavigateUrl="zoneasia.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Africa" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>
                         </items>
                     </asp:menu>
                 </div>
