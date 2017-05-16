@@ -24,26 +24,30 @@
     background-image: url(/Media/Shop/tshirts.jpg);
     width:100%;
     height:100%;
-    background-repeat: no-repeat;
+   background-repeat:no-repeat;
+    background-position:center;
 }
 
 .backJumper{
     background-image: url(/Media/Shop/jumpers.jpg);
     width:100%;
     height:100%;
-    background-repeat: no-repeat;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 .backCap{
     background-image: url(/Media/Shop/caps.jpg);
     width:100%;
     height:100%;
-    background-repeat: no-repeat;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 .backBag{
     background-image: url(/Media/Shop/bags.jpg);
     width:100%;
     height:100%;
-    background-repeat: no-repeat;
+   background-position:center;
+   background-repeat:no-repeat;
 }
 .product-info{
     height: 400px;
@@ -98,7 +102,7 @@
 }
 .image-template{
     height:100%;
-    width:33%;
+    width:66%;
 }
 .display-border-grey{
     height:350px;
@@ -190,7 +194,7 @@
 
 .field {
     display: inline-block;
-    margin-left: 180px;
+    margin-left: 17%;
     width: 60%;
     padding-right: 4%;
     margin-top: -40px;
@@ -199,7 +203,7 @@
 }
 .field-aux {
     display: inline-block;
-    margin-left: 766px;
+    margin-left: 73%;
     width: 10%;
     padding-right: 4%;
     margin-top: -68px;
