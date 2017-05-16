@@ -12,12 +12,12 @@ namespace XadamaWebapp
     public partial class promo : System.Web.UI.Page
     {
         private DataSet bdvirtual = new DataSet();
-        private Promo p = new Promo();
+        private Promo p = new Promo("");
         private String currentdate = Convert.ToString(DateTime.Today);
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            bdvirtual = p.getPromos(currentdate);
+            //bdvirtual = p.getPromos(currentdate);
             DataTable t = bdvirtual.Tables["promocion"];
             ListView1.DataSource = t;
             ListView1.DataBind();
