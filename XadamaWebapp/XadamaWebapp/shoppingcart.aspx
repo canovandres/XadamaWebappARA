@@ -52,7 +52,7 @@
                     
                     <div class="zone2 left-margin-aux2">
                         <asp:DropDownList ID="quantity" runat="server">
-                         <asp:ListItem>0</asp:ListItem>
+                         
                          <asp:ListItem>1</asp:ListItem>
                          <asp:ListItem>2</asp:ListItem>
                          <asp:ListItem>3</asp:ListItem>
@@ -60,7 +60,9 @@
                          <asp:ListItem>5</asp:ListItem>                         
                      </asp:DropDownList>
                     </div>
-                    
+                    <div class="zone10">
+                        <asp:ImageButton id="quit" runat="server"  CssClass="imgbeg-btncerrar" ImageUrl="~/Media/Others/botoncerrar.jpg" />                        
+                    </div>
                     
                 </div>
             </ItemTemplate>
@@ -92,7 +94,7 @@
                  <asp:Label ID="Label8" runat="server" Text="Subtotal:"></asp:Label>
             </div>
             <div class="zone7 text-orange">
-                 <asp:Label ID="Label9" runat="server" Text="0"></asp:Label>
+                 <asp:Label ID="Label9" runat="server" Text="60"></asp:Label>
                 €
             </div>
             <div class="zone8">
