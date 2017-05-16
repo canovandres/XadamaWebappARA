@@ -12,7 +12,7 @@ namespace XadamaWebapp
         protected void Page_Load(object sender, EventArgs e)
         {
             ServiceTitle.Text = Session["ServiceName"].ToString();
-            Seadragon.SourceUrl = "~/Media/Rides/Europe/EuropeanGreece.xml";
+            ServiceImage.ImageUrl = Session["ServiceImage"].ToString();
             ServiceDescription.Text = Session["ServiceDescription"].ToString();
         }
     }
