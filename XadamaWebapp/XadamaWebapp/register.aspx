@@ -19,13 +19,15 @@
                     <div class="field">
                             <asp:Label runat="server" Text="EMAIL *" CssClass="form-label medium"></asp:Label>
                             <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ErrorMessage="Email Required" Display="Dynamic" ForeColor="Red"
+                            <asp:RequiredFieldValidator ID="EmailValidatorRequired" ErrorMessage="Email Required" Display="Dynamic" ForeColor="Red"
                                                         ControlToValidate="TextBoxEmail" runat="server" ValidationGroup="CreateAccount" />
                             <asp:RegularExpressionValidator runat="server" ID="EmailValidator" Display="Dynamic"
                                                             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                                                             ControlToValidate="TextBoxEmail" ForeColor="Red" ErrorMessage="Invalid email address."
                                                             ValidationGroup="CreateAccount" />
                             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="EmailValidator"
+                                                                    HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender12" runat="server" TargetControlID="EmailValidatorRequired"
                                                                     HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                     </div>
 
@@ -129,9 +131,13 @@
                     <div class="field">
                         <asp:Label runat="server" Text="CREDIT CARD" CssClass="form-label medium"></asp:Label>
                         <asp:TextBox ID="TextBoxCreditCard" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="CreditCardValidatorRequired" ErrorMessage="Credit Card Required" Display="Dynamic"
+                                                        ForeColor="Red" ControlToValidate="TextBoxCreditCard" runat="server" ValidationGroup="CreateAccount" />
                         <asp:RegularExpressionValidator ID="CreditCardValidator" runat="server" ForeColor="Red" Display="Dynamic"
                                                         ControlToValidate="TextBoxCreditCard" ErrorMessage="Introduce your 16 digit card without spaces" 
                                                         ValidationExpression="[0-9]{16}" ValidationGroup="CreateAccount"></asp:RegularExpressionValidator>
+                        <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender11" runat="server" TargetControlID="CreditCardValidatorRequired"
+                                                                  HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                         <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender9" runat="server" TargetControlID="CreditCardValidator"
                                                                   HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                     </div>

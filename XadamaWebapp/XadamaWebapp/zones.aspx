@@ -14,24 +14,24 @@
     
     <div class="content-1 container padding-32 padding-ame">
         <div class="zone">
-             <asp:ImageButton ID="Image1" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapamericabueno.png" />
+             <asp:ImageButton ID="Image1" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapamericabueno.png" PostBackUrl="zoneamerica.aspx"/>
         </div>
          <div class="zone-4">
             <div class="zone-5">
-                <asp:ImageButton ID="ImageButton5" runat="server" CssClass="imgeur-1" ImageUrl="~/Media/Others/mapasiabueno1.png" />
+                <asp:ImageButton ID="ImageButton5" runat="server" CssClass="imgeur-1" ImageUrl="~/Media/Others/mapasiabueno1.png" PostBackUrl="zoneasia.aspx"/>
             </div>
             <div class="zone-6">
-                <asp:ImageButton ID="ImageButton6" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapaoceaniabueno.png" />
+                <asp:ImageButton ID="ImageButton6" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapaoceaniabueno.png" PostBackUrl="zoneoceania.aspx"/>
             </div>
 
 
          </div>
         <div class="zone-1">
             <div class="zone-2">
-                <asp:ImageButton ID="ImageButton4" runat="server" CssClass="imgeur-1" ImageUrl="~/Media/Others/mapaeuropabueno1.png" />
+                <asp:ImageButton ID="ImageButton4" runat="server" CssClass="imgeur-1" ImageUrl="~/Media/Others/mapaeuropabueno1.png" PostBackUrl="zoneeurope.aspx"/>
             </div>
              <div class="zone-3">
-                <asp:ImageButton ID="ImageButton3" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapafricabueno.png" />
+                <asp:ImageButton ID="ImageButton3" runat="server" CssClass="imgeur" ImageUrl="~/Media/Others/mapafricabueno.png" PostBackUrl="zoneafrica.aspx" />
             </div>
         </div>
         
