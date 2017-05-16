@@ -44,15 +44,20 @@
 }
 
 .display-border-orange{
-    border:2px solid darkorange;
+    width: 80%; 
+    border:2px solid white;
     border-radius: 8px 8px 8px 8px;
     transition: all 0.7s;
 }
 
 .display-border-orange:hover{
-    width:30%;
-    height:500px;
+    width:90% !important;
     font-size:24px !important; 
     box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
     transition-delay:0.5s;
+}
+
+.mycontainer{
+    color: #ffffff;
+    background-color: #83ABBF;
 }
