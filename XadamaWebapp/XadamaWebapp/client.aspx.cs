@@ -17,9 +17,9 @@ namespace XadamaWebapp
         {
             if (!Page.IsPostBack)
             {
-
                 // NULL EXCEPT POINTER
                 // TextBoxEmail.Text = Session["email"].ToString();
+
                 // Client c = new Client(Session["email"].ToString());
                 // c.Read();
             }
