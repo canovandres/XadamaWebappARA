@@ -36,7 +36,7 @@
             <div class="show-text show-text-america">
                 <asp:Label ID="Label12" runat="server" CssClass="text-white" Text="AMERICA"></asp:Label>
                 <div class="text-white">
-                    <p>Live an authentic american expirience</p>
+                    <p>Live an authentic american experience</p>
                     <asp:Button runat="server" text="GO!" CssClass="button-america button-sign" />
                 </div>
             </div>

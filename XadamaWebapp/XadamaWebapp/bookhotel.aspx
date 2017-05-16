@@ -16,6 +16,7 @@
 
     <div class="form-content container padding-64">
         <div align="center" class="blue shadow" style="height: 300px">
+            <div class="row-padding">
             <div class="field half" style="margin-left: 4%;">
                 <asp:DropDownList ID="DropDownHotel" runat="server">
                     <asp:ListItem Text="European Palace" Value="H1"></asp:ListItem>
@@ -47,6 +48,8 @@
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="" CssClass="error-text" style="display: inline-block" ControlToValidate="To" ControlToCompare="From" Type="Date" Operator="GreaterThan" ValidationGroup="booking"></asp:CompareValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="CompareValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
             </div>
+            </div>
+            <div class="row-padding">
             <div class="field fifth">
                 <asp:DropDownList id="DropDownFood" runat="server" CssClass="field">
                     <asp:ListItem>Breakfast</asp:ListItem>
@@ -81,6 +84,7 @@
                     <asp:ListItem Value="8">8 double</asp:ListItem>
                     <asp:ListItem Value="9">9 double</asp:ListItem>
                 </asp:DropDownList>
+            </div>
             </div>
             <div class="fifth">
                 <asp:Button Text="SEARCH" runat="server" CssClass="button-slice xlarge margin-32" OnClick="searchBooking" ValidationGroup="booking"></asp:Button>
