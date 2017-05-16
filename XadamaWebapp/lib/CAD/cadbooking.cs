@@ -131,21 +131,21 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from room where type like 'single' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from room where type like 'individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
                 da.Fill(virtualdb, "room");
 
                 DataTable t = new DataTable();
                 t = virtualdb.Tables["room"];
-                int freeSingle = Int32.Parse(t.Rows[0][0].ToString());
+                int freeSingle = Convert.ToInt32(t.Rows[0][0].ToString());
 
                 SqlDataAdapter da2 = new SqlDataAdapter("select count(*) from room where type like 'double' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
-                da2.Fill(virtualdb, "room");
+                da2.Fill(virtualdb, "room2");
 
                 DataTable t2 = new DataTable();
-                t2 = virtualdb.Tables["room"];
-                int freeDouble = Int32.Parse(t2.Rows[0][0].ToString());
+                t2 = virtualdb.Tables["room2"];
+                int freeDouble = Convert.ToInt32(t2.Rows[0][0].ToString());
 
-                if(freeSingle > b.nsingle && freeDouble > b.ndouble)
+                if(freeSingle >= b.nsingle && freeDouble >= b.ndouble)
                 {
                     ok = true;
                 }
@@ -166,7 +166,7 @@ namespace lib.CAD
                 {
                     for (int i = 0; i < b.nsingle; i++)
                     {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Single' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
                         da.Fill(virtualdb, "room");
 
                         DataTable t = new DataTable();
@@ -213,21 +213,18 @@ namespace lib.CAD
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + b.client + "' and room like '" + b.room +"and hotel like '"+b.hotel+ "'", conn);
                 SqlDataAdapter da2 = new SqlDataAdapter("select individual from typeprices where hotel like '" + b.hotel + "'", conn);
                 SqlDataAdapter da3 = new SqlDataAdapter("select individual from typeprices where hotel like '" + b.hotel + "'", conn);
                 SqlDataAdapter da4 = new SqlDataAdapter("select " + b.board+ " from boardprices where hotel like '" + b.hotel + "'", conn);
-
-                da.Fill(virtualdb, "booking");
+                
                 da2.Fill(virtualdb, "typeprices");
                 da3.Fill(virtualdb, "typeprices2");
                 da4.Fill(virtualdb, "boardprices");
-
-                DataTable t = new DataTable();
+                
                 DataTable t2 = new DataTable();
                 DataTable t3 = new DataTable();
                 DataTable t4 = new DataTable();
-                t = virtualdb.Tables["booking"];
+
                 t2 = virtualdb.Tables["typeprices"];
                 t3 = virtualdb.Tables["typeprices2"];
                 t4 = virtualdb.Tables["boardprices"];
@@ -236,7 +233,7 @@ namespace lib.CAD
                 float doubleprice = float.Parse(t3.Rows[0][0].ToString());
                 float board = float.Parse(t4.Rows[0][0].ToString());
 
-                float s = (b.nsingle*numberOfNights(b)*singleprice)+board;
+                float s = (b.nsingle*numberOfNights(b)* singleprice)+board;
                 float d = (b.ndouble*numberOfNights(b) * doubleprice) + board;
                 price = s + d;
                 b.price = price;

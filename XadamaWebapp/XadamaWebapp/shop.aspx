@@ -17,16 +17,26 @@
         </div>
     </div>
 
-    <asp:ImageButton id="cart" runat="server"  CssClass="imgbeg" ImageUrl="~/Media/Icons/carritonar.png" />
-
+    <div>
+        <asp:ImageButton id="cart" runat="server"  CssClass="imgbeg" ImageUrl="~/Media/Icons/carritonar.png" PostBackUrl="shoppingcart.aspx" />
+    </div>
     <div class="content container padding-32 center">
         <div class="center large text-black margin-bottom-large margin-top bold">
             Welcome to our shop. There are many items you can buy online or in our physical shop when you come to our park. 
         </div>
     </div>
+
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <asp:UpdatePanel runat="server" ID="hgfj">
         <ContentTemplate>
+        <div class="form-content">
+        <div class="field">
+            <asp:TextBox ID="TextBox1" runat="server" placeholder="Search by product name"></asp:TextBox>
+        </div>
+        <div class="field-aux">
+            <asp:ImageButton id="searchbutton" runat="server"  CssClass="imgbeg-aux" ImageUrl="~/Media/Others/lupabuscar.png" OnClick="OnBrowseClick" />
+        </div>
+    </div>
     <div class="slider-container margin-top">
         <div class="picture-container">
             <div class="show-pictures">
@@ -123,7 +133,7 @@
        </div>
 
     <div>
-        <asp:ListView ID="ListView1" runat="server" GroupItemCount="3">
+        <asp:ListView ID="ListView1" runat="server" GroupItemCount="3" OnSelectedIndexChanging="AddToCart">
             <LayoutTemplate>
                   <div align="center" class="margin-32 padding-64" runat="server">
                       <div runat="server" id="groupPlaceholder">
@@ -143,7 +153,7 @@
                         €
                     </div>
                     <div>
-                        <asp:LinkButton ID="LinkButton1" Text="See more!" CssClass="button button-slice" runat="server"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" CommandName="Select" Text="Add to cart" CssClass="button button-slice" runat="server"></asp:LinkButton>
                     </div>
                 </div>
             </ItemTemplate>
@@ -157,4 +167,5 @@
     </div>
     </ContentTemplate>
     </asp:UpdatePanel>
+        
 </asp:Content>

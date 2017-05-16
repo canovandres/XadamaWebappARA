@@ -18,31 +18,44 @@
         <div align="center" class="blue shadow" style="height: 300px">
             <div class="field half" style="margin-left: 4%;">
                 <asp:DropDownList ID="DropDownHotel" runat="server">
-                    <asp:ListItem Text="European Palace" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="Asian Gardens" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="American Luxury" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="African Savannah" Value="4"></asp:ListItem>
-                    <asp:ListItem Text="Oceanic Paradise" Value="5"></asp:ListItem>
+                    <asp:ListItem Text="European Palace" Value="H1"></asp:ListItem>
+                    <asp:ListItem Text="Asian Gardens" Value="H2"></asp:ListItem>
+                    <asp:ListItem Text="African Savannah" Value="H3"></asp:ListItem>
+                    <asp:ListItem Text="American Luxury" Value="H4"></asp:ListItem>
+                    <asp:ListItem Text="Oceanic Paradise" Value="H5"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="input-line field third">
-                <div class="input-group-tag">From</div>
-                <asp:TextBox runat="server" ID="From" CssClass="field" style="border-radius: 0px;"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="CalendarExtender3" runat="server"
-                    TargetControlID="From" FirstDayOfWeek="Monday" PopupPosition="BottomRight" />
-                <div class="input-group-tag">to</div>
-                <asp:TextBox runat="server" ID="To" CssClass="field"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="CalendarExtender4" runat="server" TargetControlID="To" FirstDayOfWeek="Monday" PopupPosition="BottomRight" />
+                <div class="input-tag left" style="border-bottom-right-radius: 0px; border-top-right-radius: 0px;">From</div>
+                <asp:TextBox runat="server" ID="From" CssClass="left third" style="border-radius: 0px;"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"
+                    TargetControlID="From" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
+
+                <div class="input-tag left" style="border-radius: 0px">to</div>
+                <asp:TextBox runat="server" ID="To" CssClass="left third" style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="To" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
+                
+                <asp:RequiredFieldValidator ID="ValidatorFrom" runat="server" ControlToValidate="From" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorFrom" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                
+                <asp:RequiredFieldValidator ID="ValidatorTo" runat="server" ControlToValidate="To" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="ValidatorTo" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+
+                <asp:CompareValidator ID="CompareValidator" runat="server" ErrorMessage="Select a valid date range" CssClass="error-text" style="display: inline-block" ControlToValidate="From" ControlToCompare="To" Type="Date" Operator="LessThan" ValidationGroup="booking"></asp:CompareValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="CompareValidator" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="" CssClass="error-text" style="display: inline-block" ControlToValidate="To" ControlToCompare="From" Type="Date" Operator="GreaterThan" ValidationGroup="booking"></asp:CompareValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="CompareValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
             </div>
             <div class="field fifth">
-                <asp:DropDownList id="DropDownList1" runat="server" CssClass="field">
+                <asp:DropDownList id="DropDownFood" runat="server" CssClass="field">
                     <asp:ListItem>Breakfast</asp:ListItem>
                     <asp:ListItem>Half Board</asp:ListItem>
                     <asp:ListItem>Full Board</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="field fifth">
-                <asp:DropDownList id="DropDownList2" runat="server">
+                <asp:DropDownList id="DropDownSingle" runat="server">
                     <asp:ListItem Value="0">0 single</asp:ListItem>
                     <asp:ListItem Value="1">1 single</asp:ListItem>
                     <asp:ListItem Value="2">2 single</asp:ListItem>
@@ -56,7 +69,7 @@
                 </asp:DropDownList>
             </div>
             <div class="field fifth">
-                <asp:DropDownList id="DropDownList3" runat="server">
+                <asp:DropDownList id="DropDownDouble" runat="server">
                     <asp:ListItem Value="0">0 double</asp:ListItem>
                     <asp:ListItem Value="1">1 double</asp:ListItem>
                     <asp:ListItem Value="2">2 double</asp:ListItem>
@@ -70,18 +83,60 @@
                 </asp:DropDownList>
             </div>
             <div class="fifth">
-                <asp:Button Text="SEARCH" runat="server" CssClass="button-slice xlarge margin-32"></asp:Button>
+                <asp:Button Text="SEARCH" runat="server" CssClass="button-slice xlarge margin-32" OnClick="searchBooking" ValidationGroup="booking"></asp:Button>
             </div>
         </div>
     </div>
 
-    <div class="content container padding-64">
-        <asp:ListView ID="ListView1" runat="server"></asp:ListView>
-    </div>
-
-    <div class="backimgh2 display-container">
-        <div class="display-middle no-opacity">
-            <asp:LinkButton ID="tickets" runat="server" CssClass="center button padding-medium xxlarge wide button-slice" Text="BUY TICKETS" PostBackUrl="tickets.aspx"></asp:LinkButton>
+    <asp:Panel runat="server" ID="errorBooking" CssClass="display-container" Height="300px" Visible="False">
+        <div class="display-middle">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-red" text="Sorry, we have no availability for your selection. Please, change it."></asp:Label>
         </div>
-    </div>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="okBooking" CssClass="content container padding-32" Visible="False" style="width: 60%">
+        <div class="row-padding">
+            <div class="col half">
+                <asp:Label runat="server" ID="hotelName" CssClass="text-darkblue xxlarge padding-large"></asp:Label>
+            </div>
+        </div>
+        <div class="row-padding">
+            <div class="col half">
+                <asp:Image runat="server" ID="hotelImg" style="width: 100%; min-width: 350px; min-height: 200px;" CssClass="padding-large"></asp:Image>
+            </div>
+            <div class="col half margin-16" style="min-width: 320px">
+                <div class="row-padding margin-16">
+                    <div class="col third">
+                        <asp:Label runat="server" Text="From:" CssClass="xlarge margin-large"></asp:Label>
+                    </div>
+                    <div class="col quarter" style="margin-top: 6px;">
+                        <asp:Label runat="server" ID="DateFrom" CssClass="large margin-large vertical-bottom"></asp:Label>
+                    </div>
+                </div>
+                <div class="row-padding margin-16">
+                    <div class="col third">
+                        <asp:Label runat="server" Text="To:" CssClass="xlarge margin-large"></asp:Label>
+                    </div>
+                    <div class="col quarter" style="margin-top: 6px;">
+                        <asp:Label runat="server" ID="DateTo" CssClass="large margin-large vertical-bottom"></asp:Label>
+                    </div>
+                </div>
+                <div class="row-padding margin-16">
+                    <div class="col third">
+                        <asp:Label runat="server" Text="Modality:" CssClass="xlarge margin-large"></asp:Label>
+                    </div>
+                    <div class="col third" style="margin-top: 6px;">
+                        <asp:Label runat="server" ID="Modality" CssClass="large margin-large vertical-bottom"></asp:Label>
+                    </div>
+                </div>
+                <div class="row-padding margin-16">
+                    <div class="col third">
+                        <asp:Label runat="server" Text="PRICE:" CssClass="xxlarge margin-large"></asp:Label>
+                    </div>
+                    <div class="col quarter" style="margin-top: 12px;">
+                        <asp:Label runat="server" ID="Price" CssClass="xlarge margin-large"></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
 </asp:Content>

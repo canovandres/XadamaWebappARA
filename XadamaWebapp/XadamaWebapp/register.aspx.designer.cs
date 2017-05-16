@@ -31,6 +31,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
         
         /// <summary>
+        /// Control EmailValidatorRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailValidatorRequired;
+        
+        /// <summary>
         /// Control EmailValidator.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender12.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender12;
         
         /// <summary>
         /// Control TextBoxPassword.
@@ -238,6 +256,24 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.TextBox TextBoxPhone;
         
         /// <summary>
+        /// Control PhoneValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator PhoneValidator;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender8.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender8;
+        
+        /// <summary>
         /// Control TextBoxAddress.
         /// </summary>
         /// <remarks>
@@ -256,6 +292,42 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.TextBox TextBoxCreditCard;
         
         /// <summary>
+        /// Control CreditCardValidatorRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CreditCardValidatorRequired;
+        
+        /// <summary>
+        /// Control CreditCardValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator CreditCardValidator;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender11.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender11;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender9;
+        
+        /// <summary>
         /// Control Create.
         /// </summary>
         /// <remarks>
@@ -265,22 +337,40 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Button Create;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control TextBoxEmailSignIn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEmailSignIn;
         
         /// <summary>
-        /// Control TextBox3.
+        /// Control TextBoxPasswordSignIn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPasswordSignIn;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender10;
         
         /// <summary>
         /// Control SignIn.
