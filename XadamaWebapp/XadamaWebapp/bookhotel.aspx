@@ -93,50 +93,99 @@
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-red" text="Sorry, we have no availability for your selection. Please, change it."></asp:Label>
         </div>
     </asp:Panel>
-    <asp:Panel runat="server" ID="okBooking" CssClass="content container padding-32" Visible="False" style="width: 60%">
-        <div class="row-padding">
-            <div class="col half">
-                <asp:Label runat="server" ID="hotelName" CssClass="text-darkblue xxlarge padding-large"></asp:Label>
-            </div>
-        </div>
-        <div class="row-padding">
-            <div class="col half">
-                <asp:Image runat="server" ID="hotelImg" style="width: 100%; min-width: 350px; min-height: 200px;" CssClass="padding-large"></asp:Image>
-            </div>
-            <div class="col half margin-16" style="min-width: 320px">
-                <div class="row-padding margin-16">
-                    <div class="col third">
-                        <asp:Label runat="server" Text="From:" CssClass="xlarge margin-large"></asp:Label>
-                    </div>
-                    <div class="col quarter" style="margin-top: 6px;">
-                        <asp:Label runat="server" ID="DateFrom" CssClass="large margin-large vertical-bottom"></asp:Label>
-                    </div>
-                </div>
-                <div class="row-padding margin-16">
-                    <div class="col third">
-                        <asp:Label runat="server" Text="To:" CssClass="xlarge margin-large"></asp:Label>
-                    </div>
-                    <div class="col quarter" style="margin-top: 6px;">
-                        <asp:Label runat="server" ID="DateTo" CssClass="large margin-large vertical-bottom"></asp:Label>
-                    </div>
-                </div>
-                <div class="row-padding margin-16">
-                    <div class="col third">
-                        <asp:Label runat="server" Text="Modality:" CssClass="xlarge margin-large"></asp:Label>
-                    </div>
-                    <div class="col third" style="margin-top: 6px;">
-                        <asp:Label runat="server" ID="Modality" CssClass="large margin-large vertical-bottom"></asp:Label>
-                    </div>
-                </div>
-                <div class="row-padding margin-16">
-                    <div class="col third">
-                        <asp:Label runat="server" Text="PRICE:" CssClass="xxlarge margin-large"></asp:Label>
-                    </div>
-                    <div class="col quarter" style="margin-top: 12px;">
-                        <asp:Label runat="server" ID="Price" CssClass="xlarge margin-large"></asp:Label>
-                    </div>
+    <asp:Panel runat="server" ID="okBooking" CssClass="content container padding-32" Visible="False" style="width: 70%">
+        <asp:UpdatePanel id="updatePanelBook" runat="server">
+        <ContentTemplate>
+            <div class="row-padding">
+                <div class="col half">
+                    <asp:Label runat="server" ID="hotelName" CssClass="text-darkblue xxlarge padding-large"></asp:Label>
                 </div>
             </div>
-        </div>
+            <div class="row-padding">
+                <div class="col half" style="margin-left: -20px">
+                    <asp:Image runat="server" ID="hotelImg" style="width: 100%; min-width: 350px; min-height: 200px;" CssClass="padding-large"></asp:Image>
+                </div>
+                <div class="col half margin-16" style="min-width: 320px; margin-left: 20px">
+                    <div class="row-padding margin-16">
+                        <div class="col third">
+                            <asp:Label runat="server" Text="From :" CssClass="xlarge margin-large"></asp:Label>
+                        </div>
+                        <div class="col quarter" style="margin-top: 6px;">
+                            <asp:Label runat="server" ID="DateFrom" CssClass="large margin-large vertical-bottom"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="row-padding margin-16">
+                        <div class="col third">
+                            <asp:Label runat="server" Text="To :" CssClass="xlarge margin-large"></asp:Label>
+                        </div>
+                        <div class="col quarter" style="margin-top: 6px;">
+                            <asp:Label runat="server" ID="DateTo" CssClass="large margin-large vertical-bottom"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="row-padding margin-16">
+                        <div class="col third">
+                            <asp:Label runat="server" Text="Single: " CssClass="xlarge margin-large"></asp:Label>
+                        </div>
+                        <div class="col half" style="margin-top: 6px;">
+                            <asp:Label runat="server" ID="SingleRooms" CssClass="large margin-large vertical-bottom"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="row-padding margin-16">
+                        <div class="col third">
+                            <asp:Label runat="server" Text="Double: " CssClass="xlarge margin-large"></asp:Label>
+                        </div>
+                        <div class="col half" style="margin-top: 6px;">
+                            <asp:Label runat="server" ID="DoubleRooms" CssClass="large margin-large vertical-bottom"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="row-padding margin-16">
+                        <div class="col third">
+                            <asp:Label runat="server" Text="Modality: " CssClass="xlarge margin-large"></asp:Label>
+                        </div>
+                        <div class="col third" style="margin-top: 6px;">
+                            <asp:Label runat="server" ID="Modality" CssClass="large margin-large vertical-bottom"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="row-padding margin-16">
+                        <div class="col third">
+                            <asp:Label runat="server" Text="PRICE: " CssClass="xxlarge margin-large"></asp:Label>
+                        </div>
+                        <div class="col quarter" style="margin-top: 12px;">
+                            <asp:Label runat="server" ID="Price" CssClass="xlarge margin-large"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="row-padding margin-16">
+                        <div class="col third">
+                            <asp:Label runat="server" Text="Discount code: " CssClass="large margin-large"></asp:Label>
+                        </div>
+                        <div class="col quarter field" style="margin: 0px;">
+                            <asp:TextBox runat="server" ID="PromoCode"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="PromoCode" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="" ValidationGroup="promo"></asp:RequiredFieldValidator>
+                            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="RequiredFieldValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                        </div>
+                        <div class="col quarter field" style="margin: 0px;">
+                            <asp:Button runat="server" Text="Apply" CssClass="large button-slice" Style="width: auto;" OnClick="checkPromo" ValidationGroup="promo"></asp:Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <asp:Button id="bookButton" Text="BOOK" runat="server" CssClass="button-slice xxlarge margin-16 right"></asp:Button>
+
+            <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" TargetControlID="bookButton" CancelControlID="btnCancel" PopupControlID="Panel1" 
+                PopupDragHandleControlID="PopupHeader" Drag="true"></ajaxToolkit:ModalPopupExtender>
+            <asp:panel id="Panel1" style="display: none" runat="server" CssClass="popUpConfirm" BackColor="White" BorderStyle="Solid" BorderWidth="1px" BorderColor="Black">
+	            <div class="text-darkblue large">
+                    <div id="PopupHeader">Header</div>
+                        <div>
+                            <asp:Label runat="server" text="Confirm the booking?"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Button runat="server" id="btnOkay" Text="OK" CssClass="field button-slice" OnClick="bookRooms"/>
+                            <asp:Button runat="server" id="btnCancel" Text="CANCEL" CssClass="field button-slice"/>
+		                </div>
+                    </div>
+            </asp:panel>
+        </ContentTemplate>
+        </asp:UpdatePanel>
     </asp:Panel>
 </asp:Content>

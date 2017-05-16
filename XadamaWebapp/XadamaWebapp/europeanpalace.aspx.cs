@@ -62,5 +62,28 @@ namespace XadamaWebapp
             Response.Redirect("bookhotel.aspx");
         }
 
+        protected void DoubleValidation(object source, ServerValidateEventArgs args)
+        {
+            if(Convert.ToInt32(args.Value) == 0 && Convert.ToInt32(DropDownSingle.SelectedValue) == 0)
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+        protected void SingleValidation(object source, ServerValidateEventArgs args)
+        {
+            if (Convert.ToInt32(args.Value) == 0 && Convert.ToInt32(DropDownDouble.SelectedValue) == 0)
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+
     }
 }
