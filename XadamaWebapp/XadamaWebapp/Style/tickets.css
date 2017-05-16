@@ -1,19 +1,4 @@
-﻿body {
-}
-
-.back1 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #1b2630;
-    opacity: 0.95;
-    top: -10px;
-    left: 0px;
-    height: 5px;
-    width: auto;
-}
-
+﻿
 .backimgt1 {
     background-image: url("/Media/Others/ticketsback2.jpg");
     min-height: 400px;
@@ -26,110 +11,52 @@
     top: -17px;
     left: 0px;
     height: 600px;
-    width:auto;
+    width: auto;
 }
 
-.wrapt {
-    width: 900px;
-    margin: 0 auto;
-    text-align: center;
-    color: #989A8F;
+.buytickets:hover {
+    box-shadow: 0 1px 2px 0 rgb(128, 128, 128), 0 3px 4px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
-.table {
-    background-color: #ffffff;
-    height: 325px;
-    width: 100%;
-    margin-top: 50px;
+.lightblue {
+    background-color: #e0eaed;
+    color: #1B253B !important;
+    font-family: 'Arial Rounded MT'
 }
 
-ul#tickets {
-    list-style-type: none;
-    font-family: Calibri;
+.textright {
+    text-align: right !important;
 }
 
-.ultickets .litickets {
-    float: left;
-    width: 199px;
+.textleft {
+    text-align: left !important;
 }
 
-.topt {
-    background-color: #1B253B;
-    color: #fff;
-    height: 75px;
+.margin-50 {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important
 }
 
-.circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    font-size: 23px;
-    color: #fff;
-    line-height: 60px;
-    text-align: center;
-    background: #F26101;
-    border: dotted;
-    border-color: white;
-    margin-left: 70px;
-    margin-top: 10px;
+.prices {
+    font-family: 'Arial Rounded MT';
 }
 
-.bottomt {
-    margin-top: 50px;
-}
-
-.days {
-    font: 10px 'Franklin Gothic Medium Cond';
-    padding: 4px;
-}
-
-.indications {
-    font-size: 11px;
-    text-align: left;
+.margin-left-tickets {
     margin-left: 40px;
-    color: #1b2630;
 }
 
-td {
-    border-bottom: solid 1px #d7dce9;
-    text-align: center;
+.borders {
+    border: 1px dashed red;
 }
 
-caption {
-    background-color: #F26101;
-    font: bold 30px 'Franklin Gothic Medium Cond';
-    color: white;
-    margin-top: 20px;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-left: dotted;
-    border-left-width: medium;
-    border-right: dotted;
-}
-th {
-    color: #fff;
-    padding: 0 4em 0 4em;
-    background-color: #1B253B;
-    border-top: 1px solid #1B253B;
-    border-bottom: 1px solid #1B253B;
-    text-align: center;
-    padding-bottom: 5px;
-    padding-top: 5px;
+.info-logo {
+    height: 25px;
+    width: auto;
+    top: 50%;
+    left: 50%;
 }
 
-
-table {
-    border-collapse: collapse;
-    text-align: center;
-    font-family: Calibri;
-    color: #4e4a4a;
-    font-size: large;
+.info:hover {
+    font-weight: bold;
 }
-
-table#buytickets {
-    width: 58%;
-    margin-left: 20%;
-    margin-right: 22%;
-}
-

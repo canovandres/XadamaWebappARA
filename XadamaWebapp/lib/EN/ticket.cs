@@ -1,8 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+
 
 namespace lib.EN
 {
@@ -50,6 +55,12 @@ namespace lib.EN
         {
             CAD.CADTicket t = new CAD.CADTicket();
             t.Delete(cod);
+        }
+
+        public DataSet typePrice()
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            return t.typePrice();
         }
     }
 }
