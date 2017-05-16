@@ -69,11 +69,11 @@ namespace XadamaWebapp
                     c.creditCard = TextBoxCreditCard.Text;
                     c.Create();
 
-                    TextBoxEmail.Text = string.Empty;
-                    TextBoxEmail.Attributes.Add("placeholder", "Account created!");
-
                     Session["email"] = TextBoxEmail.Text;
                     Session["name"] = TextBoxName.Text;
+
+                    TextBoxEmail.Text = string.Empty;
+                    TextBoxEmail.Attributes.Add("placeholder", "Account created!");
                 }
             }
             catch (Exception ex)
