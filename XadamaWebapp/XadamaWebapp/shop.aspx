@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <title>Xadama Shop</title>
     <link rel="stylesheet" type="text/css" href="Style/shop.css" />
-    <link rel="stylesheet" type="text/css" href="Style/services.css" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
