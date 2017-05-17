@@ -18,7 +18,7 @@ namespace XadamaWebapp
     {
         private DataSet bdvirtual = new DataSet();
         private DataTable t = new DataTable();
-        private Ride enride = new Ride("", "", "");
+        private Ride enride = new Ride("","","");
         private Show enshow = new Show("");
         private Restaurant enrest = new Restaurant("");
 
@@ -41,23 +41,23 @@ namespace XadamaWebapp
                 {
                     ListServices.SelectedIndex = 3;
                 }
-                if (Request.QueryString["zones"]=="Africa")
+                if (Request.QueryString["zones"]=="africa")
                 {
                     ListZones.SelectedIndex = 1;
                 }
-                else if (Request.QueryString["zones"] == "America")
+                else if (Request.QueryString["zones"] == "america")
                 {
                     ListZones.SelectedIndex = 2;
                 }
-                else if (Request.QueryString["zones"] == "Asia")
+                else if (Request.QueryString["zones"] == "asia")
                 {
                     ListZones.SelectedIndex = 3;
                 }
-                else if (Request.QueryString["zones"] == "Europe")
+                else if (Request.QueryString["zones"] == "europe")
                 {
                     ListZones.SelectedIndex = 4;
                 }
-                else if (Request.QueryString["zones"] == "Oceania")
+                else if (Request.QueryString["zones"] == "oceania")
                 {
                     ListZones.SelectedIndex = 5;
                 }
