@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Worker : User
+    public class Worker : User
     {
         public Worker(String email, String password, String name = "", int age = 0, int phone = 0, String address = "")
         {
