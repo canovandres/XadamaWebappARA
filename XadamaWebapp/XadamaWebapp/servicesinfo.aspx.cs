@@ -17,7 +17,9 @@ namespace XadamaWebapp
                 Restaurant r = (Restaurant)Session["Restaurant"];
                 ServiceTitle.Text = r.name;
                 ServiceDescription.Text = r.description;
+                zone.Text = "Zone :" + r.zone;
                 image.ImageUrl = r.image;
+                Button.Visible = true;
             }
             else if (Session["Ride"]!=null)
             {
@@ -26,6 +28,7 @@ namespace XadamaWebapp
                 ServiceDescription.Text = r.description;
                 minheight.Text = "The minimum height for this ride is: " + r.minHeight+" m";
                 speed.Text = "This ride reaches a speed of " + r.speed + " km/h";
+                zone.Text = "Zone: " + r.zone;
                 image.ImageUrl = r.image;
                 speed.Visible = true;
                 minheight.Visible = true;
@@ -36,10 +39,16 @@ namespace XadamaWebapp
                 ServiceTitle.Text = s.name;
                 ServiceDescription.Text=s.description;
                 image.ImageUrl = s.image;
+                zone.Text = "Zone: " + s.zone;
             }
             /*ServiceTitle.Text = Session["ServiceName"].ToString();
             Seadragon.SourceUrl = "~/Media/Rides/Europe/EuropeanGreece.xml";
             ServiceDescription.Text = Session["ServiceDescription"].ToString();*/
+        }
+
+        protected void Button_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("bookrestaurant.aspx");
         }
     }
 }

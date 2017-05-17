@@ -43,7 +43,7 @@
                       </div>
                     </LayoutTemplate>
                     <ItemTemplate>
-                        <div id="itemtemplate" class="quarter display-border-template col large item-container uppercase bold padding-16">
+                        <div class="quarter display-border-template col large item-container uppercase bold padding-16">
                             <div>
                                 <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
                             </div>
