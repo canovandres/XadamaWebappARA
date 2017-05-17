@@ -115,6 +115,7 @@
     <Content Include="bookhotel.aspx" />
     <Content Include="bookrestaurant.aspx" />
     <Content Include="carousel.ascx" />
+    <Content Include="admin.aspx" />
     <Content Include="europeanpalace.aspx" />
     <Content Include="hotels.aspx" />
     <Content Include="Media\Hotels\africansavannah.jpg" />
@@ -201,6 +202,7 @@
     <Content Include="Style\hotel.css" />
     <Content Include="Style\hotels.css" />
     <Content Include="Style\shop.css" />
+    <Content Include="Style\admin.css" />
     <Content Include="Style\worker.css" />
     <Content Include="Style\zoneeurope.css" />
     <Content Include="Style\zones.css" />
@@ -258,6 +260,13 @@
     </Compile>
     <Compile Include="carousel.ascx.designer.cs">
       <DependentUpon>carousel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="europeanpalace.aspx.cs">
       <DependentUpon>europeanpalace.aspx</DependentUpon>

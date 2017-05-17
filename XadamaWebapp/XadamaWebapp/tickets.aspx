@@ -143,7 +143,7 @@
                 <asp:Label runat="server" ID="totalprice" Text="0€" CssClass="textright text-darkblue bold xxlarge"></asp:Label>
             </div>
             <div class="col seventh">
-                <asp:Button Text="BUY NOW" runat="server" CssClass="darkblue buytickets xlarge margin-50" ValidateRequestMode="Disabled"></asp:Button>
+                <asp:Button Text="BUY NOW" runat="server" CssClass="darkblue buytickets xlarge margin-50" OnClick="buyTicket" ValidateRequestMode="Disabled"></asp:Button>
             </div>
         </div>
      </div>
