@@ -1,0 +1,62 @@
+﻿
+.backimgt1 {
+    background-image: url("/Media/Others/ticketsback2.jpg");
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
+    top: -17px;
+    left: 0px;
+    height: 600px;
+    width: auto;
+}
+
+.buytickets:hover {
+    box-shadow: 0 1px 2px 0 rgb(128, 128, 128), 0 3px 4px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.lightblue {
+    background-color: #e0eaed;
+    color: #1B253B !important;
+    font-family: 'Arial Rounded MT'
+}
+
+.textright {
+    text-align: right !important;
+}
+
+.textleft {
+    text-align: left !important;
+}
+
+.margin-50 {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important
+}
+
+.prices {
+    font-family: 'Arial Rounded MT';
+}
+
+.margin-left-tickets {
+    margin-left: 40px;
+}
+
+.borders {
+    border: 1px dashed red;
+}
+
+.info-logo {
+    height: 25px;
+    width: auto;
+    top: 50%;
+    left: 50%;
+}
+
+.info:hover {
+    font-weight: bold;
+}

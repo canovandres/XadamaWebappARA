@@ -1,0 +1,28 @@
+﻿.imgbeg {
+    width: 100%;
+    height: 400px;
+    box-sizing: content-box;
+}
+
+.backimgh2 {
+    background-image: url("/Media/Others/tickets.jpg");
+    min-height: 10px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    opacity: 0.95;
+    top: -10px;
+    left: 0px;
+    height: 300px;
+    width: auto;
+}
+
+.popUpConfirm {
+     min-width: 200px;
+     min-height: 150px;
+     background-color: #FFFFFF;
+     padding: 10px;
+     border: 1px solid;
+}

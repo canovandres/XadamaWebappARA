@@ -1,0 +1,77 @@
+﻿/* Add padding to container elements */
+.register {
+    box-sizing: border-box;
+    display: inline-block;
+    height: auto;
+    margin: 4px;
+}
+
+/* Float create buttons and add an equal width */
+.create-button, .signin-button {
+    width: 200px;
+    float: right;
+    margin: 20px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.field {
+    display: inline-block;
+    margin-right: -8px;
+    width: 100%;
+    padding-right: 4%;
+    margin-top: 15px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.form-content {
+    margin: auto;
+    display: block;
+}
+
+.field input, .field select {
+    border: solid 1px #1B253B;
+    height: 35px;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 15px;
+    color: #1B253B;
+    font-weight: 300;
+    box-sizing: border-box;
+    line-height: normal;
+    margin: 0;
+    outline: 0;
+}
+
+.VeryWeekStrength {
+    background: #B10400;
+    color: White;
+}
+.WeakStrength {
+    background: #F97C01;
+    color: White;
+}
+.AverageStrength {
+    background: #FFC706;
+    color: White;
+}
+.GoodStrength {
+    background: #8AC316;
+    color: White;
+}
+.ExcellentStrength {
+    background: #39A31B;
+    color: White;
+}
+.BarBorderStyle {
+    border-style: solid;
+    border-color: Gray;
+    border-width: 1px;
+    width: 12%;
+}
