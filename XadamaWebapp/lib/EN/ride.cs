@@ -21,11 +21,11 @@ namespace lib.EN
 
         public float speed { get; set; }
 
-        public float height { get; set; }
+        public int height { get; set; }
 
         public String image { get; set; }
 
-        public Ride(String cod, String name, String zone, String description = "", int minHeight = 0, int speed = 0, int height = 0, String image="")
+        public Ride(String cod, String name, String zone, String description = "", float minHeight = 0, float speed = 0, int height = 0, String image="")
         {
             this.cod = cod;
             this.name = name;
