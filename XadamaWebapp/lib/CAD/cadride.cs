@@ -75,8 +75,8 @@ namespace lib.CAD
                 ride.name = t.Rows[0][1].ToString();
                 ride.zone = t.Rows[0][2].ToString();
                 ride.description = t.Rows[0][3].ToString();
-                ride.minHeight = Int32.Parse(t.Rows[0][4].ToString());
-                ride.speed = Int32.Parse(t.Rows[0][5].ToString());
+                ride.minHeight =  float.Parse(t.Rows[0][4].ToString());
+                ride.speed = float.Parse(t.Rows[0][5].ToString());
                 ride.image = t.Rows[0][6].ToString();
 
             }
@@ -144,12 +144,12 @@ namespace lib.CAD
             try
             {
                 if (zone=="*") {
-                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from ride", con);
+                    SqlDataAdapter da = new SqlDataAdapter("select cod, name, description, image from ride", con);
                     da.Fill(bdvirtual, "services");
                 }
                 else
                 {
-                    SqlDataAdapter da = new SqlDataAdapter("select name, description, image from ride where zone like '" + zone + "'", con);
+                    SqlDataAdapter da = new SqlDataAdapter("select cod, name, description, image from ride where zone like '" + zone + "'", con);
                     da.Fill(bdvirtual, "services");
                 }
 
