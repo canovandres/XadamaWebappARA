@@ -24,7 +24,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from promo",con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo",con);
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
@@ -51,7 +51,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from promo where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod=" + cod, con);
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
@@ -79,7 +79,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from promo where cod=" + p.cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod=" + p.cod, con);
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
@@ -110,7 +110,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from promo where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod=" + cod, con);
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
@@ -128,30 +128,16 @@ namespace lib.CAD
             }
         }
 
-        public List<EN.Promo> getPromos(String currentdate)//Returns a list of promos active in the date passed by parameter by executing appropiate commands
+        public DataSet getPromos(String currentdate)//Returns a list of promos active in the date passed by parameter by executing appropiate commands
         {
-            List<EN.Promo> promos = new List<EN.Promo>();
             EN.Promo promo = new EN.Promo("");
             SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
             try
             {
-                DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from promo where enddate >= convert(date,'" + currentdate + "') and initialdate <= convert(date, '" + currentdate + "')", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo where dateend >= convert(date,'" + currentdate + "') and dateini <= convert(date, '" + currentdate + "')", con);
                 da.Fill(bdvirtual, "promocion");
-                DataTable t = new DataTable();
-                t = bdvirtual.Tables["promocion"];//rellenar
-                int i = 0;
-                foreach(DataRow r in t.Rows)
-                {
-                    promo.cod = t.Rows[i][0].ToString();
-                    promo.name = t.Rows[i][1].ToString();
-                    promo.description = t.Rows[i][2].ToString();
-                    promo.discount = Int32.Parse(t.Rows[i][3].ToString());
-                    promo.initialdate = t.Rows[i][4].ToString();
-                    promo.enddate = t.Rows[i][5].ToString();
-                    promos.Add(promo);
-                    i++;
-                }
+                
             }
             catch(Exception ex)
             {
@@ -161,7 +147,7 @@ namespace lib.CAD
             {
                 con.Close();
             }
-            return promos;
+            return bdvirtual;
         }
     }
 }
