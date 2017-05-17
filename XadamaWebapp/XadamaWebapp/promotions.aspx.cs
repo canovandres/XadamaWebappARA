@@ -6,22 +6,31 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Collections;
+using System.Threading;
 
 namespace XadamaWebapp
 {
     public partial class promo : System.Web.UI.Page
     {
         private DataSet bdvirtual = new DataSet();
-        private Promo p = new Promo("");
+        private DataTable t = new DataTable();
         private String currentdate = Convert.ToString(DateTime.Today);
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //bdvirtual = p.getPromos(currentdate);
-            DataTable t = bdvirtual.Tables["promocion"];
-            ListView1.DataSource = t;
-            ListView1.DataBind();
+            
+            bdvirtual = Promo.getPromos(currentdate);
+            ListViewPromo.DataSource = bdvirtual;
+            ListViewPromo.DataBind();
+
 
         }
+
+        protected void OnClickShowCode(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }

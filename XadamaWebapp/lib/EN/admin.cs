@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lib.EN
 {
-    class Admin : User
+    public class Admin : User
     {
         public Admin(String email, String password)
         {

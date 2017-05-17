@@ -69,7 +69,7 @@ namespace XadamaWebapp
                 SingleRooms.Text = booking.nsingle.ToString() + " rooms";
                 DoubleRooms.Text = booking.ndouble.ToString() + " rooms";
                 Price.Text = Math.Round(booking.getPrice(), 2).ToString();
-                okBooking.Visible = true;
+                errorBooking.Visible = true;
             }
             else
             {

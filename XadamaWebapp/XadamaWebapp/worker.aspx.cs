@@ -11,7 +11,22 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                if (Session["Worker"] != null)
+                {
+                }
+                else
+                {
+                    //Response.Redirect("register.aspx");
+                }
+            }
+        }
 
+        protected void MenuItemClick(object sender, MenuEventArgs e)
+        {
+            int index = Int32.Parse(e.Item.Value);
+            MultiView1.ActiveViewIndex = index;
         }
     }
 }
