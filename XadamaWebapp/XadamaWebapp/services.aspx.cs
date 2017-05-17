@@ -28,6 +28,7 @@ namespace XadamaWebapp
             //{
 
                 DataTable aux = new DataTable();
+            if (!Page.IsPostBack) {
                 if (Request.QueryString["type"] == "rides")
                 {
                     ListServices.SelectedIndex = 1;
@@ -40,6 +41,27 @@ namespace XadamaWebapp
                 {
                     ListServices.SelectedIndex = 3;
                 }
+                if (Request.QueryString["zones"]=="Africa")
+                {
+                    ListZones.SelectedIndex = 1;
+                }
+                else if (Request.QueryString["zones"] == "America")
+                {
+                    ListZones.SelectedIndex = 2;
+                }
+                else if (Request.QueryString["zones"] == "Asia")
+                {
+                    ListZones.SelectedIndex = 3;
+                }
+                else if (Request.QueryString["zones"] == "Europe")
+                {
+                    ListZones.SelectedIndex = 4;
+                }
+                else if (Request.QueryString["zones"] == "Oceania")
+                {
+                    ListZones.SelectedIndex = 5;
+                }
+            }
                 OnListServiceChanged(sender, e);
            // }
         }

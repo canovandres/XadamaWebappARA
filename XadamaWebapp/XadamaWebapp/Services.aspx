@@ -32,7 +32,7 @@
                 </div>
             </div>
             <!--List View-->
-            <div id="ListViewContainer" class="display-border padding-64">
+            <div id="ListViewContainer" class="padding-64">
                 <asp:Label ID="labl" runat="server"></asp:Label>
                 <asp:ListView ID="ListView1" runat="server" GroupItemCount="3" OnSelectedIndexChanging="OnSelectedItem">
 

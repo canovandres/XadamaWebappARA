@@ -17,11 +17,11 @@ namespace lib.EN
 
         public String description { get; set; }
 
-        public int minHeight { get; set; }
+        public float minHeight { get; set; }
 
-        public int speed { get; set; }
+        public float speed { get; set; }
 
-        public int height { get; set; }
+        public float height { get; set; }
 
         public String image { get; set; }
 
@@ -54,7 +54,7 @@ namespace lib.EN
             this.minHeight = ride.minHeight;
             this.speed = ride.speed;
             this.height = ride.height;
-            this.image = image;
+            this.image = ride.image;
         }
 
         public void update(String db)

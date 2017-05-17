@@ -22,6 +22,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label ServiceTitle;
         
         /// <summary>
+        /// Control zone.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label zone;
+        
+        /// <summary>
         /// Control minheight.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ServiceDescription;
+        
+        /// <summary>
+        /// Control Button.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button;
         
         /// <summary>
         /// Control image.
