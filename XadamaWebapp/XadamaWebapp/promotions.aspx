@@ -15,11 +15,12 @@
     </div>
 
     <div class="content container padding-32 center">
-        <div class="center large text-black margin-bottom-large margin-top bold">
+        <div class="center large text-black margin-top bold">
             Have a look at the set of special promotions available for you.
         </div>
     </div>
-    <asp:ListView ID="ListView1" runat="server" GroupItemCount="3">
+    <div>
+    <asp:ListView ID="ListViewPromo" runat="server" DataKeyNames="cod" GroupItemCount="1">
             <LayoutTemplate>
                   <div align="center" class="margin-32 padding-64" runat="server">
                       <div runat="server" id="groupPlaceholder">
@@ -27,103 +28,40 @@
                   </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <div class="quarter display-border-orange col large text-orange item-container uppercase bold padding-16">
-                    <div>
+                <div class="display-border-orange mycontainer padding-32 margin-left">
+                    <div class="bold uppercase text-black">
                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
                     </div>
-                    <div>
-                        <asp:Label ID="Label4" runat="server" Text='<%#Eval("cod") %>'></asp:Label>
+                    
+                    <div class="bold uppercase margin-top margin-bottom">
+                        <asp:Label ID="Label2" runat="server" CssClass="button-slice xlarge margin-32" Text='<%#Eval("cod") %>' ></asp:Label>
                     </div>
                     <div>
-                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("description") %>'></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text='<%#Eval("description") %>'></asp:Label>
                     </div>
                     <div>
-                        Available until 
-                        <asp:Label ID="Label5" runat="server" Text='<%#Eval("dateend") %>'></asp:Label>
-                    </div>
-                    <div>
-                        <asp:LinkButton ID="LinkButton1" Text="See more!" CssClass="button button-slice" runat="server"></asp:LinkButton>
+                        *Available until 
+                        <asp:Label ID="Label4" runat="server" Text='<%#Eval("dateend") %>'></asp:Label>
                     </div>
                 </div>
             </ItemTemplate>
             <GroupTemplate>
-                    <div runat="server" id="promoRow" class="margin-bottom-large" style="height:500px">
+                    <div runat="server" id="promoRow" class="margin-bottom-large" style="height:250px">
                         <div runat="server" id="itemPlaceholder">
                         </div>
                     </div>
             </GroupTemplate>
         </asp:ListView>
+        
+        </div>
 
 
-
-
-    
-
-    <div class="content container padding-32 center">
-        <div class="center large text-black margin-bottom-large margin-top bold">
+    <div class="content container center" style="padding-bottom: 32px !important">
+        <div class="center large text-black margin-bottom-large ">
+            *In order to use them, you have to copy and paste the code when you are going to get whatever you need to. 
+        </div>
+        <div class="center large text-black margin-bottom-large bold">
             If none of them suits you, keep on visiting us periodically... New promotions are comming! 
         </div>
     </div>
-    <div class="slider-container margin-top">
-        <div class="swiper">
-            <div class="slide hide">
-                <asp:Image ID="Image9" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Africa/AfricanPyramid.jpg" />
-                <div class="show-text show-text-africa">
-                    <asp:Label ID="Label3" runat="server" CssClass="text-white" Text="AFRICA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Enjoy the wild animals and beautiful sabannahs</p>
-                        <asp:Button runat="server" text="GO!" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <asp:Image ID="Image10" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/America/AmericanHollywood.jpg" />
-                <div class="show-text show-text-america">
-                    <asp:Label ID="Label12" runat="server" CssClass="text-white" Text="AMERICA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Live an authentic american expirience</p>
-                        <asp:Button runat="server" text="GO!" CssClass="button-america button-sign" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <asp:Image ID="Image11" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Europe/EuropeanLondonEye.jpg" />
-                <div class="show-text show-text-europe">
-                    <asp:Label ID="Label13" runat="server" CssClass="text-white" Text="EUROPE"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Immerse yourself in the different cultures Europe has to offer</p>
-                        <asp:Button runat="server" text="GO!" CssClass="button-europe button-sign" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <asp:Image ID="Image12" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Asia/AsianChina.jpg" />
-                <div class="show-text show-text-asia">
-                    <asp:Label ID="Label10" runat="server" CssClass="text-white" Text="ASIA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Travel to the amazing China and explore the oriental culture</p>
-                        <asp:Button runat="server" text="GO!" CssClass="button-asia button-sign" />
-                    </div>
-                </div>
-            </div>
-            <div class="slide hide">
-                <asp:Image ID="Image13" runat="server" CssClass="slide-image" ImageUrl="~/Media/Rides/Oceania/OceanianTurtleaux.jpg" />
-                <div class="show-text show-text-oceania">
-                    <asp:Label ID="Label14" runat="server" CssClass="text-white" Text="OCEANIA"></asp:Label>
-                    <div class="slide-hide text-white">
-                        <p>Love the long beaches and the paradisiac landscapes</p>
-                        <asp:Button runat="server" text="GO!" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class=" arrow arrow-prev left front text-white xlarge">
-            <p style="margin: 13px">❮</p>
-        </div>
-        <div class="arrow arrow-next right front text-white xlarge">
-            <p style="margin: 15px">❯</p>
-        </div>
-    </div>
-
-
 </asp:Content>

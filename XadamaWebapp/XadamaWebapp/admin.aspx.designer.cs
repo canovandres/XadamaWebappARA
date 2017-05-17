@@ -10,78 +10,78 @@
 namespace XadamaWebapp {
     
     
-    public partial class servicesinfo {
+    public partial class admin {
         
         /// <summary>
-        /// Control ServiceTitle.
+        /// Control ScriptManager1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ServiceTitle;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Control zone.
+        /// Control MultiView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label zone;
+        protected global::System.Web.UI.WebControls.MultiView MultiView1;
         
         /// <summary>
-        /// Control minheight.
+        /// Control View1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label minheight;
+        protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
-        /// Control speed.
+        /// Control GridProducts.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label speed;
+        protected global::System.Web.UI.WebControls.GridView GridProducts;
         
         /// <summary>
-        /// Control Seadragon.
+        /// Control GridProducts2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.Seadragon Seadragon;
+        protected global::System.Web.UI.WebControls.GridView GridProducts2;
         
         /// <summary>
-        /// Control ServiceDescription.
+        /// Control GridProducts3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ServiceDescription;
+        protected global::System.Web.UI.WebControls.GridView GridProducts3;
         
         /// <summary>
-        /// Control Button.
+        /// Control View2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button;
+        protected global::System.Web.UI.WebControls.View View2;
         
         /// <summary>
-        /// Control image.
+        /// Control View3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image image;
+        protected global::System.Web.UI.WebControls.View View3;
     }
 }
