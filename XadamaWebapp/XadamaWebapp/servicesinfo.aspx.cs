@@ -24,7 +24,7 @@ namespace XadamaWebapp
                 Ride r = (Ride)Session["Ride"];
                 ServiceTitle.Text = r.name;
                 ServiceDescription.Text = r.description;
-                minheight.Text = "The minimum height for this ride is: " + r.minHeight+" m";
+                minheight.Text = "The minimum height for this ride is: " + r.minHeight+" cm";
                 speed.Text = "This ride reaches a speed of " + r.speed + " km/h";
                 image.ImageUrl = r.image;
                 speed.Visible = true;
