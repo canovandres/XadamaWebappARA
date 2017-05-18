@@ -14,9 +14,9 @@ namespace lib.CAD
 {
     class CADWorker : CADUser
     {
-        private string conString;
+        private static string conString;
 
-        public CADWorker(String database)
+        public CADWorker()
         {
             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
@@ -28,41 +28,71 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
+                SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario", con);
                 SqlDataAdapter da = new SqlDataAdapter("select * from worker", con);
+                da2.Fill(bdvirtual, "usuario");
                 da.Fill(bdvirtual, "worker");
 
+                DataTable t2 = new DataTable();
                 DataTable t = new DataTable();
+                t2 = bdvirtual.Tables["usuario"];
                 t = bdvirtual.Tables["worker"];
+
+                DataRow newrow2 = t2.NewRow();
+                newrow2[0] = newWorker.email;
+                newrow2[1] = newWorker.password;
 
                 DataRow newrow = t.NewRow();
                 newrow[0] = newWorker.email;
-                //Continuar y modificar segun DB
+                newrow[1] = newWorker.name;
+                newrow[2] = newWorker.surname1;
+                newrow[3] = newWorker.surname2;
+                newrow[4] = newWorker.age;
+                newrow[5] = newWorker.phone;
 
+                t2.Rows.Add(newrow2);
                 t.Rows.Add(newrow);
+
+                SqlCommandBuilder cbuilder2 = new SqlCommandBuilder(da2);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+
+                da2.Update(bdvirtual, "usuario");
                 da.Update(bdvirtual, "worker");
             }
-            catch (Exception ex) { }
-            finally { con.Close(); }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Creating Worker (CadWorker): " + ex.ToString());
+            }
+            finally {
+                con.Close();
+            }
         }
 
         public User Read(String email) //Reads a worker from the database
         {
-            Worker worker = new Worker("", "", "");
+            Worker worker = new Worker("");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter("select * from worker where email like '" + email + "'", con);
+                SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario where email like '" + email + "'", con);
+
                 da.Fill(bdvirtual, "worker");
+                da2.Fill(bdvirtual, "usuario");
 
                 DataTable t = new DataTable();
+                DataTable t2 = new DataTable();
                 t = bdvirtual.Tables["worker"];
+                t2 = bdvirtual.Tables["usuario"];
 
                 worker.email = t.Rows[0][0].ToString();
-                worker.password = t.Rows[0][1].ToString();
-                worker.age = Int32.Parse(t.Rows[0][2].ToString());
-                //Continuar y modificar segun DB
+                worker.password = t2.Rows[0][1].ToString();
+                worker.name = t.Rows[0][1].ToString();
+                worker.surname1 = t.Rows[0][2].ToString();
+                worker.surname2 = t.Rows[0][3].ToString();
+                worker.age = t.Rows[0][4].ToString();
+                worker.phone = Int32.Parse(t.Rows[0][5].ToString());
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -77,17 +107,27 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from worker where email like '" + user.email + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from worker where usuario like '" + user.email + "'", con);
+                SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario where email like '" + user.email + "'", con);
                 da.Fill(bdvirtual, "worker");
+                da2.Fill(bdvirtual, "usuario");
 
                 DataTable t = new DataTable();
+                DataTable t2 = new DataTable();
                 t = bdvirtual.Tables["worker"];
+                t2 = bdvirtual.Tables["usuario"];
 
-                t.Rows[0][0] = newWorker.email;
-                //Continuar y modificar segun DB
+                t.Rows[0][1] = newWorker.name;
+                t.Rows[0][2] = newWorker.surname1;
+                t.Rows[0][3] = newWorker.surname2;
+                t.Rows[0][4] = newWorker.age;
+                t.Rows[0][5] = newWorker.phone;
+                t2.Rows[0][1] = newWorker.password;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                SqlCommandBuilder cbuilder2 = new SqlCommandBuilder(da2);
                 da.Update(bdvirtual, "worker");
+                da2.Update(bdvirtual, "usuario");
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -100,24 +140,32 @@ namespace lib.CAD
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter("select * from worker where email like '" + email + "'", con);
+                SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario where email like '" + email + "'", con);
                 da.Fill(bdvirtual, "worker");
+                da2.Fill(bdvirtual, "usuario");
 
                 DataTable t = new DataTable();
+                DataTable t2 = new DataTable();
                 t = bdvirtual.Tables["worker"];
+                t2 = bdvirtual.Tables["usuario"];
 
                 t.Rows[0].Delete();
-                //Continuar y modificar segun DB
+                t2.Rows[0].Delete();
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                SqlCommandBuilder cbuilder2 = new SqlCommandBuilder(da2);
                 da.Update(bdvirtual, "worker");
+                da2.Update(bdvirtual, "usuario");
             }
             catch (Exception ex) { }
             finally { con.Close(); }
         }
 
+        /*
         public bool Works(String date) //Checks in the database if the worker works in that date
         {
             return false;
         }
+        */
     }
 }
