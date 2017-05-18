@@ -9,7 +9,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    
     <div class="backimg3 display-container">
         <div class="display-middle front">
             <div class="center wide xxlarge black padding-large appear"> SHOP </div>
@@ -29,13 +28,19 @@
     <asp:UpdatePanel runat="server" ID="hgfj">
         <ContentTemplate>
         <div class="form-content">
-        <div class="field">
-            <asp:TextBox ID="TextBox1" runat="server" placeholder="Search by product name"></asp:TextBox>
+            <asp:Panel runat="server" DefaultButton="searchbutton">
+                <div class="field">
+                    <asp:TextBox ID="TextBox1" runat="server" placeholder="Search by product name"></asp:TextBox>
+                    <div>
+                        <ajaxToolkit:AutoCompleteExtender runat="server" CompletionListCssClass="completion-list" CompletionListItemCssClass="completion-list-item" CompletionListHighlightedItemCssClass="completion-list-selected" UseContextKey="true" TargetControlID="TextBox1" ServiceMethod="GetCompletionList" EnableCaching="true" CompletionInterval="5" MinimumPrefixLength="1" CompletionSetCount="1" BehaviorID="TextBox1_AutoCompleteExtender"></ajaxToolkit:AutoCompleteExtender>
+                    </div>
+                </div>
+                <div class="field-aux">
+                    <asp:ImageButton id="searchbutton" runat="server"  CssClass="imgbeg-aux" ImageUrl="~/Media/Others/lupabuscar.png" OnClick="OnBrowseClick" />
+                </div>
+                
+            </asp:Panel>
         </div>
-        <div class="field-aux">
-            <asp:ImageButton id="searchbutton" runat="server"  CssClass="imgbeg-aux" ImageUrl="~/Media/Others/lupabuscar.png" OnClick="OnBrowseClick" />
-        </div>
-    </div>
     <div class="slider-container margin-top">
         <div class="picture-container">
             <div class="show-pictures">
