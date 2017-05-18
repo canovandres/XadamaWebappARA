@@ -46,8 +46,8 @@ namespace lib.EN
             this.email = worker.email;
             this.password = worker.password;
             this.name = worker.name;
-            this.surname1 = surname1;
-            this.surname2 = surname2;
+            this.surname1 = worker.surname1;
+            this.surname2 = worker.surname2;
             this.age = worker.age;
             this.phone = worker.phone;
         }
