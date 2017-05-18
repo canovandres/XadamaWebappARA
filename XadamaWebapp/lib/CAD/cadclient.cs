@@ -78,6 +78,7 @@ namespace lib.CAD
             {
                 SqlDataAdapter da = new SqlDataAdapter("select * from client where usuario like '" + email + "'", con);
                 SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario where email like '" + email + "'", con);
+
                 da.Fill(bdvirtual, "client");
                 da2.Fill(bdvirtual, "usuario");
 
@@ -92,7 +93,13 @@ namespace lib.CAD
                 client.surname1 = t.Rows[0][2].ToString();
                 client.surname2 = t.Rows[0][3].ToString();
                 client.age = t.Rows[0][4].ToString();
-                client.phone = Int32.Parse(t.Rows[0][5].ToString());
+                if(t.Rows[0][5].ToString() != null)
+                {
+                    client.phone = Int32.Parse(t.Rows[0][5].ToString());
+                } else
+                {
+                    client.phone = 0;
+                }
                 client.address = t.Rows[0][6].ToString();
                 client.creditCard = t.Rows[0][7].ToString();
             }
