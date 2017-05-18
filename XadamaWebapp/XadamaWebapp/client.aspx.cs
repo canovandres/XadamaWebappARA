@@ -49,32 +49,39 @@ namespace XadamaWebapp
 
         protected void MenuItemClick(object sender, MenuEventArgs e)
         {
-            int index = Int32.Parse(e.Item.Value);
-            MultiView1.ActiveViewIndex = index;
-
-            // TODO: NO SÉ SI HABRIA QUE HACERLO DE ESTA FORMA
-            if(index == 0)
+            if (Session["Client"] != null)
             {
-                //
-                Client c = (Client)Session["Client"];
-                TextBoxEmail.Text = c.email;
-                //
+                int index = Int32.Parse(e.Item.Value);
+                MultiView1.ActiveViewIndex = index;
 
-                /*
-                TextBoxEmail.Text = Session["email"].ToString();
-                */
-                TextBoxName.Text = c.name;
-                TextBox1Surname.Text = c.surname1;
-                TextBox2Surname.Text = c.surname2;
-                Birthdate.Text = c.age;
-                if (c.phone != 0)
+                // TODO: NO SÉ SI HABRIA QUE HACERLO DE ESTA FORMA
+                if (index == 0)
                 {
-                    TextBoxPhone.Text = (c.phone).ToString();
-                }
-                TextBoxAddress.Text = c.address;
-                TextBoxCreditCard.Text = c.creditCard;
+                    //
+                    Client c = (Client)Session["Client"];
+                    TextBoxEmail.Text = c.email;
+                    //
 
-                SuccessfulyLabel.Visible = false;
+                    /*
+                    TextBoxEmail.Text = Session["email"].ToString();
+                    */
+                    TextBoxName.Text = c.name;
+                    TextBox1Surname.Text = c.surname1;
+                    TextBox2Surname.Text = c.surname2;
+                    Birthdate.Text = c.age;
+                    if (c.phone != 0)
+                    {
+                        TextBoxPhone.Text = (c.phone).ToString();
+                    }
+                    TextBoxAddress.Text = c.address;
+                    TextBoxCreditCard.Text = c.creditCard;
+
+                    SuccessfulyLabel.Visible = false;
+                }
+            }
+            else
+            {
+                // Reenviar a la pagina de LogIn o Inicio
             }
         }
 
@@ -131,7 +138,7 @@ namespace XadamaWebapp
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error Creating Account: " + ex.ToString());
+                Console.WriteLine("Error Updating Account: " + ex.ToString());
             }
         }
 

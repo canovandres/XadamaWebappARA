@@ -3,17 +3,15 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
-    <title>Xadama Register</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="Style/register.css" />
-    <link rel="stylesheet" type="text/css" href="Style/worker.css" />
+    <title>Xadama Client</title>
+    <link rel="stylesheet" type="text/css" href="Style/client.css" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="container-client padding-128-client">
-        <div class="col fifteen blue">
+    <div class="container-client padding-128-client">  <!--1-->
+        <div class="col fifteen blue">      <!--3-->
             <asp:menu runat="server" Orientation="Vertical" CssClass="left menu full" OnMenuItemClick="MenuItemClick">
                 <StaticMenuItemStyle CssClass="client-bar-item button text-white center border-menu"/>
                 <StaticMenuStyle CssClass="full"/>
@@ -26,8 +24,8 @@
         </div>
 
 
-        <div class="col three-quarter">
-            <div class="register form-content padding-client margin-medium grey shadow">
+        <div class="col three-quarter">  <!--3-->
+            <div class="register form-content padding-client margin-medium grey shadow">    <!--4-->
                 <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
 
                     <asp:View ID="View1" runat="server">
@@ -97,7 +95,64 @@
 
 
                     <asp:View ID="View2" runat="server">
-                        
+                        <asp:Label runat="server" Text="Password" CssClass="padding-16-client form-label xxlarge blue-text "></asp:Label>
+                        <div>
+                            <div class="field half">
+                                    <asp:Label runat="server" Text="PASSWORD" CssClass="form-label medium"></asp:Label>
+                                    <asp:TextBox ID="TextBoxPassword" TextMode="Password" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="PasswordValidator" ErrorMessage="Password Required" Display="Dynamic" ForeColor="Red"
+                                                                ControlToValidate="TextBoxPassword" runat="server" ValidationGroup="ChangePassword" />
+                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="PasswordValidator"
+                                                                          HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                            </div>
+                            <div class="field half">
+                                    <asp:Label runat="server" Text="REPEAT PASSWORD" CssClass="form-label medium"></asp:Label>
+                            <asp:TextBox ID="TextBoxRepeatPassword" TextMode="Password" runat="server"></asp:TextBox>
+                            <asp:CompareValidator ID="RepeatPasswordValidator1" ErrorMessage="Passwords do not match." Display="Dynamic"
+                                                  ForeColor="Red" ControlToCompare="TextBoxPassword"
+                                                  ControlToValidate="TextBoxRepeatPassword" runat="server" ValidationGroup="ChangePassword" />
+                            <asp:RequiredFieldValidator ID="RepeatPasswordValidator2" ErrorMessage="Confirmation Password Required" Display="Dynamic"
+                                                        ForeColor="Red" ControlToValidate="TextBoxRepeatPassword" runat="server" ValidationGroup="ChangePassword" />
+                            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" TargetControlID="RepeatPasswordValidator1"
+                                                                  HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender7" runat="server" TargetControlID="RepeatPasswordValidator2"
+                                                                  HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                            </div>
+                            <div class="field half">
+                                <asp:Label runat="server" Text="NEW PASSWORD" CssClass="form-label medium"></asp:Label>
+                                <asp:TextBox ID="TextBoxNewPassword" TextMode="Password" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="NewPasswordValidator" ErrorMessage="New Password Required" Display="Dynamic" ForeColor="Red"
+                                                            ControlToValidate="TextBoxNewPassword" runat="server" ValidationGroup="ChangePassword" />
+                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="NewPasswordValidator"
+                                                                        HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                            
+                                <div>
+                                    <ajaxToolkit:PasswordStrength ID="PasswordStrength1" runat="server" TargetControlID="TextBoxNewPassword"
+                                                                DisplayPosition="RightSide"
+                                                                StrengthIndicatorType="BarIndicator"
+                                                                PreferredPasswordLength="8"
+                                                                PrefixText="Password Strength: "          
+                                                                MinimumNumericCharacters="1"
+                                                                MinimumSymbolCharacters="1"
+                                                                MinimumLowerCaseCharacters="1"
+                                                                MinimumUpperCaseCharacters="1"
+                                                                RequiresUpperAndLowerCaseCharacters="true"
+                                                                TextStrengthDescriptions="Very Poor;Weak;Average;Strong;Excellent"
+                                                                StrengthStyles="VeryWeekStrength;WeakStrength;AverageStrength;GoodStrength;ExcellentStrength"
+                                                                BarBorderCssClass="BarBorderStyle"
+                                                                CalculationWeightings="50;15;15;20" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="save-button">
+                                <asp:Button runat="server" id="Button1" OnClick="OnChangePasswordClick"
+                                            CssClass="right button padding-medium large button-slice wide"
+                                            text="Change" ValidationGroup="ChangePassword"></asp:Button>
+                                <asp:Label runat="server" ID="ChangedLabel" Text="" CssClass="large orange right margin-medium padding-medium shadow"
+                                            Visible="False"></asp:Label>
+                            </div>
+                        </div>
                     </asp:View>
 
 
@@ -109,5 +164,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

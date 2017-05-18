@@ -111,7 +111,7 @@ namespace XadamaWebapp
                 con.Close();
                 if (dt.Rows.Count > 0)
                 {
-                    SqlCommand cmd_client = new SqlCommand("select * from client where email = @email", con);
+                    SqlCommand cmd_client = new SqlCommand("select * from client where usuario = @email", con);
                     cmd_client.Parameters.AddWithValue("@email", TextBoxEmailSignIn.Text);
                     SqlDataAdapter da_client = new SqlDataAdapter(cmd_client);
                     DataTable dt_client = new DataTable();
@@ -139,7 +139,7 @@ namespace XadamaWebapp
                     }
                     else
                     {
-                        SqlCommand cmd_worker = new SqlCommand("select * from worker where email = @email", con);
+                        SqlCommand cmd_worker = new SqlCommand("select * from worker where usuario = @email", con);
                         cmd_worker.Parameters.AddWithValue("@email", TextBoxEmailSignIn.Text);
                         SqlDataAdapter da_worker = new SqlDataAdapter(cmd_worker);
                         DataTable dt_worker = new DataTable();
@@ -158,7 +158,7 @@ namespace XadamaWebapp
                         }
                         else
                         {
-                            SqlCommand cmd_admin = new SqlCommand("select * from admin where email = @email", con);
+                            SqlCommand cmd_admin = new SqlCommand("select * from admin where usuario = @email", con);
                             cmd_admin.Parameters.AddWithValue("@email", TextBoxEmailSignIn.Text);
                             SqlDataAdapter da_admin = new SqlDataAdapter(cmd_admin);
                             DataTable dt_admin = new DataTable();

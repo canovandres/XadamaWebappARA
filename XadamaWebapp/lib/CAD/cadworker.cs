@@ -75,7 +75,7 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from worker where email like '" + email + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from worker where usuario like '" + email + "'", con);
                 SqlDataAdapter da2 = new SqlDataAdapter("select * from usuario where email like '" + email + "'", con);
 
                 da.Fill(bdvirtual, "worker");
@@ -92,10 +92,20 @@ namespace lib.CAD
                 worker.surname1 = t.Rows[0][2].ToString();
                 worker.surname2 = t.Rows[0][3].ToString();
                 worker.age = t.Rows[0][4].ToString();
-                worker.phone = Int32.Parse(t.Rows[0][5].ToString());
+                if(t.Rows[0][5].ToString() != null)
+                {
+                    worker.phone = Int32.Parse(t.Rows[0][5].ToString());
+                } else
+                {
+                    worker.phone = 0;
+                }
             }
-            catch (Exception ex) { }
-            finally { con.Close(); }
+            catch (Exception ex) {
+                Console.WriteLine("Error Reading Worker (CadWorker): " + ex.ToString());
+            }
+            finally {
+                con.Close();
+            }
 
             return worker;
         }
@@ -129,8 +139,12 @@ namespace lib.CAD
                 da.Update(bdvirtual, "worker");
                 da2.Update(bdvirtual, "usuario");
             }
-            catch (Exception ex) { }
-            finally { con.Close(); }
+            catch (Exception ex) {
+                Console.WriteLine("Error Updating Worker (CadWorker): " + ex.ToString());
+            }
+            finally {
+                con.Close();
+            }
         }
 
         public void Delete(String email) //Deletes a worker from the database
@@ -157,8 +171,12 @@ namespace lib.CAD
                 da.Update(bdvirtual, "worker");
                 da2.Update(bdvirtual, "usuario");
             }
-            catch (Exception ex) { }
-            finally { con.Close(); }
+            catch (Exception ex) {
+                Console.WriteLine("Error Deleting Worker (CadWorker): " + ex.ToString());
+            }
+            finally {
+                con.Close();
+            }
         }
 
         /*
