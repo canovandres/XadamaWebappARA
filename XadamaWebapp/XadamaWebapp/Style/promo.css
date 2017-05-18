@@ -61,3 +61,18 @@
     color: #ffffff;
     background-color: #83ABBF;
 }
+
+.backPopup{
+    background-color: white;
+    width: 30% !important;    
+    border:2px solid black;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.close-button{
+    background-color: black;
+    border-radius: 1px 1px 1px 1px;
+    text-align: center;
+}
