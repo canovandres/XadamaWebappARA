@@ -116,7 +116,7 @@ namespace XadamaWebapp
         }
 
         [System.Web.Services.WebMethodAttribute(),System.Web.Script.Services.ScriptMethodAttribute()]
-        public static string[] GetCompletionList(string prefixText, int count)
+        public static string[] SuggestionList(string prefixText)
         {
             Product p = new Product();
             string[] names;
