@@ -21,7 +21,8 @@ namespace lib.CAD
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
         }
 
-        public void Create(EN.User user) {
+        public void Create(EN.User user)
+        {
             EN.Client newClient = (EN.Client)user;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
@@ -63,12 +64,14 @@ namespace lib.CAD
             {
                 Console.WriteLine("Error Creating Client (CadClient): " + ex.ToString());
             }
-            finally { con.Close(); }
+            finally {
+                con.Close();
+            }
         }
 
         public EN.User Read(String email)
         {
-            EN.Client client = new EN.Client("", "", "");
+            EN.Client client = new EN.Client("");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
@@ -99,7 +102,8 @@ namespace lib.CAD
             return client;
         }
 
-        public void Update(EN.User user) {
+        public void Update(EN.User user)
+        {
             EN.Client newClient = (EN.Client)user;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
@@ -133,7 +137,8 @@ namespace lib.CAD
             finally { con.Close(); }
         }
 
-        public void Delete(String email) {
+        public void Delete(String email)
+        {
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
