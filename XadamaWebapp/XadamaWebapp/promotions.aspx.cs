@@ -23,13 +23,11 @@ namespace XadamaWebapp
             bdvirtual = Promo.getPromos(currentdate);
             ListViewPromo.DataSource = bdvirtual;
             ListViewPromo.DataBind();
+            if (Page.IsPostBack)
+            {
+               
+            }
 
-
-        }
-
-        protected void OnClickShowCode(object sender, EventArgs e)
-        {
-            
         }
 
     }
