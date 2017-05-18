@@ -28,5 +28,15 @@ namespace XadamaWebapp
             int index = Int32.Parse(e.Item.Value);
             MultiView1.ActiveViewIndex = index;
         }
+
+        protected void OnSaveChangesClick(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void OnChangePasswordClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
