@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Configuration;
 
 namespace lib.EN
 {
@@ -69,7 +74,7 @@ namespace lib.EN
             c.Delete(cod);
         }
 
-        public List<Promo> getPromos(String currentdate)//returns a list of promos that are active during the date passed by parameter by calling the appropiate method in cadpromo
+        public static DataSet getPromos(String currentdate)//returns a list of promos that are active during the date passed by parameter by calling the appropiate method in cadpromo
         {
             CAD.CADPromo c = new CAD.CADPromo();
             return c.getPromos(currentdate);

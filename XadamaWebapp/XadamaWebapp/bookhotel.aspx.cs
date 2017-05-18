@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using lib.EN;
+using System.Net.Mail;
 
 namespace XadamaWebapp
 {
@@ -15,6 +16,7 @@ namespace XadamaWebapp
         {
             okBooking.Visible = false;
             errorBooking.Visible = false;
+            PromoCode.CssClass = "";
 
             if (Session["Booking"] != null)
             {
@@ -64,8 +66,10 @@ namespace XadamaWebapp
                 DateFrom.Text = booking.datestart;
                 DateTo.Text = booking.dateend;
                 Modality.Text = booking.board;
+                SingleRooms.Text = booking.nsingle.ToString() + " rooms";
+                DoubleRooms.Text = booking.ndouble.ToString() + " rooms";
                 Price.Text = Math.Round(booking.getPrice(), 2).ToString();
-                okBooking.Visible = true;
+                errorBooking.Visible = true;
             }
             else
             {
@@ -83,6 +87,66 @@ namespace XadamaWebapp
             booking = new Booking(email, 0, DropDownHotel.SelectedValue, From.Text, To.Text, DropDownFood.Text, DropDownSingle.SelectedIndex, DropDownDouble.SelectedIndex);
             Session["booking"] = booking;
             Page_Load(sender, e);
+        }
+
+        protected void bookRooms(object sender, EventArgs e)
+        {
+            if (Session["Client"] != null)
+            {
+                booking.bookRooms();
+                sendEmail();
+                ModalPopupExtender1.Hide();
+            }
+            else
+            {
+                ModalPopupExtender1.Hide();
+                Response.Redirect("register.aspx");
+            }
+        }
+
+        protected void sendEmail()
+        {
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            MailMessage message = new MailMessage();
+            try
+            {
+                MailAddress fromAddress = new MailAddress("xadama.park@gmail.com", "Xadama Bookings");
+                MailAddress toAddress = new MailAddress(((Client)Session["Client"]).email, ((Client)Session["Client"]).name + " " + ((Client)Session["Client"]).surname1);
+                message.From = fromAddress;
+                message.To.Add(toAddress);
+                message.Subject = "Booking at Xadama Park";
+                message.IsBodyHtml = true;
+                message.Body = "<div style=\"margin: 20px\">"
+                                    + "<h1>" + hotelName.Text + "</h1><br>"
+                                    + "<b>From: </b>" + DateFrom.Text + "<br>"
+                                    + "<b>To: </b>" + DateTo.Text + "<br>"
+                                    + "<b>Single Rooms: </b>" + SingleRooms.Text + "<br>"
+                                    + "<b>Double Rooms: </b>" + DoubleRooms.Text + "<br>"
+                                    + "<b>Price: </b>" + Price.Text + "<br>"
+                                + "</div>";
+                smtpClient.EnableSsl = true;
+
+                smtpClient.Credentials = new System.Net.NetworkCredential("xadama.park@gmail.com", "XadamaHADA");
+                smtpClient.Send(message);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        protected void checkPromo(object sender, EventArgs e)
+        {
+            Promo promo = new Promo(PromoCode.Text);
+            try
+            {
+                promo.Read();
+                Price.Text = Math.Round(booking.getPrice() - booking.getPrice() * (promo.discount / 100), 2).ToString();
+                PromoCode.CssClass = "";
+            }
+            catch (Exception exc)
+            {
+                PromoCode.CssClass = "form-error";
+            }
         }
     }
 }

@@ -28,12 +28,12 @@
         <div align="center" class="blue" style="height: 100px">
             <div class="col third field" style="margin-left: 4%">
                 <div class="input-tag left" style="border-bottom-right-radius: 0px; border-top-right-radius: 0px;">From</div>
-                <asp:TextBox runat="server" ID="From" CssClass="left third" style="border-radius: 0px;" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox runat="server" ID="From" CssClass="left third" style="border-radius: 0px;"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"
                     TargetControlID="From" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
 
                 <div class="input-tag left" style="border-radius: 0px">to</div>
-                <asp:TextBox runat="server" ID="To" CssClass="left third" ReadOnly="True" style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;"></asp:TextBox>
+                <asp:TextBox runat="server" ID="To" CssClass="left third" style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="To" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
                 
                 <asp:RequiredFieldValidator ID="ValidatorFrom" runat="server" ControlToValidate="From" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
@@ -70,7 +70,7 @@
                 </asp:DropDownList>
             </div>
             <div class="field col seventh">
-                <asp:DropDownList id="DropDownDouble" runat="server">
+                <asp:DropDownList id="DropDownDouble" runat="server" CausesValidation="True">
                     <asp:ListItem Value="0">0 double</asp:ListItem>
                     <asp:ListItem Value="1">1 double</asp:ListItem>
                     <asp:ListItem Value="2">2 double</asp:ListItem>
@@ -83,6 +83,10 @@
                     <asp:ListItem Value="9">9 double</asp:ListItem>
                 </asp:DropDownList>
             </div>
+            <!--<asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Room needed" CssClass="error-text" style="display: inline-block; position: absolute; margin-left: -35%" ValidationGroup="booking" ControlToValidate="DropDownDouble" OnServerValidate="DoubleValidation"></asp:CustomValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" TargetControlID="CustomValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+            <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="" CssClass="error-text" style="display: inline-block" ValidationGroup="booking" ControlToValidate="DropDownSingle" OnServerValidate="SingleValidation"></asp:CustomValidator>
+            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender7" runat="server" TargetControlID="CustomValidator2" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>-->
             <div class="col fifth">
                 <asp:Button Text="BOOK NOW" runat="server" CssClass="button-slice xlarge margin-32" ValidateRequestMode="Disabled" OnClick="book" ValidationGroup="booking"></asp:Button>
             </div>
