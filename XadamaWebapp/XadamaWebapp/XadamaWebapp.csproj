@@ -115,6 +115,7 @@
     <Content Include="bookhotel.aspx" />
     <Content Include="bookrestaurant.aspx" />
     <Content Include="carousel.ascx" />
+    <Content Include="admin.aspx" />
     <Content Include="europeanpalace.aspx" />
     <Content Include="hotels.aspx" />
     <Content Include="Media\Hotels\africansavannah.jpg" />
@@ -190,15 +191,18 @@
     <Content Include="main.aspx" />
     <Content Include="Media\Logo\XadamaSpot.webm" />
     <Content Include="product.aspx" />
-    <Content Include="promo.aspx" />
+    <Content Include="promotions.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="servicesinfo.aspx" />
     <Content Include="shop.aspx" />
+    <Content Include="shoppingcart.aspx" />
     <Content Include="shoptshirts.aspx" />
     <Content Include="Style\bookrestaurant.css" />
     <Content Include="Style\client.css" />
     <Content Include="Style\hotel.css" />
     <Content Include="Style\hotels.css" />
     <Content Include="Style\shop.css" />
+    <Content Include="Style\admin.css" />
     <Content Include="Style\worker.css" />
     <Content Include="Style\zoneeurope.css" />
     <Content Include="Style\zones.css" />
@@ -257,6 +261,13 @@
     <Compile Include="carousel.ascx.designer.cs">
       <DependentUpon>carousel.ascx</DependentUpon>
     </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="europeanpalace.aspx.cs">
       <DependentUpon>europeanpalace.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,12 +296,12 @@
     <Compile Include="product.aspx.designer.cs">
       <DependentUpon>product.aspx</DependentUpon>
     </Compile>
-    <Compile Include="promo.aspx.cs">
-      <DependentUpon>promo.aspx</DependentUpon>
+    <Compile Include="promotions.aspx.cs">
+      <DependentUpon>promotions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="promo.aspx.designer.cs">
-      <DependentUpon>promo.aspx</DependentUpon>
+    <Compile Include="promotions.aspx.designer.cs">
+      <DependentUpon>promotions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="client.aspx.cs">
@@ -321,12 +332,26 @@
     <Compile Include="services.aspx.designer.cs">
       <DependentUpon>services.aspx</DependentUpon>
     </Compile>
+    <Compile Include="servicesinfo.aspx.cs">
+      <DependentUpon>servicesinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="servicesinfo.aspx.designer.cs">
+      <DependentUpon>servicesinfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="shop.aspx.cs">
       <DependentUpon>shop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="shop.aspx.designer.cs">
       <DependentUpon>shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shoppingcart.aspx.cs">
+      <DependentUpon>shoppingcart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shoppingcart.aspx.designer.cs">
+      <DependentUpon>shoppingcart.aspx</DependentUpon>
     </Compile>
     <Compile Include="shoptshirts.aspx.cs">
       <DependentUpon>shoptshirts.aspx</DependentUpon>

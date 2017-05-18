@@ -24,14 +24,14 @@
            <div class="zone">
                 <asp:Image ID="Image10" runat="server" CssClass="zone-image" ImageUrl="~/Media/Zones/restaurantim.jpg" />
                 <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Restaurants" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Restaurants" CssClass="button-aux botonimagen" PostBackUrl="services.aspx?type=restaurants&zones=oceania"/>
                 </div>
             </div>
 
             <div class="zone">
                 <asp:Image ID="Image11" runat="server" CssClass="zone-image" ImageUrl="~/Media/Zones/showim.jpeg" />
                  <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Shows" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Shows" CssClass="button-aux botonimagen" PostBackUrl="services.aspx?type=shows&zones=oceania" />
                 </div>
             </div>
     
@@ -41,14 +41,14 @@
            <div class="zone">
                 <asp:Image ID="Image1" runat="server" CssClass="zone-image" ImageUrl="~/Media/Rides/Oceania/OceanianPacificCity.jpg" />
                  <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Rides" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Rides" CssClass="button-aux botonimagen" PostBackUrl="services.aspx?type=rides&zones=oceania"/>
                 </div>
             </div>
 
             <div class="zone">
                 <asp:Image ID="Image2" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/oceanicparadise3.jpg" />
                  <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Hotels" CssClass="button-aux botonimagen" />
+                    <asp:Button runat="server" text="Hotels" CssClass="button-aux botonimagen" PostBackUrl="hotels.aspx"/>
                 </div>
             </div>
     

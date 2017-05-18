@@ -32,7 +32,7 @@
                 </div>
             </div>
             <!--List View-->
-            <div id="ListViewContainer" class="display-border padding-64">
+            <div id="ListViewContainer" class="padding-64">
                 <asp:Label ID="labl" runat="server"></asp:Label>
                 <asp:ListView ID="ListView1" runat="server" GroupItemCount="3" OnSelectedIndexChanging="OnSelectedItem">
 
@@ -43,7 +43,7 @@
                       </div>
                     </LayoutTemplate>
                     <ItemTemplate>
-                        <div class="quarter display-border-template col large item-container uppercase bold padding-16">
+                        <div class="quarter display-border-template col item-container uppercase bold padding-16">
                             <div>
                                 <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
                             </div>

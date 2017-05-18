@@ -214,7 +214,7 @@ namespace lib.CAD
             try
             {
                 SqlDataAdapter da2 = new SqlDataAdapter("select individual from typeprices where hotel like '" + b.hotel + "'", conn);
-                SqlDataAdapter da3 = new SqlDataAdapter("select individual from typeprices where hotel like '" + b.hotel + "'", conn);
+                SqlDataAdapter da3 = new SqlDataAdapter("select doble from typeprices where hotel like '" + b.hotel + "'", conn);
                 SqlDataAdapter da4 = new SqlDataAdapter("select " + b.board+ " from boardprices where hotel like '" + b.hotel + "'", conn);
                 
                 da2.Fill(virtualdb, "typeprices");
@@ -233,8 +233,8 @@ namespace lib.CAD
                 float doubleprice = float.Parse(t3.Rows[0][0].ToString());
                 float board = float.Parse(t4.Rows[0][0].ToString());
 
-                float s = (b.nsingle*numberOfNights(b)* singleprice)+board;
-                float d = (b.ndouble*numberOfNights(b) * doubleprice) + board;
+                float s = (b.nsingle * numberOfNights(b) * (singleprice + board));
+                float d = (b.ndouble * numberOfNights(b) * (doubleprice + board));
                 price = s + d;
                 b.price = price;
                 
@@ -247,28 +247,12 @@ namespace lib.CAD
         public int numberOfNights(Booking b)
         {
             int num = 0;
-            SqlConnection conn = new SqlConnection(connectionString);
-            DataSet virtualdb = new DataSet();
-            try
-            {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + b.client + "' and room like '" + b.room + "and hotel like '" + b.hotel + "'", conn);
-                da.Fill(virtualdb, "booking");
 
-                DataTable t = new DataTable();
-                t = virtualdb.Tables["booking"];
-
-                String start = t.Rows[0][3].ToString();
-                String end = t.Rows[0][3].ToString();
-
-                DateTime convertedStart = Convert.ToDateTime(start);
-                DateTime convertedEnd = Convert.ToDateTime(end);
-                TimeSpan ts = convertedEnd - convertedStart;
-                num = ts.Days;
-                b.nights = num;
-
-            }
-            catch (Exception ex) { }
-            finally { conn.Close(); }
+            DateTime convertedStart = Convert.ToDateTime(b.datestart);
+            DateTime convertedEnd = Convert.ToDateTime(b.dateend);
+            TimeSpan ts = convertedEnd - convertedStart;
+            num = ts.Days;
+            b.nights = num;
 
             return num;
         }

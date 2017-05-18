@@ -30,9 +30,6 @@
                     $('.to-top').css({ display: 'none' });
                 }
             }
-            $('iframe#xad').ready(function () {
-                $("iframe#xad").contents().find(".wc-header").css("background-color", "#1B253B !important");
-            });
         });
     </script>
     <asp:ContentPlaceHolder id="head" runat="server">
@@ -41,7 +38,7 @@
 
 <body>
 <form id="form1" runat="server">
-    <iframe name="xad" id="xad" src='https://webchat.botframework.com/embed/xadama_assistant?s=cuamQVM-CKY.cwA.5V8.42O5pmBf73ZjZUeOSN5DT5wyfXS-1J5jJFMux7j7e78' class="chat front"></iframe>
+    <iframe src='https://webchat.botframework.com/embed/xadama_assistant?s=cuamQVM-CKY.cwA.5V8.42O5pmBf73ZjZUeOSN5DT5wyfXS-1J5jJFMux7j7e78' class="chat front"></iframe>
     
     <!--Top menu-->
     <div class="top menu front">
@@ -49,7 +46,8 @@
             <asp:ImageButton ID="ImageButton1" runat="server" CssClass="logo-small margin-large" ImageUrl="~/Media/Logo/xadamaLogoSmall.png" />
             
             <div class="right" style="width: 75%;">
-                <asp:LinkButton runat="server" Text="Sign In" CssClass="button-sign text-white right margin-16 margin-right" />
+                <asp:LinkButton runat="server" Text="Sign In" CssClass="button-sign text-white right margin-16 margin-right" PostBackUrl="register.aspx" Visible="True" />
+                <asp:Label runat="server" Text="Andrés" CssClass="button-sign text-white right margin-16 margin-right" Visible="False"></asp:Label>
 
                 <asp:menu runat="server" Orientation="Horizontal" CssClass="right menu">
                     <StaticMenuItemStyle CssClass="bar-item button text-white margin-medium center" />
@@ -60,7 +58,7 @@
                         <asp:menuitem text="About" NavigateUrl="about.aspx"></asp:menuitem>
                         <asp:menuitem text="Zones" NavigateUrl="zones.aspx">
                             <asp:MenuItem text="Europe" NavigateUrl="zoneeurope.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceania" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="zoneoceania.aspx"></asp:MenuItem>
                             <asp:MenuItem text="America" NavigateUrl="zoneamerica.aspx"></asp:MenuItem>
                             <asp:MenuItem text="Asia" NavigateUrl="zoneasia.aspx"></asp:MenuItem>
                             <asp:MenuItem text="Africa" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>
@@ -133,7 +131,7 @@
                         <StaticMenuItemStyle CssClass="bar-item button text-blue margin-medium medium left" /> 
                         <items>
                             <asp:MenuItem text="Europe" NavigateUrl="zoneeurope.aspx"></asp:MenuItem>
-                            <asp:MenuItem text="Oceania" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>
+                            <asp:MenuItem text="Oceania" NavigateUrl="zoneoceania.aspx"></asp:MenuItem>
                             <asp:MenuItem text="America" NavigateUrl="zoneamerica.aspx"></asp:MenuItem>
                             <asp:MenuItem text="Asia" NavigateUrl="zoneasia.aspx"></asp:MenuItem>
                             <asp:MenuItem text="Africa" NavigateUrl="zoneafrica.aspx"></asp:MenuItem>

@@ -1,8 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+
 
 namespace lib.EN
 {
@@ -11,16 +16,20 @@ namespace lib.EN
         public String cod { get; set; }
         public String client { get; set; }
         public String day { get; set; }
-        public int price { get; set; }
+        public float price { get; set; }
         public String type { get; set; }
+        public int nadults { get; set; }
+        public int nchildren { get; set; }
 
-        public Ticket(String cod, String client = "", String day = "", int price = 0, String type = "")
+        public Ticket(String cod, String client="", String day="", float price=0, String type="", int nadults=0, int nchildren=0)
         {
-            this.cod = cod;
+            this.cod = CAD.CADTicket.NextCode();
             this.client = client;
             this.day = day;
             this.price = price;
             this.type = type;
+            this.nadults = nadults;
+            this.nchildren = nchildren;
         }
 
         public void Create()
@@ -50,6 +59,19 @@ namespace lib.EN
         {
             CAD.CADTicket t = new CAD.CADTicket();
             t.Delete(cod);
+        }
+
+        public DataSet typePrice()
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            return t.typePrice();
+        }
+
+        public bool buyTickets()
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            bool done = t.buyTickets(this);
+            return done;
         }
     }
 }

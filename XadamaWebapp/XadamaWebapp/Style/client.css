@@ -62,3 +62,43 @@
     padding-top: 10px !important;
     padding-bottom: 0px !important;
 }
+
+.save-button {
+    width: 200px;
+    float: right;
+    margin: 20px;
+}
+
+.change-button {
+    width: 230px;
+    float: right;
+    margin: 20px;
+}
+
+
+.VeryWeekStrength {
+    background: #B10400;
+    color: White;
+}
+.WeakStrength {
+    background: #F97C01;
+    color: White;
+}
+.AverageStrength {
+    background: #FFC706;
+    color: White;
+}
+.GoodStrength {
+    background: #8AC316;
+    color: White;
+}
+.ExcellentStrength {
+    background: #39A31B;
+    color: White;
+}
+.BarBorderStyle {
+    border-style: solid;
+    border-color: Gray;
+    border-width: 1px;
+    width: 12%;
+}

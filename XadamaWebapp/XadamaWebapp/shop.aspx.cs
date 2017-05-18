@@ -16,18 +16,21 @@ namespace XadamaWebapp
         private DataSet bdvirtual = new DataSet();
         private Product p = new Product();
         //private List<Product> products = new List<Product>();
-        private DataTable t = new DataTable();
+        private DataTable tcart;
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataColumn name = t.Columns.Add("name", typeof(String));
-            DataColumn price = t.Columns.Add("price", typeof(float));
-            DataColumn image = t.Columns.Add("image", typeof(String));
-
             if (Page.IsPostBack)
             {
                 LabelLv.CssClass = "wide xxlarge black padding-large appear";
+            }
+            else
+            {
+                tcart = new DataTable();
+                DataColumn name = tcart.Columns.Add("name", typeof(String));
+                DataColumn price = tcart.Columns.Add("price", typeof(float));
+                DataColumn image = tcart.Columns.Add("image", typeof(String));
+                Session["products"] = tcart;
             }
 
         }
@@ -80,19 +83,17 @@ namespace XadamaWebapp
             Image i = (Image)item.FindControl("Image1");
             LinkButton l = (LinkButton)item.FindControl("LinkButton1");
 
-            DataRow r = t.NewRow();
+            DataRow r = ((DataTable)Session["products"]).NewRow();
             r[0] = c.Text;
             r[1] = Int32.Parse(c1.Text);
             r[2] = i.ImageUrl;
-            t.Rows.Add(r);
+            ((DataTable)Session["products"]).Rows.Add(r);
 
             /*p1.name = c.Text;
             p1.price = Int32.Parse(c1.Text);
             p1.image = i.ImageUrl;
 
             products.Add(p1);*/
-                       
-            Session["products"] = t;
 
             l.Text = "Added";
 
