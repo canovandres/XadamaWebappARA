@@ -14,14 +14,16 @@ namespace lib.EN
         public string description { get; set; }
         public int score { get; set; }
         public string hotel { get; set; }
+        public int reports { get; set; }
 
-        public Review(string cod, string description, int score, string hotel, string name = "Unknown")
+        public Review(string cod, string description, int score, string hotel, string name = "Unknown", int reports = 0)
         {
             this.cod = CAD.CADReview.NextCode();
             this.name = name;
             this.score = score;
             this.description = description;
             this.hotel = hotel;
+            this.reports = reports;
         }
 
         public void Create()
@@ -39,6 +41,7 @@ namespace lib.EN
             score = p.score;
             description = p.description;
             hotel = p.hotel;
+            reports = p.reports;
         }
 
         public void Update()
@@ -60,6 +63,24 @@ namespace lib.EN
             return reviews;
         }
 
+        public static DataSet ListAllReviews()
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            DataSet reviews = c.ListAllReviews();
+            return reviews;
+        }
+
+        public static bool Reported()
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            return c.Reported();
+        }
+
+        public static void Report(String cod)
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            c.Report(cod);
+        }
     }
 }
 
