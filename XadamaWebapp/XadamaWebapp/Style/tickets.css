@@ -60,3 +60,10 @@
 .info:hover {
     font-weight: bold;
 }
+
+.display-circle{
+    border:2px solid orange;
+    border-radius: 20px 20px 20px 20px;
+    background-color: white;
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
+}
