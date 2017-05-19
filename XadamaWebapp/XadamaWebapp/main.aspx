@@ -79,7 +79,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <asp:Button id="buyButton" runat="server" Text="BUY Tickets" CssClass="buy-button front orange center padding-left-large"/>
+    <asp:Button id="buyButton" runat="server" Text="BUY Tickets" CssClass="buy-button front orange center padding-left-large" PostBackUrl="~/tickets.aspx"/>
 
     <!--Video-->
     <div class="video-container display-container">

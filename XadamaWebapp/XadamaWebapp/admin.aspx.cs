@@ -26,26 +26,26 @@ namespace XadamaWebapp
                 //{
                     Product p = new Product();
                     DataSet d = p.showTypeProducts("Bags");
-                    GridProducts.DataSource = d;
-                    GridProducts.DataBind();
-                    DataSet d2 = p.showTypeProducts("Jumpers");
-                    GridProducts2.DataSource = d2;
-                    GridProducts2.DataBind();
-                    DataSet d3 = p.showTypeProducts("T-Shirts");
-                    GridProducts3.DataSource = d3;
-                    GridProducts3.DataBind();
-                    DataSet d4 = p.showTypeProducts("Caps");
-                    GridProducts4.DataSource = d4;
-                    GridProducts4.DataBind();
+                    /*GridProducts.DataSource = d;
+                    GridProducts.DataBind();*/
                 
-                    GridHotels.DataSource = Booking.ListAllHotles();
-                    GridRides.DataSource = Ride.ListAllRides();
+                    GridClients.DataSource = Client.ListAllClients();
+                    GridClients.DataBind();
+                
+                    GridWorkers.DataSource = Worker.ListAllWorkers();
+                    GridWorkers.DataBind();
+
+                    /*GridRides.DataSource = Ride.ListAllRides();
                     GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
                     GridShows.DataSource = Show.ListAllShows();
                     GridReviews.DataSource = Review.ListAllReviews();
-                    GridTickets.DataSource = Ticket.ListAllTickets();
-                    GridClients.DataSource = Client.ListAllClients();
-                    GridWorkers.DataSource = Worker.ListAllWorkers();
+                    GridTickets.DataSource = Ticket.ListAllTickets();*/
+
+                    /*GridRides.DataBind();
+                    GridRestaurants.DataBind();
+                    GridShows.DataBind();
+                    GridReviews.DataBind();
+                    GridTickets.DataBind();*/
                 //}
                 //else
                 //{
@@ -58,6 +58,193 @@ namespace XadamaWebapp
         {
             int index = Int32.Parse(e.Item.Value);
             MultiView1.ActiveViewIndex = index;
+        }
+
+        //Grid Tickets
+        
+        protected void GridTickets_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Ticket ticket = new Ticket(0, "", "");
+            //GridTickets.DataSource = worker.DeleteWorker(e.RowIndex);
+            GridTickets.DataBind();
+        }
+
+        protected void GridTickets_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridTickets.EditIndex = e.NewEditIndex;
+            GridTickets.DataSource = Worker.ListAllWorkers();
+            GridTickets.DataBind();
+        }
+        protected void GridTickets_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string email = ((Label)GridTickets.Rows[e.RowIndex]
+                        .FindControl("lblEmail")).Text;
+            string name = ((TextBox)GridTickets.Rows[e.RowIndex]
+                                .FindControl("txtName")).Text;
+            //Ticket ticket = new Worker(email, "", name, surname1, surname2, age, Convert.ToInt32(phone));
+            //worker.Update();
+            GridTickets.EditIndex = -1;
+            GridTickets.DataSource = Worker.ListAllWorkers();
+            GridTickets.DataBind();
+        }
+        protected void GridTickets_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridTickets.PageIndex = e.NewPageIndex;
+            GridTickets.DataSource = Worker.ListAllWorkers();
+            GridTickets.DataBind();
+        }
+        protected void GridTickets_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridTickets.EditIndex = -1;
+            GridTickets.DataSource = Worker.ListAllWorkers();
+            GridTickets.DataBind();
+        }
+        
+        //Grid Workers
+
+        protected void GridWorkers_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Worker worker = new Worker("");
+            GridWorkers.DataSource = worker.DeleteWorker(e.RowIndex);
+            GridWorkers.DataBind();
+        }
+
+        protected void GridWorkers_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridWorkers.EditIndex = e.NewEditIndex;
+            GridWorkers.DataSource = Worker.ListAllWorkers();
+            GridWorkers.DataBind();
+        }
+        protected void GridWorkers_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string email = ((Label)GridWorkers.Rows[e.RowIndex]
+                        .FindControl("lblEmail")).Text;
+            string name = ((TextBox)GridWorkers.Rows[e.RowIndex]
+                                .FindControl("txtName")).Text;
+            string surname1 = ((TextBox)GridWorkers.Rows[e.RowIndex]
+                                .FindControl("txtSurname1")).Text;
+            string surname2 = ((TextBox)GridWorkers.Rows[e.RowIndex]
+                                .FindControl("txtSurname2")).Text;
+            string age = ((TextBox)GridWorkers.Rows[e.RowIndex]
+                                .FindControl("txtAge")).Text;
+            string phone = ((TextBox)GridWorkers.Rows[e.RowIndex]
+                                .FindControl("txtPhone")).Text;
+            Worker worker = new Worker(email, "", name, surname1, surname2, age, Convert.ToInt32(phone));
+            worker.Update();
+            GridWorkers.EditIndex = -1;
+            GridWorkers.DataSource = Worker.ListAllWorkers();
+            GridWorkers.DataBind();
+        }
+        protected void GridWorkers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridWorkers.PageIndex = e.NewPageIndex;
+            GridWorkers.DataSource = Worker.ListAllWorkers();
+            GridWorkers.DataBind();
+        }
+        protected void GridWorkers_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridWorkers.EditIndex = -1;
+            GridWorkers.DataSource = Worker.ListAllWorkers();
+            GridWorkers.DataBind();
+        }
+
+        protected void AddNewWorker(object sender, EventArgs e)
+        {
+            string email = ((TextBox)GridWorkers.FooterRow.FindControl("txtEmail")).Text;
+            string name = ((TextBox)GridWorkers.FooterRow.FindControl("txtName")).Text;
+            string surname1 = ((TextBox)GridWorkers.FooterRow.FindControl("txtSurname1")).Text;
+            string surname2 = ((TextBox)GridWorkers.FooterRow.FindControl("txtSurname2")).Text;
+            string age = ((TextBox)GridWorkers.FooterRow.FindControl("txtAge")).Text;
+            string phone = ((TextBox)GridWorkers.FooterRow.FindControl("txtPhone")).Text;
+
+            Random rnd = new Random();
+            string password = rnd.Next(100000, 1000000).ToString();
+
+            Worker worker = new Worker(email, password, name, surname1, surname2, age, Convert.ToInt32(phone));
+            worker.Create();
+            GridWorkers.DataSource = Client.ListAllClients();
+            GridWorkers.DataBind();
+            PasswordPop.Text = "New Password: " + password;
+            passwordPopup.Visible = true;
+        }
+
+        //Grid Clients
+
+        protected void GridClients_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Client client = new Client("");
+            GridClients.DataSource = client.DeleteClient(e.RowIndex);
+            GridClients.DataBind();
+        }
+        
+        protected void GridClients_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridClients.EditIndex = e.NewEditIndex;
+            GridClients.DataSource = Client.ListAllClients();
+            GridClients.DataBind();
+        }
+        protected void GridClients_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string email = ((Label)GridClients.Rows[e.RowIndex]
+                        .FindControl("lblEmail")).Text;
+            string name = ((TextBox)GridClients.Rows[e.RowIndex]
+                                .FindControl("txtName")).Text;
+            string surname1 = ((TextBox)GridClients.Rows[e.RowIndex]
+                                .FindControl("txtSurname1")).Text;
+            string surname2 = ((TextBox)GridClients.Rows[e.RowIndex]
+                                .FindControl("txtSurname2")).Text;
+            string age = ((TextBox)GridClients.Rows[e.RowIndex]
+                                .FindControl("txtAge")).Text;
+            string phone = ((TextBox)GridClients.Rows[e.RowIndex]
+                                .FindControl("txtPhone")).Text;
+            string address = ((TextBox)GridClients.Rows[e.RowIndex]
+                                .FindControl("txtAddress")).Text;
+            string creditCard = ((TextBox)GridClients.Rows[e.RowIndex]
+                                .FindControl("txtCreditCard")).Text;
+            Client client = new Client(email, "", name, surname1, surname2, age, Convert.ToInt32(phone), address, creditCard);
+            client.Update();
+            GridClients.EditIndex = -1;
+            GridClients.DataSource = Client.ListAllClients();
+            GridClients.DataBind();
+        }
+        protected void GridClients_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridClients.PageIndex = e.NewPageIndex;
+            GridClients.DataSource = Client.ListAllClients();
+            GridClients.DataBind();
+        }
+        protected void GridClients_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridClients.EditIndex = -1;
+            GridClients.DataSource = Client.ListAllClients();
+            GridClients.DataBind();
+        }
+
+        protected void AddNewClient(object sender, EventArgs e)
+        {
+            string email = ((TextBox)GridClients.FooterRow.FindControl("txtEmail")).Text;
+            string name = ((TextBox)GridClients.FooterRow.FindControl("txtName")).Text;
+            string surname1 = ((TextBox)GridClients.FooterRow.FindControl("txtSurname1")).Text;
+            string surname2 = ((TextBox)GridClients.FooterRow.FindControl("txtSurname2")).Text;
+            string age = ((TextBox)GridClients.FooterRow.FindControl("txtAge")).Text;
+            string phone = ((TextBox)GridClients.FooterRow.FindControl("txtPhone")).Text;
+            string address = ((TextBox)GridClients.FooterRow.FindControl("txtAddress")).Text;
+            string creditCard = ((TextBox)GridClients.FooterRow.FindControl("txtCreditCard")).Text;
+
+            Random rnd = new Random();
+            string password = rnd.Next(100000, 1000000).ToString();
+
+            Client client = new Client(email, password, name, surname1, surname2, age, Convert.ToInt32(phone), address, creditCard);
+            client.Create();
+            GridClients.DataSource = Client.ListAllClients();
+            GridClients.DataBind();
+            PasswordPop.Text = "New Password: " + password;
+            passwordPopup.Visible = true;
+        }
+
+        protected void hidePop(object sender, EventArgs e)
+        {
+            passwordPopup.Visible = false;
         }
     }
 }
