@@ -58,33 +58,6 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.GridView GridProducts;
         
         /// <summary>
-        /// Control GridProducts2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridProducts2;
-        
-        /// <summary>
-        /// Control GridProducts3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridProducts3;
-        
-        /// <summary>
-        /// Control GridProducts4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridProducts4;
-        
-        /// <summary>
         /// Control View2.
         /// </summary>
         /// <remarks>
@@ -92,24 +65,6 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View2;
-        
-        /// <summary>
-        /// Control GridHotels.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridHotels;
-        
-        /// <summary>
-        /// Control View3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View View3;
         
         /// <summary>
         /// Control GridRides.
@@ -121,13 +76,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.GridView GridRides;
         
         /// <summary>
-        /// Control View4.
+        /// Control View3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View View4;
+        protected global::System.Web.UI.WebControls.View View3;
         
         /// <summary>
         /// Control GridRestaurants.
@@ -139,13 +94,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.GridView GridRestaurants;
         
         /// <summary>
-        /// Control View5.
+        /// Control View4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View View5;
+        protected global::System.Web.UI.WebControls.View View4;
         
         /// <summary>
         /// Control GridShows.
@@ -157,13 +112,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.GridView GridShows;
         
         /// <summary>
-        /// Control View6.
+        /// Control View5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View View6;
+        protected global::System.Web.UI.WebControls.View View5;
         
         /// <summary>
         /// Control GridReviews.
@@ -175,13 +130,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.GridView GridReviews;
         
         /// <summary>
-        /// Control View7.
+        /// Control View6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View View7;
+        protected global::System.Web.UI.WebControls.View View6;
         
         /// <summary>
         /// Control GridTickets.
@@ -193,13 +148,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.GridView GridTickets;
         
         /// <summary>
-        /// Control View8.
+        /// Control View7.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View View8;
+        protected global::System.Web.UI.WebControls.View View7;
         
         /// <summary>
         /// Control GridClients.
@@ -211,13 +166,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.GridView GridClients;
         
         /// <summary>
-        /// Control View9.
+        /// Control View8.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View View9;
+        protected global::System.Web.UI.WebControls.View View8;
         
         /// <summary>
         /// Control GridWorkers.

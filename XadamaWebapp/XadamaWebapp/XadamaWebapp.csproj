@@ -203,7 +203,6 @@
     <Content Include="Style\hotel.css" />
     <Content Include="Style\hotels.css" />
     <Content Include="Style\shop.css" />
-    <Content Include="Style\admin.css" />
     <Content Include="Style\worker.css" />
     <Content Include="Style\zoneeurope.css" />
     <Content Include="Style\zones.css" />
