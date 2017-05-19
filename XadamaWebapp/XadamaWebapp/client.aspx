@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
-    <title>Xadama About</title>
+    <title>Xadama Client</title>
     <link rel="stylesheet" type="text/css" href="Style/client.css" />
 </asp:Content>
 

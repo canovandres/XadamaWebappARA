@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="bookhotel.aspx.cs" Inherits="XadamaWebapp.bookhotel" %>
 
+<%@ Register Src="~/signin.ascx" TagPrefix="uc1" TagName="signin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Xadama Booking</title>
     <link rel="stylesheet" type="text/css" href="Style/bookhotel.css" />
@@ -36,9 +38,11 @@
                 <asp:TextBox runat="server" ID="To" CssClass="left third" style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="To" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
                 
+                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="From" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Select a valid date" ValidationGroup="booking" Type="Date"></asp:RangeValidator>
                 <asp:RequiredFieldValidator ID="ValidatorFrom" runat="server" ControlToValidate="From" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorFrom" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
-                
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" TargetControlID="RangeValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+
                 <asp:RequiredFieldValidator ID="ValidatorTo" runat="server" ControlToValidate="To" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="ValidatorTo" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
 
@@ -94,7 +98,7 @@
 
     <asp:Panel runat="server" ID="errorBooking" CssClass="display-container" Height="300px" Visible="False">
         <div class="display-middle">
-            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-red" text="Sorry, we have no availability for your selection. Please, change it."></asp:Label>
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-red" style="text-align: justify;" text="Sorry, we have no availability for your selection. Please, change it."></asp:Label>
         </div>
     </asp:Panel>
     <asp:Panel runat="server" ID="okBooking" CssClass="content container padding-32" Visible="False" style="width: 70%">
@@ -173,23 +177,36 @@
                     </div>
                 </div>
             </div>
-            <asp:Button id="bookButton" Text="BOOK" runat="server" CssClass="button-slice xxlarge margin-16 right"></asp:Button>
-
-            <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" TargetControlID="bookButton" CancelControlID="btnCancel" PopupControlID="Panel1" 
-                PopupDragHandleControlID="PopupHeader" Drag="true"></ajaxToolkit:ModalPopupExtender>
-            <asp:panel id="Panel1" style="display: none" runat="server" CssClass="popUpConfirm" BackColor="White" BorderStyle="Solid" BorderWidth="1px" BorderColor="Black">
-	            <div class="text-darkblue large">
-                    <div id="PopupHeader">Header</div>
-                        <div>
-                            <asp:Label runat="server" text="Confirm the booking?"></asp:Label>
-                        </div>
-                        <div>
-                            <asp:Button runat="server" id="btnOkay" Text="OK" CssClass="field button-slice" OnClick="bookRooms"/>
-                            <asp:Button runat="server" id="btnCancel" Text="CANCEL" CssClass="field button-slice"/>
-		                </div>
-                    </div>
-            </asp:panel>
+            
         </ContentTemplate>
         </asp:UpdatePanel>
+        
+        <ajaxToolkit:ConfirmButtonExtender ID="confirmButton" runat="server" TargetControlID="bookButton" ConfirmText="Dou you want to book?" DisplayModalPopupID="ModalPopupExtender1" />
+        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" TargetControlID="bookButton" CancelControlID="btnCancel" PopupControlID="Panel1" 
+            PopupDragHandleControlID="PopupHeader1" Drag="true"></ajaxToolkit:ModalPopupExtender>
+
+        <asp:Button id="bookButton" Text="BOOK" runat="server" CssClass="button-slice xxlarge margin-16 right"></asp:Button>
+
+        <asp:panel id="Panel1" style="display: none" runat="server" CssClass="popUpConfirm" BackColor="White" BorderStyle="Solid" BorderWidth="1px" BorderColor="Black">
+	        <div class="text-darkblue large">
+                <div id="PopupHeader1">Confirm the booking?</div>
+                <div>
+                    <asp:Label id="pupupLabel" runat="server" text="An email will be sent to your account"></asp:Label>
+                </div>
+                <div>
+                    <asp:Button runat="server" id="btnOkay" Text="OK" CssClass="field button-slice" OnClick="bookRooms"/>
+                    <asp:Button runat="server" id="btnCancel" Text="CANCEL" CssClass="field button-slice"/>
+		        </div>
+                </div>
+        </asp:panel>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="bookPanel" CssClass="display-container" Height="300px" Visible="False">
+        <div class="display-middle">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="Thanks for booking, check your email to see more details."></asp:Label>
+        </div>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
+        <ajaxToolkit:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1" runat="server" TargetControlID="registerPanel" VerticalSide="Middle" HorizontalSide="Center" />
+        <uc1:signin runat="server" ID="signin" align="center" />
     </asp:Panel>
 </asp:Content>
