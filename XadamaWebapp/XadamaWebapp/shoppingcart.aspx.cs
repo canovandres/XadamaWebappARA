@@ -13,7 +13,8 @@ namespace XadamaWebapp
 {
     public partial class shoppingcart : System.Web.UI.Page
     {
-        DataTable t=new DataTable();
+        private DataTable t=new DataTable();
+        private Order order;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -131,7 +132,7 @@ namespace XadamaWebapp
             TextBox1.Visible = false;
             Label8.Visible = false;
             Label9.Visible = false;
-            Button23.Visible = false;
+            shopButton.Visible = false;
             Label5.Visible = false;
             Label6.Visible = false;
             Label7.Visible = false;
@@ -142,9 +143,10 @@ namespace XadamaWebapp
         {
             if (Session["Client"] != null)
             {
-                //booking.bookRooms();
+                order.client.email = ((Client)Session["Client"]).email;
+                //order.buyitems();
+                shopPanel.Visible = true;
                 sendEmail();
-                
             }
             else
             {
@@ -181,6 +183,21 @@ namespace XadamaWebapp
             catch (Exception ex)
             {
             }
+        }
+
+        protected void checkPromo(object sender, EventArgs e)
+        {
+            /*Promo promo = new Promo(PromoCode.Text);
+            try
+            {
+                promo.Read();
+                Price.Text = Math.Round(booking.getPrice() - booking.getPrice() * (promo.discount / 100), 2).ToString();
+                PromoCode.CssClass = "";
+            }
+            catch (Exception exc)
+            {
+                PromoCode.CssClass = "form-error";
+            }*/
         }
 
     }
