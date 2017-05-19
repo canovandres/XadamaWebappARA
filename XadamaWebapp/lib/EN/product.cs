@@ -69,5 +69,11 @@ namespace lib.EN
             return c.searchProduct(search);
         }
 
+        public  List<string> getProductsName(string prefixText){
+            CAD.CADProduct c = new CAD.CADProduct();
+            return c.getProductsName(prefixText);
+        }
+
+
     }
 }

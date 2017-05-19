@@ -206,7 +206,6 @@
         </div>
     </asp:Panel>
     <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
-        <ajaxToolkit:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1" runat="server" TargetControlID="registerPanel" VerticalSide="Middle" HorizontalSide="Center" />
         <uc1:signin runat="server" ID="signin" align="center" />
     </asp:Panel>
 </asp:Content>

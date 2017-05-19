@@ -12,34 +12,40 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Restaurant"]!=null)
+            if (!Page.IsPostBack)
             {
-                Restaurant r = (Restaurant)Session["Restaurant"];
-                ServiceTitle.Text = r.name;
-                ServiceDescription.Text = r.description;
-                zone.Text = "Zone :" + r.zone;
-                image.ImageUrl = r.image;
-                Button.Visible = true;
-            }
-            else if (Session["Ride"]!=null)
-            {
-                Ride r = (Ride)Session["Ride"];
-                ServiceTitle.Text = r.name;
-                ServiceDescription.Text = r.description;
-                minheight.Text = "The minimum height for this ride is: " + r.minHeight+" m";
-                speed.Text = "This ride reaches a speed of " + r.speed + " km/h";
-                zone.Text = "Zone: " + r.zone;
-                image.ImageUrl = r.image;
-                speed.Visible = true;
-                minheight.Visible = true;
-            }
-            else if (Session["Show"]!=null)
-            {
-                Show s = (Show)Session["Show"];
-                ServiceTitle.Text = s.name;
-                ServiceDescription.Text=s.description;
-                image.ImageUrl = s.image;
-                zone.Text = "Zone: " + s.zone;
+                if (Session["Restaurant"] != null)
+                {
+                    Restaurant rs = (Restaurant)Session["Restaurant"];
+                    ServiceTitle.Text = rs.name;
+                    ServiceDescription.Text = rs.description;
+                    zone.Text = "Zone: " + rs.zone;
+                    image.ImageUrl = rs.image;
+                    Button.Visible = true;
+                    Session.Remove("Restaurant");
+                }
+                else if (Session["Ride"] != null)
+                {
+                    Ride r = (Ride)Session["Ride"];
+                    ServiceTitle.Text = r.name;
+                    ServiceDescription.Text = r.description;
+                    minheight.Text = "The minimum height for this ride is: " + r.minHeight + " m";
+                    speed.Text = "This ride reaches a speed of " + r.speed + " km/h";
+                    zone.Text = r.zone;
+                    image.ImageUrl = r.image;
+                    speed.Visible = true;
+                    minheight.Visible = true;
+                    Session.Remove("Ride");
+                }
+                else if (Session["Show"] != null)
+                {
+                    Show s = (Show)Session["Show"];
+                    ServiceTitle.Text = s.name;
+                    ServiceDescription.Text = s.description;
+                    image.ImageUrl = s.image;
+                    zone.Text = s.zone;
+                    Session.Remove("Show");
+                }
             }
             /*ServiceTitle.Text = Session["ServiceName"].ToString();
             Seadragon.SourceUrl = "~/Media/Rides/Europe/EuropeanGreece.xml";
@@ -48,7 +54,7 @@ namespace XadamaWebapp
 
         protected void Button_Click(object sender, EventArgs e)
         {
-            Response.Redirect("bookrestaurant.aspx");
+            Response.Redirect("bookrestaurant.aspx#"+zone.Text.Substring(6,zone.Text.Length-6));
         }
     }
 }
