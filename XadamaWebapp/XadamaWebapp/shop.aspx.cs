@@ -20,6 +20,7 @@ namespace XadamaWebapp
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Page.IsPostBack)
             {
                 LabelLv.CssClass = "wide xxlarge black padding-large appear";
@@ -30,6 +31,7 @@ namespace XadamaWebapp
                 DataColumn name = tcart.Columns.Add("name", typeof(String));
                 DataColumn price = tcart.Columns.Add("price", typeof(float));
                 DataColumn image = tcart.Columns.Add("image", typeof(String));
+                DataColumn quantity = tcart.Columns.Add("",typeof(int));
                 Session["products"] = tcart;
             }
 
@@ -87,6 +89,7 @@ namespace XadamaWebapp
             r[0] = c.Text;
             r[1] = Int32.Parse(c1.Text);
             r[2] = i.ImageUrl;
+            r[3] = 1;
             ((DataTable)Session["products"]).Rows.Add(r);
 
             /*p1.name = c.Text;
@@ -102,7 +105,7 @@ namespace XadamaWebapp
                         
         }
 
-        protected void OnBrowseClick(object sender, ImageClickEventArgs e)
+        protected void OnBrowseClick(object sender, EventArgs e)
         {
             LabelLv.Text = "SEARCH";
             String s = TextBox1.Text;
@@ -110,6 +113,15 @@ namespace XadamaWebapp
             DataTable t = bdvirtual.Tables["search"];
             ListView1.DataSource = t;
             ListView1.DataBind();
+        }
+
+        [System.Web.Services.WebMethodAttribute(),System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestionList(string prefixText)
+        {
+            Product p = new Product();
+            string[] names;
+            names = p.getProductsName(prefixText).ToArray();
+            return names;
         }
     }
 }

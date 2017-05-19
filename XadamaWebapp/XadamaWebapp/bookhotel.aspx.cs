@@ -164,8 +164,11 @@ namespace XadamaWebapp
 
         private void UCButton(object sender, EventArgs e)
         {
-            signin.Visible = false;
-            okBooking.Visible = true;
+            if (Session["Client"] != null)
+            {
+                signin.Visible = false;
+                okBooking.Visible = true;
+            }
         }
     }
 }

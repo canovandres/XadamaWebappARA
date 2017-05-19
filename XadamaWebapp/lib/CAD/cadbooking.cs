@@ -35,13 +35,21 @@ namespace lib.CAD
                 DataTable t = new DataTable();
                 t = virtualdb.Tables["booking"];
 
-                DataRow r = t.NewRow();
-                r[0] = newBooking.client;
-                r[1] = newBooking.room;
-                r[2] = newBooking.hotel;
-                r[3] = newBooking.datestart;
-                r[4] = newBooking.dateend;
-                t.Rows.Add(r);
+                DateTime convertedStart = Convert.ToDateTime(b.datestart);
+                for (int i=0; i<numberOfNights(newBooking); i++)
+                {
+                    String day = convertedStart.ToString();
+
+                    DataRow r = t.NewRow();
+                    r[0] = newBooking.client;
+                    r[1] = newBooking.room;
+                    r[2] = newBooking.hotel;
+                    r[3] = day;
+                    t.Rows.Add(r);
+
+                    convertedStart.AddDays(1);
+                }
+                
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(virtualdb, "booking");
             }
@@ -50,24 +58,36 @@ namespace lib.CAD
 
 
         }
-        public Booking Read(String client, int room, String hotel)
+
+        // como lo hago???
+        public Booking Read(Booking b)
         {
             Booking booking = new Booking("", 0, "", "", "", "");
             SqlConnection conn = new SqlConnection(connectionString);
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + client + "' and room like '" + room + "and hotel like '" + hotel + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from booking where client like '" + b.client + "' and room like '" + b.room + "and hotel like '" + b.hotel + "'", conn);
                 da.Fill(virtualdb, "booking");
 
                 DataTable t = new DataTable();
                 t = virtualdb.Tables["booking"];
 
-                booking.client = t.Rows[0][0].ToString();
-                booking.room = Int32.Parse(t.Rows[0][1].ToString());
-                booking.hotel = t.Rows[0][2].ToString();
+                DateTime convertedStart = Convert.ToDateTime(b.datestart);
+                DateTime NextDay = convertedStart;
                 booking.datestart = t.Rows[0][3].ToString();
-                booking.dateend = t.Rows[0][4].ToString();
+                for (int i = 0; i < numberOfNights(b); i++)
+                {
+                    if (NextDay == convertedStart.AddDays(i))
+                    {
+                        booking.client = t.Rows[i][0].ToString();
+                        booking.room = Int32.Parse(t.Rows[i][1].ToString());
+                        booking.hotel = t.Rows[i][2].ToString();
+                        booking.dateend = t.Rows[i][3].ToString();
+                    }
+                    
+                    NextDay.AddDays(1);
+                }
             }
             catch (Exception ex) { }
             finally { conn.Close(); }
@@ -87,12 +107,25 @@ namespace lib.CAD
                 DataTable t = new DataTable();
                 t = virtualdb.Tables["booking"];
 
-                t.Rows[0][0] = newBooking.client;
-                t.Rows[0][1] = newBooking.room;
-                t.Rows[0][2] = newBooking.hotel;
+                DateTime convertedStart = Convert.ToDateTime(b.datestart);
+                DateTime NextDay = convertedStart;
                 t.Rows[0][3] = newBooking.datestart;
-                t.Rows[0][4] = newBooking.dateend;
-
+                for (int i = 0; i < numberOfNights(b); i++)
+                {
+                    if (NextDay == convertedStart.AddDays(i))
+                    {
+                        String day = NextDay.ToString();
+                        t.Rows[i][0] = newBooking.client;
+                        t.Rows[i][1] = newBooking.room;
+                        t.Rows[i][2] = newBooking.hotel;
+                        if (i != 0)
+                        {
+                            t.Rows[i][3] = day;
+                        }
+                    }
+                    NextDay.AddDays(1);
+                }
+               
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(virtualdb, "booking");
             }
@@ -111,12 +144,17 @@ namespace lib.CAD
                 DataTable t = new DataTable();
                 t = virtualdb.Tables["booking"];
 
-                t.Rows[0].Delete();
-                t.Rows[1].Delete();
-                t.Rows[2].Delete();
-                t.Rows[3].Delete();
-                t.Rows[4].Delete();
-
+                DateTime convertedStart = Convert.ToDateTime(b.datestart);
+                DateTime NextDay = convertedStart;
+                for (int i=0; i<numberOfNights(b); i++)
+                {
+                    if (NextDay == convertedStart.AddDays(i))
+                    {
+                        t.Rows[i].Delete();
+                    }
+                    NextDay.AddDays(1);
+                }
+                
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(virtualdb, "booking");
             }
@@ -131,14 +169,14 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from room where type like 'individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from room where type like 'individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
                 da.Fill(virtualdb, "room");
 
                 DataTable t = new DataTable();
                 t = virtualdb.Tables["room"];
                 int freeSingle = Convert.ToInt32(t.Rows[0][0].ToString());
 
-                SqlDataAdapter da2 = new SqlDataAdapter("select count(*) from room where type like 'double' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                SqlDataAdapter da2 = new SqlDataAdapter("select count(*) from room where type like 'double' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
                 da2.Fill(virtualdb, "room2");
 
                 DataTable t2 = new DataTable();
@@ -166,7 +204,7 @@ namespace lib.CAD
                 {
                     for (int i = 0; i < b.nsingle; i++)
                     {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
                         da.Fill(virtualdb, "room");
 
                         DataTable t = new DataTable();
@@ -184,7 +222,7 @@ namespace lib.CAD
                 {
                     for (int i = 0; i < b.ndouble; i++)
                     {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Double' and hotel like '" + b.hotel + "' and num not in (select room from booking where datestart like '" + b.datestart + "' and dateend like '" + b.dateend + "')", conn);
+                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Double' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
                         da.Fill(virtualdb, "room");
 
                         DataTable t = new DataTable();
