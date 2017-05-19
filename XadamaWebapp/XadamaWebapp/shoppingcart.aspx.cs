@@ -51,6 +51,10 @@ namespace XadamaWebapp
                 ListViewItem item = ListView1.Items[e.NewSelectedIndex];
                 
                 Label name = (Label)item.FindControl("Label1");
+
+               
+
+
                 bool found = false;
                 for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !found; i--)
                 {
@@ -137,6 +141,20 @@ namespace XadamaWebapp
             catch (Exception ex)
             {
             }
+        }
+
+        protected void ModifiedQuantity(object sender, EventArgs e)
+        {
+            DropDownList ddl = (DropDownList)sender;
+            ListViewItem item = (ListViewItem)ddl.NamingContainer;
+
+            DropDownList getDDLList = (DropDownList)item.FindControl("dropdownlist1");
+
+            
+            //draux[3] = ddl.SelectedIndex;
+
+            
+
         }
     }
 }
