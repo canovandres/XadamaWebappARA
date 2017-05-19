@@ -42,7 +42,7 @@ namespace lib.EN
         public void Read()
         {
             CAD.CADBooking b = new CAD.CADBooking();
-            Booking p = b.Read(client, room, hotel);
+            Booking p = b.Read(this);
             client = p.client;
             datestart = p.datestart;
             dateend = p.dateend;
