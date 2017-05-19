@@ -31,17 +31,17 @@
                   </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <div class="display-border-orange mycontainer padding-32 margin-left">
+                <div class="display-border-orange padding-32 margin-left">
                     <div class="bold uppercase text-black">
                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("name") %>'></asp:Label>
                     </div>
                     
                     <div class="bold uppercase margin-top margin-bottom">
-                        <asp:Button ID="CodeButton" runat="server" CssClass="button-slice xlarge margin-32" Text="SHOW CODE" ></asp:Button>
-                        <asp:Panel ID="Panel1" runat="server" class="backPopup text-black wide bold uppercase padding-32" >
+                        <asp:Button ID="CodeButton" runat="server" CssClass="button-slice xlarge margin-32" Style="cursor:pointer" Text="SHOW CODE" ></asp:Button>
+                        <asp:Panel ID="Panel1" runat="server" class="backPopup text-orange wide bold uppercase padding-32" >
                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("cod") %>'></asp:Label>
                             </br> 
-                            <asp:Button ID="closeBtn" class="close-button text-white uppercase margin-top" runat="server" Text="Close" />
+                            <asp:Button ID="closeBtn" runat="server" class="close-button text-white uppercase margin-top"  Style="cursor:pointer" Text="Close" />
                         </asp:Panel>
                         <ajaxToolkit:ModalPopupExtender ID="PromoPopup" runat="server" 
                                                         TargetControlID="CodeButton"

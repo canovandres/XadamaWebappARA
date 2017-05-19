@@ -63,6 +63,24 @@ namespace lib.EN
             c.Delete(email);
         }
 
+        public bool ExistsUsuario()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            return (c.ExistsUsuario(email));
+        }
+
+        public bool ExistsUsuarioPassword()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            return (c.ExistsUsuarioPassword(email, password));
+        }
+
+        public bool ExistsClient()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            return (c.ExistsClient(email));
+        }
+
     }
 }
 

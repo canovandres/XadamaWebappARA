@@ -71,5 +71,10 @@ namespace lib.EN
             return cadworker.Works(date);
         }
         */
+        public bool ExistsWorker()
+        {
+            CAD.CADWorker w = new CAD.CADWorker();
+            return (w.ExistsWorker(email));
+        }
     }
 }
