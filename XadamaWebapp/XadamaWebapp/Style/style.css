@@ -828,3 +828,9 @@ video {
 .vertical-bottom {
     vertical-align: bottom;
 }
+
+.popSign {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}

@@ -20,6 +20,9 @@
         </div>
     </div>
     <div>
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server"> </asp:ScriptManager>
+
     <asp:ListView ID="ListViewPromo" runat="server" DataKeyNames="cod" GroupItemCount="1">
             <LayoutTemplate>
                   <div align="center" class="margin-32 padding-64" runat="server">
@@ -34,7 +37,17 @@
                     </div>
                     
                     <div class="bold uppercase margin-top margin-bottom">
-                        <asp:Label ID="Label2" runat="server" CssClass="button-slice xlarge margin-32" Text='<%#Eval("cod") %>' ></asp:Label>
+                        <asp:Button ID="CodeButton" runat="server" CssClass="button-slice xlarge margin-32" Text="SHOW CODE" ></asp:Button>
+                        <asp:Panel ID="Panel1" runat="server" class="backPopup text-black wide bold uppercase padding-32" >
+                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("cod") %>'></asp:Label>
+                            </br> 
+                            <asp:Button ID="closeBtn" class="close-button text-white uppercase margin-top" runat="server" Text="Close" />
+                        </asp:Panel>
+                        <ajaxToolkit:ModalPopupExtender ID="PromoPopup" runat="server" 
+                                                        TargetControlID="CodeButton"
+                                                        OkControlID="closeBtn" 
+                                                        PopupControlID="Panel1" >
+                        </ajaxToolkit:ModalPopupExtender>
                     </div>
                     <div>
                         <asp:Label ID="Label3" runat="server" Text='<%#Eval("description") %>'></asp:Label>
@@ -44,21 +57,20 @@
                         <asp:Label ID="Label4" runat="server" Text='<%#Eval("dateend") %>'></asp:Label>
                     </div>
                 </div>
+           
             </ItemTemplate>
             <GroupTemplate>
-                    <div runat="server" id="promoRow" class="margin-bottom-large" style="height:250px">
+                    <div runat="server" id="promoRow" class="margin-bottom-large" style="height:270px">
                         <div runat="server" id="itemPlaceholder">
                         </div>
                     </div>
             </GroupTemplate>
         </asp:ListView>
-        
         </div>
-
 
     <div class="content container center" style="padding-bottom: 32px !important">
         <div class="center large text-black margin-bottom-large ">
-            *In order to use them, you have to copy and paste the code when you are going to get whatever you need to. 
+            *Copy the code and paste it in the code field when you are going to pay in order to get your discount. 
         </div>
         <div class="center large text-black margin-bottom-large bold">
             If none of them suits you, keep on visiting us periodically... New promotions are comming! 
