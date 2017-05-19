@@ -1,5 +1,5 @@
 ﻿.fifteen {
-    width: 14.99999% !important;
+    width: 19.99999% !important;
     min-width: 150px;
 }
 
@@ -21,4 +21,84 @@
     outline: none;
     display: block;
     font-size: 18px;
+}
+
+.register {
+    box-sizing: border-box;
+    display: inline-block;
+    height: auto;
+    margin: 4px;
+}
+
+.container-client{
+    padding: 0px 0px;
+}
+
+.container-client:after, .container:before, .row:after, .row:before, .row-padding:after, .row-padding:before, .bar:before, .bar:after, 
+.slider-container:after, .slider-container:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.padding-128-client{
+    padding-top: 96px !important;
+    padding-bottom: 32px !important;
+}
+
+.padding-client{
+    padding-top: 0px !important;
+    padding-bottom: 36px !important;
+    padding-left: 32px !important;
+    padding-right: 20px !important;
+    
+}
+
+.blue-text {
+    color: #83ABBF !important;
+}
+
+.padding-16-client{
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+}
+
+.save-button {
+    width: 200px;
+    float: right;
+    margin: 20px;
+}
+
+.change-button {
+    width: 230px;
+    float: right;
+    margin: 20px;
+}
+
+
+.VeryWeekStrength {
+    background: #B10400;
+    color: White;
+}
+.WeakStrength {
+    background: #F97C01;
+    color: White;
+}
+.AverageStrength {
+    background: #FFC706;
+    color: White;
+}
+.GoodStrength {
+    background: #8AC316;
+    color: White;
+}
+.ExcellentStrength {
+    background: #39A31B;
+    color: White;
+}
+.BarBorderStyle {
+    border-style: solid;
+    border-color: Gray;
+    border-width: 1px;
+    width: 12%;
 }

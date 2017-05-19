@@ -15,6 +15,9 @@
                 <asp:Label runat="server" CssClass="center padding-medium xxlarge wide darkblue" text="SHOPPING CART"></asp:Label>
             </div>
         </div>
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel runat="server" ID="hgfj">
+        <ContentTemplate>
         <div class="text-darkblue large bold">
             <div class="zone3">
                  <asp:Label ID="Label5" runat="server" Text="Product"></asp:Label>
@@ -26,11 +29,12 @@
                  <asp:Label ID="Label7" runat="server" Text="Quantity"></asp:Label>
             </div>
         </div>
-        <asp:ScriptManager runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel runat="server" ID="hgfj">
+        </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdatePanel runat="server" ID="UpdatePanel1">
         <ContentTemplate>
         <div>        
-        <asp:ListView ID="ListView1" runat="server" >
+        <asp:ListView ID="ListView1" runat="server" OnSelectedIndexChanging="DeleteProduct">
             <LayoutTemplate>
                   <div align="left" class="margin-64 border-list" runat="server">
                       <div runat="server" id="groupPlaceholder">
@@ -51,17 +55,16 @@
                     </div>
                     
                     <div class="zone2 left-margin-aux2">
-                        <asp:DropDownList ID="quantity" runat="server">
-                         
-                         <asp:ListItem>1</asp:ListItem>
-                         <asp:ListItem>2</asp:ListItem>
-                         <asp:ListItem>3</asp:ListItem>
-                         <asp:ListItem>4</asp:ListItem>
-                         <asp:ListItem>5</asp:ListItem>                         
-                     </asp:DropDownList>
+                        <asp:DropDownList ID="quantity" runat="server">                         
+                             <asp:ListItem>1</asp:ListItem>
+                             <asp:ListItem>2</asp:ListItem>
+                             <asp:ListItem>3</asp:ListItem>
+                             <asp:ListItem>4</asp:ListItem>
+                             <asp:ListItem>5</asp:ListItem>                         
+                        </asp:DropDownList>
                     </div>
                     <div class="zone10">
-                        <asp:ImageButton id="quit" runat="server"  CssClass="imgbeg-btncerrar" ImageUrl="~/Media/Others/botoncerrar.jpg" />                        
+                        <asp:LinkButton id="cerrar" CommandName="Select" Text="Delete"  CssClass="button button-slice medium" runat="server" />                        
                     </div>
                     
                 </div>
@@ -76,10 +79,14 @@
 
 
     </div>
-    </ContentTemplate>
-    </asp:UpdatePanel>
+    
+   
 
     <div class="xxlarge">
+            <div class="text-orange xlarge zone11">
+                 <asp:Label ID="Label34" Visible="false" runat="server" Text="The shopping cart is empty"></asp:Label>
+            </div>
+            
             <div class="zone9 text-darkblue">
                  <asp:Label ID="Label12" runat="server" Text="Promo:"></asp:Label>
             </div>
@@ -94,13 +101,15 @@
                  <asp:Label ID="Label8" runat="server" Text="Subtotal:"></asp:Label>
             </div>
             <div class="zone7 text-orange">
-                 <asp:Label ID="Label9" runat="server" Text="60"></asp:Label>
-                €
+                 <asp:Label ID="Label9" runat="server" Text=""></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="€"></asp:Label>
             </div>
             <div class="zone8">
-                 <asp:Button runat="server" text="BUY NOW" CssClass="button padding-medium xxlarge wide button-slice" />
+                 <asp:Button ID="Button23" runat="server" text="BUY NOW" CssClass="button padding-medium xxlarge wide button-slice" />
             </div>
             
         </div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
 
     </asp:Content>
