@@ -185,5 +185,34 @@ namespace lib.CAD
             return false;
         }
         */
+
+        public bool ExistsWorker(String email)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from worker where usuario = @email", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsWorker (CadWorker): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
     }
 }

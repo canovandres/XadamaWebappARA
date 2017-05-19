@@ -161,5 +161,32 @@ namespace lib.CAD
             }
             return bdvirtual;
         }
+
+        public List<string> getProductsName(string prefixText)
+        {
+            List<string> l = new List<string>();
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select name from product where name like '%"+prefixText+"%'", con);
+                da.Fill(bdvirtual, "producto");
+                DataTable t = bdvirtual.Tables["producto"];
+                foreach(DataRow r in t.Rows)
+                {
+                    l.Add(r["name"].ToString());
+                }
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return l;
+        }
     }
 }

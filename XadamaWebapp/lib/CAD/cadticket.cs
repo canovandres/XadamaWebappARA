@@ -39,8 +39,9 @@ namespace lib.CAD
                 newrow[0] = ticket.cod;
                 newrow[1] = ticket.client;
                 newrow[2] = ticket.day;
-                newrow[3] = ticket.price;
-                newrow[4] = ticket.type;
+                newrow[3] = ticket.totalprice;
+                newrow[4] = ticket.child;
+                newrow[5] = ticket.adult;
 
                 t.Rows.Add(newrow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
@@ -56,12 +57,11 @@ namespace lib.CAD
             }
         }
 
-        public Ticket Read(String cod)
+        public Ticket Read(int cod, String day, String client)
         {
-            Ticket ticket = new Ticket(cod);
+            Ticket ticket = new Ticket(0, "", "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
-
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter("select * from ticket cod like '" + cod + "'", con);
@@ -70,11 +70,12 @@ namespace lib.CAD
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["ticket"];
 
-                ticket.cod = t.Rows[0][0].ToString();
+                ticket.cod = Int32.Parse(t.Rows[0][0].ToString());
                 ticket.client = t.Rows[0][1].ToString();
                 ticket.day = t.Rows[0][2].ToString();
-                ticket.client = t.Rows[0][3].ToString();
-                ticket.type = t.Rows[0][4].ToString();
+                ticket.totalprice = float.Parse(t.Rows[0][3].ToString());
+                ticket.child = Int32.Parse(t.Rows[0][4].ToString());
+                ticket.adult = Int32.Parse(t.Rows[0][5].ToString());
             }
             catch (Exception ex)
             {
@@ -103,8 +104,9 @@ namespace lib.CAD
 
                 t.Rows[0][1] = ticket.client;
                 t.Rows[0][2] = ticket.day;
-                t.Rows[0][3] = ticket.price;
-                t.Rows[0][4] = ticket.type;
+                t.Rows[0][3] = ticket.totalprice;
+                t.Rows[0][4] = ticket.child;
+                t.Rows[0][4] = ticket.adult;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "ticket");
@@ -119,7 +121,7 @@ namespace lib.CAD
             }
         }
 
-        public static string NextCode()
+        public static int NextCode()
         {
             int code = 0;
             SqlConnection con = new SqlConnection(conString);
@@ -137,17 +139,15 @@ namespace lib.CAD
             catch (Exception ex) { }
             finally { con.Close(); }
 
-            return code.ToString();
+            return code;
         }
-        public void Delete(String cod)
+        public void Delete(int cod)
         {
-            Ticket ticket = new Ticket(cod);
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
-
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from ticket cod like '" + ticket.cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from ticket cod like '" + cod + "'", con);
                 da.Fill(bdvirtual, "ticket");
 
                 DataTable t = new DataTable();
@@ -168,16 +168,37 @@ namespace lib.CAD
             }
         }
 
-        public DataSet typePrice()
+        public float totalPrice(int cod)
         {
+            float total = 0;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from tickettype", con);
-                da.Fill(bdvirtual, "tickettype");
-                return bdvirtual;
+                SqlDataAdapter da = new SqlDataAdapter("select * from ticket where cod like '"+cod+"'", con);
+                da.Fill(bdvirtual, "ticket");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["ticket"];
+
+                int c = Int32.Parse(t.Rows[0][4].ToString()); // numero de child
+                int a = Int32.Parse(t.Rows[0][5].ToString()); // numero de adult
+
+                SqlDataAdapter da2 = new SqlDataAdapter("select price from tickettype where type like 'Adult'", con);
+                da2.Fill(bdvirtual, "adulttype");
+                DataTable t2 = new DataTable();
+                t2 = bdvirtual.Tables["adulttype"];
+
+                float aprice = float.Parse(t.Rows[0][0].ToString());
+
+                SqlDataAdapter da3 = new SqlDataAdapter("select price from tickettype where type like 'Child'", con);
+                da3.Fill(bdvirtual, "childtype");
+                DataTable t3 = new DataTable();
+                t3 = bdvirtual.Tables["childtype"];
+
+                float cprice = float.Parse(t.Rows[0][0].ToString());
+
+                total = (a * aprice) + (c * cprice);
             }
             catch (Exception ex)
             {
@@ -188,7 +209,7 @@ namespace lib.CAD
                 con.Close();
             }
 
-            return bdvirtual;
+            return total;
         }
 
         public bool buyTickets(Ticket t)
@@ -198,50 +219,37 @@ namespace lib.CAD
             DataSet dbvirtual = new DataSet();
             try
             {
-                if (t.nadults > 0)
-                {
-                    for (int i = 0; i < t.nadults; i++)
-                    {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from tickettype where type like 'Adult'", conn);
-                        da.Fill(dbvirtual, "tickettype");
-
-                        DataTable dt = new DataTable();
-                        dt = dbvirtual.Tables["tickettype"];
-
-                        String type = dt.Rows[0][0].ToString();
-                        float price = Int32.Parse(dt.Rows[0][1].ToString());
-                        String roomhotel = dt.Rows[0][1].ToString();
-                        Ticket newTicket = new Ticket("", t.client, t.day, price, type);
-                        Create(newTicket);
-                    }
-                    done = true;
-                }
-                else done = false;
-
-                if (t.nchildren > 0)
-                {
-                    for (int i = 0; i < t.nchildren; i++)
-                    {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from tickettype where type like 'child'", conn);
-                        da.Fill(dbvirtual, "tickettype");
-
-                        DataTable dt = new DataTable();
-                        dt = dbvirtual.Tables["tickettype"];
-
-                        String type = dt.Rows[0][0].ToString();
-                        float price = Int32.Parse(dt.Rows[0][1].ToString());
-                        String roomhotel = dt.Rows[0][1].ToString();
-                        Ticket newTicket = new Ticket("", t.client, t.day, price, type);
-                        Create(newTicket);
-                    }
-                    done = true;
-                }
-                else done = false;
+                float price = totalPrice(t.cod);
+                Ticket newTicket = new Ticket(t.cod, t.client, t.day, price, t.adult, t.child);
+                Create(newTicket);
+                done = true;
             }
             catch (Exception ex) { }
             finally { conn.Close(); }
 
             return done;
+        }
+
+        public DataSet getTypes()//Returns a list of promos active in the date passed by parameter by executing appropiate commands
+        {
+            EN.Ticket ticket = new EN.Ticket(0,"","");
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from tickettype", con);
+                da.Fill(bdvirtual, "tickettype");
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return bdvirtual;
         }
 
     }
