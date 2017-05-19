@@ -13,23 +13,21 @@ namespace lib.EN
 {
     public class Ticket
     {
-        public String cod { get; set; }
+        public int cod { get; set; }
         public String client { get; set; }
         public String day { get; set; }
-        public float price { get; set; }
-        public String type { get; set; }
-        public int nadults { get; set; }
-        public int nchildren { get; set; }
+        public float totalprice { get; set; }
+        public int adult { get; set; }
+        public int child { get; set; }
 
-        public Ticket(String cod, String client="", String day="", float price=0, String type="", int nadults=0, int nchildren=0)
+        public Ticket(int cod, String client, String day, float totalprice=0, int adult = 0, int child = 0)
         {
             this.cod = CAD.CADTicket.NextCode();
             this.client = client;
             this.day = day;
-            this.price = price;
-            this.type = type;
-            this.nadults = nadults;
-            this.nchildren = nchildren;
+            this.totalprice = totalprice;
+            this.adult = adult;
+            this.child = child;
         }
 
         public void Create()
@@ -41,12 +39,13 @@ namespace lib.EN
         public void Read()
         {
             CAD.CADTicket cadticket = new CAD.CADTicket();
-            Ticket t = (Ticket)cadticket.Read(cod);
-            this.cod = t.cod;
-            this.client = t.client;
-            this.day = t.day;
-            this.price = t.price;
-            this.type = t.type;
+            Ticket t = (Ticket)cadticket.Read(cod, client, day);
+            cod = t.cod;
+            client = t.client;
+            day = t.day;
+            totalprice = t.totalprice;
+            adult = t.adult;
+            child = t.child;
         }
 
         public void Update()
@@ -61,17 +60,23 @@ namespace lib.EN
             t.Delete(cod);
         }
 
-        public DataSet typePrice()
+        public float totalPrice()
         {
             CAD.CADTicket t = new CAD.CADTicket();
-            return t.typePrice();
+            return t.totalPrice(cod);
         }
-
+        // REVISAR
         public bool buyTickets()
         {
             CAD.CADTicket t = new CAD.CADTicket();
             bool done = t.buyTickets(this);
             return done;
+        }
+
+        public static DataSet getTypes()
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            return t.getTypes();
         }
     }
 }

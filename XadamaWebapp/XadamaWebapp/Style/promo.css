@@ -45,9 +45,10 @@
 
 .display-border-orange{
     width: 80%; 
-    border:2px solid white;
+    border:2px solid orange;
     border-radius: 8px 8px 8px 8px;
     transition: all 0.7s;
+    background-color: white;
 }
 
 .display-border-orange:hover{
@@ -57,10 +58,6 @@
     transition-delay:0.5s;
 }
 
-.mycontainer{
-    color: #ffffff;
-    background-color: #83ABBF;
-}
 
 .backPopup{
     background-color: white;
