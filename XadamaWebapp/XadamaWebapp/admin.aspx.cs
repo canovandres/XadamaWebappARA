@@ -26,8 +26,8 @@ namespace XadamaWebapp
                 //{
                     Product p = new Product();
                     DataSet d = p.showTypeProducts("Bags");
-                    GridProducts.DataSource = d;
-                    GridProducts.DataBind();
+                    /*GridProducts.DataSource = d;
+                    GridProducts.DataBind();*/
                 
                     GridClients.DataSource = Client.ListAllClients();
                     GridClients.DataBind();
@@ -61,15 +61,15 @@ namespace XadamaWebapp
         }
 
         //Grid Tickets
-        /*
+        
         protected void GridTickets_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             Ticket ticket = new Ticket(0, "", "");
-            GridTickets.DataSource = worker.DeleteWorker(e.RowIndex);
+            //GridTickets.DataSource = worker.DeleteWorker(e.RowIndex);
             GridTickets.DataBind();
         }
 
-        protected void GridWorkers_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void GridTickets_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridTickets.EditIndex = e.NewEditIndex;
             GridTickets.DataSource = Worker.ListAllWorkers();
@@ -81,8 +81,8 @@ namespace XadamaWebapp
                         .FindControl("lblEmail")).Text;
             string name = ((TextBox)GridTickets.Rows[e.RowIndex]
                                 .FindControl("txtName")).Text;
-            Worker worker = new Worker(email, "", name, surname1, surname2, age, Convert.ToInt32(phone));
-            worker.Update();
+            //Ticket ticket = new Worker(email, "", name, surname1, surname2, age, Convert.ToInt32(phone));
+            //worker.Update();
             GridTickets.EditIndex = -1;
             GridTickets.DataSource = Worker.ListAllWorkers();
             GridTickets.DataBind();
@@ -99,7 +99,7 @@ namespace XadamaWebapp
             GridTickets.DataSource = Worker.ListAllWorkers();
             GridTickets.DataBind();
         }
-        */
+        
         //Grid Workers
 
         protected void GridWorkers_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -146,6 +146,26 @@ namespace XadamaWebapp
             GridWorkers.EditIndex = -1;
             GridWorkers.DataSource = Worker.ListAllWorkers();
             GridWorkers.DataBind();
+        }
+
+        protected void AddNewWorker(object sender, EventArgs e)
+        {
+            string email = ((TextBox)GridWorkers.FooterRow.FindControl("txtEmail")).Text;
+            string name = ((TextBox)GridWorkers.FooterRow.FindControl("txtName")).Text;
+            string surname1 = ((TextBox)GridWorkers.FooterRow.FindControl("txtSurname1")).Text;
+            string surname2 = ((TextBox)GridWorkers.FooterRow.FindControl("txtSurname2")).Text;
+            string age = ((TextBox)GridWorkers.FooterRow.FindControl("txtAge")).Text;
+            string phone = ((TextBox)GridWorkers.FooterRow.FindControl("txtPhone")).Text;
+
+            Random rnd = new Random();
+            string password = rnd.Next(100000, 1000000).ToString();
+
+            Worker worker = new Worker(email, password, name, surname1, surname2, age, Convert.ToInt32(phone));
+            worker.Create();
+            GridWorkers.DataSource = Client.ListAllClients();
+            GridWorkers.DataBind();
+            PasswordPop.Text = "New Password: " + password;
+            passwordPopup.Visible = true;
         }
 
         //Grid Clients
@@ -198,6 +218,33 @@ namespace XadamaWebapp
             GridClients.EditIndex = -1;
             GridClients.DataSource = Client.ListAllClients();
             GridClients.DataBind();
+        }
+
+        protected void AddNewClient(object sender, EventArgs e)
+        {
+            string email = ((TextBox)GridClients.FooterRow.FindControl("txtEmail")).Text;
+            string name = ((TextBox)GridClients.FooterRow.FindControl("txtName")).Text;
+            string surname1 = ((TextBox)GridClients.FooterRow.FindControl("txtSurname1")).Text;
+            string surname2 = ((TextBox)GridClients.FooterRow.FindControl("txtSurname2")).Text;
+            string age = ((TextBox)GridClients.FooterRow.FindControl("txtAge")).Text;
+            string phone = ((TextBox)GridClients.FooterRow.FindControl("txtPhone")).Text;
+            string address = ((TextBox)GridClients.FooterRow.FindControl("txtAddress")).Text;
+            string creditCard = ((TextBox)GridClients.FooterRow.FindControl("txtCreditCard")).Text;
+
+            Random rnd = new Random();
+            string password = rnd.Next(100000, 1000000).ToString();
+
+            Client client = new Client(email, password, name, surname1, surname2, age, Convert.ToInt32(phone), address, creditCard);
+            client.Create();
+            GridClients.DataSource = Client.ListAllClients();
+            GridClients.DataBind();
+            PasswordPop.Text = "New Password: " + password;
+            passwordPopup.Visible = true;
+        }
+
+        protected void hidePop(object sender, EventArgs e)
+        {
+            passwordPopup.Visible = false;
         }
     }
 }

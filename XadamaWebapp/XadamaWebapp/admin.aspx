@@ -6,6 +6,11 @@
     <title>Xadama Admin</title>
     <link rel="stylesheet" type="text/css" href="Style/admin.css" />
     <link rel="stylesheet" type="text/css" href="Style/client.css" />
+    <style type="text/css">
+        .input-footer input {
+            width: 100px;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -29,6 +34,11 @@
             </asp:menu>
         </div>
 
+        <ajaxToolkit:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1" runat="server" TargetControlID="passwordPopup" VerticalSide="Middle" HorizontalSide="Center" />
+        <asp:Panel runat="server" ID="passwordPopup" style="opacity: 1; z-index: 1010;" Visible="False" CssClass="padding-medium white">
+                <asp:Label runat="server" ID="PasswordPop" CssClass="xlarge"></asp:Label>
+                <asp:Button runat="server" ID="ButtonPop" CssClass="button-slice large" OnClick="hidePop" Text="OK"/>
+        </asp:Panel>
 
         <div class="col three-quarter">
             <div class="margin-medium grey shadow center" style="overflow-x: scroll; max-width: 100%">
@@ -59,7 +69,7 @@
 
                     <asp:View ID="View6" runat="server">
                         <!--<asp:GridView id="GridTickets" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridTickets_PageIndexChanging" 
-                            OnRowCancelingEdit="GGridTickets_RowCancelingEdit" OnRowDeleting="GridTickets_RowDeleting" OnRowEditing="GridTickets_RowEditing" 
+                            OnRowCancelingEdit="GridTickets_RowCancelingEdit" OnRowDeleting="GridTickets_RowDeleting" OnRowEditing="GridTickets_RowEditing" 
                             OnRowUpdating="GridTickets_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <EditRowStyle BackColor="#999999" />
@@ -103,7 +113,7 @@
                     <asp:View ID="View7" runat="server">
                         <asp:GridView id="GridClients" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridClients_PageIndexChanging" 
                             OnRowCancelingEdit="GridClients_RowCancelingEdit" OnRowDeleting="GridClients_RowDeleting" OnRowEditing="GridClients_RowEditing" 
-                            OnRowUpdating="GridClients_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            OnRowUpdating="GridClients_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -115,6 +125,7 @@
                             <SortedAscendingHeaderStyle BackColor="#506C8C" />
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <FooterStyle CssClass="input-footer" />
                             <Columns>
                                 <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Email">
                                     <ItemTemplate>
@@ -122,7 +133,7 @@
                                         Text='<%# Eval("usuario")%>'></asp:Label>
                                     </ItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtEmail" Width = "80px"  runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail"  runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Name">
@@ -215,8 +226,13 @@
                                         <asp:TextBox ID="txtCreditCard" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField  ShowDeleteButton="True" />
-                                <asp:CommandField  ShowEditButton="True" />
+                                <asp:TemplateField>
+                                    <FooterTemplate>
+                                        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="AddNewClient" style="width: 50px;"/>
+                                    </FooterTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ShowDeleteButton="True" />
+                                <asp:CommandField ShowEditButton="True" />
                             </Columns>
                         </asp:GridView>
                     </asp:View>
