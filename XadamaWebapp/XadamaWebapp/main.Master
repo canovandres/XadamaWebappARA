@@ -47,8 +47,8 @@
             
             <div class="right" style="width: 75%;">
                 <asp:LinkButton id="SignInBt" runat="server" Text="Sign In" CssClass="button-sign text-white right margin-16 margin-right" PostBackUrl="register.aspx" Visible="True" />
-                <asp:LinkButton id="ProfileBT" runat="server" Text="Andrés" CssClass="button-sign text-white right margin-16 margin-right" Visible="False" OnClick="profileClick" ></asp:LinkButton>
-                <asp:LinkButton id="SignOutBt" runat="server" Text="Sign Out" CssClass="button-sign text-white right margin-16 margin-right" Visible="False" OnClick="profileClick" ></asp:LinkButton>
+                <asp:LinkButton id="ProfileBT" runat="server" Text="Andrés" CssClass="button-sign text-white right margin-16 margin-right" Visible="False" OnClick="ProfileClick" ></asp:LinkButton>
+                <asp:LinkButton id="SignOutBt" runat="server" Text="Sign Out" CssClass="button-sign text-white right margin-16 margin-right" Visible="False" OnClick="SignOutClick" ></asp:LinkButton>
 
                 <asp:menu runat="server" Orientation="Horizontal" CssClass="right menu">
                     <StaticMenuItemStyle CssClass="bar-item button text-white margin-medium center" />

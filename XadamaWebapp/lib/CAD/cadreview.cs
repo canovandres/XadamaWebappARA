@@ -154,7 +154,7 @@ namespace lib.CAD
             return bdvirtual;
         }
 
-        public DataSet ListAllReviews(String hotel)
+        public DataSet ListAllReviews()
         {
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
@@ -187,6 +187,27 @@ namespace lib.CAD
             finally { con.Close(); }
 
             return false;
+        }
+
+        public void Report(String cod)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review where cod like '" + cod + "'", con);
+                da.Fill(bdvirtual, "review");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["review"];
+
+                t.Rows[0][5] = Convert.ToInt32(t.Rows[0][5]) + 1;
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(bdvirtual, "review");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
         }
     }
 }

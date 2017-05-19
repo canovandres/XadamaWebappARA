@@ -85,10 +85,6 @@
                     <asp:ListItem Value="9">9 double</asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <!--<asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Room needed" CssClass="error-text" style="display: inline-block; position: absolute; margin-left: -35%" ValidationGroup="booking" ControlToValidate="DropDownDouble" OnServerValidate="DoubleValidation"></asp:CustomValidator>
-            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" TargetControlID="CustomValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
-            <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="" CssClass="error-text" style="display: inline-block" ValidationGroup="booking" ControlToValidate="DropDownSingle" OnServerValidate="SingleValidation"></asp:CustomValidator>
-            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender7" runat="server" TargetControlID="CustomValidator2" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>-->
             <div class="col fifth">
                 <asp:Button Text="BOOK NOW" runat="server" CssClass="button-slice xlarge margin-32" ValidateRequestMode="Disabled" OnClick="book" ValidationGroup="booking"></asp:Button>
             </div>
@@ -142,6 +138,7 @@
                                             FilledStarCssClass="filled-rating-star cursor-default"
                                             EmptyStarCssClass="empty-rating-star" ReadOnly="True"></ajaxToolkit:Rating>
                                     </div>
+                                    <asp:LinkButton ID="ReportBT" runat="server" Text="Report" CssClass="text-red padding-small"></asp:LinkButton>
                                 </div>
                             </ItemTemplate>
                              <GroupTemplate>

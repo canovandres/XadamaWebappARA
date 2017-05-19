@@ -72,6 +72,12 @@ namespace lib.EN
             CAD.CADReview c = new CAD.CADReview();
             return c.Reported();
         }
+
+        public static void Report(String cod)
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            c.Report(cod);
+        }
     }
 }
 

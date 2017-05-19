@@ -46,10 +46,12 @@ namespace XadamaWebapp
             if (Session["Client"] != null)
             {
                 Session.Remove("Client");
+                Response.Redirect("main.aspx");
             }
             else if (Session["Worker"] != null)
             {
                 Session.Remove("Worker");
+                Response.Redirect("main.aspx");
             }
         }
     }
