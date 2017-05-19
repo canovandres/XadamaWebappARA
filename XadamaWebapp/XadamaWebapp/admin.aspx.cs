@@ -15,25 +15,42 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Review.Reported())
+            {
+                MenuAdmin.Items[5].Text = "<span class=\"text-red bold\">Reviews</span>";
+            }
+            
             if (!Page.IsPostBack)
             {
-                Product p = new Product();
-                DataSet d = p.showTypeProducts("Bags");
-                GridProducts.DataSource = d;
-                GridProducts.DataBind();
-                DataSet d2 = p.showTypeProducts("Jumpers");
-                GridProducts2.DataSource = d2;
-                GridProducts2.DataBind();
-                DataSet d3 = p.showTypeProducts("T-Shirts");
-                GridProducts3.DataSource = d3;
-                GridProducts3.DataBind();
-                if (Session["Admin"] != null)
-                {
-                }
-                else
-                {
-                    //Response.Redirect("register.aspx");
-                }
+                //if (Session["Admin"] != null)
+                //{
+                    Product p = new Product();
+                    DataSet d = p.showTypeProducts("Bags");
+                    GridProducts.DataSource = d;
+                    GridProducts.DataBind();
+                    DataSet d2 = p.showTypeProducts("Jumpers");
+                    GridProducts2.DataSource = d2;
+                    GridProducts2.DataBind();
+                    DataSet d3 = p.showTypeProducts("T-Shirts");
+                    GridProducts3.DataSource = d3;
+                    GridProducts3.DataBind();
+                    DataSet d4 = p.showTypeProducts("Caps");
+                    GridProducts4.DataSource = d4;
+                    GridProducts4.DataBind();
+                
+                    GridHotels.DataSource = Booking.ListAllHotles();
+                    GridRides.DataSource = Ride.ListAllRides();
+                    GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
+                    GridShows.DataSource = Show.ListAllShows();
+                    GridReviews.DataSource = Review.ListAllReviews();
+                    GridTickets.DataSource = Ticket.ListAllTickets();
+                    GridClients.DataSource = Client.ListAllClients();
+                    GridWorkers.DataSource = Worker.ListAllWorkers();
+                //}
+                //else
+                //{
+                //Response.Redirect("register.aspx");
+                //}
             }
         }
 
@@ -42,6 +59,5 @@ namespace XadamaWebapp
             int index = Int32.Parse(e.Item.Value);
             MultiView1.ActiveViewIndex = index;
         }
-        
     }
 }

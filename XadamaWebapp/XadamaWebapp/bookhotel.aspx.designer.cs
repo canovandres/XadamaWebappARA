@@ -400,15 +400,6 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Panel registerPanel;
         
         /// <summary>
-        /// Control AlwaysVisibleControlExtender1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.AlwaysVisibleControlExtender AlwaysVisibleControlExtender1;
-        
-        /// <summary>
         /// Control signin.
         /// </summary>
         /// <remarks>
