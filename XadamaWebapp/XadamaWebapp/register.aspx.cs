@@ -153,6 +153,8 @@ namespace XadamaWebapp
                             w.Read();
                             Session["Worker"] = w;
 
+                            Worker w_aux = (Worker)Session["Worker"];
+
                             TextBoxEmailSignIn.Text = string.Empty;
                             TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email!");
                         }

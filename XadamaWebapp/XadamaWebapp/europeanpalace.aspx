@@ -36,8 +36,10 @@
                 <asp:TextBox runat="server" ID="To" CssClass="left third" style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="To" FirstDayOfWeek="Monday" PopupPosition="BottomRight" Format="dd/MM/yyyy" />
                 
+                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="From" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Select a valid date" ValidationGroup="booking" Type="Date"></asp:RangeValidator>
                 <asp:RequiredFieldValidator ID="ValidatorFrom" runat="server" ControlToValidate="From" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorFrom" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtenderRange" runat="server" TargetControlID="RangeValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                 
                 <asp:RequiredFieldValidator ID="ValidatorTo" runat="server" ControlToValidate="To" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="booking"></asp:RequiredFieldValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="ValidatorTo" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>

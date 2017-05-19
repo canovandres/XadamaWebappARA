@@ -16,7 +16,12 @@ namespace XadamaWebapp
         {
             okBooking.Visible = false;
             errorBooking.Visible = false;
+            bookPanel.Visible = false;
             PromoCode.CssClass = "";
+            From.Attributes.Add("readonly", "readonly");
+            To.Attributes.Add("readonly", "readonly");
+            signin.UserControlButtonClicked += new
+                    EventHandler(UCButton);
 
             if (Session["Booking"] != null)
             {
@@ -34,10 +39,17 @@ namespace XadamaWebapp
             }
         }
 
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            RangeValidator1.MinimumValue = DateTime.Now.Date.ToString("dd-MM-yyyy");
+            RangeValidator1.MaximumValue = DateTime.Now.Date.AddYears(90).ToString("dd-MM-yyyy");
+        }
+
         protected void checkBooking()
         {
             okBooking.Visible = false;
             errorBooking.Visible = false;
+            bookPanel.Visible = false;
             if (booking.isAvalaible())
             {
                 switch (booking.hotel)
@@ -68,8 +80,8 @@ namespace XadamaWebapp
                 Modality.Text = booking.board;
                 SingleRooms.Text = booking.nsingle.ToString() + " rooms";
                 DoubleRooms.Text = booking.ndouble.ToString() + " rooms";
-                Price.Text = Math.Round(booking.getPrice(), 2).ToString();
-                errorBooking.Visible = true;
+                Price.Text = Math.Round(booking.getPrice(), 2).ToString() +" €";
+                okBooking.Visible = true;
             }
             else
             {
@@ -93,14 +105,15 @@ namespace XadamaWebapp
         {
             if (Session["Client"] != null)
             {
+                booking.client = ((Client)Session["Client"]).email;
                 booking.bookRooms();
                 sendEmail();
-                ModalPopupExtender1.Hide();
+                bookPanel.Visible = true;
             }
             else
             {
-                ModalPopupExtender1.Hide();
-                Response.Redirect("register.aspx");
+                okBooking.Visible = true;
+                registerPanel.Visible = true;
             }
         }
 
@@ -147,6 +160,12 @@ namespace XadamaWebapp
             {
                 PromoCode.CssClass = "form-error";
             }
+        }
+
+        private void UCButton(object sender, EventArgs e)
+        {
+            signin.Visible = false;
+            okBooking.Visible = true;
         }
     }
 }
