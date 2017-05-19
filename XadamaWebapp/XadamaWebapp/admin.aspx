@@ -58,7 +58,7 @@
                     </asp:View>
 
                     <asp:View ID="View6" runat="server">
-                        <asp:GridView id="GridTickets" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridTickets_PageIndexChanging" 
+                        <!--<asp:GridView id="GridTickets" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridTickets_PageIndexChanging" 
                             OnRowCancelingEdit="GGridTickets_RowCancelingEdit" OnRowDeleting="GridTickets_RowDeleting" OnRowEditing="GridTickets_RowEditing" 
                             OnRowUpdating="GridTickets_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -97,7 +97,7 @@
                                 <asp:CommandField  ShowDeleteButton="True" />
                                 <asp:CommandField  ShowEditButton="True" />
                             </Columns>
-                        </asp:GridView>
+                        </asp:GridView>-->
                     </asp:View>
 
                     <asp:View ID="View7" runat="server">
