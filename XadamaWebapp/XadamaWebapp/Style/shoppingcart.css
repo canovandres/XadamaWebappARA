@@ -39,6 +39,15 @@
     
 }
 
+.zone12 {
+    width: 5%;
+    height: 100px;
+    float: left;
+    box-sizing: content-box;
+    margin-top: 75px;
+    
+}
+
 .zone11 {
     width: 30%;
     height: 100px;

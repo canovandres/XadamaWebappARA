@@ -1,5 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="shoppingcart.aspx.cs" Inherits="XadamaWebapp.shoppingcart" %>
-
+﻿
+<%@ Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="shoppingcart.aspx.cs" Inherits="XadamaWebapp.shoppingcart" %>
+<%@ Register Src="~/signin.ascx" TagPrefix="uc1" TagName="signin" %>
 
     <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
         <title>Xadama Shopping Cart</title>
@@ -34,7 +35,7 @@
         <asp:UpdatePanel runat="server" ID="UpdatePanel1">
         <ContentTemplate>
         <div>        
-        <asp:ListView ID="ListView1" runat="server" OnSelectedIndexChanging="DeleteProduct">
+        <asp:ListView ID="ListView1" runat="server" OnItemCommand="DeleteProduct">
             <LayoutTemplate>
                   <div align="left" class="margin-64 border-list" runat="server">
                       <div runat="server" id="groupPlaceholder">
@@ -53,20 +54,20 @@
                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label>
                         €
                     </div>
-                     <div class="zone2 left-margin-aux2">
-                        <asp:LinkButton id="LinkButton1" CommandName="Select" Text="-"  CssClass="button button-slice small" runat="server" />
+                     <div class="zone12 ">
+                        <asp:LinkButton ID="LinkButton1" CommandName="minus" Text="-"  CssClass="button button-slice medium" runat="server" />
 
                     </div>
-                    <div class="zone2 left-margin-aux2">
+                    <div class="zone12 ">
                         <asp:Label ID="Label4" runat="server" Text='<%#Eval("quantity") %>'></asp:Label>
                         
                     </div>
-                     <div class="zone2 left-margin-aux2">
-                       <asp:LinkButton id="LinkButton2" CommandName="Select" Text="+"  CssClass="button button-slice small" runat="server" />
+                     <div class="zone12 ">
+                       <asp:LinkButton ID="LinkButton2" CommandName="add"  Text="+"  CssClass="button button-slice medium" runat="server" />
                     </div>
                     
                     <div class="zone10">
-                        <asp:LinkButton id="cerrar" CommandName="Select" Text="Delete"  CssClass="button button-slice medium" runat="server" />                        
+                        <asp:LinkButton ID="Cerrar" CommandName="delete" Text="Delete" CssClass="button button-slice medium" runat="server" />                        
                     </div>
                     
                 </div>
@@ -82,7 +83,6 @@
 
     </div>
     
-   
 
     <div class="xxlarge">
             <div class="text-orange xlarge zone11">
@@ -107,11 +107,15 @@
                 <asp:Label ID="Label3" runat="server" Text="€"></asp:Label>
             </div>
             <div class="zone8">
-                 <asp:Button ID="Button23" runat="server" text="BUY NOW" CssClass="button padding-medium xxlarge wide button-slice" />
+                 <asp:Button ID="Button23" runat="server" text="BUY NOW" CssClass="button padding-medium xxlarge wide button-slice" onclick="buyitems"/>
             </div>
             
         </div>
     </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
+            <ajaxToolkit:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1" runat="server" TargetControlID="registerPanel" VerticalSide="Middle" HorizontalSide="Center" />
+            <uc1:signin runat="server" ID="signin" align="center" />
+        </asp:Panel>
 
     </asp:Content>
