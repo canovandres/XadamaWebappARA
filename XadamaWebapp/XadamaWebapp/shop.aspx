@@ -160,6 +160,7 @@
                         <asp:LinkButton ID="LinkButton1" CommandName="Select" Text="Add to cart" CssClass="button button-slice" runat="server"></asp:LinkButton>
                     </div>
                 </div>
+                 <asp:Label ID="Label3" runat="server" Visible="false" Text='<%#Eval("cod") %>'></asp:Label>
             </ItemTemplate>
              <GroupTemplate>
                     <div runat="server" id="productRow" class="margin-bottom-large" style="height:500px">
