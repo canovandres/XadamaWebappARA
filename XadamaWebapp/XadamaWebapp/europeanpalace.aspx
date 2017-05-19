@@ -115,7 +115,7 @@
                         <asp:RequiredFieldValidator ID="ValidatorReview" runat="server" ControlToValidate="TextBoxReview" ErrorMessage="Review Required" CssClass="error-text" ValidationGroup="review"></asp:RequiredFieldValidator>
                         <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="ValidatorReview" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
 
-                        <asp:ListView ID="ListViewReviews" runat="server" GroupItemCount="1">
+                        <asp:ListView ID="ListViewReviews" runat="server" GroupItemCount="1" OnSelectedIndexChanging="Report">
                             <LayoutTemplate>
                                 <div runat="server">
                                     <div runat="server" id="groupPlaceholder"></div>
@@ -138,7 +138,7 @@
                                             FilledStarCssClass="filled-rating-star cursor-default"
                                             EmptyStarCssClass="empty-rating-star" ReadOnly="True"></ajaxToolkit:Rating>
                                     </div>
-                                    <asp:LinkButton ID="ReportBT" runat="server" Text="Report" CssClass="text-red padding-small"></asp:LinkButton>
+                                    <asp:LinkButton ID="ReportBT" runat="server" Text="Report" CssClass="text-red padding-small" CommandName="Select"></asp:LinkButton>
                                 </div>
                             </ItemTemplate>
                              <GroupTemplate>

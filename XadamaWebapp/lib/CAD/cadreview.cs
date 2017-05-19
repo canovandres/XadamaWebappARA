@@ -39,6 +39,7 @@ namespace lib.CAD
                 newrow[2] = newReview.score;
                 newrow[3] = newReview.hotel;
                 newrow[4] = newReview.name;
+                newrow[5] = newReview.reports;
 
                 t.Rows.Add(newrow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
@@ -66,6 +67,7 @@ namespace lib.CAD
                 review.score = Int32.Parse(t.Rows[0][2].ToString());
                 review.hotel = t.Rows[0][3].ToString();
                 review.name = t.Rows[0][4].ToString();
+                review.reports = Int32.Parse(t.Rows[0][5].ToString());
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -90,6 +92,7 @@ namespace lib.CAD
                 t.Rows[0][2] = newReview.score;
                 t.Rows[0][3] = newReview.hotel;
                 t.Rows[0][4] = newReview.name;
+                t.Rows[0][5] = newReview.reports;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "review");
@@ -200,7 +203,7 @@ namespace lib.CAD
 
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["review"];
-
+                
                 t.Rows[0][5] = Convert.ToInt32(t.Rows[0][5]) + 1;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
