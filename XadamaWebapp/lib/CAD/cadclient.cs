@@ -171,5 +171,93 @@ namespace lib.CAD
             catch (Exception ex) { }
             finally { con.Close(); }
         }
+
+        public bool ExistsUsuario(String email)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from usuario where email = @email", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsUser (CadClient): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
+
+        public bool ExistsUsuarioPassword(String email, String password)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from usuario where email = @email and password = @password", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", password);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsUser/Password (CadClient): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
+
+        public bool ExistsClient(String email)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from client where usuario = @email", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsClient (CadClient): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
     }
 }
