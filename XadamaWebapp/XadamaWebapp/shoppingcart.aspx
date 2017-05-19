@@ -53,16 +53,18 @@
                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label>
                         €
                     </div>
-                    
-                    <div class="zone2 left-margin-aux2">
-                        <asp:DropDownList ID="quantity" runat="server">                         
-                             <asp:ListItem>1</asp:ListItem>
-                             <asp:ListItem>2</asp:ListItem>
-                             <asp:ListItem>3</asp:ListItem>
-                             <asp:ListItem>4</asp:ListItem>
-                             <asp:ListItem>5</asp:ListItem>                         
-                        </asp:DropDownList>
+                     <div class="zone2 left-margin-aux2">
+                        <asp:LinkButton id="LinkButton1" CommandName="Select" Text="-"  CssClass="button button-slice small" runat="server" />
+
                     </div>
+                    <div class="zone2 left-margin-aux2">
+                        <asp:Label ID="Label4" runat="server" Text='<%#Eval("quantity") %>'></asp:Label>
+                        
+                    </div>
+                     <div class="zone2 left-margin-aux2">
+                       <asp:LinkButton id="LinkButton2" CommandName="Select" Text="+"  CssClass="button button-slice small" runat="server" />
+                    </div>
+                    
                     <div class="zone10">
                         <asp:LinkButton id="cerrar" CommandName="Select" Text="Delete"  CssClass="button button-slice medium" runat="server" />                        
                     </div>
