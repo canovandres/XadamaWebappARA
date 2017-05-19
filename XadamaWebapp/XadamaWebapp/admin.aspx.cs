@@ -38,14 +38,14 @@ namespace XadamaWebapp
                     GridProducts4.DataSource = d4;
                     GridProducts4.DataBind();
                 
-                    GridHotels.DataSource = Booking.ListAllHotles();
+                    /*GridHotels.DataSource = Booking.ListAllHotles();
                     GridRides.DataSource = Ride.ListAllRides();
                     GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
                     GridShows.DataSource = Show.ListAllShows();
                     GridReviews.DataSource = Review.ListAllReviews();
                     GridTickets.DataSource = Ticket.ListAllTickets();
                     GridClients.DataSource = Client.ListAllClients();
-                    GridWorkers.DataSource = Worker.ListAllWorkers();
+                    GridWorkers.DataSource = Worker.ListAllWorkers();*/
                 //}
                 //else
                 //{
