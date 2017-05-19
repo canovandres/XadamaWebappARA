@@ -153,5 +153,40 @@ namespace lib.CAD
 
             return bdvirtual;
         }
+
+        public DataSet ListAllReviews(String hotel)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review", con);
+                da.Fill(bdvirtual, "review");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return bdvirtual;
+        }
+
+        public bool Reported()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from Review where reported > 0", con);
+                da.Fill(bdvirtual, "review");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["review"];
+
+                return Convert.ToInt32(t.Rows[0][0]) > 0 ? true : false;
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return false;
+        }
     }
 }

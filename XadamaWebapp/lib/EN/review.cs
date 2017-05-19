@@ -60,6 +60,18 @@ namespace lib.EN
             return reviews;
         }
 
+        public static DataSet ListAllReviews()
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            DataSet reviews = c.ListAllReviews();
+            return reviews;
+        }
+
+        public static bool Reported()
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            return c.Reported();
+        }
     }
 }
 
