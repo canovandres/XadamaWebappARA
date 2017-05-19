@@ -31,7 +31,7 @@ namespace XadamaWebapp
                 DataColumn name = tcart.Columns.Add("name", typeof(String));
                 DataColumn price = tcart.Columns.Add("price", typeof(float));
                 DataColumn image = tcart.Columns.Add("image", typeof(String));
-                DataColumn quantity = tcart.Columns.Add("",typeof(int));
+                DataColumn quantity = tcart.Columns.Add("quantity",typeof(int));
                 Session["products"] = tcart;
             }
 
