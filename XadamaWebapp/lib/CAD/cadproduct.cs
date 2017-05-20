@@ -135,7 +135,7 @@ namespace lib.CAD
         }
 
         public DataSet showTypeProducts(String type)
-        {
+        {//shows all the products of the type passed
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
@@ -157,7 +157,7 @@ namespace lib.CAD
         }
 
         public DataSet searchProduct(String search)
-        {
+        {//searchs products which have included in its name the parameter "search"
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
@@ -252,7 +252,7 @@ namespace lib.CAD
         }
 
         public int getStock(String cod)
-        {
+        {//gets the stock of the product passed by parameter
             SqlConnection con = new SqlConnection(conString);
             try
             {
