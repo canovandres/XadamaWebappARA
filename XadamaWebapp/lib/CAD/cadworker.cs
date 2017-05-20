@@ -180,12 +180,28 @@ namespace lib.CAD
             }
         }
 
-        /*
-        public bool Works(String date) //Checks in the database if the worker works in that date
+        
+        public DataSet Works(String email)
         {
-            return false;
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select calendar from timetable where worker like '" + email + "'", con);
+                da.Fill(bdvirtual, "worker");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Deleting Worker (CadWorker): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return bdvirtual;
+
         }
-        */
+
 
         public bool ExistsWorker(String email)
         {
