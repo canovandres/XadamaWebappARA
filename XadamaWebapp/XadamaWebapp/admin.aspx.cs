@@ -60,7 +60,180 @@ namespace XadamaWebapp
             int index = Int32.Parse(e.Item.Value);
             MultiView1.ActiveViewIndex = index;
         }
-        
+
+        //Grid Products
+
+        protected void GridProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Product product = new Product();
+            //GridProducts.DataSource = ride.DeleteProduct(e.RowIndex);
+            GridProducts.DataBind();
+        }
+
+        protected void GridProducts_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridProducts.EditIndex = e.NewEditIndex;
+            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataBind();
+        }
+        protected void GridProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string cod = ((Label)GridProducts.Rows[e.RowIndex].FindControl("lblCode")).Text;
+            string name = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtName")).Text;
+            string type = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtType")).Text;
+            string description = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtDescription")).Text;
+            string price = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtPrice")).Text;
+            string stock = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtStock")).Text;
+            string image = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtImage")).Text;
+            Product product = new Product(cod, name, float.Parse(price), image, Convert.ToInt32(stock), type, description);
+            //product.Update();
+            GridProducts.EditIndex = -1;
+            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataBind();
+        }
+        protected void GridProducts_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridProducts.PageIndex = e.NewPageIndex;
+            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataBind();
+        }
+        protected void GridProducts_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridProducts.EditIndex = -1;
+            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataBind();
+        }
+
+        protected void AddNewProduct(object sender, EventArgs e)
+        {
+            string cod = ((TextBox)GridProducts.FooterRow.FindControl("txtCode")).Text;
+            string name = ((TextBox)GridProducts.FooterRow.FindControl("txtName")).Text;
+            string description = ((TextBox)GridProducts.FooterRow.FindControl("txtDescription")).Text;
+            string type = ((TextBox)GridProducts.FooterRow.FindControl("txtType")).Text;
+            string price = ((TextBox)GridProducts.FooterRow.FindControl("txtPrice")).Text;
+            string stock = ((TextBox)GridProducts.FooterRow.FindControl("txtStock")).Text;
+            string image = ((TextBox)GridProducts.FooterRow.FindControl("txtImage")).Text;
+
+            Product product = new Product(cod, name, float.Parse(price), image, Convert.ToInt32(stock), type, description);
+            //product.Create();
+            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataBind();
+        }
+
+        //Grid Rides
+
+        protected void GridRides_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Ride ride = new Ride("", "", "");
+            //GridRides.DataSource = ride.DeleteRide(e.RowIndex);
+            GridRides.DataBind();
+        }
+
+        protected void GridRides_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridRides.EditIndex = e.NewEditIndex;
+            //GridRides.DataSource = Ride.ListAllRides();
+            GridRides.DataBind();
+        }
+        protected void GridRides_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string cod = ((Label)GridRides.Rows[e.RowIndex].FindControl("lblCode")).Text;
+            string name = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtName")).Text;
+            string description = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtDescription")).Text;
+            string zone = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtZone")).Text;
+            string minHeight = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtMinHeight")).Text;
+            string speed = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtSpeed")).Text;
+            string image = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtImage")).Text;
+            Ride ride = new Ride(cod, name, description, zone, Convert.ToInt32(minHeight), Convert.ToInt32(speed), 0, image);
+            //ride.Update();
+            GridRides.EditIndex = -1;
+            //GridRides.DataSource = Ride.ListAllRides();
+            GridRides.DataBind();
+        }
+        protected void GridRides_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridRides.PageIndex = e.NewPageIndex;
+            //GridRides.DataSource = Ride.ListAllRides();
+            GridRides.DataBind();
+        }
+        protected void GridRides_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridRides.EditIndex = -1;
+            //GridRides.DataSource = Ride.ListAllRides();
+            GridRides.DataBind();
+        }
+
+        protected void AddNewRide(object sender, EventArgs e)
+        {
+            string cod = ((TextBox)GridRides.FooterRow.FindControl("txtCode")).Text;
+            string name = ((TextBox)GridRides.FooterRow.FindControl("txtName")).Text;
+            string description = ((TextBox)GridRides.FooterRow.FindControl("txtDescription")).Text;
+            string zone = ((TextBox)GridRides.FooterRow.FindControl("txtZone")).Text;
+            string minHeight = ((TextBox)GridRides.FooterRow.FindControl("txtMinHeight")).Text;
+            string speed = ((TextBox)GridRides.FooterRow.FindControl("txtSpeed")).Text;
+            string image = ((TextBox)GridRides.FooterRow.FindControl("txtImage")).Text;
+
+            Ride ride = new Ride(cod, name, description, zone, Convert.ToInt32(minHeight), Convert.ToInt32(speed), 0, image);
+            //ride.Create();
+            //GridRides.DataSource = Ride.ListAllRides();
+            GridRides.DataBind();
+        }
+
+        //Grid Restaurants
+
+        protected void GridRestaurants_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Restaurant restaurant = new Restaurant("");
+            //GridRestaurants.DataSource = restaurant.DeleteRestaurant(e.RowIndex);
+            GridRestaurants.DataBind();
+        }
+
+        protected void GridRestaurants_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridRestaurants.EditIndex = e.NewEditIndex;
+            //GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
+            GridRestaurants.DataBind();
+        }
+        protected void GridRestaurants_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string cod = ((Label)GridRestaurants.Rows[e.RowIndex].FindControl("lblCode")).Text;
+            string name = ((TextBox)GridRestaurants.Rows[e.RowIndex].FindControl("txtName")).Text;
+            string description = ((TextBox)GridRestaurants.Rows[e.RowIndex].FindControl("txtDescription")).Text;
+            string zone = ((TextBox)GridRestaurants.Rows[e.RowIndex].FindControl("txtZone")).Text;
+            string image = ((TextBox)GridRestaurants.Rows[e.RowIndex].FindControl("txtImage")).Text;
+            Restaurant restaurant = new Restaurant(cod, name, description, zone, image);
+            //restaurant.Update();
+            GridRestaurants.EditIndex = -1;
+            //GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
+            GridRestaurants.DataBind();
+        }
+        protected void GridRestaurants_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridRestaurants.PageIndex = e.NewPageIndex;
+            //GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
+            GridRestaurants.DataBind();
+        }
+        protected void GridRestaurants_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridRestaurants.EditIndex = -1;
+            //GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
+            GridRestaurants.DataBind();
+        }
+
+        protected void AddNewRestaurant(object sender, EventArgs e)
+        {
+            string cod = ((TextBox)GridRestaurants.FooterRow.FindControl("txtCode")).Text;
+            string name = ((TextBox)GridRestaurants.FooterRow.FindControl("txtName")).Text;
+            string description = ((TextBox)GridRestaurants.FooterRow.FindControl("txtDescription")).Text;
+            string image = ((TextBox)GridRestaurants.FooterRow.FindControl("txtImage")).Text;
+            string zone = ((TextBox)GridRestaurants.FooterRow.FindControl("txtZone")).Text;
+
+            Restaurant restaurant = new Restaurant(cod, name, description, zone, image);
+            //restaurant.Create();
+            //GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
+            GridRestaurants.DataBind();
+        }
+
         //Grid Shows
 
         protected void GridShows_RowDeleting(object sender, GridViewDeleteEventArgs e)
