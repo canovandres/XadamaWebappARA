@@ -8,6 +8,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Configuration;
+using lib.EN;
 
 namespace lib.CAD
 {
@@ -39,6 +40,7 @@ namespace lib.CAD
                 newrow[2] = newReview.score;
                 newrow[3] = newReview.hotel;
                 newrow[4] = newReview.name;
+                newrow[5] = newReview.reports;
 
                 t.Rows.Add(newrow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
@@ -66,6 +68,7 @@ namespace lib.CAD
                 review.score = Int32.Parse(t.Rows[0][2].ToString());
                 review.hotel = t.Rows[0][3].ToString();
                 review.name = t.Rows[0][4].ToString();
+                review.reports = Int32.Parse(t.Rows[0][5].ToString());
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -90,6 +93,7 @@ namespace lib.CAD
                 t.Rows[0][2] = newReview.score;
                 t.Rows[0][3] = newReview.hotel;
                 t.Rows[0][4] = newReview.name;
+                t.Rows[0][5] = newReview.reports;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "review");
@@ -151,6 +155,77 @@ namespace lib.CAD
             catch (Exception ex) { }
             finally { con.Close(); }
 
+            return bdvirtual;
+        }
+
+        public DataSet ListAllReviews()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review", con);
+                da.Fill(bdvirtual, "review");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return bdvirtual;
+        }
+
+        public bool Reported()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from Review where reported > 0", con);
+                da.Fill(bdvirtual, "review");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["review"];
+
+                return Convert.ToInt32(t.Rows[0][0]) > 0 ? true : false;
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return false;
+        }
+
+        public void Report(String cod)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review where cod like '" + cod + "'", con);
+                da.Fill(bdvirtual, "review");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["review"];
+                
+                t.Rows[0][5] = Convert.ToInt32(t.Rows[0][5]) + 1;
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(bdvirtual, "review");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+        }
+
+        public DataSet DeleteReview(Review rev, int i)
+        {
+            Review rv = rev;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from Review", c);
+            da.Fill(bdvirtual, "review");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["review"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "review");
             return bdvirtual;
         }
     }

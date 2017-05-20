@@ -8,6 +8,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Configuration;
+using lib.EN;
 
 namespace lib.CAD
 {
@@ -138,7 +139,8 @@ namespace lib.CAD
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 SqlCommandBuilder cbuilder2 = new SqlCommandBuilder(da2);
                 da.Update(bdvirtual, "client");
-                da2.Update(bdvirtual, "usuario");
+                if(newClient.password != "")
+                    da2.Update(bdvirtual, "usuario");
             }
             catch (Exception ex) { }
             finally { con.Close(); }
@@ -170,6 +172,124 @@ namespace lib.CAD
             }
             catch (Exception ex) { }
             finally { con.Close(); }
+        }
+
+        public bool ExistsUsuario(String email)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from usuario where email = @email", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsUser (CadClient): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
+
+        public bool ExistsUsuarioPassword(String email, String password)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from usuario where email = @email and password = @password", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", password);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsUser/Password (CadClient): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
+
+        public bool ExistsClient(String email)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from client where usuario = @email", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsClient (CadClient): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
+
+        public DataSet DeleteClient(Client cli, int i)
+        {
+            Client cl = cli;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from Client", c);
+            da.Fill(bdvirtual, "client");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["client"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "client");
+            return bdvirtual;
+        }
+
+        public DataSet ListAllClients()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Client", con);
+                da.Fill(bdvirtual, "client");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return bdvirtual;
         }
     }
 }
