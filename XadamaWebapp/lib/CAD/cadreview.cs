@@ -8,6 +8,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Configuration;
+using lib.EN;
 
 namespace lib.CAD
 {
@@ -211,6 +212,21 @@ namespace lib.CAD
             }
             catch (Exception ex) { }
             finally { con.Close(); }
+        }
+
+        public DataSet DeleteReview(Review rev, int i)
+        {
+            Review rv = rev;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from Review", c);
+            da.Fill(bdvirtual, "review");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["review"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "review");
+            return bdvirtual;
         }
     }
 }
