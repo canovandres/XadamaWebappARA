@@ -11,7 +11,7 @@ namespace XadamaWebapp
 {
     public partial class bookhotel : System.Web.UI.Page
     {
-        Booking booking;
+        Booking booking = new Booking("", 0, "", "", "", "");
         protected void Page_Load(object sender, EventArgs e)
         {
             okBooking.Visible = false;
@@ -111,11 +111,12 @@ namespace XadamaWebapp
 
         protected void bookRooms(object sender, EventArgs e)
         {
+            booking = new Booking("", 0, DropDownHotel.SelectedValue, From.Text, To.Text, DropDownFood.Text, DropDownSingle.SelectedIndex, DropDownDouble.SelectedIndex);
             if (Session["Client"] != null)
             {
                 booking.client = ((Client)Session["Client"]).email;
                 booking.bookRooms();
-                sendEmail();
+                //sendEmail();
                 bookPanel.Visible = true;
             }
             else
