@@ -75,6 +75,10 @@ namespace XadamaWebapp
 
                     SuccessfulyLabel.Visible = false;
                 }
+                else if (index == 2)
+                {
+
+                }
             }
             else
             {
@@ -213,6 +217,25 @@ namespace XadamaWebapp
             catch (Exception ex)
             {
                 Console.WriteLine("Error Creating Account: " + ex.ToString());
+            }
+        }
+
+        protected void CalendarDayRender(object sender, DayRenderEventArgs e)
+        {
+            Worker w = new Worker(((Worker)Session["Worker"]).email);
+
+            DataSet dsWorks = w.Works();
+            DateTime nextDate;
+            if (dsWorks != null)
+            {
+                foreach (DataRow dr in dsWorks.Tables[0].Rows)
+                {
+                    nextDate = Convert.ToDateTime(dr["calendar"]);
+                    if (nextDate == e.Day.Date)
+                    {
+                        e.Cell.BackColor = System.Drawing.Color.Green;
+                    }
+                }
             }
         }
     }
