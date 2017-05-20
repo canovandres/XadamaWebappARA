@@ -356,7 +356,7 @@ namespace XadamaWebapp
 
         protected void GridTickets_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             GridTickets.DataSource = ticket.DeleteTicket(e.RowIndex);
             GridTickets.DataBind();
         }
