@@ -273,31 +273,5 @@ namespace lib.CAD
             }
             return 0;
         }
-
-        public String NextCode()
-        {
-            SqlConnection con = new SqlConnection(conString);
-            try
-            {
-                string aux;
-                DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from product", con);
-                da.Fill(bdvirtual, "product");
-                DataTable t = new DataTable();
-                t = bdvirtual.Tables["product"];
-                aux = t.Rows[0][0].ToString();
-                return aux[0] + Convert.ToString(int.Parse(aux.Substring(1,aux.Length-1))+1);
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                con.Close();
-            }
-            return "";
-        }
     }
 }
