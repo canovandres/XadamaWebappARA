@@ -157,6 +157,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Panel PromoError;
         
         /// <summary>
+        /// Control boughtCorrectly.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel boughtCorrectly;
+        
+        /// <summary>
         /// Control TicketsCorrect.
         /// </summary>
         /// <remarks>
@@ -164,15 +173,6 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel TicketsCorrect;
-        
-        /// <summary>
-        /// Control updatePanelBook.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanelBook;
         
         /// <summary>
         /// Control Date2.
@@ -220,13 +220,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label Price2;
         
         /// <summary>
-        /// Control Button1.
+        /// Control ConfirmBtn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ConfirmBtn;
         
         /// <summary>
         /// Control Button2.
@@ -236,5 +236,23 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// Control registerPanel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel registerPanel;
+        
+        /// <summary>
+        /// Control signin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::XadamaWebapp.signin signin;
     }
 }
