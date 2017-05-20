@@ -197,40 +197,42 @@ namespace lib.CAD
             DataSet virtualdb = new DataSet();
             try
             {
-                if (b.nsingle > 0 && isAvalaible(b))
+                if (isAvalaible(b))
                 {
-                    for (int i = 0; i < b.nsingle; i++)
+                    if (b.nsingle > 0)
                     {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
-                        da.Fill(virtualdb, "room");
+                        for (int i = 0; i < b.nsingle; i++)
+                        {
+                            SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
+                            da.Fill(virtualdb, "room");
 
-                        DataTable t = new DataTable();
-                        t = virtualdb.Tables["room"];
+                            DataTable t = new DataTable();
+                            t = virtualdb.Tables["room"];
 
-                        int roomnum = Int32.Parse(t.Rows[0][0].ToString());
-                        String roomhotel = t.Rows[0][1].ToString();
-                        Booking newBooking = new Booking(b.client, roomnum, roomhotel, b.datestart, b.dateend, b.board);
-                        Create(newBooking);
+                            int roomnum = Int32.Parse(t.Rows[0][0].ToString());
+                            String roomhotel = t.Rows[0][1].ToString();
+                            Booking newBooking = new Booking(b.client, roomnum, roomhotel, b.datestart, b.dateend, b.board);
+                            Create(newBooking);
+                        }
+                        done = true;
                     }
-                    done = true;
-                }
-                else done = false;
-                if (b.ndouble > 0 && isAvalaible(b))
-                {
-                    for (int i = 0; i < b.ndouble; i++)
+                    if (b.ndouble > 0)
                     {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Double' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
-                        da.Fill(virtualdb, "room");
+                        for (int i = 0; i < b.ndouble; i++)
+                        {
+                            SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Double' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
+                            da.Fill(virtualdb, "room");
 
-                        DataTable t = new DataTable();
-                        t = virtualdb.Tables["room"];
+                            DataTable t = new DataTable();
+                            t = virtualdb.Tables["room"];
 
-                        int roomnum = Int32.Parse(t.Rows[0][0].ToString());
-                        String roomhotel = t.Rows[0][1].ToString();
-                        Booking newBooking = new Booking(b.client, roomnum, roomhotel, b.datestart, b.dateend, b.board);
-                        Create(newBooking);
+                            int roomnum = Int32.Parse(t.Rows[0][0].ToString());
+                            String roomhotel = t.Rows[0][1].ToString();
+                            Booking newBooking = new Booking(b.client, roomnum, roomhotel, b.datestart, b.dateend, b.board);
+                            Create(newBooking);
+                        }
+                        done = true;
                     }
-                    done = true;
                 }
                 else done = false;
             }
