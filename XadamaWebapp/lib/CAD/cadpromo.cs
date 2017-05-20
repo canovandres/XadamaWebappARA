@@ -32,8 +32,7 @@ namespace lib.CAD
                 t.Rows.Add(newline);
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual,"promocion");
-                //hacer return true??
-            }//terminar esto añadiendole los parametros
+            }
             catch(Exception ex)
             {
 
@@ -93,7 +92,7 @@ namespace lib.CAD
                 da.Update(bdvirtual, "promocion");
 
 
-            }//terminar esto añadiendole los parametros
+            }
             catch (Exception ex)
             {
 
@@ -101,7 +100,7 @@ namespace lib.CAD
             finally
             {
                 con.Close();
-            }//hacer un return bool
+            }
         }
 
         public void Delete(String cod)//Deletes the promo which has the same id as the one passed by parameter by executing appropiate commands

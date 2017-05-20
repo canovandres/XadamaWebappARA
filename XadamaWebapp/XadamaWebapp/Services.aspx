@@ -10,7 +10,7 @@
     <asp:UpdatePanel runat="server" ID="hgfj">
         <ContentTemplate>
             <!--Drop-down-lists-->
-            <div class="drop-container center padding-64 content text-orange bold xxlarge uppercase"> <!--class="container padding-64 center"-->
+            <div class="drop-container center padding-64 content text-orange bold xxlarge uppercase"> 
                 <p>explore the rides, restaurants and shows of each zone</p>
                 <div>
                     <asp:DropDownList ID="ListZones" runat="server" CssClass="dropdown-border text-orange center bold large margin-bottom backimgdrop dropdown-border" Width ="300px" Height="30px" AutoPostBack="true" OnSelectedIndexChanged="OnListZoneChanged">
