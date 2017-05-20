@@ -183,7 +183,7 @@ namespace lib.CAD
             {
                 string aux;
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from order", con);
+                SqlDataAdapter da = new SqlDataAdapter("select max(cast(substring(cod,2,length(cod)-1) as int)) from order", con);
                 da.Fill(bdvirtual, "order");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["order"];
