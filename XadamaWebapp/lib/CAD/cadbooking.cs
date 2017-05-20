@@ -38,7 +38,7 @@ namespace lib.CAD
                 DateTime convertedStart = Convert.ToDateTime(b.datestart);
                 for (int i=0; i<numberOfNights(newBooking); i++)
                 {
-                    String day = convertedStart.ToString();
+                    String day = convertedStart.ToString("dd/MM/yyyy");
 
                     DataRow r = t.NewRow();
                     r[0] = newBooking.client;
@@ -47,7 +47,7 @@ namespace lib.CAD
                     r[3] = day;
                     t.Rows.Add(r);
 
-                    convertedStart.AddDays(1);
+                    convertedStart = convertedStart.AddDays(1);
                 }
                 
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
@@ -55,11 +55,8 @@ namespace lib.CAD
             }
             catch (Exception ex) { }
             finally { conn.Close(); }
-
-
         }
-
-        // como lo hago???
+        
         public Booking Read(Booking b)
         {
             Booking booking = new Booking("", 0, "", "", "", "");
