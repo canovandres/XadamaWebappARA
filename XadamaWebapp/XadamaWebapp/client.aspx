@@ -18,7 +18,6 @@
                 <items>
                     <asp:menuitem text="Account" Value="0" Selected="True"></asp:menuitem>
                     <asp:menuitem text="Password" Value="1"></asp:menuitem>
-                    <asp:menuitem text="Orders" Value="2"></asp:menuitem>
                 </items>
             </asp:menu>
         </div>
@@ -171,11 +170,6 @@
                                             Visible="False"></asp:Label>
                             </div>
                         </div>
-                    </asp:View>
-
-
-                    <asp:View ID="View3" runat="server">
-
                     </asp:View>
 
                 </asp:MultiView>
