@@ -11,7 +11,7 @@ namespace XadamaWebapp
 {
     public partial class bookhotel : System.Web.UI.Page
     {
-        Booking booking;
+        Booking booking = new Booking("", 0, "", "", "", "");
         protected void Page_Load(object sender, EventArgs e)
         {
             okBooking.Visible = false;
@@ -38,6 +38,8 @@ namespace XadamaWebapp
 
                 checkBooking();
             }
+            if(!Page.IsPostBack)
+                Session.Remove("BookPromo");
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -111,11 +113,12 @@ namespace XadamaWebapp
 
         protected void bookRooms(object sender, EventArgs e)
         {
+            booking = new Booking("", 0, DropDownHotel.SelectedValue, From.Text, To.Text, DropDownFood.Text, DropDownSingle.SelectedIndex, DropDownDouble.SelectedIndex);
             if (Session["Client"] != null)
             {
                 booking.client = ((Client)Session["Client"]).email;
                 booking.bookRooms();
-                sendEmail();
+                //sendEmail();
                 bookPanel.Visible = true;
             }
             else
@@ -158,15 +161,44 @@ namespace XadamaWebapp
         protected void checkPromo(object sender, EventArgs e)
         {
             Promo promo = new Promo(PromoCode.Text);
-            try
-            {
-                promo.Read();
-                Price.Text = Math.Round(booking.getPrice() - booking.getPrice() * (promo.discount / 100), 2).ToString();
-                PromoCode.CssClass = "";
+            if (PromoCode != null && PromoCode.Text[0] == 'H') {
+                try
+                {
+                    if (Session["BookPromo"] == null)
+                    {
+                        promo.Read();
+                        booking.price = float.Parse(Price.Text.Substring(0, Price.Text.Length - 2)) * (((float)(100 - promo.discount)) / 100);
+                        Session["BookPromo"] = promo.discount;
+                        Price.Text = booking.price.ToString() + " €";
+                        PromoCode.CssClass = "";
+                        okBooking.Visible = false;
+                        okBooking.Visible = true;
+                    }
+                    else
+                    {
+                        PromoCode.Text = "";
+                        PromoCode.Attributes.Add("placeholder", "Already using a code");
+                        PromoCode.CssClass = "form-error";
+                        okBooking.Visible = false;
+                        okBooking.Visible = true;
+                    }
+                }
+                catch (Exception exc)
+                {
+                    PromoCode.Text = "";
+                    PromoCode.Attributes.Add("placeholder", "Not valid");
+                    PromoCode.CssClass = "form-error";
+                    okBooking.Visible = false;
+                    okBooking.Visible = true;
+                }
             }
-            catch (Exception exc)
+            else
             {
+                PromoCode.Text = "";
+                PromoCode.Attributes.Add("placeholder", "Not valid");
                 PromoCode.CssClass = "form-error";
+                okBooking.Visible = false;
+                okBooking.Visible = true;
             }
         }
 

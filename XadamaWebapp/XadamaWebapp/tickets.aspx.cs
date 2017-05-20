@@ -105,14 +105,14 @@ namespace XadamaWebapp
             {
                 email = ((Client)Session["Client"]).email;
             }
-            ticket = new Ticket(0, email, date.Text, 0, Int32.Parse(Adults.Text), Int32.Parse(Children.Text));
+            ticket = new Ticket(email, date.Text, Int32.Parse(Adults.Text), Int32.Parse(Children.Text));
             Session["ticket"] = ticket;
             Page_Load(sender, e);
         }
 
         protected void buyTickets(object sender, EventArgs e)
         {
-            if (Session["Client"] != null)
+            ticket = new Ticket("", Date2.Text, Int32.Parse(Adults2.Text), Int32.Parse(Children2.Text)); if (Session["Client"] != null)
             {
                 ticket.client = ((Client)Session["Client"]).email;
                 ticket.buyTickets();

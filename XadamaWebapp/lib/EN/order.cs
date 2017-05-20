@@ -77,5 +77,11 @@ namespace lib.EN
             CAD.CADOrder cadorder = new CAD.CADOrder(dbname);
             cadorder.buyItems(cod, quantity,this);
         }
+
+        public static string NextCode()
+        {
+            CAD.CADOrder c = new CAD.CADOrder("");
+            return c.NextCode();
+        }
     }
 }

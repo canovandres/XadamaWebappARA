@@ -17,7 +17,8 @@ namespace XadamaWebapp
         private Order order=new Order("");
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            signin.UserControlButtonClicked += new
+                    EventHandler(UCButton);
             try
             {
                 
@@ -160,15 +161,17 @@ namespace XadamaWebapp
                     aux = (string)dr["name"];
                 }
             }
+            
             if (!fallo)
             {
 
                 if (Session["Client"] != null)
                 {
-                    order.client.email = ((Client)Session["Client"]).email;
-                    DateTime today = DateTime.Today;
-                    order.date = Convert.ToString(today);
-                    //order.cod = order.nextCod();
+                    Client cliente = (Client)Session["Client"];
+                    order.client = cliente;
+                    order.date = DateTime.Today.ToString("dd/MM/yyyy");
+                    //order.date = Convert.ToString(today);
+                    order.cod = Order.NextCode();
                     List<Product> _products = new List<Product>();
 
                     for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
@@ -221,7 +224,7 @@ namespace XadamaWebapp
                 MailAddress toAddress = new MailAddress(((Client)Session["Client"]).email, ((Client)Session["Client"]).name + " " + ((Client)Session["Client"]).surname1);
                 message.From = fromAddress;
                 message.To.Add(toAddress);
-                message.Subject = "Booking at Xadama Park";
+                message.Subject = "Shopping at Xadama Park";
                 message.IsBodyHtml = true;
                 message.Body = "<div style=\"margin: 20px\">"
                                     /*+ "<h1>" + hotelName.Text + "</h1><br>"
@@ -263,5 +266,13 @@ namespace XadamaWebapp
             Panel2.Visible = false;
         }
 
+        private void UCButton(object sender, EventArgs e)
+        {
+            if (Session["Client"] != null)
+            {
+                registerPanel.Visible = false;
+                
+            }
+        }
     }
 }
