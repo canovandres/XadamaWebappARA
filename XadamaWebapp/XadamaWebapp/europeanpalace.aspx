@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="Style/hotel.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="hotel-tittle">
+    <div class="hotel-tittle hotel-tittle-europe">
         <p class="center xxlarge text-white margin-bottom-large bold uppercase padding-large" style="margin-top: 200px;">European Palace</p>
     </div>
     <div class="content container" style="padding-top: 250px">
