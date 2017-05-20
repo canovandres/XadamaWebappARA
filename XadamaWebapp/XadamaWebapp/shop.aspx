@@ -29,7 +29,7 @@
         <ContentTemplate>
         <div class="form-content">
             <asp:Panel runat="server" DefaultButton="searchbutton">
-                <div class="field">
+                <div class="field-2">
                     <asp:TextBox ID="TextBox1" runat="server" placeholder="Search by product name"></asp:TextBox>
                     <div>
                         <ajaxToolkit:AutoCompleteExtender runat="server" CompletionListCssClass="completion-list" CompletionListItemCssClass="completion-list-item" CompletionListHighlightedItemCssClass="completion-list-selected" UseContextKey="true" TargetControlID="TextBox1" ServiceMethod="SuggestionList" EnableCaching="true" CompletionInterval="5" MinimumPrefixLength="1" CompletionSetCount="1" BehaviorID="TextBox1_AutoCompleteExtender"></ajaxToolkit:AutoCompleteExtender>

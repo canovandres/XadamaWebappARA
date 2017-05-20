@@ -17,6 +17,7 @@ namespace XadamaWebapp
         private Order order;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 
@@ -140,19 +141,46 @@ namespace XadamaWebapp
             applypromo.Visible = false;
         }
 
-        protected void buyitems(object sender, EventArgs e)
+        protected void buyItems(object sender, EventArgs e)
         {
-            if (Session["Client"] != null)
+            bool fallo = false;
+            
+            String aux = "";
+            for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
             {
-                order.client.email = ((Client)Session["Client"]).email;
-                //order.buyitems();
-                shopPanel.Visible = true;
-                sendEmail();
+                DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                Product p = new Product();
+                p.cod = (String)dr["cod"];
+                int stock=0;
+                //int stock = p.getStock();
+
+                if ((int)dr["quantity"] > stock)
+                {
+                    fallo = true;
+                    aux = (string)dr["name"];
+                }
+            }
+            if (!fallo)
+            {
+
+                if (Session["Client"] != null)
+                {
+                    order.client.email = ((Client)Session["Client"]).email;
+                    List<Product> _products = new List<Product>();
+                    //order.buyItems();
+                    shopPanel.Visible = true;
+                    sendEmail();
+                }
+                else
+                {
+                   
+                    registerPanel.Visible = true;
+                }
             }
             else
             {
-                //okBooking.Visible = true;
-                registerPanel.Visible = true;
+                Label97.Text = "Sorry, the product " + aux + " is not available for your requirement quantity";
+                Panel2.Visible = true;
             }
         }
 
@@ -188,17 +216,24 @@ namespace XadamaWebapp
 
         protected void checkPromo(object sender, EventArgs e)
         {
-            /*Promo promo = new Promo(PromoCode.Text);
+            Promo promo = new Promo(TextBox1.Text);
             try
             {
                 promo.Read();
-                Price.Text = Math.Round(booking.getPrice() - booking.getPrice() * (promo.discount / 100), 2).ToString();
-                PromoCode.CssClass = "";
+                float actual = float.Parse(Label9.Text);
+                float nuevo = (float) Math.Round(actual - actual * (promo.discount / 100), 2);
+                Label9.Text = Convert.ToString(nuevo);
+                TextBox1.CssClass = "";
             }
             catch (Exception exc)
             {
-                PromoCode.CssClass = "form-error";
-            }*/
+                TextBox1.CssClass = "form-error";
+            }
+        }
+
+        protected void hidestock(object sender, EventArgs e)
+        {
+            Panel2.Visible = false;
         }
 
     }
