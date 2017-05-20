@@ -161,8 +161,8 @@
                         <div>
                             <div class="field">
                                 <asp:Calendar ID="Schedule" runat="server" Format="dd/MM/yyyy" OnDayRender="CalendarDayRender"
-                                              SelectionMode="None" FirstDayOfWeek="Monday" CellPadding="10" TodayDayStyle-BackColor="#FFCC99"
-                                              BackColor="#FFFFCC" BorderColor="#FFFF99"></asp:Calendar>
+                                              SelectionMode="None" FirstDayOfWeek="Monday" CellPadding="12" TodayDayStyle-BackColor="#FFCC99"
+                                              BackColor="#FFFFCC" BorderColor="#FFFF99" NextPrevFormat="ShortMonth"></asp:Calendar>
                             </div>
                         </div>
                     </asp:View>
