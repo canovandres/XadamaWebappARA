@@ -166,9 +166,9 @@ namespace XadamaWebapp
                 if (Session["Client"] != null)
                 {
                     order.client.email = ((Client)Session["Client"]).email;
-                    DateTime today = DateTime.Today;
-                    order.date = Convert.ToString(today);
-                    //order.cod = order.nextCod();
+                    order.date = DateTime.Today.ToString("dd/MM/yyyy");
+                    //order.date = Convert.ToString(today);
+                    order.cod = Order.NextCode();
                     List<Product> _products = new List<Product>();
 
                     for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
