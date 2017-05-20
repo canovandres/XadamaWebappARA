@@ -16,16 +16,16 @@ namespace lib.CAD
     {
         private string conString;
 
-        public CADRestaurant(string dbname)
+        public CADRestaurant()
         {
             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
         }
 
-       /* ~CADRestaurant()
-        {
+        /* ~CADRestaurant()
+         {
 
-        }*/
+         }*/
 
         public void Create(EN.Restaurant restaurant)
         {
@@ -125,6 +125,29 @@ namespace lib.CAD
             finally { con.Close(); }
         }
 
+        public DataSet ListAllRestaurants()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from restaurant", con);
+                da.Fill(bdvirtual, "restaurant");
+                return bdvirtual;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return bdvirtual;
+        }
+
         public DataTable zoneRestaurants(String zone)
         {
             SqlConnection con = new SqlConnection(conString);
@@ -133,7 +156,8 @@ namespace lib.CAD
 
             try
             {
-                if (zone!="*") {
+                if (zone != "*")
+                {
                     SqlDataAdapter da = new SqlDataAdapter("select cod, name, description, image from restaurant where zone like '" + zone + "'", con);
                     da.Fill(bdvirtual, "services");
                 }
@@ -150,6 +174,22 @@ namespace lib.CAD
 
             return t;
         }
+
+        public DataSet DeleteRestaurant(Restaurant r, int i)
+        {
+            Restaurant r1 = r;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection con = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from Restaurant", con);
+            da.Fill(bdvirtual, "restaurant");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["Restaurant"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "restaurant");
+            return bdvirtual;
+        }
     }
 }
+
 

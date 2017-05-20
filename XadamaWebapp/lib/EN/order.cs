@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,6 +64,18 @@ namespace lib.EN
         {
             CAD.CADOrder cadorder = new CAD.CADOrder(dbname);
             cadorder.Delete(cod);
+        }
+
+        public DataTable getOrderInfo(String dbname, String clientid)
+        {
+            CAD.CADOrder cadorder = new CAD.CADOrder(dbname);
+            return cadorder.getOrderInfo(clientid);
+        }
+
+        public void buyItems(String dbname, String cod, int quantity)
+        {
+            CAD.CADOrder cadorder = new CAD.CADOrder(dbname);
+            cadorder.buyItems(cod, quantity,this);
         }
     }
 }

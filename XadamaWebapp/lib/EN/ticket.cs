@@ -78,5 +78,31 @@ namespace lib.EN
             CAD.CADTicket t = new CAD.CADTicket();
             return t.getTypes();
         }
+
+        public static DataSet ListAllTickets()
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            DataSet tickets = t.ListAllTickets();
+            return tickets;
+        }
+
+        public DataSet DeleteTicket(int i)
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            DataSet a = t.DeleteTicket(this, i);
+            return a;
+        }
+
+        public void UpdatePrice(String type, float price)
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            t.UpdatePrice(type, price);
+        }
+
+        public void CreateType(String type, float price)
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            t.CreateType(type, price);
+        }
     }
 }

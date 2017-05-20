@@ -16,7 +16,7 @@ namespace lib.CAD
     {
         private string conString;
 
-        public CADShow(string dbname)
+        public CADShow()
         {
             conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
@@ -149,6 +149,44 @@ namespace lib.CAD
             finally { con.Close();  }
 
             return t;
+        }
+
+        public DataSet ListAllShows()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from show", con);
+                da.Fill(bdvirtual, "show");
+                return bdvirtual;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return bdvirtual;
+        }
+
+        public DataSet DeleteShow(Show s, int i)
+        {
+            Show s1 = s;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection con = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from show", con);
+            da.Fill(bdvirtual, "show");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["Show"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "show");
+            return bdvirtual;
         }
     }
 }

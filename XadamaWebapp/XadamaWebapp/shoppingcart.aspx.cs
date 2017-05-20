@@ -14,9 +14,10 @@ namespace XadamaWebapp
     public partial class shoppingcart : System.Web.UI.Page
     {
         private DataTable t=new DataTable();
-        private Order order;
+        private Order order=new Order("");
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 
@@ -137,21 +138,76 @@ namespace XadamaWebapp
             Label6.Visible = false;
             Label7.Visible = false;
             Label3.Visible = false;
+            applypromo.Visible = false;
         }
 
-        protected void buyitems(object sender, EventArgs e)
+        protected void buyItems(object sender, EventArgs e)
         {
-            if (Session["Client"] != null)
+            bool fallo = false;
+            
+            String aux = "";
+            for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
             {
-                order.client.email = ((Client)Session["Client"]).email;
-                //order.buyitems();
-                shopPanel.Visible = true;
-                sendEmail();
+                DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                Product p = new Product();
+                p.cod = (String)dr["cod"];
+                int stock = p.getStock();
+                int cantidad = (int)dr["quantity"];
+
+                if (cantidad > stock)
+                {
+                    fallo = true;
+                    aux = (string)dr["name"];
+                }
+            }
+            if (!fallo)
+            {
+
+                if (Session["Client"] != null)
+                {
+                    order.client.email = ((Client)Session["Client"]).email;
+                    DateTime today = DateTime.Today;
+                    order.date = Convert.ToString(today);
+                    //order.cod = order.nextCod();
+                    List<Product> _products = new List<Product>();
+
+                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
+                    {
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        Product p = new Product();
+                        p.cod = (String)dr["cod"];
+                        p.name = (String)dr["name"];
+                        p.price = (float)dr["price"];
+                        _products.Add(p);
+
+                    }
+
+                    order._products = _products;
+                 
+
+                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
+                    {
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        Product p = new Product();
+                        p.cod = (String)dr["cod"];
+                        int cantidad = (int)dr["quantity"];
+                        order.buyItems("",p.cod, cantidad);
+
+                    }
+
+                    shopPanel.Visible = true;
+                    sendEmail();
+                }
+                else
+                {
+                   
+                    registerPanel.Visible = true;
+                }
             }
             else
             {
-                //okBooking.Visible = true;
-                registerPanel.Visible = true;
+                Label97.Text = "Sorry, the product " + aux + " is not available for your requirement quantity";
+                Panel2.Visible = true;
             }
         }
 
@@ -187,17 +243,24 @@ namespace XadamaWebapp
 
         protected void checkPromo(object sender, EventArgs e)
         {
-            /*Promo promo = new Promo(PromoCode.Text);
+            Promo promo = new Promo(TextBox1.Text);
             try
             {
                 promo.Read();
-                Price.Text = Math.Round(booking.getPrice() - booking.getPrice() * (promo.discount / 100), 2).ToString();
-                PromoCode.CssClass = "";
+                float actual = float.Parse(Label9.Text);
+                float nuevo = (float) Math.Round(actual - actual * (promo.discount / 100), 2);
+                Label9.Text = Convert.ToString(nuevo);
+                TextBox1.CssClass = "";
             }
             catch (Exception exc)
             {
-                PromoCode.CssClass = "form-error";
-            }*/
+                TextBox1.CssClass = "form-error";
+            }
+        }
+
+        protected void hidestock(object sender, EventArgs e)
+        {
+            Panel2.Visible = false;
         }
 
     }
