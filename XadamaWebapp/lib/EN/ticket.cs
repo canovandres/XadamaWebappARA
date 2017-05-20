@@ -25,7 +25,7 @@ namespace lib.EN
             this.cod = CAD.CADTicket.NextCode();
             this.client = client;
             this.day = day;
-            this.totalprice = totalprice;
+            this.totalprice = totalPrice();
             this.adult = adult;
             this.child = child;
         }
@@ -63,7 +63,7 @@ namespace lib.EN
         public float totalPrice()
         {
             CAD.CADTicket t = new CAD.CADTicket();
-            return t.totalPrice(cod);
+            return t.totalPrice(this);
         }
         // REVISAR
         public bool buyTickets()
@@ -77,6 +77,32 @@ namespace lib.EN
         {
             CAD.CADTicket t = new CAD.CADTicket();
             return t.getTypes();
+        }
+
+        public static DataSet ListAllTickets()
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            DataSet tickets = t.ListAllTickets();
+            return tickets;
+        }
+
+        public DataSet DeleteTicket(int i)
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            DataSet a = t.DeleteTicket(this, i);
+            return a;
+        }
+
+        public void UpdatePrice(String type, float price)
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            t.UpdatePrice(type, price);
+        }
+
+        public void CreateType(String type, float price)
+        {
+            CAD.CADTicket t = new CAD.CADTicket();
+            t.CreateType(type, price);
         }
     }
 }

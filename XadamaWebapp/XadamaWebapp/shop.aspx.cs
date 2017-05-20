@@ -83,9 +83,9 @@ namespace XadamaWebapp
 
             Label c = (Label)item.FindControl("Label1");
             Label c1 = (Label)item.FindControl("Label2");
-            Label c2 = (Label)item.FindControl("Label3");
             Image i = (Image)item.FindControl("Image1");
             LinkButton l = (LinkButton)item.FindControl("LinkButton1");
+            Label c2 = (Label)item.FindControl("Label3");
 
             DataRow r = ((DataTable)Session["products"]).NewRow();
             r[0] = c.Text;

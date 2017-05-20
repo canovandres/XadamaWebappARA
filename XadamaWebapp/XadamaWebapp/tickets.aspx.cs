@@ -15,16 +15,23 @@ namespace XadamaWebapp
         private DataSet bdvirtual = new DataSet();
         private DataTable t = new DataTable();
         Ticket ticket;
-
+        int disc = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             TicketsError.Visible = false;
             TicketsCorrect.Visible = false;
-            PromoCode.CssClass = "";
+            PromoError.Visible = false;
+            boughtCorrectly.Visible = false;
+            registerPanel.Visible = false;
+            
+            CalendarExtender1.StartDate = DateTime.Today;
 
             bdvirtual = Ticket.getTypes();
             ListViewTickets.DataSource = bdvirtual;
             ListViewTickets.DataBind();
+
+            signin.UserControlButtonClicked += new
+                    EventHandler(UCButton);
 
             if (Session["Ticket"] != null)
             {
@@ -35,7 +42,39 @@ namespace XadamaWebapp
                 Children.Text = ticket.child.ToString();
                 Adults.Text = ticket.adult.ToString();
 
-                checkPurchase();
+                if(checkPromo()){
+                    checkPurchase();
+                }
+            }
+        }
+        protected bool checkPromo()
+        {
+            try
+            {
+                if(PromoCode.Text == "")
+                {
+                    disc = 0;
+                    return true;
+                }
+                else if(PromoCode.Text.Substring(0, 1).Equals("T"))
+                {
+                    Promo promo = new Promo(PromoCode.Text);
+                    promo.Read();
+                    Price2.Text = (ticket.totalPrice() * (1 - (promo.discount / 100))).ToString();
+                    disc = promo.discount;
+                    return true;
+                }
+                else
+                {
+                    PromoError.Visible = true;
+                    return false;
+                }
+                
+            }
+            catch (Exception exc)
+            {
+                PromoError.Visible = true;
+                return false;
             }
         }
         protected void checkPurchase()
@@ -43,18 +82,19 @@ namespace XadamaWebapp
             TicketsError.Visible = false;
             TicketsCorrect.Visible = false;
             
-            if ((ticket.child <= 0 && ticket.adult <= 0) || Convert.ToDateTime(ticket.day) < DateTime.Today) // no funciona como deberia whyyyy
+            if (ticket.child <= 0 && ticket.adult <= 0) 
             {
-                Date2.Text = ticket.day;
-                Children2.Text = ticket.child.ToString();
-                Adults2.Text = ticket.adult.ToString();
-                //Promo2.Text = 
-                Price2.Text = Math.Round(ticket.totalPrice(), 2).ToString();
                 TicketsError.Visible = true;
             }
             else
             {
-                TicketsCorrect.Visible = true;
+                Date2.Text = ticket.day;
+                Children2.Text = ticket.child.ToString();
+                Adults2.Text = ticket.adult.ToString();
+                Promo2.Text = disc.ToString();
+                Price2.Text = Math.Round(ticket.totalPrice() * (1 - (disc / 100)), 2).ToString();
+                //Price2.Text = Math.Round(ticket.totalPrice() - ticket.totalPrice() * (disc / 100), 2).ToString();
+                TicketsCorrect.Visible = true; 
             }
         }
         
@@ -65,11 +105,63 @@ namespace XadamaWebapp
             {
                 email = ((Client)Session["Client"]).email;
             }
-            // las conversiones a enteros no funcionan, no se por que 
-                     
-            ticket = new Ticket(0, email, date.Text, 0, Convert.ToInt32(Adults.ToString()), Int32.Parse(Children.Text));
+            ticket = new Ticket(0, email, date.Text, 0, Int32.Parse(Adults.Text), Int32.Parse(Children.Text));
             Session["ticket"] = ticket;
             Page_Load(sender, e);
+        }
+
+        protected void buyTickets(object sender, EventArgs e)
+        {
+            if (Session["Client"] != null)
+            {
+                ticket.client = ((Client)Session["Client"]).email;
+                ticket.buyTickets();
+                sendEmail();
+                TicketsCorrect.Visible = false;
+                boughtCorrectly.Visible = true;
+            }
+            else
+            {
+                TicketsCorrect.Visible = true;
+                registerPanel.Visible = true;
+            }
+        }
+
+        protected void sendEmail()
+        {
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            MailMessage message = new MailMessage();
+            try
+            {
+                MailAddress fromAddress = new MailAddress("xadama.park@gmail.com", "Xadama Bookings");
+                MailAddress toAddress = new MailAddress(((Client)Session["Client"]).email, ((Client)Session["Client"]).name + " " + ((Client)Session["Client"]).surname1);
+                message.From = fromAddress;
+                message.To.Add(toAddress);
+                message.Subject = "Xadama Park Ticket Purchase";
+                message.IsBodyHtml = true;
+                message.Body = "<div style=\"margin: 20px\">"
+                                    + "<h1>Dear " + ((Client)Session["Client"]).name +",</h1>"
+                                    + "<p>We are glad to confirm your purchase of " + Children2.Text +" child tickets and " + Adults2.Text + " adult tickets, for the day " + Date2.Text + ".<br>"
+                                    + "<p>Please, do not hesitate to contact us if you have any questions. </p>"
+                                    + "<p>Best regards from Xadama Park team!"
+                                + "</div>";
+                smtpClient.EnableSsl = true;
+
+                smtpClient.Credentials = new System.Net.NetworkCredential("xadama.park@gmail.com", "XadamaHADA");
+                smtpClient.Send(message);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void UCButton(object sender, EventArgs e)
+        {
+            if (Session["Client"] != null)
+            {
+                signin.Visible = false;
+                TicketsCorrect.Visible = true;
+            }
         }
     }
 }
