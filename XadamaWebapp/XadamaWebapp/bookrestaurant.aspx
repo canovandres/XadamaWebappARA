@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="Xadama RESERVE Restaurant" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="bookrestaurant.aspx.cs" Inherits="XadamaWebapp.bookrestaurant" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-<%@ Register Src="~/signin.ascx" TagPrefix="uc1" TagName="signin" %>
-
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="Style/bookrestaurant.css" />
@@ -18,26 +16,6 @@
             <asp:Label runat="server" CssClass="center padding-small black large wide" Text="Reserve table in our zone's restaurants" ></asp:Label>
         </div>
     </div>
-    <asp:Panel id="Panel1" style="display: none" runat="server" CssClass="popUpReserve" BackColor="White" BorderStyle="Solid" BorderWidth="1px" BorderColor="Black">
-	    <div class="text-darkblue large">
-            <div id="PopupHeader1">Confirm reservation?</div>
-                <div>
-                    <asp:Label id="pupupLabel" runat="server" text="An email will be sent to your account"></asp:Label>
-                </div>
-            <div>
-                <asp:Button runat="server" id="btnOkay" Text="OK" CssClass="field button-slice" OnClick="reserveTable"/>
-                <asp:Button runat="server" id="btnCancel" Text="CANCEL" CssClass="field button-slice"/>
-		    </div>
-       </div>
-    </asp:Panel>
-    <asp:Panel runat="server" ID="reservePanel" CssClass="display-container" Height="300px" Visible="False">
-        <div class="display-middle">
-            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="Thanks for the reservation, check your email to see more details."></asp:Label>
-        </div>
-    </asp:Panel>
-    <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
-        <uc1:signin runat="server" ID="signin" align="center" />
-    </asp:Panel>
 
     <!--AFRICA-->
     <div id="Africa">
@@ -57,7 +35,7 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" ID="TablesAfrica" Text="0" CssClass="margin-bottom textright text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" ID="TablesAfrica" CssClass="margin-bottom textright text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="ValidatorTableAfrica" runat="server" ControlToValidate="TablesAfrica" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Number of tables required" ValidationGroup="africa"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="ValidatorTableAfrica" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -72,14 +50,7 @@
         </div>
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" OnClick="reserveAfrica" ValidationGroup="africa"/>
-            
         </div>
-
-        <asp:Panel runat="server" ID="noTablesAvailableAf" CssClass="display-container" Height="300px" Visible="False">
-            <div class="display-middle">
-                <asp:Label ID="errorAf" runat="server" CssClass="center padding-medium xxlarge wide text-red" style="text-align: justify;"></asp:Label>
-            </div>
-        </asp:Panel>
     </div>
     </div>
 
@@ -101,7 +72,7 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" Text="0" CssClass="margin-bottom textright text-darkblue" ID="TablesAmerica" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" CssClass="margin-bottom textright text-darkblue" ID="TablesAmerica" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="ValidatorTableAmerica" runat="server" ControlToValidate="TablesAmerica" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Number of tables required" ValidationGroup="america"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="ValidatorTableAmerica" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -117,11 +88,6 @@
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" OnClick="reserveAmerica" ValidationGroup="america" />
         </div>
-        <asp:Panel runat="server" ID="noTablesAvailableAm" CssClass="display-container" Height="300px" Visible="False">
-            <div class="display-middle">
-                <asp:Label ID="errorAm" runat="server" CssClass="center padding-medium xxlarge wide text-red" style="text-align: justify;"></asp:Label>
-            </div>
-        </asp:Panel>
     </div>
     </div>
 
@@ -143,7 +109,7 @@
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" Text="0" CssClass="margin-bottom textright text-darkblue" ID="TablesAsia" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" CssClass="margin-bottom textright text-darkblue" ID="TablesAsia" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="ValidatorTableAsia" runat="server" ControlToValidate="TablesAsia" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Number of tables required" ValidationGroup="asia"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="ValidatorTableAsia" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -159,11 +125,6 @@
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" OnClick="reserveAsia" ValidationGroup="asia" />
         </div>
-        <asp:Panel runat="server" ID="noTablesAvailableAs" CssClass="display-container" Height="300px" Visible="False">
-            <div class="display-middle">
-                <asp:Label ID="errorAs" runat="server" CssClass="center padding-medium xxlarge wide text-red" style="text-align: justify;"></asp:Label>
-            </div>
-        </asp:Panel>
     </div>
     </div>
 
@@ -178,14 +139,14 @@
     <div class="content container padding-32"></div>
     <div class="content container padding-32">
         <div class="col three-quarter">
-            <asp:Image ID="europe1" runat="server" CssClass="restaurant-image-small" ImageUrl="~/Media/Restaurants/europe.jpg" />
-            <asp:Image ID="europe2" runat="server" CssClass="restaurant-image-small" ImageUrl="~/Media/Restaurants/europe2.jpg" />
+            <asp:Image ID="asia1" runat="server" CssClass="restaurant-image-small" ImageUrl="~/Media/Restaurants/europe.jpg" />
+            <asp:Image ID="asia2" runat="server" CssClass="restaurant-image-small" ImageUrl="~/Media/Restaurants/europe2.jpg" />
         </div>
         <div>
             <asp:Label runat="server" Text="NUMBER OF TABLES" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" Text="0" ID="TablesEuropa" CssClass="margin-bottom textright text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
+            <asp:TextBox runat="server" ID="TablesEuropa" CssClass="margin-bottom textright text-darkblue" Font-Bold="True" Font-Size="Medium" Height="20px" Width="49px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="ValidatorTableEuropa" runat="server" ControlToValidate="TablesEuropa" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Number of tables required" ValidationGroup="europa"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender7" runat="server" TargetControlID="ValidatorTableEuropa" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -201,11 +162,6 @@
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" OnClick="reserveEuropa" ValidationGroup="europa" />
         </div>
-        <asp:Panel runat="server" ID="noTablesAvailableE" CssClass="display-container" Height="300px" Visible="False">
-            <div class="display-middle">
-                <asp:Label ID="errorE" runat="server" CssClass="center padding-medium xxlarge wide text-red" style="text-align: justify;"></asp:Label>
-            </div>
-        </asp:Panel>
     </div>
     </div>
 
@@ -243,15 +199,8 @@
         <div class="col quarter margin-top-button">
             <asp:Button runat="server" text="RESERVE" CssClass="margin-top center button padding-medium xxlarge wide button-slice" OnClick="reserveOceania" ValidationGroup="oceania" />
         </div>
-        <asp:Panel runat="server" ID="noTablesAvailableO" CssClass="display-container" Height="300px" Visible="False">
-            <div class="display-middle">
-                <asp:Label ID="errorO" runat="server" CssClass="center padding-medium xxlarge wide text-red" style="text-align: justify;"></asp:Label>
-            </div>
-        </asp:Panel>
     </div>
     </div>
 
     <div class="content container padding-32"></div>
-
-
 </asp:Content>
