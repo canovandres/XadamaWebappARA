@@ -356,7 +356,7 @@ namespace XadamaWebapp
 
         protected void GridTickets_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             GridTickets.DataSource = ticket.DeleteTicket(e.RowIndex);
             GridTickets.DataBind();
         }
@@ -373,7 +373,7 @@ namespace XadamaWebapp
                         .FindControl("lblType")).Text;
             string price = ((TextBox)GridTickets.Rows[e.RowIndex]
                                 .FindControl("txtPrice")).Text;
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             ticket.UpdatePrice(type, float.Parse(price));
             GridTickets.EditIndex = -1;
             GridTickets.DataSource = Ticket.ListAllTickets();

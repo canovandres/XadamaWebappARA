@@ -88,5 +88,20 @@ namespace lib.EN
             DataSet a = r.DeleteRide(this, i);
             return a;
         }
+
+        public EN.Ride ReadName(String name)
+        {
+            CAD.CADRide cadride = new CAD.CADRide("");
+            Ride ride = (Ride)cadride.ReadName(name);
+            this.cod = ride.cod;
+            this.name = ride.name;
+            this.zone = ride.zone;
+            this.description = ride.description;
+            this.minHeight = ride.minHeight;
+            this.speed = ride.speed;
+            this.height = ride.height;
+            this.image = ride.image;
+            return ride;
+        }
     }
 }

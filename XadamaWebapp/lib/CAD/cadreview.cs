@@ -228,5 +228,37 @@ namespace lib.CAD
             da.Update(bdvirtual, "review");
             return bdvirtual;
         }
+
+        public List<Review> ListReviewsName(String hotel)
+        {
+            List<Review> reviews = new List<Review>();
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Review, Hotel where Hotel.name like '" + hotel + "' and Review.hotel = Hotel.cod", con);
+                da.Fill(bdvirtual, "review");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["review"];
+
+                for (int i = 0; i < t.Rows.Count; i++)
+                {
+                    Review review = new Review("", "", 0, "");
+
+                    review.cod = t.Rows[i][0].ToString();
+                    review.description = t.Rows[i][1].ToString();
+                    review.score = Int32.Parse(t.Rows[i][2].ToString());
+                    review.hotel = t.Rows[i][3].ToString();
+                    review.name = t.Rows[i][4].ToString();
+
+                    reviews.Add(review);
+                }
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return reviews;
+        }
     }
 }

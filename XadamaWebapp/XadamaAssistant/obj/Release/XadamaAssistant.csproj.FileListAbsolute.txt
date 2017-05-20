@@ -1,0 +1,48 @@
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Bot Application.dll.config
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Bot Application.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Bot Application.pdb
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Autofac.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Chronic.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.Bot.Builder.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.Bot.Connector.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Newtonsoft.Json.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.Net.Http.Formatting.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.Web.Http.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.Web.Http.WebHost.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Autofac.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.Bot.Builder.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.Bot.Connector.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\Newtonsoft.Json.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.Net.Http.Formatting.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.Web.Http.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\System.Web.Http.WebHost.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\obj\Release\XadamaAssistant.csprojResolveAssemblyReference.cache
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\obj\Release\Bot Application.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\obj\Release\Bot Application.pdb
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\EntityFramework.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\EntityFramework.SqlServer.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\EntityFramework.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\EntityFramework.SqlServer.xml
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\lib.dll
+C:\Users\Andrés\documents\visual studio 2017\Projects\XadamaAssistant\XadamaAssistant\bin\lib.pdb
