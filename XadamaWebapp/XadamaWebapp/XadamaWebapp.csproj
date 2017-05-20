@@ -108,10 +108,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.aspx" />
+    <Content Include="africansavannah.aspx" />
+    <Content Include="americanluxury.aspx" />
     <Content Include="App_Data\XadamaDB.mdf" />
     <Content Include="App_Data\XadamaDB_log.ldf">
       <DependentUpon>XadamaDB.mdf</DependentUpon>
     </Content>
+    <Content Include="asiangardens.aspx" />
     <Content Include="bookhotel.aspx" />
     <Content Include="bookrestaurant.aspx" />
     <Content Include="carousel.ascx" />
@@ -181,6 +184,7 @@
     <Content Include="Media\Social\twitter.png" />
     <Content Include="Media\Logo\xadamaLogoSmall.png" />
     <Content Include="Media\Social\youtube.png" />
+    <Content Include="oceanicparadise.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -202,7 +206,10 @@
     <Content Include="Style\client.css" />
     <Content Include="Style\hotel.css" />
     <Content Include="Style\hotels.css" />
+    <Content Include="Style\promo.css" />
+    <Content Include="Style\register.css" />
     <Content Include="Style\shop.css" />
+    <Content Include="Style\shoppingcart.css" />
     <Content Include="Style\worker.css" />
     <Content Include="Style\zoneeurope.css" />
     <Content Include="Style\zones.css" />
@@ -239,6 +246,27 @@
     </Compile>
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="africansavannah.aspx.cs">
+      <DependentUpon>africansavannah.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="africansavannah.aspx.designer.cs">
+      <DependentUpon>africansavannah.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="americanluxury.aspx.cs">
+      <DependentUpon>americanluxury.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="americanluxury.aspx.designer.cs">
+      <DependentUpon>americanluxury.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asiangardens.aspx.cs">
+      <DependentUpon>asiangardens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asiangardens.aspx.designer.cs">
+      <DependentUpon>asiangardens.aspx</DependentUpon>
     </Compile>
     <Compile Include="bookhotel.aspx.cs">
       <DependentUpon>bookhotel.aspx</DependentUpon>
@@ -288,6 +316,13 @@
     </Compile>
     <Compile Include="main.Master.designer.cs">
       <DependentUpon>main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="oceanicparadise.aspx.cs">
+      <DependentUpon>oceanicparadise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="oceanicparadise.aspx.designer.cs">
+      <DependentUpon>oceanicparadise.aspx</DependentUpon>
     </Compile>
     <Compile Include="product.aspx.cs">
       <DependentUpon>product.aspx</DependentUpon>

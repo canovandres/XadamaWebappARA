@@ -19,7 +19,7 @@ namespace lib.CAD
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
         }
 
-        /*public void Create(Order order)
+        public void Create(Order order)
         {
             SqlConnection con = new SqlConnection(conString);
             try
@@ -45,39 +45,11 @@ namespace lib.CAD
             {
                 con.Close();
             }
-        }*/
-
-        public void Create(Order order)
-        {
-            SqlConnection con = new SqlConnection(conString);
-            try
-            {
-                DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select * from order", con);
-                da.Fill(bdvirtual, "order");
-                DataTable t = new DataTable();
-                t = bdvirtual.Tables["order"];
-                DataRow newline = t.NewRow();
-                newline[0] = order.cod;
-                newline[1] = order.client.email;
-                newline[2] = order.date;
-                t.Rows.Add(newline);
-                SqlCommandBuilder cb = new SqlCommandBuilder(da);
-                da.Update(bdvirtual, "order");
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                con.Close();
-            }
         }
 
         public Order Read(String cod, String email)
         {
-            Order order = new Order("", null, "");
+            Order order = new Order(0, null, "");
             SqlConnection con = new SqlConnection(conString);
             try
             {
@@ -86,7 +58,7 @@ namespace lib.CAD
                 da.Fill(bdvirtual, "order");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["order"];
-                order.cod = t.Rows[0][0].ToString();
+                order.cod = Int32.Parse(t.Rows[0][0].ToString());
                 order.client.email = t.Rows[0][1].ToString();
                 order.date = t.Rows[0][2].ToString();
             }
@@ -204,20 +176,19 @@ namespace lib.CAD
             }
         }
 
-        public String NextCode()
+        public int NextCode()
         {
+            int codigo = 0;
             SqlConnection con = new SqlConnection(conString);
             try
             {
-                string aux;
+                
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select max(cast(substring(cod,2,len(cod)-1) as int)) from order", con);
+                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from order", con);
                 da.Fill(bdvirtual, "order");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["order"];
-                aux = t.Rows[0][0].ToString();
-                return aux[0] + Convert.ToString(int.Parse(aux.Substring(1, aux.Length - 1)) + 1);
-
+                codigo = Int32.Parse(t.Rows[0][0].ToString());
             }
             catch (Exception ex)
             {
@@ -227,7 +198,7 @@ namespace lib.CAD
             {
                 con.Close();
             }
-            return "";
+            return codigo;
         }
     }
 }
