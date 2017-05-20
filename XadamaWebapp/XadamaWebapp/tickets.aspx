@@ -20,6 +20,7 @@
         <div align ="center">
     </div>
         <!-- mio></!-->
+
         <asp:ListView ID="ListViewTickets" runat="server" DataKeyNames="type" GroupItemCount="2">
             <LayoutTemplate>
                   <div align="center" runat="server">
@@ -28,11 +29,11 @@
                   </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <div class="display-circle padding-32">
-                    <div class="half bold large uppercase text-black">
+                <div class="fifth col margin-32 bold large uppercase text-black display-circle padding-16" style="margin-left: 20%">
+                    <div>
                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("type") %>'></asp:Label>
                     </div>
-                    <div class="half bold large uppercase text-black">
+                    <div>
                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label>€
                     </div>
                 </div>
@@ -40,13 +41,29 @@
             <GroupTemplate>
                     <div runat="server" id="ticketsRow">
                         <div runat="server" id="itemPlaceholder">
-                            <asp:Image runat="server" ImageUrl="~/Media/Icons/info.png" CssClass="info-logo margin-left" /> </br>
                         </div>
+                    </div>
+                    <div>
+                        <asp:ImageButton ID="infoBtn" runat="server" ImageUrl="~/Media/Icons/info.png" class="info-button margin-left margin-16"> </asp:ImageButton>
+                        <asp:Panel ID="InfoPanel" runat="server" class="info-popup text-black " >
+                            <asp:Button ID="closeBtn" runat="server" class="close-button text-white uppercase"  Style="cursor:pointer" Text="x" />
+                            <div class="padding-16">
+                                <asp:Label runat="server" Text="Children: 4-16 years" class="medium"></asp:Label></br>
+                                <asp:Label runat="server" Text="Adults: +17 years" class="medium"></asp:Label></br>
+                                <asp:Label runat="server" Text="FREE ENTRY: children under 4 years" class="medium"></asp:Label>
+                            </div>
+                        </asp:Panel>
+                        <ajaxToolkit:ModalPopupExtender ID="InfoPopup" runat="server" 
+                                                        TargetControlID="infoBtn"
+                                                        OkControlID="closeBtn" 
+                                                        PopupControlID="InfoPanel" >
+                        </ajaxToolkit:ModalPopupExtender>
                     </div>
             </GroupTemplate>
         </asp:ListView>
         </div>
-
+        
+        
 
         <!-->
         <asp:ListView ID="ListView1" runat="server" DataKeyNames="type" >
@@ -126,16 +143,23 @@
                 <asp:RequiredFieldValidator ID="ValidatorDate" runat="server" ControlToValidate="date" CssClass="error-text" ErrorMessage="Date Required"></asp:RequiredFieldValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorDate" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"
-                    TargetControlID="date" FirstDayOfWeek="Monday" PopupPosition="BottomRight" />
+                    TargetControlID="date" FirstDayOfWeek="Monday" PopupPosition="BottomRight"  Format="dd/MM/yyyy"/>
             </div>
             <div class="field col seventh">
                <asp:Label runat="server" Text="Children"></asp:Label>
-               <asp:TextBox runat="server" ID="Children" MaxLength="2" TextMode="Number" CssClass="textright text-darkblue large calculo calculo-children"></asp:TextBox>
+               <asp:TextBox runat="server" ID="Children" MaxLength="2" TextMode="Number" Text="0"  ValidationGroup="numbers" CssClass="textright text-darkblue large calculo calculo-children"></asp:TextBox>
+               <asp:RangeValidator ID="RangeValidator2" Type="Integer" MinimumValue="0"  MaximumValue="99" ControlToValidate="Children" runat="server" CssClass="error-text" ErrorMessage="Incorrect quantity"></asp:RangeValidator>
+               <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="RangeValidator2" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+
             </div>
             <div class="field col seventh">
                <asp:Label runat="server" Text="Adults"></asp:Label>
-               <asp:TextBox runat="server" ID="Adults" MaxLength="2" TextMode="Number" CssClass="textright text-darkblue large calculo calculo-adult"></asp:TextBox>
+               <asp:TextBox runat="server" ID="Adults" MaxLength="2" TextMode="Number" Text="0"  ValidationGroup="numbers" CssClass="textright text-darkblue large calculo calculo-adult"></asp:TextBox>
+               <asp:RangeValidator ID="RangeValidator1" Type="Integer" MinimumValue="0"  MaximumValue="99" ControlToValidate="Adults" runat="server" CssClass="error-text" ErrorMessage="Incorrect quantity"></asp:RangeValidator>
+               <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RangeValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+
             </div>
+            
             <div class="field col fifth">
                <asp:Label runat="server" Text="Promotion Code"></asp:Label>
                <asp:TextBox runat="server" placeholder="Enter your code" ID="PromoCode" CssClass="textright text-darkblue medium calculo calculo-promo"></asp:TextBox>
@@ -157,35 +181,49 @@
         </div>
     </asp:Panel>
 
+    <asp:Panel runat="server" ID="PromoError" CssClass="display-container" Height="300px">
+        <div class="display-middle">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-red" text="Sorry, the promotion code you entered is not correct. Please, change it."></asp:Label>
+        </div>
+    </asp:Panel>
 
-    <asp:Panel runat="server" ID="TicketsCorrect" CssClass="display-container" Height="300px">
+
+    <asp:Panel runat="server" ID="TicketsCorrect" CssClass="display-container " style="margin-left:20%;" Height="300px">
         <asp:UpdatePanel id="updatePanelBook" runat="server">
         <ContentTemplate>
             <div class="row-padding">
                 <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="This is your tickets selection: "></asp:Label>
             </div>
-            <div class="row-padding">
-                <asp:Label runat="server" CssClass="large text-blue" Text="Tickets for the day: "></asp:Label>
-                <asp:Label runat="server" ID="Date2" CssClass="text-darkblue large padding-large"></asp:Label>
+            <div class="row-padding" style="margin-left:5%;">
+                <asp:Label runat="server" CssClass="xlarge text-darkblue" Text="Tickets for the day: "></asp:Label>
+                <asp:Label runat="server" ID="Date2" CssClass="text-darkblue xlarge padding-large"></asp:Label>
+            </div>
+            <div class="row-padding" style="margin-left:5%;">
+                <asp:Label runat="server" ID="Adults2" CssClass="text-darkblue xlarge padding-large"></asp:Label>
+                <asp:Label runat="server" CssClass="xlarge text-darkblue" Text=" adult tickets"></asp:Label>
+            </div>
+            <div class="row-padding" style="margin-left:5%;">
+                <asp:Label runat="server" ID="Children2" CssClass="text-darkblue xlarge padding-large"></asp:Label>
+                <asp:Label runat="server" CssClass="xlarge text-darkblue" Text=" child tickets"></asp:Label>
             </div>
             <div class="row-padding">
-                <asp:Label runat="server" ID="Adults2" CssClass="text-darkblue large padding-large"></asp:Label>
-                <asp:Label runat="server" CssClass="large text-blue" Text=" adult tickets"></asp:Label>
+                 <asp:Label runat="server" CssClass="xlarge text-darkblue" Text="Promotion discount: "></asp:Label>
+                <asp:Label runat="server" ID="Promo2" CssClass="text-darkblue xlarge padding-large"></asp:Label> %
             </div>
             <div class="row-padding">
-                <asp:Label runat="server" ID="Children2" CssClass="text-darkblue large padding-large"></asp:Label>
-                <asp:Label runat="server" CssClass="large text-blue" Text=" child tickets"></asp:Label>
-            </div>
-            <div class="row-padding">
-                <asp:Label runat="server" CssClass="bold xxlarge text-blue" Text="Total price: "></asp:Label>
-                <asp:Label runat="server" ID="Price2" CssClass="bold text-darkblue xxlarge padding-large"></asp:Label>
+                <asp:Label runat="server" CssClass="xxlarge text-darkblue" Text="Total price: "></asp:Label>
+                <asp:Label runat="server" ID="Price2" CssClass="text-darkblue xxlarge padding-large"></asp:Label>
             </div>
 
             <div class="row-padding">
-                <asp:Label runat="server" CssClass="center padding-medium large wide text-darkblue" text="Do you want to confirm your purchase? "></asp:Label>
+                <asp:Label runat="server" CssClass="center padding-medium xlarge text-darkblue" text="Do you want to confirm your purchase? "></asp:Label>
             </div>
-            <asp:Button runat="server" ID="Button1" CssClass="button-slice xlarge margin-32 col half" Style="cursor:pointer" Text="CONFIRM" ></asp:Button>
-            <asp:Button runat="server" ID="Button2" CssClass="button-slice xlarge margin-32 col half" Style="cursor:pointer" Text="CANCEL" NavigateUrl="main.aspx"></asp:Button>
+            <div class="col seventh margin-left">
+                <asp:Button runat="server" ID="Button1" CssClass="button-slice xlarge margin-32" Style="cursor:pointer; align-content:center" Text="CONFIRM" ></asp:Button>
+            </div>
+            <div class="col seventh">
+                <asp:Button runat="server" ID="Button2" CssClass="button-slice xlarge margin-32 " Style="cursor:pointer; align-content:center; margin-left:20%" Text="CANCEL" NavigateUrl="main.aspx"></asp:Button>
+            </div>
         
         </ContentTemplate>
         </asp:UpdatePanel>
