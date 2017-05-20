@@ -80,9 +80,9 @@ namespace XadamaWebapp
                     Session["name"] = TextBoxName.Text;
                     */
 
-                    TextBoxEmail.Text = string.Empty;
-                    TextBoxEmail.Attributes.Add("placeholder", "Account created!");
-                    // Response.Redirect("main.Master");
+                    // TextBoxEmail.Text = string.Empty;
+                    // TextBoxEmail.Attributes.Add("placeholder", "Account created!");
+                    Response.Redirect("main.aspx");
                 }
             }
             catch (Exception ex)
@@ -145,8 +145,9 @@ namespace XadamaWebapp
                         // Hay que hacerlo de otra forma, cuando se logea no puedes acceder al nombre dsd textbox
                         // Session["name"] = TextBoxName.Text;
 
-                        TextBoxEmailSignIn.Text = string.Empty;
-                        TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email [Client]!");
+                        // TextBoxEmailSignIn.Text = string.Empty;
+                        // TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email [Client]!");
+                        Response.Redirect("main.aspx");
                     }
                     else
                     {
@@ -168,8 +169,9 @@ namespace XadamaWebapp
                             w.Read();
                             Session["Worker"] = w;
 
-                            TextBoxEmailSignIn.Text = string.Empty;
-                            TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email [Worker]!");
+                            // TextBoxEmailSignIn.Text = string.Empty;
+                            // TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email [Worker]!");
+                            Response.Redirect("main.aspx");
                         }
                         else
                         {
@@ -191,8 +193,9 @@ namespace XadamaWebapp
                                 a.Read();
                                 Session["Admin"] = a;
 
-                                TextBoxEmailSignIn.Text = string.Empty;
-                                TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email! [Admin]");
+                                // TextBoxEmailSignIn.Text = string.Empty;
+                                // TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email! [Admin]");
+                                Response.Redirect("main.aspx");
                             }
                             else
                             {
