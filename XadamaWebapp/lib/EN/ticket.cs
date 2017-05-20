@@ -25,7 +25,7 @@ namespace lib.EN
             this.cod = CAD.CADTicket.NextCode();
             this.client = client;
             this.day = day;
-            this.totalprice = totalprice;
+            this.totalprice = totalPrice();
             this.adult = adult;
             this.child = child;
         }
