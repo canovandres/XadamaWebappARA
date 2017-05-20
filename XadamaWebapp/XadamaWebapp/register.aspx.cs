@@ -16,10 +16,7 @@ namespace XadamaWebapp
         private DataSet dbvirtual = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack)
-            {
-                
-            }
+            Birthdate.Attributes.Add("readonly", "readonly");
         }
 
         protected void OnCreateClick(object sender, EventArgs e)

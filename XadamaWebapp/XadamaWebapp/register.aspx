@@ -16,6 +16,7 @@
             <div class="col half">      <!--3-->
                 <asp:Label runat="server" Text="Create a New Account " CssClass="form-label margin-large xxlarge"></asp:Label>
                 <div class="register form-content padding-large margin-medium grey shadow">    <!--4-->
+                    <asp:Panel runat="server" DefaultButton="Create">
                     <div class="field">
                             <asp:Label runat="server" Text="EMAIL *" CssClass="form-label medium"></asp:Label>
                             <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
@@ -149,12 +150,14 @@
                                         ValidationGroup="CreateAccount"></asp:Button>
                         </div>
                     </div>
+                    </asp:Panel>
                 </div>
             </div>
         
             <div class="col half">  <!--3-->
                 <asp:Label runat="server" Text="Sign In " CssClass="form-label margin-large xxlarge"></asp:Label>
                 <div class="register form-content padding-large margin-medium grey shadow">    <!--4-->
+                    <asp:Panel runat="server" DefaultButton="SignIn">
                     <div class="field">
                         <asp:Label runat="server" Text="EMAIL" CssClass="form-label medium"></asp:Label>
                         <asp:TextBox ID="TextBoxEmailSignIn" runat="server"></asp:TextBox>
@@ -175,6 +178,7 @@
                                         CssClass="right button padding-medium large button-slice wide" text="Sign In" ValidationGroup="LogIn"></asp:Button>
                         </div>
                     </div>
+                    </asp:Panel>
                 </div>
             </div>
         </div>

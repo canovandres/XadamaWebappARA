@@ -15,8 +15,9 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
+            Birthdate.Attributes.Add("readonly", "readonly");
+            // if (!Page.IsPostBack)
+            // {
                 if (Session["Worker"] != null)
                 {
 
@@ -40,9 +41,9 @@ namespace XadamaWebapp
                 }
                 else
                 {
-                    // Reenviar a la pagina de LogIn o Inicio
+                    // TODO: Reenviar a la pagina de LogIn o Inicio
                 }
-            }
+            // }
         }
 
         protected void MenuItemClick(object sender, MenuEventArgs e)
