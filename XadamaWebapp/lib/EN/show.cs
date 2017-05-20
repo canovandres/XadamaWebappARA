@@ -24,15 +24,15 @@ namespace lib.EN
         public string image { get; set; }
         public string zone { get; set; }
 
-        public void save(string dbname)
+        public void save()
         {
-            CAD.CADShow show = new CAD.CADShow(dbname);
+            CAD.CADShow show = new CAD.CADShow();
             show.Create(this);
         }
 
-        public void Read(String dbname, String cod)
+        public void Read(String cod)
         {
-            CAD.CADShow show = new CAD.CADShow(dbname);
+            CAD.CADShow show = new CAD.CADShow();
             Show s = (Show)show.Read(cod);
             this.cod = s.cod;
             this.name = s.name;
@@ -41,22 +41,36 @@ namespace lib.EN
             this.zone = s.zone;
         }
 
-        public void Update(String dbname, Show s)
+        public void Update(Show s)
         {
-            CAD.CADShow show = new CAD.CADShow(dbname);
+            CAD.CADShow show = new CAD.CADShow();
             show.Update(s);
         }
 
-        public void Delete(String dbname, String cod)
+        public void Delete(String cod)
         {
-            CAD.CADShow show = new CAD.CADShow(dbname);
+            CAD.CADShow show = new CAD.CADShow();
             show.Delete(cod);
         }
 
-        public DataTable zoneShows(String db, String zone)
+        public DataTable zoneShows(String zone)
         {
-            CAD.CADShow show = new CAD.CADShow(db);
+            CAD.CADShow show = new CAD.CADShow();
             return show.zoneShows(zone);
+        }
+
+        public static DataSet ListAllShows()
+        {
+            CAD.CADShow s = new CAD.CADShow();
+            DataSet shows = s.ListAllShows();
+            return shows;
+        }
+
+        public DataSet DeleteShow(int i)
+        {
+            CAD.CADShow s = new CAD.CADShow();
+            DataSet a = s.DeleteShow(this, i);
+            return a;
         }
     }
 }
