@@ -447,7 +447,7 @@
                     <asp:View ID="View5" runat="server">
                         <asp:GridView id="GridReviews" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridReviews_PageIndexChanging" 
                             OnRowCancelingEdit="GridReviews_RowCancelingEdit" OnRowDeleting="GridReviews_RowDeleting" OnRowEditing="GridReviews_RowEditing" 
-                            OnRowUpdating="GridReviews_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true">
+                            OnRowUpdating="GridReviews_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -465,7 +465,10 @@
                                     <ItemTemplate>
                                         <asp:Label ID="lblCode" runat="server"
                                         Text='<%# Eval("cod")%>'></asp:Label>
-                                    </ItemTemplate>
+                                    </ItemTemplate> 
+                                    <FooterTemplate>
+                                        <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
+                                    </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ItemStyle-Width = "250px"  HeaderText = "Description">
                                     <ItemTemplate>

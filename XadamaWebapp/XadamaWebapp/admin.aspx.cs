@@ -36,14 +36,14 @@ namespace XadamaWebapp
                     GridReviews.DataSource = Review.ListAllReviews();
                     GridReviews.DataBind();
 
-                    //GridRides.DataSource = Ride.ListAllRides();
-                    //GridRides.DataBind();
+                    GridRides.DataSource = Ride.ListAllRides("");
+                    GridRides.DataBind();
 
                     GridRestaurants.DataSource = Restaurant.ListAllRestaurants();
                     GridRestaurants.DataBind();
 
-                    //GridShows.DataSource = Show.ListAllShows();
-                    //GridShows.DataBind();
+                    GridShows.DataSource = Show.ListAllShows();
+                    GridShows.DataBind();
 
                     GridTickets.DataSource = Ticket.ListAllTickets();
                     GridTickets.DataBind();
@@ -240,14 +240,14 @@ namespace XadamaWebapp
         protected void GridShows_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             Show show = new Show("");
-            //GridShows.DataSource = show.DeleteShow(e.RowIndex);
+            GridShows.DataSource = show.DeleteShow(e.RowIndex);
             GridShows.DataBind();
         }
 
         protected void GridShows_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridShows.EditIndex = e.NewEditIndex;
-            //GridShows.DataSource = Show.ListAllShows();
+            GridShows.DataSource = Show.ListAllShows();
             GridShows.DataBind();
         }
         protected void GridShows_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -258,21 +258,21 @@ namespace XadamaWebapp
             string image = ((TextBox)GridShows.Rows[e.RowIndex].FindControl("txtImage")).Text;
             string zone = ((TextBox)GridShows.Rows[e.RowIndex].FindControl("txtZone")).Text;
             Show show = new Show(cod, name, description, image, zone);
-            //show.Update();
+            show.Update(show);
             GridShows.EditIndex = -1;
-            //GridShows.DataSource = Show.ListAllShows();
+            GridShows.DataSource = Show.ListAllShows();
             GridShows.DataBind();
         }
         protected void GridShows_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridShows.PageIndex = e.NewPageIndex;
-            //GridShows.DataSource = Show.ListAllShows();
+            GridShows.DataSource = Show.ListAllShows();
             GridShows.DataBind();
         }
         protected void GridShows_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridShows.EditIndex = -1;
-            //GridShows.DataSource = Show.ListAllShows();
+            GridShows.DataSource = Show.ListAllShows();
             GridShows.DataBind();
         }
 
@@ -285,8 +285,8 @@ namespace XadamaWebapp
             string zone = ((TextBox)GridReviews.FooterRow.FindControl("txtZone")).Text;
 
             Show show = new Show(cod, name, description, image, zone);
-            //show.Create();
-            //GridShows.DataSource = Show.ListAllShows();
+            show.save();
+            GridShows.DataSource = Show.ListAllShows();
             GridShows.DataBind();
         }
 
@@ -394,13 +394,13 @@ namespace XadamaWebapp
 
         protected void AddNewTicket(object sender, EventArgs e)
         {
-            string type = ((TextBox)GridWorkers.FooterRow.FindControl("txtType")).Text;
-            string price = ((TextBox)GridWorkers.FooterRow.FindControl("txtPrice")).Text;
+            string type = ((TextBox)GridTickets.FooterRow.FindControl("txtType")).Text;
+            string price = ((TextBox)GridTickets.FooterRow.FindControl("txtPrice")).Text;
 
             Ticket ticket = new Ticket(0, "", "");
             ticket.CreateType(type, float.Parse(price));
-            GridWorkers.DataSource = Ticket.ListAllTickets();
-            GridWorkers.DataBind();
+            GridTickets.DataSource = Ticket.ListAllTickets();
+            GridTickets.DataBind();
         }
 
         //Grid Workers

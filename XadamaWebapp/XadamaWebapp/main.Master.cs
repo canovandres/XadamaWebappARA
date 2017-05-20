@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lib.EN;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,6 +25,11 @@ namespace XadamaWebapp
                 }
                 else if (Session["Client"] != null || Session["Worker"] != null)
                 {
+                    if (Session["Client"] != null)
+                        ProfileBT.Text = ((Client)Session["Client"]).name;
+                    else
+                        ProfileBT.Text = ((Worker)Session["Worker"]).name;
+
                     SignInBt.Visible = false;
                     ProfileBT.Visible = true;
                     SignOutBt.Visible = true;
