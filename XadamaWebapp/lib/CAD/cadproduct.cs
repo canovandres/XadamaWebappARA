@@ -255,10 +255,10 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select stock from product where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select stock from product where cod like '"+cod+"'", con);
                 da.Fill(bdvirtual, "product");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["producto"];
+                t = bdvirtual.Tables["product"];
                 return int.Parse(t.Rows[0][0].ToString());
             }
             catch (Exception ex)
