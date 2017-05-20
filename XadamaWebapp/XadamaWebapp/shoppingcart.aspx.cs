@@ -137,6 +137,7 @@ namespace XadamaWebapp
             Label6.Visible = false;
             Label7.Visible = false;
             Label3.Visible = false;
+            applypromo.Visible = false;
         }
 
         protected void buyitems(object sender, EventArgs e)
