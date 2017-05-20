@@ -43,7 +43,7 @@
     <!--Top menu-->
     <div class="top menu front">
         <div class="bar front" id="nav-menu">
-            <asp:ImageButton ID="ImageButton1" runat="server" CssClass="logo-small margin-large" style="margin-right: -24px !important;" ImageUrl="~/Media/Logo/xadamaLogoSmall.png" />
+            <asp:ImageButton ID="ImageButton1" runat="server" CssClass="logo-small margin-large" style="margin-right: -24px !important;" ImageUrl="~/Media/Logo/xadamaLogoSmall.png" PostBackUrl="~/main.aspx" />
             
             <div class="right">
                 <asp:LinkButton id="SignInBt" runat="server" Text="Sign In" CssClass="button-sign text-white right margin-16 margin-right" PostBackUrl="register.aspx" Visible="True" />
