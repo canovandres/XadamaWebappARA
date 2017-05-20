@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,6 +82,19 @@ namespace lib.EN
             return (c.ExistsClient(email));
         }
 
+        public static DataSet ListAllClients()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            DataSet clients = c.ListAllClients();
+            return clients;
+        }
+
+        public DataSet DeleteClient(int i)
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            DataSet a = c.DeleteClient(this, i);
+            return a;
+        }
     }
 }
 
