@@ -14,10 +14,12 @@ namespace XadamaWebapp
         {
             if (!Page.IsPostBack)
             {
+               
                 if (Session["Restaurant"] != null)
                 {
+                    pdesc.Visible = pzone.Visible = Container.Visible = true;
                     Restaurant rs = (Restaurant)Session["Restaurant"];
-                    ServiceTitle.Text = rs.name;
+                    name.Text = ServiceTitle.Text = rs.name;
                     ServiceDescription.Text = rs.description;
                     zone.Text = "Zone: " + rs.zone;
                     image.ImageUrl = rs.image;
@@ -26,12 +28,16 @@ namespace XadamaWebapp
                 }
                 else if (Session["Ride"] != null)
                 {
+                    ServiceTitle.CssClass += " text-blue";
+                    pname.CssClass += " ride-background";
+                    pname.Visible= pdesc.Visible = pzone.Visible = Container.Visible = true;
                     Ride r = (Ride)Session["Ride"];
-                    ServiceTitle.Text = r.name;
+                    pheight.Visible = pspeed.Visible = Container.Visible;
+                    name.Text =  ServiceTitle.Text = r.name;
                     ServiceDescription.Text = r.description;
                     minheight.Text = "The minimum height for this ride is: " + r.minHeight + " m";
                     speed.Text = "This ride reaches a speed of " + r.speed + " km/h";
-                    zone.Text = r.zone;
+                    zone.Text = "Zone: "+ r.zone;
                     image.ImageUrl = r.image;
                     speed.Visible = true;
                     minheight.Visible = true;
@@ -39,11 +45,12 @@ namespace XadamaWebapp
                 }
                 else if (Session["Show"] != null)
                 {
+                    pname.Visible=pdesc.Visible = pzone.Visible = Container.Visible = true;
                     Show s = (Show)Session["Show"];
-                    ServiceTitle.Text = s.name;
+                    name.Text = ServiceTitle.Text = s.name;
                     ServiceDescription.Text = s.description;
                     image.ImageUrl = s.image;
-                    zone.Text = s.zone;
+                    zone.Text = "Zone: "+ s.zone;
                     Session.Remove("Show");
                 }
             }

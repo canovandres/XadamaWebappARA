@@ -22,6 +22,51 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label ServiceTitle;
         
         /// <summary>
+        /// Control Container.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Container;
+        
+        /// <summary>
+        /// Control info.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel info;
+        
+        /// <summary>
+        /// Control pname.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pname;
+        
+        /// <summary>
+        /// Control name.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label name;
+        
+        /// <summary>
+        /// Control pzone.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pzone;
+        
+        /// <summary>
         /// Control zone.
         /// </summary>
         /// <remarks>
@@ -29,6 +74,15 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label zone;
+        
+        /// <summary>
+        /// Control pheight.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pheight;
         
         /// <summary>
         /// Control minheight.
@@ -40,6 +94,15 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label minheight;
         
         /// <summary>
+        /// Control pspeed.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pspeed;
+        
+        /// <summary>
         /// Control speed.
         /// </summary>
         /// <remarks>
@@ -49,13 +112,13 @@ namespace XadamaWebapp {
         protected global::System.Web.UI.WebControls.Label speed;
         
         /// <summary>
-        /// Control Seadragon.
+        /// Control pdesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.Seadragon Seadragon;
+        protected global::System.Web.UI.WebControls.Panel pdesc;
         
         /// <summary>
         /// Control ServiceDescription.
