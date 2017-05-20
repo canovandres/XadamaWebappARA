@@ -67,7 +67,7 @@ namespace XadamaWebapp
         protected void GridProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             Product product = new Product();
-            //GridProducts.DataSource = product.DeleteProduct(e.RowIndex);
+            GridProducts.DataSource = product.DeleteProduct(e.RowIndex);
             GridProducts.DataBind();
         }
 
@@ -313,8 +313,8 @@ namespace XadamaWebapp
                                 .FindControl("txtDescription")).Text;
             string score = ((TextBox)GridReviews.Rows[e.RowIndex]
                                 .FindControl("txtScore")).Text;
-            string hotel = ((TextBox)GridReviews.Rows[e.RowIndex]
-                                .FindControl("txtHotel")).Text;
+            string hotel = ((Label)GridReviews.Rows[e.RowIndex]
+                                .FindControl("lblHotel")).Text;
             string name = ((TextBox)GridReviews.Rows[e.RowIndex]
                                 .FindControl("txtName")).Text;
             string reports = ((TextBox)GridReviews.Rows[e.RowIndex]
@@ -397,7 +397,7 @@ namespace XadamaWebapp
             string type = ((TextBox)GridTickets.FooterRow.FindControl("txtType")).Text;
             string price = ((TextBox)GridTickets.FooterRow.FindControl("txtPrice")).Text;
 
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             ticket.CreateType(type, float.Parse(price));
             GridTickets.DataSource = Ticket.ListAllTickets();
             GridTickets.DataBind();
