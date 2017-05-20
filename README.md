@@ -38,6 +38,26 @@ Modify | | The administrator will be able to modify information about the webpag
   - [ ] Virtual assistant
   - [ ] Adapted to different screen sizes
   
+ * ### Problems
+We have had some problems when doing the Project:
+  
+- Most of them have been related with Github, some members of the group (Andrea and Mar) had to create a new branch and others (José     and Diego) had several problems but had continued with theirs. 
+
+- We had problems with the data base and sql, at the oral presentation we weren’t able to show most of our pages because of sql           server, it wasn’t installed at the lab computer and we didn’t think about that. We also had several problems when connecting the db     with the different pages.
+
+- Also, we have had some organitzation difficulties. We first divided the project, but with the pass of the weeks we had to change      the distribution, because we’ve been doing our respective parts, while those parts needed to be done. So, many pages have been          realized by two or more people or we haven’t done the same CAD/EN of our pages.
+
+### Instructions
+
+- Use sqlexpress (if not, change it in Web.Config)
+
+- Execute it in Chrome
+
+- Users:
+        - Worker:  user: worker@dummy.com password:test
+        - Client:  user: client@dummy.com password:test
+        - Admin: user: admin: password: admin
+  
 * Participants:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;José Aldeguer Sastre (@JoseAlde)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mar Bonora Ortega (@marbonora)  
