@@ -24,17 +24,23 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from product",con);
+                SqlDataAdapter da = new SqlDataAdapter("select* from product", con);
                 da.Fill(bdvirtual, "producto");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["producto"];
                 DataRow newline = t.NewRow();
+                newline[0] = c.cod;
+                newline[1] = c.name;
+                newline[2] = c.type;
+                newline[4] = c.description;
+                newline[5] = c.price;
+                newline[6] = c.stock;
+                newline[7] = c.image;
                 t.Rows.Add(newline);
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
-                da.Update(bdvirtual,"producto");
-                //hacer return true??
-            }//terminar esto añadiendole los parametros
-            catch(Exception ex)
+                da.Update(bdvirtual, "producto");
+            }
+            catch (Exception ex)
             {
 
             }
@@ -50,11 +56,17 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod="+cod, con);
-                da.Fill(bdvirtual,"producto");
+                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod=" + cod, con);
+                da.Fill(bdvirtual, "producto");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["producto"];
-                //igualar todos los parametros con product
+                product.cod = t.Rows[0][0].ToString();
+                product.name = t.Rows[0][1].ToString();
+                product.type = t.Rows[0][2].ToString();
+                product.description = t.Rows[0][3].ToString();
+                product.price = float.Parse(t.Rows[0][4].ToString());
+                product.stock = Int32.Parse(t.Rows[0][5].ToString());
+                product.image = t.Rows[0][6].ToString();
             }
             catch (Exception ex)
             {
@@ -77,13 +89,18 @@ namespace lib.CAD
                 da.Fill(bdvirtual, "producto");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["producto"];
-                DataRow newline = t.NewRow();
-                t.Rows.Add(newline);
+                t.Rows[0][0] = c.cod;
+                t.Rows[0][1] = c.name;
+                t.Rows[0][2] = c.type;
+                t.Rows[0][3] = c.description;
+                t.Rows[0][4] = c.price;
+                t.Rows[0][5] = c.stock;
+                t.Rows[0][6] = c.image;
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "producto");
 
 
-            }//terminar esto añadiendole los parametros
+            }
             catch (Exception ex)
             {
 
@@ -91,7 +108,7 @@ namespace lib.CAD
             finally
             {
                 con.Close();
-            }//hacer un return bool
+            }
         }
         public void Delete(String cod)
         {//Deletes the product which has the same id as the one passed by parameter by executing appropiate commands
@@ -106,7 +123,6 @@ namespace lib.CAD
                 t.Rows[0].Delete();
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "producto");
-                //ver si devolver bool
             }
             catch (Exception ex)
             {
@@ -163,22 +179,22 @@ namespace lib.CAD
         }
 
         public List<string> getProductsName(string prefixText)
-        {
+        {//returns every product which has inside its name the prefixText passed
             List<string> l = new List<string>();
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select name from product where name like '%"+prefixText+"%'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select name from product where name like '%" + prefixText + "%'", con);
                 da.Fill(bdvirtual, "producto");
                 DataTable t = bdvirtual.Tables["producto"];
-                foreach(DataRow r in t.Rows)
+                foreach (DataRow r in t.Rows)
                 {
                     l.Add(r["name"].ToString());
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -187,6 +203,73 @@ namespace lib.CAD
                 con.Close();
             }
             return l;
+        }
+
+        public DataSet GetAllProducts()
+        {//returns all de information of all the products of the database
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select*from product", con);
+                da.Fill(bdvirtual, "producto");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return bdvirtual;
+        }
+
+        public void DeleteProduct(int index)
+        {//deletes de product depending on de index it has in the database
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                DataSet bdvirtual = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter("select* from product", con);
+                da.Fill(bdvirtual, "producto");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["producto"];
+                t.Rows[index].Delete();
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                da.Update(bdvirtual, "producto");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public int getStock(String cod)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                DataSet bdvirtual = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter("select stock from product where cod=" + cod, con);
+                da.Fill(bdvirtual, "product");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["producto"];
+                return int.Parse(t.Rows[0][0].ToString());
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return 0;
         }
     }
 }

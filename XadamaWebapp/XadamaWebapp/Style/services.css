@@ -15,7 +15,7 @@
 }
 
 .backimgdrop{
-     padding-left:40px;
+    padding-left:40px;
     background: url("/Media/Others/Worldmap-icon3.png") no-repeat left;
 }
 .backimgdrop2{
@@ -66,11 +66,45 @@
 /*services info*/
 
 .info-container{
-    position:relative;
-    top:70px;
+    width:33.3% !important;
+    border-style:solid;
+    border-color:#a48181;
+    border-width:3px 0 0 0;
 }
 
-.zone-europe{
-    background-color:indianred;
+
+.info-items{
+    border-bottom:3px solid #a48181;
+    padding:16px;
+    background-color:#dfcfcf;
 }
+
+.info-items-white{
+    color:white !important;
+    border-bottom:3px solid #a48181;
+    padding:16px;
+}
+
+.ride-background{
+    background-color:#83ABBF !important;
+}
+
+.show-background{
+
+}
+
+.rest-backgground{
+
+}
+
+.row2 {
+    padding: 0 0 0 0;
+}
+
+.row2:after, .row2:before{
+    content: "";
+    display: table;
+    clear: both;
+}
+
 
