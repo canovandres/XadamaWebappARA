@@ -164,7 +164,7 @@
                             <asp:Label runat="server" Text="PRICE: " CssClass="xxlarge margin-large"></asp:Label>
                         </div>
                         <div class="col quarter" style="margin-top: 12px;">
-                            <asp:Label runat="server" ID="Price" CssClass="xlarge margin-large"></asp:Label>
+                            <asp:Label runat="server" ID="Price" CssClass="xlarge margin-large" Text=""></asp:Label>
                         </div>
                     </div>
                     <div class="row-padding margin-16">
