@@ -197,12 +197,12 @@
     <Content Include="shop.aspx" />
     <Content Include="shoppingcart.aspx" />
     <Content Include="shoptshirts.aspx" />
+    <Content Include="signin.ascx" />
     <Content Include="Style\bookrestaurant.css" />
     <Content Include="Style\client.css" />
     <Content Include="Style\hotel.css" />
     <Content Include="Style\hotels.css" />
     <Content Include="Style\shop.css" />
-    <Content Include="Style\admin.css" />
     <Content Include="Style\worker.css" />
     <Content Include="Style\zoneeurope.css" />
     <Content Include="Style\zones.css" />
@@ -359,6 +359,13 @@
     </Compile>
     <Compile Include="shoptshirts.aspx.designer.cs">
       <DependentUpon>shoptshirts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signin.ascx.cs">
+      <DependentUpon>signin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signin.ascx.designer.cs">
+      <DependentUpon>signin.ascx</DependentUpon>
     </Compile>
     <Compile Include="tickets.aspx.cs">
       <DependentUpon>tickets.aspx</DependentUpon>

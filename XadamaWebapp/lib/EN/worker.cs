@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,8 +47,8 @@ namespace lib.EN
             this.email = worker.email;
             this.password = worker.password;
             this.name = worker.name;
-            this.surname1 = surname1;
-            this.surname2 = surname2;
+            this.surname1 = worker.surname1;
+            this.surname2 = worker.surname2;
             this.age = worker.age;
             this.phone = worker.phone;
         }
@@ -71,5 +72,24 @@ namespace lib.EN
             return cadworker.Works(date);
         }
         */
+        public bool ExistsWorker()
+        {
+            CAD.CADWorker w = new CAD.CADWorker();
+            return (w.ExistsWorker(email));
+        }
+
+        public static DataSet ListAllWorkers()
+        {
+            CAD.CADWorker w = new CAD.CADWorker();
+            DataSet workers = w.ListAllWorkers();
+            return workers;
+        }
+
+        public DataSet DeleteWorker(int i)
+        {
+            CAD.CADWorker c = new CAD.CADWorker();
+            DataSet a = c.DeleteWorker(this, i);
+            return a;
+        }
     }
 }

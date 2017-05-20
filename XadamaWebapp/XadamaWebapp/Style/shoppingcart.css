@@ -32,13 +32,49 @@
 }
 .zone2 {
     width: 10%;
-    height: 100px;
+    height: 30px;
     float: left;
     box-sizing: content-box;
     margin-top: 75px;
     
 }
 
+.zone12 {
+    width: 3%;
+    height: 30px;
+    float: left;
+    box-sizing: content-box;
+    margin-top: 75px;
+    margin-left: 0%;
+}
+
+.zone14 {
+    width: 3%;
+    height: 30px;
+    float: left;
+    box-sizing: content-box;
+    margin-top: 75px;
+    margin-left: 2.75%;
+}
+
+.zone15 {
+    width: 3%;
+    height: 30px;
+    float: left;
+    box-sizing: content-box;
+    margin-top: 75px;
+    margin-left: 4%;
+}
+
+.zone11 {
+    width: 30%;
+    height: 100px;
+    float: left;
+    box-sizing: content-box;
+    margin-top: 0px;
+    margin-left: 38%;
+    
+}
 .imgam {
     width: 70%;
     height: 150%;
@@ -57,6 +93,10 @@
 }
 .left-margin-aux2{
     margin-left: 8%;
+}
+
+.left-margin-aux3{
+    margin-left: 1.5%;
 }
 
 .zone3 {
@@ -93,8 +133,8 @@
     height:30px;
     float: left;
     box-sizing: content-box;
-    margin-left: 48%;
-    margin-top: -35px;
+    margin-left: 43%;
+    margin-top: -135px;
     
 }
 .zone7 {
@@ -102,8 +142,8 @@
     height:30px;
     float: left;
     box-sizing: content-box;
-    margin-left:60.5%;
-    margin-top: -35px;
+    margin-left:56.5%;
+    margin-top: -135px;
 }
 
 .zone8 {
@@ -111,7 +151,7 @@
     float: left;
     box-sizing: content-box;
     margin-left:68.5%;
-    margin-top: -40px !important;
+    margin-top: -200px !important;
 }
 
 .zone9 {
@@ -119,16 +159,25 @@
     height: 30px;
     float: left;
     box-sizing: content-box;
-    margin-left: 48%;
-    margin-top: -57px;
+    margin-left: 43%;
+    margin-top: -157px;
 }
 .zone10 {
     width: 3%;
     height: 30px;
     float: left;
     box-sizing: content-box;
-    margin-left: 0%;
+    margin-left: -1%;
     margin-top: 18px;
+}
+
+.zone13 {
+    width: 3%;
+    height: 30px;
+    float: left;
+    box-sizing: content-box;
+    margin-left: 81%;
+    margin-top: -210px;
 }
 
 .backimgcarts {
@@ -150,12 +199,55 @@
 
 .field-sc {
    width: 30% !important;
-   margin-left: 60% !important;
-   margin-top: -50px !important;
+   margin-left: 53.5% !important;
+   margin-top: -150px !important;
 }
 .imgbeg-btncerrar{
    	cursor: pointer;
 	right: 0px;
     height: 20px;
     width: 20px;
+}
+
+.popUpConfirm {
+     min-width: 200px;
+     min-height: 150px;
+     background-color: #FFFFFF;
+     padding: 10px;
+     border: 1px solid;
+}
+
+.field-1 {
+    display: inline-block;
+    margin-right: -8px;
+    width: 100%;
+    padding-right: 4%;
+    margin-top: 30px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.field-1 input, .field-1 select, .field-1 textarea {
+    display: block;
+    width: 100%;
+    height: 42px;
+    padding: 6px 12px;
+    font-weight: 300;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    line-height: 1.42857143;
+    margin: 0;
+    outline: 0;
+    color: #555;
+    background-color: #ffffff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.field-1 input:focus, .field-1 select:focus, .field-1 textarea:focus {
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }

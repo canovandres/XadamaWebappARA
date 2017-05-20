@@ -55,9 +55,10 @@ namespace lib.CAD
 
                 SqlCommandBuilder cbuilder2 = new SqlCommandBuilder(da2);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-
-                da2.Update(bdvirtual, "usuario");
+                
                 da.Update(bdvirtual, "worker");
+                if (newWorker.password != "")
+                    da2.Update(bdvirtual, "usuario");
             }
             catch (Exception ex)
             {
@@ -185,5 +186,64 @@ namespace lib.CAD
             return false;
         }
         */
+
+        public bool ExistsWorker(String email)
+        {
+            bool exists = false;
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from worker where usuario = @email", con);
+                cmd.Parameters.AddWithValue("@email", email);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (dt.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error ExistsWorker (CadWorker): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exists;
+        }
+
+        public DataSet ListAllWorkers()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Worker", con);
+                da.Fill(bdvirtual, "worker");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return bdvirtual;
+        }
+
+        public DataSet DeleteWorker(Worker wor, int i)
+        {
+            Worker wk = wor;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from Worker", c);
+            da.Fill(bdvirtual, "worker");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["worker"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "worker");
+            return bdvirtual;
+        }
     }
 }

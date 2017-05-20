@@ -60,3 +60,30 @@
 .info:hover {
     font-weight: bold;
 }
+
+.display-circle{
+    border:2px solid #1B253B;
+    border-radius: 100px 100px 100px 100px;
+    background-color: white;
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.info-button{
+    width: 25px;
+    height: 25px;
+    transition: width ease-in 0.3s, height ease-in 0.3s;
+}
+
+.info-popup {
+    background-color: white;
+    width: 20% !important;
+    border:1px solid #1B253B;
+}
+
+.close-button{
+    background-color: #1B253B;
+    border-radius: 1px 1px 1px 1px;
+    text-align: center;
+    float: right !important;
+    top: 0 !important;
+}
