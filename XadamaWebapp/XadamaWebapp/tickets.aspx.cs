@@ -15,7 +15,7 @@ namespace XadamaWebapp
         private DataSet bdvirtual = new DataSet();
         private DataTable t = new DataTable();
         Ticket ticket;
-        int disc = 0;
+        float disc = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             TicketsError.Visible = false;
@@ -60,7 +60,6 @@ namespace XadamaWebapp
                 {
                     Promo promo = new Promo(PromoCode.Text);
                     promo.Read();
-                    Price2.Text = (ticket.totalPrice() * (1 - (promo.discount / 100))).ToString();
                     disc = promo.discount;
                     return true;
                 }
@@ -92,7 +91,7 @@ namespace XadamaWebapp
                 Children2.Text = ticket.child.ToString();
                 Adults2.Text = ticket.adult.ToString();
                 Promo2.Text = disc.ToString();
-                Price2.Text = Math.Round(ticket.totalPrice() * (1 - (disc / 100)), 2).ToString();
+                Price2.Text = ((ticket.totalPrice()) * (((float)(100 - disc)) / 100)).ToString();
                 //Price2.Text = Math.Round(ticket.totalPrice() - ticket.totalPrice() * (disc / 100), 2).ToString();
                 TicketsCorrect.Visible = true; 
             }
