@@ -118,7 +118,7 @@ namespace XadamaWebapp
             {
                 booking.client = ((Client)Session["Client"]).email;
                 booking.bookRooms();
-                //sendEmail();
+                sendEmail();
                 bookPanel.Visible = true;
             }
             else

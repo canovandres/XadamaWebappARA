@@ -65,13 +65,11 @@ namespace lib.EN
             cadworker.Delete(email);
         }
 
-        /*
-        public bool Works(date) //True if the worker works in the date passes as a parameter
+        public DataSet Works()
         {
             CAD.CADWorker cadworker = new CAD.CADWorker();
-            return cadworker.Works(date);
+            return (cadworker.Works(email));
         }
-        */
         public bool ExistsWorker()
         {
             CAD.CADWorker w = new CAD.CADWorker();
