@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="Style/client.css" />
     <style type="text/css">
         .input-footer input {
-            width: 100px;
+            width: 90%;
         }
     </style>
 </asp:Content>
@@ -285,7 +285,7 @@
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                             <FooterStyle CssClass="input-footer" />
                             <Columns>
-                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Email">
+                                <asp:TemplateField ItemStyle-Width = "50px"  HeaderText = "Code">
                                     <ItemTemplate>
                                         <asp:Label ID="lblCode" runat="server"
                                         Text='<%# Eval("cod")%>'></asp:Label>
@@ -294,7 +294,7 @@
                                         <asp:TextBox ID="txtCode"  runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "100px"  HeaderText = "Name">
+                                <asp:TemplateField ItemStyle-Width = "200px"  HeaderText = "Name">
                                     <ItemTemplate>
                                         <asp:Label ID="lblName" runat="server"
                                             Text='<%# Eval("name")%>'></asp:Label>
@@ -307,7 +307,7 @@
                                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Description">
+                                <asp:TemplateField ItemStyle-Width = "250px"  HeaderText = "Description">
                                     <ItemTemplate>
                                         <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("description")%>'></asp:Label>
                                     </ItemTemplate>
@@ -319,7 +319,7 @@
                                         <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Zone">
+                                <asp:TemplateField ItemStyle-Width = "100px"  HeaderText = "Zone">
                                     <ItemTemplate>
                                         <asp:Label ID="lblZone" runat="server"
                                             Text='<%# Eval("zone")%>'></asp:Label>
@@ -332,7 +332,7 @@
                                         <asp:TextBox ID="txtZone" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Image">
+                                <asp:TemplateField ItemStyle-Width = "200px"  HeaderText = "Image">
                                     <ItemTemplate>
                                         <asp:Label ID="lblImage" runat="server"
                                             Text='<%# Eval("image")%>'></asp:Label>
@@ -447,7 +447,7 @@
                     <asp:View ID="View5" runat="server">
                         <asp:GridView id="GridReviews" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridReviews_PageIndexChanging" 
                             OnRowCancelingEdit="GridReviews_RowCancelingEdit" OnRowDeleting="GridReviews_RowDeleting" OnRowEditing="GridReviews_RowEditing" 
-                            OnRowUpdating="GridReviews_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true">
+                            OnRowUpdating="GridReviews_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -465,7 +465,10 @@
                                     <ItemTemplate>
                                         <asp:Label ID="lblCode" runat="server"
                                         Text='<%# Eval("cod")%>'></asp:Label>
-                                    </ItemTemplate>
+                                    </ItemTemplate> 
+                                    <FooterTemplate>
+                                        <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
+                                    </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ItemStyle-Width = "250px"  HeaderText = "Description">
                                     <ItemTemplate>
@@ -553,17 +556,18 @@
                             <SortedAscendingHeaderStyle BackColor="#506C8C" />
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <FooterStyle CssClass="input-footer" />
                             <Columns>
-                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Type">
+                                <asp:TemplateField ItemStyle-Width = "100px"  HeaderText = "Type">
                                     <ItemTemplate>
                                         <asp:Label ID="lblType" runat="server"
                                         Text='<%# Eval("type")%>'></asp:Label>
                                     </ItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtType" Width = "80px"  runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtType"  runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Price">
+                                <asp:TemplateField ItemStyle-Width = "60px"  HeaderText = "Price">
                                     <ItemTemplate>
                                         <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("price")%>'></asp:Label>
                                     </ItemTemplate>
@@ -603,7 +607,7 @@
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                             <FooterStyle CssClass="input-footer" />
                             <Columns>
-                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Email">
+                                <asp:TemplateField ItemStyle-Width = "200px"  HeaderText = "Email">
                                     <ItemTemplate>
                                         <asp:Label ID="lblEmail" runat="server"
                                         Text='<%# Eval("usuario")%>'></asp:Label>
@@ -689,7 +693,7 @@
                                         <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "120px"  HeaderText = "Credit Card">
+                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Credit Card">
                                     <ItemTemplate>
                                         <asp:Label ID="lblCreditCard" runat="server"
                                             Text='<%# Eval("creditCard")%>'></asp:Label>
@@ -728,17 +732,18 @@
                             <SortedAscendingHeaderStyle BackColor="#506C8C" />
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <FooterStyle CssClass="input-footer" />
                             <Columns>
-                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Email">
+                                <asp:TemplateField ItemStyle-Width = "250px"  HeaderText = "Email">
                                     <ItemTemplate>
                                         <asp:Label ID="lblEmail" runat="server"
                                         Text='<%# Eval("usuario")%>'></asp:Label>
                                     </ItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtEmail" Width = "80px"  runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Name">
+                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Name">
                                     <ItemTemplate>
                                         <asp:Label ID="lblName" runat="server" Text='<%# Eval("name")%>'></asp:Label>
                                     </ItemTemplate>
@@ -750,7 +755,7 @@
                                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Surname 1">
+                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Surname 1">
                                     <ItemTemplate>
                                         <asp:Label ID="lblSurname1" runat="server"
                                             Text='<%# Eval("surname1")%>'></asp:Label>
@@ -763,7 +768,7 @@
                                         <asp:TextBox ID="txtSurname1" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "80px"  HeaderText = "Surname 2">
+                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Surname 2">
                                     <ItemTemplate>
                                         <asp:Label ID="lblSurname2" runat="server"
                                             Text='<%# Eval("surname2")%>'></asp:Label>
@@ -776,7 +781,7 @@
                                         <asp:TextBox ID="txtSurname2" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "100px"  HeaderText = "Birth Date">
+                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Birth Date">
                                     <ItemTemplate>
                                         <asp:Label ID="lblAge" runat="server"
                                             Text='<%# Eval("age")%>'></asp:Label>
@@ -789,7 +794,7 @@
                                         <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField ItemStyle-Width = "60px"  HeaderText = "Phone">
+                                <asp:TemplateField ItemStyle-Width = "150px"  HeaderText = "Phone">
                                     <ItemTemplate>
                                         <asp:Label ID="lblPhone" runat="server"
                                             Text='<%# Eval("phone")%>'></asp:Label>

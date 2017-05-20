@@ -28,13 +28,13 @@ namespace lib.EN
             this.description = description;
         }
 
-        void Create()//calls the cadproduct method to create a new product in the database
+        public void Create()//calls the cadproduct method to create a new product in the database
         {
             CAD.CADProduct c = new CAD.CADProduct();
             c.Create(this);
         }
 
-        void Read(String cod)//calls the cadproduct method to read a product with the same id as the actual one
+        public void Read(String cod)//calls the cadproduct method to read a product with the same id as the actual one
         {
             CAD.CADProduct c = new CAD.CADProduct();
             Product p = c.Read(cod);
@@ -45,13 +45,13 @@ namespace lib.EN
             stock = p.stock;
         }
 
-        void Update()//updates the product with the same id as the actual one by calling the cadproduct's appropiate method
+        public void Update()//updates the product with the same id as the actual one by calling the cadproduct's appropiate method
         {
             CAD.CADProduct c = new CAD.CADProduct();
             c.Update(this);
         }
 
-        void Delete(String dbname, String cod)//deletes the product by calling cadproduct
+        public void Delete(String dbname, String cod)//deletes the product by calling cadproduct
         {
             CAD.CADProduct c = new CAD.CADProduct();
             c.Delete(cod);
@@ -74,6 +74,23 @@ namespace lib.EN
             return c.getProductsName(prefixText);
         }
 
+        public static DataSet ListAllProducts()
+        {
+            CAD.CADProduct c = new CAD.CADProduct();
+            return c.GetAllProducts();
+        }
+
+        public void DeleteProduct(int index)
+        {
+            CAD.CADProduct c = new CAD.CADProduct();
+            c.DeleteProduct(index);
+        }
+
+        public int getStock()
+        {
+            CAD.CADProduct c = new CAD.CADProduct();
+            return c.getStock(cod);
+        }
 
     }
 }
