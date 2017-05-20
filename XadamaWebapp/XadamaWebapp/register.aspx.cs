@@ -171,7 +171,7 @@ namespace XadamaWebapp
 
                             // TextBoxEmailSignIn.Text = string.Empty;
                             // TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email [Worker]!");
-                            Response.Redirect("main.aspx");
+                            Response.Redirect("worker.aspx");
                         }
                         else
                         {
@@ -196,6 +196,7 @@ namespace XadamaWebapp
                                 // TextBoxEmailSignIn.Text = string.Empty;
                                 // TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email! [Admin]");
                                 Response.Redirect("main.aspx");
+                                // Response.Redirect("admin.aspx");
                             }
                             else
                             {

@@ -85,16 +85,25 @@
     padding:16px;
 }
 
+.image-item{
+    width:10% !important;
+    height:auto !important;
+}
+
 .ride-background{
     background-color:#83ABBF !important;
 }
 
 .show-background{
-
+    background-color:#b70101 !important;
 }
 
-.rest-backgground{
+.text-yellow{
+    color:#d1c41c !important;
+}
 
+.rest-background{
+    background-color:#d1c41c !important;
 }
 
 .row2 {
