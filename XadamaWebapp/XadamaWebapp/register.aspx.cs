@@ -82,6 +82,7 @@ namespace XadamaWebapp
 
                     TextBoxEmail.Text = string.Empty;
                     TextBoxEmail.Attributes.Add("placeholder", "Account created!");
+                    // Response.Redirect("main.Master");
                 }
             }
             catch (Exception ex)
