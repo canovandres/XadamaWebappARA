@@ -29,15 +29,16 @@ namespace lib.CAD
             DataSet virtualdb = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from booking", conn);
-                da.Fill(virtualdb, "booking");
-
-                DataTable t = new DataTable();
-                t = virtualdb.Tables["booking"];
-
+                
                 DateTime convertedStart = Convert.ToDateTime(b.datestart);
                 for (int i=0; i<numberOfNights(newBooking); i++)
                 {
+                    SqlDataAdapter da = new SqlDataAdapter("select * from booking", conn);
+                    da.Fill(virtualdb, "booking");
+
+                    DataTable t = new DataTable();
+                    t = virtualdb.Tables["booking"];
+
                     String day = convertedStart.ToString("dd/MM/yyyy");
 
                     DataRow r = t.NewRow();
@@ -48,10 +49,10 @@ namespace lib.CAD
                     t.Rows.Add(r);
 
                     convertedStart = convertedStart.AddDays(1);
+                    SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                    da.Update(virtualdb, "booking");
                 }
                 
-                SqlCommandBuilder cb = new SqlCommandBuilder(da);
-                da.Update(virtualdb, "booking");
             }
             catch (Exception ex) { }
             finally { conn.Close(); }
@@ -194,13 +195,13 @@ namespace lib.CAD
         {
             bool done = false;
             SqlConnection conn = new SqlConnection(connectionString);
-            DataSet virtualdb = new DataSet();
             try
             {
                 if (b.nsingle > 0 && isAvalaible(b))
                 {
                     for (int i = 0; i < b.nsingle; i++)
                     {
+                        DataSet virtualdb = new DataSet();
                         SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Individual' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
                         da.Fill(virtualdb, "room");
 
@@ -219,6 +220,7 @@ namespace lib.CAD
                 {
                     for (int i = 0; i < b.ndouble; i++)
                     {
+                        DataSet virtualdb = new DataSet();
                         SqlDataAdapter da = new SqlDataAdapter("select * from room where type like 'Double' and hotel like '" + b.hotel + "' and num not in (select room from booking where day between '" + b.datestart + "' and '" + b.dateend + "')", conn);
                         da.Fill(virtualdb, "room");
 
