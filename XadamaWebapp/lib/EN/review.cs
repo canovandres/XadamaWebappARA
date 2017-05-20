@@ -81,6 +81,13 @@ namespace lib.EN
             CAD.CADReview c = new CAD.CADReview();
             c.Report(cod);
         }
+
+        public DataSet DeleteReview(int i)
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            DataSet a = c.DeleteReview(this, i);
+            return a;
+        }
     }
 }
 
