@@ -163,5 +163,35 @@ namespace lib.CAD
 
 
         }
+
+        public DataSet DeleteRide(Ride rid, int i)
+        {
+            Ride r = rid;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from Ride", c);
+            da.Fill(bdvirtual, "ride");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["ride"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "ride");
+            return bdvirtual;
+        }
+
+        public DataSet ListAllRides()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from Ride", con);
+                da.Fill(bdvirtual, "ride");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return bdvirtual;
+        }
     }
 }

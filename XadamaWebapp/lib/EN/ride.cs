@@ -74,5 +74,19 @@ namespace lib.EN
             CAD.CADRide cadride = new CAD.CADRide(db);
             return cadride.zoneRides(zone);
         }
+
+        public static DataSet ListAllRides(String db)
+        {
+            CAD.CADRide r = new CAD.CADRide(db);
+            DataSet rides = r.ListAllRides();
+            return rides;
+        }
+
+        public DataSet DeleteRide(int i, String db)
+        {
+            CAD.CADRide r = new CAD.CADRide(db);
+            DataSet a = r.DeleteRide(this, i);
+            return a;
+        }
     }
 }

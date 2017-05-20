@@ -112,6 +112,15 @@ namespace XadamaWebapp {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender3;
         
         /// <summary>
+        /// Control applypromo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button applypromo;
+        
+        /// <summary>
         /// Control Label8.
         /// </summary>
         /// <remarks>
