@@ -104,7 +104,7 @@
 
     <div class="backimg2 display-container">
         <div class="display-middle no-opacity">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium xxlarge wide button-slice" text="ZONES"></asp:LinkButton>
+            <asp:LinkButton runat="server" CssClass="center button padding-medium xxlarge wide button-slice" text="ZONES" PostBackUrl="~/zones.aspx"></asp:LinkButton>
         </div>
     </div>
 
@@ -112,7 +112,7 @@
 
     <div class="backimg1 display-container">
         <div class="display-middle front">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="RIDES"></asp:LinkButton>
+            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="RIDES" PostBackUrl="services.aspx?type=rides"></asp:LinkButton>
         </div>
     </div>
 
@@ -191,12 +191,12 @@
 
     <div class="backimg3 display-container">
         <div class="display-middle">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="SHOP"></asp:LinkButton>
+            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="SHOP" PostBackUrl="~/shop.aspx"></asp:LinkButton>
         </div>
     </div>
     <div class="backimg4 display-container">
         <div class="display-middle">
-            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="HOTELS"></asp:LinkButton>
+            <asp:LinkButton runat="server" CssClass="center button padding-medium button-slice xxlarge wide" text="HOTELS" PostBackUrl="~/hotels.aspx"></asp:LinkButton>
         </div>
     </div>
 
