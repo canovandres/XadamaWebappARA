@@ -11,14 +11,14 @@ namespace lib.EN
     {
         public List<Product> _products = new List<Product>();
 
-        public Order(String cod, Client client = null, String date = "")
+        public Order(int cod, Client client = null, String date = "")
         {
             this.cod = cod;
             this.date = date;
             this.client = client;
         }
 
-        public String cod { get; set; }
+        public int cod { get; set; }
 
         public String date { get; set; }
 
@@ -78,7 +78,7 @@ namespace lib.EN
             cadorder.buyItems(cod, quantity,this);
         }
 
-        public static string NextCode()
+        public static int NextCode()
         {
             CAD.CADOrder c = new CAD.CADOrder("");
             return c.NextCode();
