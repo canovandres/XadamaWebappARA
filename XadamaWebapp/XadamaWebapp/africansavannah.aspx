@@ -1,17 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="europeanpalace.aspx.cs" Inherits="XadamaWebapp.europeanpalace" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="africansavannah.aspx.cs" Inherits="XadamaWebapp.africansavannah" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>European Palace</title>
+    <title>African Savannah</title>
     <link rel="stylesheet" type="text/css" href="Style/hotel.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="hotel-tittle hotel-tittle-europe">
-        <p class="center xxlarge text-white margin-bottom-large bold uppercase padding-large" style="margin-top: 200px;">European Palace</p>
+    <div class="hotel-tittle hotel-tittle-africa">
+        <p class="center xxlarge text-white margin-bottom-large bold uppercase padding-large" style="margin-top: 200px;">African Savannah</p>
     </div>
     <div class="content container" style="padding-top: 250px">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:Image runat="server" ID="Image1" Height="430px" Width="750px" style="margin-bottom: 0px" CssClass="slideshow" ImageUrl="~/Media/Hotels/europeanpalace.jpg"/>
+        <asp:Image runat="server" ID="Image1" Height="430px" Width="750px" style="margin-bottom: 0px" CssClass="slideshow" ImageUrl="~/Media/Hotels/africansavannah.jpg"/>
         <ajaxToolkit:SlideShowExtender ID="SlideShowExtender1" runat="server" 
             TargetControlID="Image1"
             SlideShowServiceMethod="GetSlides"
@@ -19,10 +18,11 @@
             Loop="true" SlideShowAnimationType="SlideRight" />
     </div>
     <div class="content container three-quarter">
-        <p class="text-darkblue center large">Set in the european zone, the European Palace is a hotel with free WiFi set across the road 
-            from the London Eye. Its elegant rooms feature air conditioning and satellite TV. The hotel's International Cafè restaurant serves 
-            typical local products combined with intense fragrances and aromas. Breakfast is an American buffet. The bar is open till late 
-            at night and offers tasty snacks and excellent cocktails prepared by the skilled barman.</p>
+        <p class="text-darkblue center large">We warmly welcome you to African Savannah Hotel on the beautiful east coast of the 
+                    african zone. Here you can relax in the peaceful surroundings, while you are being swept away by the adventurous Zanzibar 
+                    with its countless senses of impressions. We wish to inspire our guests with an authentic atmosphere and give them the opportunity 
+                    to experience the many facets of Zanzibar and Tanzania. Our friendly and obliging staff will make sure that you get exactly what 
+                    you wish for, out of your stay.</p>
     </div>
     <div class="content container padding-32">
         <div align="center" class="blue" style="height: 100px">
