@@ -96,7 +96,7 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from ticket cod like '" + ticket.cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from ticket where cod like '" + ticket.cod + "'", con);
                 da.Fill(bdvirtual, "ticket");
 
                 DataTable t = new DataTable();
@@ -252,6 +252,94 @@ namespace lib.CAD
             return bdvirtual;
         }
 
+        public DataSet DeleteTicket(Ticket tick, int i)
+        {
+            Ticket tk = tick;
+            DataSet bdvirtual = new DataSet();
+            SqlConnection c = new SqlConnection(conString);
+            SqlDataAdapter da = new SqlDataAdapter("select * from TicketType", c);
+            da.Fill(bdvirtual, "ticket");
+            DataTable t = new DataTable();
+            t = bdvirtual.Tables["ticket"];
+            t.Rows[i].Delete();
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            da.Update(bdvirtual, "ticket");
+            return bdvirtual;
+        }
+
+        public DataSet ListAllTickets()
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from TicketType", con);
+                da.Fill(bdvirtual, "ticket");
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return bdvirtual;
+        }
+
+        public void UpdatePrice(String type, float price)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from TicketType where type like '" + type + "'", con);
+                da.Fill(bdvirtual, "ticket");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["ticket"];
+
+                t.Rows[0][1] = price;
+
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(bdvirtual, "ticket");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Updating TicketType (CadTicket): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void CreateType(String type, float price)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from TicketType", con);
+                da.Fill(bdvirtual, "ticket");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["ticket"];
+
+                DataRow newrow = t.NewRow();
+                newrow[0] = type;
+                newrow[1] = price;
+
+                t.Rows.Add(newrow);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                da.Update(bdvirtual, "ticket");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Creating TicketType (CadTicket): " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
 

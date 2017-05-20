@@ -13,9 +13,11 @@
     <div class="content container padding-64">  <!--1-->
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="padding-64">    <!--2-->
+            <asp:Panel runat="server" DefaultButton="Create">
             <div class="col half">      <!--3-->
                 <asp:Label runat="server" Text="Create a New Account " CssClass="form-label margin-large xxlarge"></asp:Label>
                 <div class="register form-content padding-large margin-medium grey shadow">    <!--4-->
+                    
                     <div class="field">
                             <asp:Label runat="server" Text="EMAIL *" CssClass="form-label medium"></asp:Label>
                             <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
@@ -149,9 +151,12 @@
                                         ValidationGroup="CreateAccount"></asp:Button>
                         </div>
                     </div>
+                    
                 </div>
             </div>
+            </asp:Panel>
         
+            <asp:Panel runat="server" DefaultButton="SignIn">
             <div class="col half">  <!--3-->
                 <asp:Label runat="server" Text="Sign In " CssClass="form-label margin-large xxlarge"></asp:Label>
                 <div class="register form-content padding-large margin-medium grey shadow">    <!--4-->
@@ -177,6 +182,7 @@
                     </div>
                 </div>
             </div>
+            </asp:Panel>
         </div>
     </div>
 </asp:Content>

@@ -54,16 +54,16 @@
                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label>
                         €
                     </div>
-                     <div class="zone12 ">
-                        <asp:LinkButton ID="LinkButton1" CommandName="minus" Text="-"  CssClass="button button-slice medium" runat="server" />
+                     <div class="zone15 ">
+                        <asp:LinkButton ID="LinkButton1" CommandName="minus" Text="-"  CssClass="button button-slice medium bold" runat="server" />
 
                     </div>
-                    <div class="zone12 ">
+                    <div class="zone14">
                         <asp:Label ID="Label4" runat="server" Text='<%#Eval("quantity") %>'></asp:Label>
                         
                     </div>
                      <div class="zone12 ">
-                       <asp:LinkButton ID="LinkButton2" CommandName="add"  Text="+"  CssClass="button button-slice medium" runat="server" />
+                       <asp:LinkButton ID="LinkButton2" CommandName="add"  Text="+"  CssClass="button button-slice medium bold" runat="server" />
                     </div>
                     
                     <div class="zone10">
@@ -97,8 +97,8 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="" ValidationGroup="promo"></asp:RequiredFieldValidator>
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="RequiredFieldValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
             </div>
-             <div class="zone9 text-darkblue">
-                 <asp:Button runat="server" Text="Apply" CssClass="large button-slice" Style="width: auto;" OnClick="checkPromo" ValidationGroup="promo"></asp:Button>
+             <div class="zone13 text-darkblue">
+                 <asp:Button ID="applypromo" runat="server" Text="Apply" CssClass="large button-slice" Style="width: auto;" OnClick="checkPromo" ValidationGroup="promo"></asp:Button>
             </div>
                       
         </div>
@@ -111,9 +111,7 @@
                  <asp:Label ID="Label9" runat="server" Text=""></asp:Label>
                 <asp:Label ID="Label3" runat="server" Text="€"></asp:Label>
             </div>
-            <div class="zone8">
-                 
-            </div>
+            
             
         </div>
     </ContentTemplate>
@@ -122,8 +120,10 @@
         <ajaxToolkit:ConfirmButtonExtender ID="confirmButton" runat="server" TargetControlID="shopButton" ConfirmText="Dou you want to book?" DisplayModalPopupID="ModalPopupExtender1" />
         <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" TargetControlID="shopButton" CancelControlID="btnCancel" PopupControlID="Panel1" 
             PopupDragHandleControlID="PopupHeader1" Drag="true"></ajaxToolkit:ModalPopupExtender>
-
-            <asp:Button ID="shopButton" runat="server" text="BUY NOW" CssClass="button padding-medium xxlarge wide button-slice" onclick="buyitems"/>
+            <div class="zone8">
+                 <asp:Button ID="shopButton" runat="server" text="BUY NOW" CssClass="button padding-medium xxlarge wide button-slice" onclick="buyitems"/>
+            </div>
+            
 
     <asp:panel id="Panel1" style="display: none" runat="server" CssClass="popUpConfirm" BackColor="White" BorderStyle="Solid" BorderWidth="1px" BorderColor="Black">
 	        <div class="text-darkblue large">
@@ -132,8 +132,8 @@
                     <asp:Label id="pupupLabel" runat="server" text="An email will be sent to your account"></asp:Label>
                 </div>
                 <div>
-                    <asp:Button runat="server" id="btnOkay" Text="OK" CssClass="field button-slice" OnClick="buyitems"/>
-                    <asp:Button runat="server" id="btnCancel" Text="CANCEL" CssClass="field button-slice"/>
+                    <asp:Button runat="server" id="btnOkay" Text="OK" CssClass="field-1 button-slice" OnClick="buyitems"/>
+                    <asp:Button runat="server" id="btnCancel" Text="CANCEL" CssClass="field-1 button-slice"/>
 		        </div>
                 </div>
     </asp:panel>
