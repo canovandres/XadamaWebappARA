@@ -45,7 +45,7 @@
                 <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
 
                     <asp:View ID="View1" runat="server">
-                        <!--<asp:GridView id="GridProducts" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridProducts_PageIndexChanging" 
+                        <asp:GridView id="GridProducts" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridProducts_PageIndexChanging" 
                             OnRowCancelingEdit="GridProducts_RowCancelingEdit" OnRowDeleting="GridProducts_RowDeleting" OnRowEditing="GridProducts_RowEditing" 
                             OnRowUpdating="GridProducts_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -153,11 +153,11 @@
                                 <asp:CommandField ShowDeleteButton="True" />
                                 <asp:CommandField ShowEditButton="True" />
                             </Columns>
-                        </asp:GridView>-->
+                        </asp:GridView>
                     </asp:View>
                     
                     <asp:View ID="View2" runat="server">
-                        <!--<asp:GridView id="GridRides" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridRides_PageIndexChanging" 
+                        <asp:GridView id="GridRides" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridRides_PageIndexChanging" 
                             OnRowCancelingEdit="GridRides_RowCancelingEdit" OnRowDeleting="GridRides_RowDeleting" OnRowEditing="GridRides_RowEditing" 
                             OnRowUpdating="GridRides_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -265,11 +265,11 @@
                                 <asp:CommandField ShowDeleteButton="True" />
                                 <asp:CommandField ShowEditButton="True" />
                             </Columns>
-                        </asp:GridView>-->
+                        </asp:GridView>
                     </asp:View>
 
                     <asp:View ID="View3" runat="server">
-                        <!--<asp:GridView id="GridRestaurants" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridRestaurants_PageIndexChanging" 
+                        <asp:GridView id="GridRestaurants" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridRestaurants_PageIndexChanging" 
                             OnRowCancelingEdit="GridRestaurants_RowCancelingEdit" OnRowDeleting="GridRestaurants_RowDeleting" OnRowEditing="GridRestaurants_RowEditing" 
                             OnRowUpdating="GridRestaurants_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -353,11 +353,11 @@
                                 <asp:CommandField ShowDeleteButton="True" />
                                 <asp:CommandField ShowEditButton="True" />
                             </Columns>
-                        </asp:GridView>-->
+                        </asp:GridView>
                     </asp:View>
 
                     <asp:View ID="View4" runat="server">
-                        <!--<asp:GridView id="GridShows" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridShows_PageIndexChanging" 
+                        <asp:GridView id="GridShows" runat="server" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridShows_PageIndexChanging" 
                             OnRowCancelingEdit="GridShows_RowCancelingEdit" OnRowDeleting="GridShows_RowDeleting" OnRowEditing="GridShows_RowEditing" 
                             OnRowUpdating="GridShows_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None" ShowFooter="true">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -441,7 +441,7 @@
                                 <asp:CommandField ShowDeleteButton="True" />
                                 <asp:CommandField ShowEditButton="True" />
                             </Columns>
-                        </asp:GridView>-->
+                        </asp:GridView>
                     </asp:View>
 
                     <asp:View ID="View5" runat="server">
@@ -539,7 +539,7 @@
                     </asp:View>
 
                     <asp:View ID="View6" runat="server">
-                        <!--<asp:GridView id="GridTickets" runat="server" ShowFooter="true" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridTickets_PageIndexChanging" 
+                        <asp:GridView id="GridTickets" runat="server" ShowFooter="true" AutoGenerateColumns = "false" AllowPaging="True" OnPageIndexChanging="GridTickets_PageIndexChanging" 
                             OnRowCancelingEdit="GridTickets_RowCancelingEdit" OnRowDeleting="GridTickets_RowDeleting" OnRowEditing="GridTickets_RowEditing" 
                             OnRowUpdating="GridTickets_RowUpdating" CssClass="margin-large" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -583,7 +583,7 @@
                                 <asp:CommandField  ShowDeleteButton="True" />
                                 <asp:CommandField  ShowEditButton="True" />
                             </Columns>
-                        </asp:GridView>-->
+                        </asp:GridView>
                     </asp:View>
 
                     <asp:View ID="View7" runat="server">
