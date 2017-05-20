@@ -1,17 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="europeanpalace.aspx.cs" Inherits="XadamaWebapp.europeanpalace" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="asiangardens.aspx.cs" Inherits="XadamaWebapp.asiangardens" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>European Palace</title>
+    <title>Asian Gardens</title>
     <link rel="stylesheet" type="text/css" href="Style/hotel.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="hotel-tittle hotel-tittle-europe">
-        <p class="center xxlarge text-white margin-bottom-large bold uppercase padding-large" style="margin-top: 200px;">European Palace</p>
+    <div class="hotel-tittle hotel-tittle-asia">
+        <p class="center xxlarge text-white margin-bottom-large bold uppercase padding-large" style="margin-top: 200px;">Asian Gardens</p>
     </div>
     <div class="content container" style="padding-top: 250px">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:Image runat="server" ID="Image1" Height="430px" Width="750px" style="margin-bottom: 0px" CssClass="slideshow" ImageUrl="~/Media/Hotels/europeanpalace.jpg"/>
+        <asp:Image runat="server" ID="Image1" Height="430px" Width="750px" style="margin-bottom: 0px" CssClass="slideshow" ImageUrl="~/Media/Hotels/asiangardens.jpg"/>
         <ajaxToolkit:SlideShowExtender ID="SlideShowExtender1" runat="server" 
             TargetControlID="Image1"
             SlideShowServiceMethod="GetSlides"
@@ -19,10 +18,12 @@
             Loop="true" SlideShowAnimationType="SlideRight" />
     </div>
     <div class="content container three-quarter">
-        <p class="text-darkblue center large">Set in the european zone, the European Palace is a hotel with free WiFi set across the road 
-            from the London Eye. Its elegant rooms feature air conditioning and satellite TV. The hotel's International Cafè restaurant serves 
-            typical local products combined with intense fragrances and aromas. Breakfast is an American buffet. The bar is open till late 
-            at night and offers tasty snacks and excellent cocktails prepared by the skilled barman.</p>
+        <p class="text-darkblue center large">This impressive Thai-style hotel is set in the asian zone, with magnificent 
+                    views over the african one. Surrounded by pine woods, it offers 7 outdoor pools and a spa. Thai massages are available in the 
+                    traditional stilt houses which are set in charming gardens with various Asian-style fountains and infinity pools. The spa is equipped 
+                    with a heated indoor pool and hot tub, and there is also a fitness centre. Children will enjoy the pirates kids' club. The hotel's 4 
+                    restaurants include the Udaipur buffet restaurant and an à la carte Asian restaurant. There is also a Mediterranean and international 
+                    restaurant, as well as 3 distinctive bars.</p>
     </div>
     <div class="content container padding-32">
         <div align="center" class="blue" style="height: 100px">
