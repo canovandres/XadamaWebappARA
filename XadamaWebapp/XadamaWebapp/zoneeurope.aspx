@@ -50,7 +50,7 @@
             <div class="zone">
                 <asp:Image ID="Image2" runat="server" CssClass="zone-image" ImageUrl="~/Media/Hotels/americanluxury3.jpg" />
                  <div class="show-text1 text-white">
-                    <asp:Button runat="server" text="Hotels" CssClass="button-aux botonimagen" PostBackUrl="hotels.aspx"/>
+                    <asp:Button runat="server" text="Hotels" CssClass="button-aux botonimagen" PostBackUrl="europeanpalace.aspx"/>
                 </div>
             </div>
     
