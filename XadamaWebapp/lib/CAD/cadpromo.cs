@@ -51,7 +51,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod like '" +cod+"'", con);
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];

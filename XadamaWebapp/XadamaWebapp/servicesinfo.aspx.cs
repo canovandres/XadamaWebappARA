@@ -17,7 +17,9 @@ namespace XadamaWebapp
                
                 if (Session["Restaurant"] != null)
                 {
-                    pdesc.Visible = pzone.Visible = Container.Visible = true;
+                    ServiceTitle.CssClass += " text-yellow";
+                    pname.Visible=pdesc.Visible = pzone.Visible = Container.Visible = true;
+                    pname.CssClass += " rest-background";
                     Restaurant rs = (Restaurant)Session["Restaurant"];
                     name.Text = ServiceTitle.Text = rs.name;
                     ServiceDescription.Text = rs.description;
@@ -45,6 +47,8 @@ namespace XadamaWebapp
                 }
                 else if (Session["Show"] != null)
                 {
+                    ServiceTitle.CssClass += " text-red";
+                    pname.CssClass += " show-background";
                     pname.Visible=pdesc.Visible = pzone.Visible = Container.Visible = true;
                     Show s = (Show)Session["Show"];
                     name.Text = ServiceTitle.Text = s.name;
