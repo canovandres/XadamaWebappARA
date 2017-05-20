@@ -79,7 +79,7 @@ namespace XadamaWebapp
                 if (ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
                     t = enride.zoneRides("", "*");
-                    aux = enshow.zoneShows("", "*");
+                    aux = enshow.zoneShows("*");
                     foreach (DataRow r in aux.Rows)
                     {
                         t.ImportRow(r);
@@ -93,7 +93,7 @@ namespace XadamaWebapp
                 else
                 {
                     t = enride.zoneRides("", ListZones.SelectedItem.ToString());
-                    aux = enshow.zoneShows("", ListZones.SelectedItem.ToString());
+                    aux = enshow.zoneShows(ListZones.SelectedItem.ToString());
                     foreach (DataRow r in aux.Rows)
                     {
                         t.ImportRow(r);
@@ -120,11 +120,11 @@ namespace XadamaWebapp
             {
                 if (ListZones.SelectedItem.ToString().ToLower() == "--")
                 {
-                    t = enshow.zoneShows("", "*");
+                    t = enshow.zoneShows("*");
                 }
                 else
                 {
-                    t = enshow.zoneShows("", ListZones.SelectedItem.ToString());
+                    t = enshow.zoneShows(ListZones.SelectedItem.ToString());
                 }
             }
             else if (ListServices.SelectedItem.ToString().ToLower() == "restaurants")
@@ -148,7 +148,7 @@ namespace XadamaWebapp
             if (t.Rows[e.NewSelectedIndex][0].ToString()[0] == 'E')
             {
                 enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString();
-                enrest.Read("", enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString());
+                enrest.Read(enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString());
                 Session["Restaurant"] = enrest;
                 Session["Ride"] = null;
                 Session["Show"] = null;
@@ -164,7 +164,7 @@ namespace XadamaWebapp
             else
             {
                 enshow.cod= t.Rows[e.NewSelectedIndex][0].ToString();
-                enshow.Read("", t.Rows[e.NewSelectedIndex][0].ToString());
+                enshow.Read(t.Rows[e.NewSelectedIndex][0].ToString());
                 Session["Restaurant"] = null;
                 Session["Ride"] = null;
                 Session["Show"] = enshow;

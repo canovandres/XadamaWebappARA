@@ -26,13 +26,13 @@ namespace lib.EN
 
         public void save(string dbname)
         {
-            CAD.CADRestaurant restaurant = new CAD.CADRestaurant(dbname);
+            CAD.CADRestaurant restaurant = new CAD.CADRestaurant();
             restaurant.Create(this);
         }
 
-        public void Read(String dbname, String name)
+        public void Read(String name)
         {
-            CAD.CADRestaurant restaurant = new CAD.CADRestaurant(dbname);
+            CAD.CADRestaurant restaurant = new CAD.CADRestaurant();
             Restaurant r = (Restaurant)restaurant.Read(name);
             this.cod = r.cod;
             this.name = r.name;
@@ -41,22 +41,36 @@ namespace lib.EN
             this.zone = r.zone;
         }
 
-        public void Update(String dbname, Restaurant r)
+        public void Update(Restaurant r)
         {
-            CAD.CADRestaurant restaurant = new CAD.CADRestaurant(dbname);
+            CAD.CADRestaurant restaurant = new CAD.CADRestaurant();
             restaurant.Update(r);
         }
 
-        public void Delete(String dbname, String cod)
+        public void Delete(String cod)
         {
-            CAD.CADRestaurant restaurant = new CAD.CADRestaurant(dbname);
+            CAD.CADRestaurant restaurant = new CAD.CADRestaurant();
             restaurant.Delete(cod);
         }
 
         public DataTable zoneRestaurants(String db, String zone)
         {
-            CAD.CADRestaurant restaurant = new CAD.CADRestaurant(db);
+            CAD.CADRestaurant restaurant = new CAD.CADRestaurant();
             return restaurant.zoneRestaurants(zone);
+        }
+
+        public static DataSet ListAllRestaurants()
+        {
+            CAD.CADRestaurant r = new CAD.CADRestaurant();
+            DataSet restaurants = r.ListAllRestaurants();
+            return restaurants;
+        }
+
+        public DataSet DeleteRestaurant(int i)
+        {
+            CAD.CADRestaurant r = new CAD.CADRestaurant();
+            DataSet a = r.DeleteRestaurant(this, i);
+            return a;
         }
     }
 }

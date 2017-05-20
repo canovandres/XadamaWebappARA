@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="signin.ascx.cs" Inherits="XadamaWebapp.signin" %>
 
 <ajaxToolkit:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1" runat="server" TargetControlID="signInUC" VerticalSide="Middle" HorizontalSide="Center" />
-<asp:Panel runat="server" ID="signInUC" style="opacity: 1; z-index: 1010;">
+<asp:Panel runat="server" ID="signInUC" style="opacity: 1; z-index: 1010;" DefaultButton="SignIn">
 <div class="register padding-large margin-medium shadow" style="background-color: rgba(232, 229, 229, 1);">
     <div class="field" style="margin-right: -20px; margin-top: -5px;">
         <asp:Label runat="server" Text="EMAIL" CssClass="form-label medium"></asp:Label>
