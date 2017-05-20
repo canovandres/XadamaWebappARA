@@ -14,7 +14,7 @@ namespace XadamaWebapp
     public partial class shoppingcart : System.Web.UI.Page
     {
         private DataTable t=new DataTable();
-        private Order order=new Order("");
+        private Order order=new Order(0);
         protected void Page_Load(object sender, EventArgs e)
         {
             signin.UserControlButtonClicked += new
