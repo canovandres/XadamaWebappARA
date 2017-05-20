@@ -173,9 +173,8 @@ namespace XadamaWebapp
                     Client cliente = (Client)Session["Client"];
                     order.client = cliente;
                     order.date = DateTime.Today.ToString("dd/MM/yyyy");
-                    //order.date = Convert.ToString(today);
-                    //order.cod = Order.NextCode();
-                    order.cod = "022";
+                    order.cod = Order.NextCode();
+                    //order.cod = "022";
                     List<Product> _products = new List<Product>();
 
                     for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
@@ -201,9 +200,14 @@ namespace XadamaWebapp
                         order.buyItems("",p.cod, cantidad);
 
                     }
-
+                    makeinvisible();
+                    Label34.Visible = false;
+                    t = new DataTable();
+                    ListView1.DataSource = t;
+                    ListView1.DataBind();
                     shopPanel.Visible = true;
                     sendEmail();
+                    
                 }
                 else
                 {
@@ -257,17 +261,40 @@ namespace XadamaWebapp
         protected void checkPromo(object sender, EventArgs e)
         {
             Promo promo = new Promo(TextBox1.Text);
-            try
+            if (TextBox1 != null && TextBox1.Text[0] == 'P')
             {
-                promo.Read();
-                float actual = float.Parse(Label9.Text);
-                float nuevo = (float) Math.Round(actual - actual * (promo.discount / 100), 2);
-                Label9.Text = Convert.ToString(nuevo);
-                TextBox1.CssClass = "";
+                try
+                {
+                    if (Session["BookPromo"] == null)
+                    {
+                        promo.Read();
+                        float actual = float.Parse(Label9.Text);
+                        float nuevo = (float)Math.Round(actual - actual * (promo.discount / 100), 2);
+                        Session["BookPromo"] = promo.discount;
+                        Label9.Text = Convert.ToString(nuevo);
+                        TextBox1.CssClass = "";
+                    }
+                    else
+                    {
+                        TextBox1.Text = "";
+                        TextBox1.Attributes.Add("placeholder", "Already using a code");
+                        TextBox1.CssClass = "form-error";
+                        
+                    }
+                }
+                catch (Exception exc)
+                {
+                    TextBox1.Text = "";
+                    TextBox1.Attributes.Add("placeholder", "Not valid");
+                    TextBox1.CssClass = "form-error";
+                }
             }
-            catch (Exception exc)
+            else
             {
+                TextBox1.Text = "";
+                TextBox1.Attributes.Add("placeholder", "Not valid");
                 TextBox1.CssClass = "form-error";
+                
             }
         }
 

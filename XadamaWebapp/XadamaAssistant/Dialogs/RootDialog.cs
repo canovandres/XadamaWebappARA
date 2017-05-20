@@ -134,23 +134,38 @@ namespace XadamaAssistant.Dialogs
 
                 await context.PostAsync($"Looking for reviws of '{hotelEntityRecommendation.Entity}'...");
 
-                var resultMessage = context.MakeMessage();
-                resultMessage.AttachmentLayout = AttachmentLayoutTypes.Carousel;
-                resultMessage.Attachments = new List<Attachment>();
-
-                for (int i = 0; i < reviews.Count; i++)
+                if (reviews.Count == 0)
                 {
-                    ThumbnailCard thumbnailCard = new ThumbnailCard()
-                    {
-                        Title = reviews[i].name,
-                        Subtitle = "Mark: " + reviews[i].score,
-                        Text = reviews[i].description
-                    };
+                    string message = @"Sorry, I can't find reviews for this hotel";
 
-                    resultMessage.Attachments.Add(thumbnailCard.ToAttachment());
+                    await context.PostAsync(message);
                 }
+                else
+                {
+                    var resultMessage = context.MakeMessage();
+                    resultMessage.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+                    resultMessage.Attachments = new List<Attachment>();
 
-                await context.PostAsync(resultMessage);
+                    for (int i = 0; i < reviews.Count; i++)
+                    {
+                        ThumbnailCard thumbnailCard = new ThumbnailCard()
+                        {
+                            Title = reviews[i].name,
+                            Subtitle = "Mark: " + reviews[i].score,
+                            Text = reviews[i].description
+                        };
+
+                        resultMessage.Attachments.Add(thumbnailCard.ToAttachment());
+                    }
+
+                    await context.PostAsync(resultMessage);
+                }
+            }
+            else
+            {
+                string message = @"Sorry, I can't find this hotel";
+
+                await context.PostAsync(message);
             }
 
             context.Wait(this.MessageReceived);
