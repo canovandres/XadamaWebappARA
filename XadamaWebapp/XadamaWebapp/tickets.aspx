@@ -193,14 +193,12 @@
     <asp:Panel runat="server" ID="boughtCorrectly" CssClass="display-container" Height="300px">
         <div class="display-middle">
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="Thanks for buying tickets for the park."></asp:Label>
-            <asp:Label runat="server" CssClass="center padding-medium large wide text-darkblue" text="An email has been sent to you. Please, check it."></asp:Label>
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="An email has been sent to you. Please, check it."></asp:Label>
         </div>
     </asp:Panel>
 
 
     <asp:Panel runat="server" ID="TicketsCorrect" CssClass="display-container " style="margin-left:20%;" Height="300px">
-        <asp:UpdatePanel id="updatePanelBook" runat="server">
-        <ContentTemplate>
             <div class="row-padding">
                 <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="This is your tickets selection: "></asp:Label>
             </div>
@@ -238,8 +236,6 @@
              <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
                 <uc1:signin runat="server" ID="signin" align="center" />
             </asp:Panel>
-        </ContentTemplate>
-        </asp:UpdatePanel>
     </asp:Panel>
 
    
