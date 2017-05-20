@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="XadamaAssistant20170405125046" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Andrés\\documents\\visual\ studio\ 2017\\Projects\\XadamaAssistant\\XadamaAssistant\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Andrés\\documents\\visual\ studio\ 2017\\Projects\\XadamaAssistant\\XadamaAssistant\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="XadamaAssistant20170405125046/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Andrés\\documents\\visual\ studio\ 2017\\Projects\\XadamaAssistant\\XadamaAssistant\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="BotDataEntities-Web.config Connection String" description="" value="metadata=res://*/Models.BotData.csdl|res://*/Models.BotData.ssdl|res://*/Models.BotData.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\BotData.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andrés\\documents\\visual\ studio\ 2017\\Projects\\XadamaAssistant\\XadamaAssistant\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BotDataEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DatabaseConnection-Web.config Connection String" description="" value="Data Source=localhost\SQLEXPRESS;AttachDbFilename=|DataDirectory|\BotData.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andrés\\documents\\visual\ studio\ 2017\\Projects\\XadamaAssistant\\XadamaAssistant\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DatabaseConnection']/@connectionString" />
+  </parameter>
+</parameters>
