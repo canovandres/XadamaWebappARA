@@ -18,21 +18,10 @@
             <asp:Label runat="server" CssClass="center padding-small black large wide" Text="Reserve table in our zone's restaurants" ></asp:Label>
         </div>
     </div>
-    <asp:Panel id="Panel1" style="display: none" runat="server" CssClass="popUpReserve" BackColor="White" BorderStyle="Solid" BorderWidth="1px" BorderColor="Black">
-	    <div class="text-darkblue large">
-            <div id="PopupHeader1">Confirm reservation?</div>
-                <div>
-                    <asp:Label id="pupupLabel" runat="server" text="An email will be sent to your account"></asp:Label>
-                </div>
-            <div>
-                <asp:Button runat="server" id="btnOkay" Text="OK" CssClass="field button-slice" OnClick="reserveTable"/>
-                <asp:Button runat="server" id="btnCancel" Text="CANCEL" CssClass="field button-slice"/>
-		    </div>
-       </div>
-    </asp:Panel>
+    
     <asp:Panel runat="server" ID="reservePanel" CssClass="display-container" Height="300px" Visible="False">
         <div class="display-middle">
-            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="Thanks for the reservation, check your email to see more details."></asp:Label>
+            <asp:Label runat="server" ID="confirmationLabel" CssClass="xlarge wide text-darkblue"></asp:Label>
         </div>
     </asp:Panel>
     <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
@@ -65,8 +54,8 @@
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label> 
         </div>
         <div>
-            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox" CssClass="Calendar textleft"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="CalendarExtender1" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox" />
+            <asp:TextBox runat="server" placeholder="DD/MM/YYYY" ID="TextBox" CssClass="Calendar textleft"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender1" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox" Format="dd/MM/yyyy"/>
             <asp:RequiredFieldValidator ID="ValidatorAfrica" runat="server" ControlToValidate="TextBox" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date Required" ValidationGroup="africa"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorAfrica" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -109,8 +98,8 @@
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox1" CssClass="Calendar"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox1" />
+            <asp:TextBox runat="server" placeholder="DD/MM/YYYY" ID="TextBox1" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox1" Format="dd/MM/yyyy" />
             <asp:RequiredFieldValidator ID="ValidatorAmerica" runat="server" ControlToValidate="TextBox1" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date required" ValidationGroup="america"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="ValidatorAmerica" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -151,8 +140,8 @@
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox2" CssClass="Calendar"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="CalendarExtender3" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox2" />
+            <asp:TextBox runat="server" placeholder="DD/MM/YYYY" ID="TextBox2" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender3" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox2" Format="dd/MM/yyyy" />
             <asp:RequiredFieldValidator ID="ValidatorAsia" runat="server" ControlToValidate="TextBox2" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date required" ValidationGroup="asia"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" TargetControlID="ValidatorAsia" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -168,7 +157,7 @@
     </div>
 
      <!--EUROPA-->
-    <div id="Europa">
+    <div id="Europe">
     <div class="content container padding-32"></div>
     <div class="backimg-europe display-container">
        <div class="display-middle">
@@ -193,8 +182,8 @@
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox3" CssClass="Calendar"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="CalendarExtender4" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox3" />
+            <asp:TextBox runat="server" placeholder="DD/MM/YYYY" ID="TextBox3" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender4" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox3" Format="dd/MM/yyyy" />
              <asp:RequiredFieldValidator ID="ValidatorEuropa" runat="server" ControlToValidate="TextBox3" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date required" ValidationGroup="europa"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender9" runat="server" TargetControlID="ValidatorEuropa" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
@@ -235,8 +224,8 @@
             <asp:Label runat="server" Text="DAY" CssClass="xlarge text-darkblue bold"></asp:Label>
         </div>
         <div>
-            <asp:TextBox runat="server" placeholder="MM/DD/YYYY" ID="TextBox4" CssClass="Calendar"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="CalendarExtender5" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox4" />
+            <asp:TextBox runat="server" placeholder="DD/MM/YYYY" ID="TextBox4" CssClass="Calendar"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender5" DefaultView="Days" PopupPosition="BottomRight" Animated="true" runat="server" TargetControlID="TextBox4" Format="dd/MM/yyyy"/>
              <asp:RequiredFieldValidator ID="ValidatorOceania" runat="server" ControlToValidate="TextBox4" CssClass="error-text margin-medium" style="display: inline-block" ErrorMessage="Date required" ValidationGroup="oceania"></asp:RequiredFieldValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender10" runat="server" TargetControlID="ValidatorOceania" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
         </div>
