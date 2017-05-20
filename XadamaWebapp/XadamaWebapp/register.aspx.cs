@@ -27,6 +27,7 @@ namespace XadamaWebapp
             DataSet bdvirtual = new DataSet();
             try
             {
+                /*
                 string conString = "";
                 conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
                 conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
@@ -41,6 +42,9 @@ namespace XadamaWebapp
                 int i = cmd.ExecuteNonQuery();
                 con.Close();
                 if (dt.Rows.Count > 0)
+                */
+                Client c_aux = new Client(TextBoxEmail.Text);
+                if (c_aux.ExistsUsuario())
                 {
                     TextBoxEmail.CssClass = "form-error error-text";
                     TextBoxEmail.Text = string.Empty;
@@ -94,13 +98,16 @@ namespace XadamaWebapp
             DataSet bdvirtual = new DataSet();
             try
             {
+                
                 string conString = "";
                 conString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ToString();
                 conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
 
                 SqlConnection con = new SqlConnection(conString);
 
+                /*
                 SqlCommand cmd = new SqlCommand("select * from usuario where email = @email and password = @password", con);
+                
                 cmd.Parameters.AddWithValue("@email", TextBoxEmailSignIn.Text);
                 cmd.Parameters.AddWithValue("@password", TextBoxPasswordSignIn.Text);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -110,16 +117,22 @@ namespace XadamaWebapp
                 int i = cmd.ExecuteNonQuery();
                 con.Close();
                 if (dt.Rows.Count > 0)
+                */
+                Client c_aux = new Client(TextBoxEmailSignIn.Text, TextBoxPasswordSignIn.Text);
+                if (c_aux.ExistsUsuarioPassword())
                 {
+                    /*
                     SqlCommand cmd_client = new SqlCommand("select * from client where usuario = @email", con);
                     cmd_client.Parameters.AddWithValue("@email", TextBoxEmailSignIn.Text);
                     SqlDataAdapter da_client = new SqlDataAdapter(cmd_client);
                     DataTable dt_client = new DataTable();
                     da_client.Fill(dt_client);
                     con.Open();
-                    int i_client = cmd.ExecuteNonQuery();
+                    int i_client = cmd_client.ExecuteNonQuery();
                     con.Close();
                     if (dt_client.Rows.Count > 0)
+                    */
+                    if (c_aux.ExistsClient())
                     {
                         //
                         Client c = new Client(TextBoxEmailSignIn.Text);
@@ -135,10 +148,11 @@ namespace XadamaWebapp
                         // Session["name"] = TextBoxName.Text;
 
                         TextBoxEmailSignIn.Text = string.Empty;
-                        TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email!");
+                        TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email [Client]!");
                     }
                     else
                     {
+                        /*
                         SqlCommand cmd_worker = new SqlCommand("select * from worker where usuario = @email", con);
                         cmd_worker.Parameters.AddWithValue("@email", TextBoxEmailSignIn.Text);
                         SqlDataAdapter da_worker = new SqlDataAdapter(cmd_worker);
@@ -148,18 +162,20 @@ namespace XadamaWebapp
                         int i_worker = cmd_worker.ExecuteNonQuery();
                         con.Close();
                         if (dt_worker.Rows.Count > 0)
+                        */
+                        Worker w_aux = new Worker(TextBoxEmailSignIn.Text);
+                        if (w_aux.ExistsWorker())
                         {
                             Worker w = new Worker(TextBoxEmailSignIn.Text);
                             w.Read();
                             Session["Worker"] = w;
 
-                            Worker w_aux = (Worker)Session["Worker"];
-
                             TextBoxEmailSignIn.Text = string.Empty;
-                            TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email!");
+                            TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email [Worker]!");
                         }
                         else
                         {
+                            /*
                             SqlCommand cmd_admin = new SqlCommand("select * from admin where usuario = @email", con);
                             cmd_admin.Parameters.AddWithValue("@email", TextBoxEmailSignIn.Text);
                             SqlDataAdapter da_admin = new SqlDataAdapter(cmd_admin);
@@ -169,16 +185,16 @@ namespace XadamaWebapp
                             int i_admin = cmd_admin.ExecuteNonQuery();
                             con.Close();
                             if (dt_admin.Rows.Count > 0)
+                            */
+                            Admin a_aux = new Admin(TextBoxEmailSignIn.Text);
+                            if (a_aux.ExistsAdmin())
                             {
-                                // TODO: Quedan implementaciones
-                                /*
                                 Admin a = new Admin(TextBoxEmailSignIn.Text);
                                 a.Read();
                                 Session["Admin"] = a;
 
                                 TextBoxEmailSignIn.Text = string.Empty;
-                                TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email!");
-                                */
+                                TextBoxEmailSignIn.Attributes.Add("placeholder", "Correct email! [Admin]");
                             }
                             else
                             {

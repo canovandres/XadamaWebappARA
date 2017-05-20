@@ -13,7 +13,8 @@ namespace XadamaWebapp
 {
     public partial class shoppingcart : System.Web.UI.Page
     {
-        DataTable t=new DataTable();
+        private DataTable t=new DataTable();
+        private Order order;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -30,7 +31,9 @@ namespace XadamaWebapp
                     for (int i = t.Rows.Count - 1; i >= 0; i--)
                     {
                         DataRow dr = t.Rows[i];
-                        price += (float)(dr["price"]);
+                        float actual= (float)(dr["price"]);
+                        int cant = (int)(dr["quantity"]);
+                        price += (cant * actual);
                     }
 
 
@@ -45,40 +48,81 @@ namespace XadamaWebapp
 
         }
 
-        protected void DeleteProduct(object sender, ListViewSelectEventArgs e)
+        protected void DeleteProduct(object sender, ListViewCommandEventArgs e)
         {
-            
-                ListViewItem item = ListView1.Items[e.NewSelectedIndex];
-                
-                Label name = (Label)item.FindControl("Label1");
-                bool found = false;
-                for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !found; i--)
+                        
+            Label name = (Label)e.Item.FindControl("Label1");
+
+            bool found = false;
+
+            if (e.CommandName == "delete")
                 {
-                    DataRow dr = ((DataTable)Session["products"]).Rows[i];
-                    if ((String)dr["name"] == name.Text)
+                                    
+                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !found; i--)
                     {
-                        ((DataTable)Session["products"]).Rows.Remove(dr);
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        if ((String)dr["name"] == name.Text)
+                        {
+                            ((DataTable)Session["products"]).Rows.Remove(dr);
+                            found = true;
+                        }
+                    }
+                                        
+                }
+                else if (e.CommandName == "add")
+                {
+                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !found; i--)
+                    {
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        if ((String)dr["name"] == name.Text)
+                        {
+                        int aux = (int)dr["quantity"];
+                        aux += 1;
                         found = true;
+                        ((DataTable)Session["products"]).Rows[i]["quantity"] = aux;
+                        }
                     }
                 }
-
-                t = (DataTable)Session["products"];
-                float price = 0;
-                for (int i = t.Rows.Count - 1; i >= 0; i--)
+                else if(e.CommandName == "minus")
                 {
-                    DataRow dr = t.Rows[i];
-                    price += (float)(dr["price"]);
-                }
+                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !found; i--)
+                    {
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        if ((String)dr["name"] == name.Text)
+                        {
+                            int aux = (int)dr["quantity"];
+                            if (aux > 1)
+                            {
+                                aux -= 1;
+                                ((DataTable)Session["products"]).Rows[i]["quantity"] = aux;
+                            }
+                            found = true;
+                            
+                        }
+                    }
+            }
 
+            t = (DataTable)Session["products"];
 
-                Label9.Text = Convert.ToString(price);
-                ListView1.DataSource = t;
-                ListView1.DataBind();
-                if (t.Rows.Count == 0)
-                {
-                     makeinvisible();
-                }
-                           
+            float price = 0;
+            for (int i = t.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = t.Rows[i];
+                float actual = (float)(dr["price"]);
+                int cant = (int)(dr["quantity"]);
+                price += (cant * actual);
+            }
+            
+            Label9.Text = Convert.ToString(price);
+            ListView1.DataSource = t;
+            ListView1.DataBind();
+            if (t.Rows.Count == 0)
+            {
+                makeinvisible();
+            }
+
+            Response.Redirect("shoppingcart.aspx");
+            
         }
 
         protected void makeinvisible()
@@ -88,7 +132,7 @@ namespace XadamaWebapp
             TextBox1.Visible = false;
             Label8.Visible = false;
             Label9.Visible = false;
-            Button23.Visible = false;
+            shopButton.Visible = false;
             Label5.Visible = false;
             Label6.Visible = false;
             Label7.Visible = false;
@@ -99,13 +143,15 @@ namespace XadamaWebapp
         {
             if (Session["Client"] != null)
             {
-                //booking.bookRooms();
+                order.client.email = ((Client)Session["Client"]).email;
+                //order.buyitems();
+                shopPanel.Visible = true;
                 sendEmail();
-                
             }
             else
             {
-                Response.Redirect("register.aspx");
+                //okBooking.Visible = true;
+                registerPanel.Visible = true;
             }
         }
 
@@ -138,5 +184,21 @@ namespace XadamaWebapp
             {
             }
         }
+
+        protected void checkPromo(object sender, EventArgs e)
+        {
+            /*Promo promo = new Promo(PromoCode.Text);
+            try
+            {
+                promo.Read();
+                Price.Text = Math.Round(booking.getPrice() - booking.getPrice() * (promo.discount / 100), 2).ToString();
+                PromoCode.CssClass = "";
+            }
+            catch (Exception exc)
+            {
+                PromoCode.CssClass = "form-error";
+            }*/
+        }
+
     }
 }

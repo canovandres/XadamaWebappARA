@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,6 +64,37 @@ namespace lib.EN
             c.Delete(email);
         }
 
+        public bool ExistsUsuario()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            return (c.ExistsUsuario(email));
+        }
+
+        public bool ExistsUsuarioPassword()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            return (c.ExistsUsuarioPassword(email, password));
+        }
+
+        public bool ExistsClient()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            return (c.ExistsClient(email));
+        }
+
+        public static DataSet ListAllClients()
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            DataSet clients = c.ListAllClients();
+            return clients;
+        }
+
+        public DataSet DeleteClient(int i)
+        {
+            CAD.CADClient c = new CAD.CADClient();
+            DataSet a = c.DeleteClient(this, i);
+            return a;
+        }
     }
 }
 

@@ -39,6 +39,15 @@
     
 }
 
+.zone12 {
+    width: 5%;
+    height: 100px;
+    float: left;
+    box-sizing: content-box;
+    margin-top: 75px;
+    
+}
+
 .zone11 {
     width: 30%;
     height: 100px;
@@ -167,4 +176,12 @@
 	right: 0px;
     height: 20px;
     width: 20px;
+}
+
+.popUpConfirm {
+     min-width: 200px;
+     min-height: 150px;
+     background-color: #FFFFFF;
+     padding: 10px;
+     border: 1px solid;
 }

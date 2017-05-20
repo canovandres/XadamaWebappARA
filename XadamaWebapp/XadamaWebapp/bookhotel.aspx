@@ -101,6 +101,11 @@
             <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-red" style="text-align: justify;" text="Sorry, we have no availability for your selection. Please, change it."></asp:Label>
         </div>
     </asp:Panel>
+    <asp:Panel runat="server" ID="errorRooms" CssClass="display-container" Height="300px" Visible="False">
+        <div class="display-middle">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-red" text="Select a valid number of rooms please."></asp:Label>
+        </div>
+    </asp:Panel>
     <asp:Panel runat="server" ID="okBooking" CssClass="content container padding-32" Visible="False" style="width: 70%">
         <asp:UpdatePanel id="updatePanelBook" runat="server">
         <ContentTemplate>
@@ -206,7 +211,6 @@
         </div>
     </asp:Panel>
     <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
-        <ajaxToolkit:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1" runat="server" TargetControlID="registerPanel" VerticalSide="Middle" HorizontalSide="Center" />
         <uc1:signin runat="server" ID="signin" align="center" />
     </asp:Panel>
 </asp:Content>

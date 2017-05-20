@@ -16,6 +16,7 @@ namespace XadamaWebapp
         {
             okBooking.Visible = false;
             errorBooking.Visible = false;
+            errorRooms.Visible = false;
             bookPanel.Visible = false;
             PromoCode.CssClass = "";
             From.Attributes.Add("readonly", "readonly");
@@ -50,7 +51,12 @@ namespace XadamaWebapp
             okBooking.Visible = false;
             errorBooking.Visible = false;
             bookPanel.Visible = false;
-            if (booking.isAvalaible())
+            errorRooms.Visible = false;
+            if(booking.nsingle == 0 && booking.ndouble == 0)
+            {
+                errorRooms.Visible = true;
+            }
+            else if (booking.isAvalaible())
             {
                 switch (booking.hotel)
                 {
@@ -82,10 +88,12 @@ namespace XadamaWebapp
                 DoubleRooms.Text = booking.ndouble.ToString() + " rooms";
                 Price.Text = Math.Round(booking.getPrice(), 2).ToString() +" €";
                 okBooking.Visible = true;
+                errorRooms.Visible = false;
             }
             else
             {
                 errorBooking.Visible = true;
+                errorRooms.Visible = false;
             }
         }
 
@@ -164,8 +172,11 @@ namespace XadamaWebapp
 
         private void UCButton(object sender, EventArgs e)
         {
-            signin.Visible = false;
-            okBooking.Visible = true;
+            if (Session["Client"] != null)
+            {
+                signin.Visible = false;
+                okBooking.Visible = true;
+            }
         }
     }
 }
