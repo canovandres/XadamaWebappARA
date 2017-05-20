@@ -24,8 +24,8 @@ namespace XadamaWebapp
             {
                 if (Session["Admin"] != null)
                 {
-                    //GridProducts.DataSource = Product.ListAllProducts();
-                    //GridProducts.DataBind();
+                    GridProducts.DataSource = Product.ListAllProducts();
+                    GridProducts.DataBind();
 
                     GridClients.DataSource = Client.ListAllClients();
                     GridClients.DataBind();
@@ -67,14 +67,14 @@ namespace XadamaWebapp
         protected void GridProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             Product product = new Product();
-            //GridProducts.DataSource = product.DeleteProduct(e.RowIndex);
+            GridProducts.DataSource = product.DeleteProduct(e.RowIndex);
             GridProducts.DataBind();
         }
 
         protected void GridProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridProducts.EditIndex = e.NewEditIndex;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
         protected void GridProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -87,21 +87,21 @@ namespace XadamaWebapp
             string stock = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtStock")).Text;
             string image = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtImage")).Text;
             Product product = new Product(cod, name, float.Parse(price), image, Convert.ToInt32(stock), type, description);
-            //product.Update();
+            product.Update();
             GridProducts.EditIndex = -1;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
         protected void GridProducts_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridProducts.PageIndex = e.NewPageIndex;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
         protected void GridProducts_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridProducts.EditIndex = -1;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
 
@@ -116,8 +116,8 @@ namespace XadamaWebapp
             string image = ((TextBox)GridProducts.FooterRow.FindControl("txtImage")).Text;
 
             Product product = new Product(cod, name, float.Parse(price), image, Convert.ToInt32(stock), type, description);
-            //product.Create();
-            //GridProducts.DataSource = Product.ListAllProducts();
+            product.Create();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
 
@@ -313,8 +313,8 @@ namespace XadamaWebapp
                                 .FindControl("txtDescription")).Text;
             string score = ((TextBox)GridReviews.Rows[e.RowIndex]
                                 .FindControl("txtScore")).Text;
-            string hotel = ((TextBox)GridReviews.Rows[e.RowIndex]
-                                .FindControl("txtHotel")).Text;
+            string hotel = ((Label)GridReviews.Rows[e.RowIndex]
+                                .FindControl("lblHotel")).Text;
             string name = ((TextBox)GridReviews.Rows[e.RowIndex]
                                 .FindControl("txtName")).Text;
             string reports = ((TextBox)GridReviews.Rows[e.RowIndex]
@@ -356,7 +356,7 @@ namespace XadamaWebapp
 
         protected void GridTickets_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             GridTickets.DataSource = ticket.DeleteTicket(e.RowIndex);
             GridTickets.DataBind();
         }
@@ -373,7 +373,7 @@ namespace XadamaWebapp
                         .FindControl("lblType")).Text;
             string price = ((TextBox)GridTickets.Rows[e.RowIndex]
                                 .FindControl("txtPrice")).Text;
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             ticket.UpdatePrice(type, float.Parse(price));
             GridTickets.EditIndex = -1;
             GridTickets.DataSource = Ticket.ListAllTickets();
@@ -397,7 +397,7 @@ namespace XadamaWebapp
             string type = ((TextBox)GridTickets.FooterRow.FindControl("txtType")).Text;
             string price = ((TextBox)GridTickets.FooterRow.FindControl("txtPrice")).Text;
 
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             ticket.CreateType(type, float.Parse(price));
             GridTickets.DataSource = Ticket.ListAllTickets();
             GridTickets.DataBind();

@@ -19,13 +19,41 @@ namespace lib.CAD
             conString = conString.Replace("|DataDirectory|", AppDomain.CurrentDomain.GetData("DataDirectory").ToString());
         }
 
-        public void Create(Order order)
+        /*public void Create(Order order)
         {
             SqlConnection con = new SqlConnection(conString);
             try
             {
                 DataSet bdvirtual = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter("select* from order", con);
+                da.Fill(bdvirtual, "order");
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["order"];
+                DataRow newline = t.NewRow();
+                newline[0] = order.cod;
+                newline[1] = order.client.email;
+                newline[2] = order.date;
+                t.Rows.Add(newline);
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                da.Update(bdvirtual, "order");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+        }*/
+
+        public void Create(Order order)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            try
+            {
+                DataSet bdvirtual = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter("select * from order", con);
                 da.Fill(bdvirtual, "order");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["order"];
@@ -183,7 +211,7 @@ namespace lib.CAD
             {
                 string aux;
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from order", con);
+                SqlDataAdapter da = new SqlDataAdapter("select max(cast(substring(cod,2,len(cod)-1) as int)) from order", con);
                 da.Fill(bdvirtual, "order");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["order"];
