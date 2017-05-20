@@ -23,13 +23,13 @@ namespace lib.CAD
 
         public void Create(Ticket ticket)
         {
-            Ticket newTicket = ticket;
+            Ticket newTicket = (Ticket)ticket;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("Select * from Ticket", con);
+                SqlDataAdapter da = new SqlDataAdapter("Select * from ticket", con);
                 da.Fill(bdvirtual, "ticket");
 
                 DataTable t = new DataTable();
@@ -64,7 +64,7 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from ticket cod like '" + cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from ticket where cod like '" + cod + "'", con);
                 da.Fill(bdvirtual, "ticket");
 
                 DataTable t = new DataTable();
@@ -96,7 +96,7 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from ticket cod like '" + ticket.cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from ticket where cod like '" + ticket.cod + "'", con);
                 da.Fill(bdvirtual, "ticket");
 
                 DataTable t = new DataTable();
@@ -106,7 +106,7 @@ namespace lib.CAD
                 t.Rows[0][2] = ticket.day;
                 t.Rows[0][3] = ticket.totalprice;
                 t.Rows[0][4] = ticket.child;
-                t.Rows[0][4] = ticket.adult;
+                t.Rows[0][5] = ticket.adult;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "ticket");
@@ -147,7 +147,7 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from ticket cod like '" + cod + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from ticket where cod like '" + cod + "'", con);
                 da.Fill(bdvirtual, "ticket");
 
                 DataTable t = new DataTable();
@@ -168,7 +168,7 @@ namespace lib.CAD
             }
         }
 
-        public float totalPrice(int cod)
+        public float totalPrice(Ticket ti)
         {
             float total = 0;
             SqlConnection con = new SqlConnection(conString);
@@ -176,38 +176,24 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from ticket where cod like '"+cod+"'", con);
-                da.Fill(bdvirtual, "ticket");
-                DataTable t = new DataTable();
-                t = bdvirtual.Tables["ticket"];
-
-                int c = Int32.Parse(t.Rows[0][4].ToString()); // numero de child
-                int a = Int32.Parse(t.Rows[0][5].ToString()); // numero de adult
-
                 SqlDataAdapter da2 = new SqlDataAdapter("select price from tickettype where type like 'Adult'", con);
                 da2.Fill(bdvirtual, "adulttype");
                 DataTable t2 = new DataTable();
                 t2 = bdvirtual.Tables["adulttype"];
 
-                float aprice = float.Parse(t.Rows[0][0].ToString());
+                float aprice = float.Parse(t2.Rows[0][0].ToString());
 
                 SqlDataAdapter da3 = new SqlDataAdapter("select price from tickettype where type like 'Child'", con);
                 da3.Fill(bdvirtual, "childtype");
                 DataTable t3 = new DataTable();
                 t3 = bdvirtual.Tables["childtype"];
 
-                float cprice = float.Parse(t.Rows[0][0].ToString());
+                float cprice = float.Parse(t3.Rows[0][0].ToString());
 
-                total = (a * aprice) + (c * cprice);
+                total = (ti.adult * aprice) + (ti.child * cprice);
             }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                con.Close();
-            }
+            catch (Exception ex) {  }
+            finally { con.Close(); }
 
             return total;
         }
@@ -219,7 +205,7 @@ namespace lib.CAD
             DataSet dbvirtual = new DataSet();
             try
             {
-                float price = totalPrice(t.cod);
+                float price = totalPrice(t);
                 Ticket newTicket = new Ticket(t.cod, t.client, t.day, price, t.adult, t.child);
                 Create(newTicket);
                 done = true;

@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="tickets.aspx.cs" Inherits="XadamaWebapp.tickets" %>
 
+<%@ Register Src="~/signin.ascx" TagPrefix="uc1" TagName="signin" %>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <title>Xadama Tickets</title>
     <link rel="stylesheet" type="text/css" href="Style/tickets.css" />
@@ -162,7 +165,7 @@
             
             <div class="field col fifth">
                <asp:Label runat="server" Text="Promotion Code"></asp:Label>
-               <asp:TextBox runat="server" placeholder="Enter your code" ID="PromoCode" CssClass="textright text-darkblue medium calculo calculo-promo"></asp:TextBox>
+               <asp:TextBox runat="server" placeholder="Enter your code" Text="" ID="PromoCode" CssClass="textright text-darkblue medium calculo calculo-promo"></asp:TextBox>
             </div> 
             <div class="margin-50 col seventh">
             </div>
@@ -187,6 +190,13 @@
         </div>
     </asp:Panel>
 
+    <asp:Panel runat="server" ID="boughtCorrectly" CssClass="display-container" Height="300px">
+        <div class="display-middle">
+            <asp:Label runat="server" CssClass="center padding-medium xxlarge wide text-darkblue" text="Thanks for buying tickets for the park."></asp:Label>
+            <asp:Label runat="server" CssClass="center padding-medium large wide text-darkblue" text="An email has been sent to you. Please, check it."></asp:Label>
+        </div>
+    </asp:Panel>
+
 
     <asp:Panel runat="server" ID="TicketsCorrect" CssClass="display-container " style="margin-left:20%;" Height="300px">
         <asp:UpdatePanel id="updatePanelBook" runat="server">
@@ -206,28 +216,33 @@
                 <asp:Label runat="server" ID="Children2" CssClass="text-darkblue xlarge padding-large"></asp:Label>
                 <asp:Label runat="server" CssClass="xlarge text-darkblue" Text=" child tickets"></asp:Label>
             </div>
-            <div class="row-padding">
+            <div class="row-padding" style="margin-left:5%;">
                  <asp:Label runat="server" CssClass="xlarge text-darkblue" Text="Promotion discount: "></asp:Label>
-                <asp:Label runat="server" ID="Promo2" CssClass="text-darkblue xlarge padding-large"></asp:Label> %
+                 <asp:Label runat="server" ID="Promo2" CssClass="text-darkblue xlarge padding-large"></asp:Label>
+                 <asp:Label runat="server" CssClass="xlarge text-darkblue" Text="%"></asp:Label>
             </div>
-            <div class="row-padding">
+            <div class="row-padding" style="margin-left:5%;">
                 <asp:Label runat="server" CssClass="xxlarge text-darkblue" Text="Total price: "></asp:Label>
                 <asp:Label runat="server" ID="Price2" CssClass="text-darkblue xxlarge padding-large"></asp:Label>
+                <asp:Label runat="server" CssClass="xxlarge text-darkblue" Text="€"></asp:Label>
             </div>
-
             <div class="row-padding">
                 <asp:Label runat="server" CssClass="center padding-medium xlarge text-darkblue" text="Do you want to confirm your purchase? "></asp:Label>
             </div>
             <div class="col seventh margin-left">
-                <asp:Button runat="server" ID="Button1" CssClass="button-slice xlarge margin-32" Style="cursor:pointer; align-content:center" Text="CONFIRM" ></asp:Button>
+                <asp:Button runat="server" ID="ConfirmBtn" CssClass="button-slice xlarge margin-32" Style="cursor:pointer; align-content:center" Text="CONFIRM" OnClick="buyTickets"/>
             </div>
             <div class="col seventh">
                 <asp:Button runat="server" ID="Button2" CssClass="button-slice xlarge margin-32 " Style="cursor:pointer; align-content:center; margin-left:20%" Text="CANCEL" NavigateUrl="main.aspx"></asp:Button>
             </div>
-        
+             <asp:Panel runat="server" ID="registerPanel" Visible="False" HorizontalAlign="Center">
+                <uc1:signin runat="server" ID="signin" align="center" />
+            </asp:Panel>
         </ContentTemplate>
         </asp:UpdatePanel>
     </asp:Panel>
+
+   
 
    <div class="content container padding-32"></div>
   
