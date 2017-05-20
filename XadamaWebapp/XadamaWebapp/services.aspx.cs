@@ -148,7 +148,7 @@ namespace XadamaWebapp
             if (t.Rows[e.NewSelectedIndex][0].ToString()[0] == 'E')
             {
                 enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString();
-                enrest.Read("", enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString());
+                enrest.Read(enrest.cod = t.Rows[e.NewSelectedIndex][0].ToString());
                 Session["Restaurant"] = enrest;
                 Session["Ride"] = null;
                 Session["Show"] = null;
