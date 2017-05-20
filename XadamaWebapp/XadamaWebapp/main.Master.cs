@@ -14,6 +14,9 @@ namespace XadamaWebapp
             if(Session["Admin"] != null)
             {
                 Response.Redirect("admin.aspx");
+                SignInBt.Visible = false;
+                ProfileBT.Visible = false;
+                SignOutBt.Visible = true;
             }
             else if (Session["Client"] != null || Session["Worker"] != null)
             {
@@ -51,6 +54,11 @@ namespace XadamaWebapp
             else if (Session["Worker"] != null)
             {
                 Session.Remove("Worker");
+                Response.Redirect("main.aspx");
+            }
+            else if (Session["Admin"] != null)
+            {
+                Session.Remove("Admin");
                 Response.Redirect("main.aspx");
             }
         }
