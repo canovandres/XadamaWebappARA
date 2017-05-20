@@ -59,7 +59,7 @@ namespace lib.CAD
 
         public Ticket Read(int cod, String day, String client)
         {
-            Ticket ticket = new Ticket(0, "", "");
+            Ticket ticket = new Ticket("", "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
@@ -206,7 +206,7 @@ namespace lib.CAD
             try
             {
                 float price = totalPrice(t);
-                Ticket newTicket = new Ticket(t.cod, t.client, t.day, price, t.adult, t.child);
+                Ticket newTicket = new Ticket(t.client, t.day, t.adult, t.child, price, t.cod);
                 Create(newTicket);
                 done = true;
             }
@@ -218,7 +218,7 @@ namespace lib.CAD
 
         public DataSet getTypes()//Returns a list of promos active in the date passed by parameter by executing appropiate commands
         {
-            EN.Ticket ticket = new EN.Ticket(0,"","");
+            EN.Ticket ticket = new EN.Ticket("","");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
