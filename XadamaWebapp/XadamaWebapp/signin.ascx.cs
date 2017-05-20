@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using lib.EN;
 
 namespace XadamaWebapp
 {
@@ -28,6 +29,36 @@ namespace XadamaWebapp
 
         protected void OnSingInClick(object sender, EventArgs e)
         {
+            Client c_aux = new Client(TextBoxEmailSignIn.Text, TextBoxPasswordSignIn.Text);
+            if (c_aux.ExistsUsuarioPassword())
+            {
+                if (c_aux.ExistsClient())
+                {
+                    Client c = new Client(TextBoxEmailSignIn.Text);
+                    c.Read();
+                    Session["Client"] = c;
+                }
+                else
+                {
+                    Worker w_aux = new Worker(TextBoxEmailSignIn.Text);
+                    if (w_aux.ExistsWorker())
+                    {
+                        Worker w = new Worker(TextBoxEmailSignIn.Text);
+                        w.Read();
+                        Session["Worker"] = w;
+                    }
+                    else
+                    {
+                        Admin a_aux = new Admin(TextBoxEmailSignIn.Text);
+                        if (a_aux.ExistsAdmin())
+                        {
+                            Admin a = new Admin(TextBoxEmailSignIn.Text);
+                            a.Read();
+                            Session["Admin"] = a;
+                        }
+                    }
+                }
+            }
             OnUserControlButtonClick();
         }
     }

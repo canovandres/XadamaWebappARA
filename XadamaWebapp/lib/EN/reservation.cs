@@ -8,46 +8,65 @@ namespace lib.EN
 {
     public class Reservation
     {
-        public Reservation(string cod, Client client = null, string date = "", string idrestaurant = "")
+        public Reservation(String client, int table, String restaurant, String date = "", int ntables = 0)
         {
-            this.cod = cod;
-            this.date = date;
-            this.idrestaurant = idrestaurant;
             this.client = client;
+            this.table = table;
+            this.restaurant = restaurant;
+            this.date = date;
+            this.ntables = ntables;
         }
 
-        public string cod { get; set; }
-        public string date { get; set; }
-        public string idrestaurant { get; set; }
-        public Client client { get; set; }
+        public String client { get; set; }
+        public int table { get; set; }
+        public String restaurant { get; set; }
+        public String date { get; set; }
+        public int ntables { get; set; }
 
-        public void save(String dbname)
+        void Create()
         {
-            CAD.CADReservation reservation = new CAD.CADReservation(dbname);
-            reservation.Create(this);
+            CAD.CADReservation r = new CAD.CADReservation();
+            r.Create(this);
         }
 
-        public void read(String dbname, String id)
+        void Read()
         {
-            CAD.CADReservation reservation = new CAD.CADReservation(dbname);
-            Reservation r = (Reservation)reservation.Read(id);
-            this.cod = r.cod;
-            this.date = r.date;
-            this.client = r.client;
-            this.idrestaurant = r.idrestaurant;
-
+            CAD.CADReservation r = new CAD.CADReservation();
+            Reservation res = r.Read(client, table, restaurant);
+            client = res.client;
+            table = res.table;
+            restaurant = res.restaurant;
+            date = res.date;
         }
 
-        public void update(String dbname, EN.Reservation r)
+        void Update()
         {
-            CAD.CADReservation reservation = new CAD.CADReservation(dbname);
-            reservation.Update(r);
+            CAD.CADReservation r = new CAD.CADReservation();
+            r.Update(this);
         }
 
-        public void delete(String dbname, String cod)
+        void Delete()
         {
-            CAD.CADReservation reservation = new CAD.CADReservation(dbname);
-            reservation.Delete(cod);
+            CAD.CADReservation r = new CAD.CADReservation();
+            r.Delete(client, table, restaurant);
+        }
+
+        public int tablesAvailable()
+        {
+            CAD.CADReservation r = new CAD.CADReservation();
+            return r.tablesAvailable(this);
+        }
+        public bool isAvailable()
+        {
+            CAD.CADReservation r = new CAD.CADReservation();
+            return r.isAvailable(this);
+        }
+
+        public bool reserveTables()
+        {
+            CAD.CADReservation r = new CAD.CADReservation();
+            return r.reserveTables(this);
         }
     }
 }
+

@@ -31,7 +31,8 @@ namespace XadamaWebapp
                 DataColumn name = tcart.Columns.Add("name", typeof(String));
                 DataColumn price = tcart.Columns.Add("price", typeof(float));
                 DataColumn image = tcart.Columns.Add("image", typeof(String));
-                DataColumn quantity = tcart.Columns.Add("",typeof(int));
+                DataColumn quantity = tcart.Columns.Add("quantity",typeof(int));
+                DataColumn cod = tcart.Columns.Add("cod", typeof(String));
                 Session["products"] = tcart;
             }
 
@@ -82,6 +83,7 @@ namespace XadamaWebapp
 
             Label c = (Label)item.FindControl("Label1");
             Label c1 = (Label)item.FindControl("Label2");
+            Label c2 = (Label)item.FindControl("Label3");
             Image i = (Image)item.FindControl("Image1");
             LinkButton l = (LinkButton)item.FindControl("LinkButton1");
 
@@ -90,6 +92,7 @@ namespace XadamaWebapp
             r[1] = Int32.Parse(c1.Text);
             r[2] = i.ImageUrl;
             r[3] = 1;
+            r[4] = c2.Text;
             ((DataTable)Session["products"]).Rows.Add(r);
 
             /*p1.name = c.Text;
