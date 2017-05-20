@@ -54,18 +54,21 @@ namespace lib.EN
         public int tablesAvailable()
         {
             CAD.CADReservation r = new CAD.CADReservation();
-            return r.tablesAvailable(this);
+            int freetables = r.tablesAvailable(this);
+            return freetables;
         }
         public bool isAvailable()
         {
             CAD.CADReservation r = new CAD.CADReservation();
-            return r.isAvailable(this);
+            bool available = r.isAvailable(this);
+            return available;
         }
 
         public bool reserveTables()
         {
             CAD.CADReservation r = new CAD.CADReservation();
-            return r.reserveTables(this);
+            bool done = r.reserveTables(this);
+            return done;
         }
     }
 }
