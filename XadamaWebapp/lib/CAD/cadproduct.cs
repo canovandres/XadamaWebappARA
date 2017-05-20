@@ -225,12 +225,12 @@ namespace lib.CAD
             return bdvirtual;
         }
 
-        public void DeleteProduct(int index)
+        public DataSet DeleteProduct(int index)
         {//deletes de product depending on de index it has in the database
             SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
             try
             {
-                DataSet bdvirtual = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter("select* from product", con);
                 da.Fill(bdvirtual, "producto");
                 DataTable t = new DataTable();
@@ -238,6 +238,7 @@ namespace lib.CAD
                 t.Rows[index].Delete();
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "producto");
+                return bdvirtual;
             }
             catch (Exception ex)
             {
@@ -247,6 +248,7 @@ namespace lib.CAD
             {
                 con.Close();
             }
+            return bdvirtual;
         }
 
         public int getStock(String cod)
@@ -255,10 +257,10 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select stock from product where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select stock from product where cod like '" + cod + "'", con);
                 da.Fill(bdvirtual, "product");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["producto"];
+                t = bdvirtual.Tables["product"];
                 return int.Parse(t.Rows[0][0].ToString());
             }
             catch (Exception ex)

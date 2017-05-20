@@ -151,7 +151,7 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from table where restaurant like '" + r.restaurant + "' and num not in (select table from reservation where date like '" + r.date + "')", con);
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from table where restaurant like '" + r.restaurant + "' and num not in (select table from reservation where day like '" + r.date + "')", con);
                 da.Fill(virtualdb, "table");
 
                 DataTable t = new DataTable();
@@ -171,9 +171,9 @@ namespace lib.CAD
             {
                 ok = true;
             }
-
             return ok;
         }
+
         public bool reserveTables(Reservation r)
         {
             bool done = false;

@@ -14,7 +14,7 @@ namespace XadamaWebapp
     public partial class shoppingcart : System.Web.UI.Page
     {
         private DataTable t=new DataTable();
-        private Order order;
+        private Order order=new Order("");
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -151,10 +151,10 @@ namespace XadamaWebapp
                 DataRow dr = ((DataTable)Session["products"]).Rows[i];
                 Product p = new Product();
                 p.cod = (String)dr["cod"];
-                int stock=0;
-                //int stock = p.getStock();
+                int stock = p.getStock();
+                int cantidad = (int)dr["quantity"];
 
-                if ((int)dr["quantity"] > stock)
+                if (cantidad > stock)
                 {
                     fallo = true;
                     aux = (string)dr["name"];
@@ -166,8 +166,35 @@ namespace XadamaWebapp
                 if (Session["Client"] != null)
                 {
                     order.client.email = ((Client)Session["Client"]).email;
+                    order.date = DateTime.Today.ToString("dd/MM/yyyy");
+                    //order.date = Convert.ToString(today);
+                    order.cod = Order.NextCode();
                     List<Product> _products = new List<Product>();
-                    //order.buyItems();
+
+                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
+                    {
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        Product p = new Product();
+                        p.cod = (String)dr["cod"];
+                        p.name = (String)dr["name"];
+                        p.price = (float)dr["price"];
+                        _products.Add(p);
+
+                    }
+
+                    order._products = _products;
+                 
+
+                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
+                    {
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        Product p = new Product();
+                        p.cod = (String)dr["cod"];
+                        int cantidad = (int)dr["quantity"];
+                        order.buyItems("",p.cod, cantidad);
+
+                    }
+
                     shopPanel.Visible = true;
                     sendEmail();
                 }

@@ -63,7 +63,7 @@ namespace lib.EN
         public float totalPrice()
         {
             CAD.CADTicket t = new CAD.CADTicket();
-            return t.totalPrice(cod);
+            return t.totalPrice(this);
         }
         // REVISAR
         public bool buyTickets()

@@ -17,13 +17,15 @@
                             <asp:Label ID="name" runat="server"></asp:Label>
                         </asp:Panel>
                         <asp:Panel ID="pzone" runat="server" Visible="false" CssClass="info-items">
-                            <asp:Image runat="server" Height="100%" ImageUrl="~/Media/Icons/world-icon.png" />
+                            <asp:Image runat="server" ImageAlign="Middle" CssClass="image-item margin-right" ImageUrl="~/Media/Icons/world-icon.png" />
                             <asp:Label ID="zone" runat="server"></asp:Label>
                         </asp:Panel>
                         <asp:Panel ID="pheight" runat="server" Visible="false" CssClass="info-items">
+                            <asp:Image runat="server" ImageAlign="Middle" CssClass="image-item margin-right" ImageUrl="~/Media/Icons/height-icon.png" />
                             <asp:Label ID="minheight" runat="server" Visible="false"></asp:Label>
                         </asp:Panel>
                         <asp:Panel ID="pspeed" runat="server" Visible="false" CssClass="info-items">
+                            <asp:Image runat="server" ImageAlign="Middle" CssClass="image-item margin-right" ImageUrl="~/Media/Icons/speed-icon.png" />
                             <asp:Label ID="speed" runat="server" Visible="false"></asp:Label>
                         </asp:Panel>
                         <asp:Panel ID="pdesc" runat="server" Visible="false" CssClass="info-items">

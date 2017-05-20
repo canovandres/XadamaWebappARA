@@ -80,10 +80,10 @@ namespace lib.EN
             return c.GetAllProducts();
         }
 
-        public void DeleteProduct(int index)
+        public DataSet DeleteProduct(int index)
         {
             CAD.CADProduct c = new CAD.CADProduct();
-            c.DeleteProduct(index);
+            return c.DeleteProduct(index);
         }
 
         public int getStock()
@@ -91,6 +91,5 @@ namespace lib.EN
             CAD.CADProduct c = new CAD.CADProduct();
             return c.getStock(cod);
         }
-
     }
 }
