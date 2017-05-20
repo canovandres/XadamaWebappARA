@@ -193,5 +193,39 @@ namespace lib.CAD
 
             return bdvirtual;
         }
+
+        public EN.Ride ReadName(String name)
+        {
+            Ride ride = new Ride("", "", "");
+            SqlConnection con = new SqlConnection(conString);
+            DataSet bdvirtual = new DataSet();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter($"select * from Ride where name like '" + name + "'", con);
+                da.Fill(bdvirtual, "ride");
+
+                DataTable t = new DataTable();
+                t = bdvirtual.Tables["ride"];
+
+                SqlDataAdapter da2 = new SqlDataAdapter($"select description from Zone where name like '" + t.Rows[0][2].ToString() + "'", con);
+                da2.Fill(bdvirtual, "zone");
+
+                DataTable t2 = new DataTable();
+                t2 = bdvirtual.Tables["zone"];
+
+                ride.cod = t.Rows[0][0].ToString();
+                ride.name = t.Rows[0][1].ToString();
+                ride.zone = t2.Rows[0][0].ToString();
+                ride.description = t.Rows[0][3].ToString();
+                ride.minHeight = float.Parse(t.Rows[0][4].ToString());
+                ride.speed = float.Parse(t.Rows[0][5].ToString());
+                ride.image = t.Rows[0][6].ToString();
+
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return ride;
+        }
     }
 }

@@ -123,7 +123,10 @@ namespace XadamaWebapp
                 makeinvisible();
             }
 
-            Response.Redirect("shoppingcart.aspx");
+            if (e.CommandName == "delete")
+            {
+                Response.Redirect("shoppingcart.aspx");
+            }
             
         }
 
@@ -171,7 +174,8 @@ namespace XadamaWebapp
                     order.client = cliente;
                     order.date = DateTime.Today.ToString("dd/MM/yyyy");
                     //order.date = Convert.ToString(today);
-                    order.cod = Order.NextCode();
+                    //order.cod = Order.NextCode();
+                    order.cod = "022";
                     List<Product> _products = new List<Product>();
 
                     for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
@@ -186,7 +190,7 @@ namespace XadamaWebapp
                     }
 
                     order._products = _products;
-                 
+                    order.save("");
 
                     for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
                     {
@@ -233,6 +237,12 @@ namespace XadamaWebapp
                                     + "<b>Single Rooms: </b>" + SingleRooms.Text + "<br>"
                                     + "<b>Double Rooms: </b>" + DoubleRooms.Text + "<br>"
                                     + "<b>Price: </b>" + Price.Text + "<br>"*/
+                                    + "<h1> Shopping: </h1><br>"                                    
+                                    + "<br>"
+                                    + "<b>You have bought a total of: </b>" + ((DataTable)Session["products"]).Rows.Count + "<b> items.</b>"+"<br>"
+                                    + "<b>Total price: </b>" + Label9.Text + "<b> €.</b>" + "<br>"
+                                    + "<br>"
+                                    + "<b>If you have any problem with your shop, pleas let us know. Xadama. </b>"
                                 + "</div>";
                 smtpClient.EnableSsl = true;
 

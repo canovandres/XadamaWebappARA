@@ -88,6 +88,13 @@ namespace lib.EN
             DataSet a = c.DeleteReview(this, i);
             return a;
         }
+
+        public static List<Review> ListReviewsName(String hotel)
+        {
+            CAD.CADReview c = new CAD.CADReview();
+            List<Review> reviews = c.ListReviewsName(hotel);
+            return reviews;
+        }
     }
 }
 
