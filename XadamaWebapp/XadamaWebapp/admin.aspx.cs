@@ -24,8 +24,8 @@ namespace XadamaWebapp
             {
                 if (Session["Admin"] != null)
                 {
-                    //GridProducts.DataSource = Product.ListAllProducts();
-                    //GridProducts.DataBind();
+                    GridProducts.DataSource = Product.ListAllProducts();
+                    GridProducts.DataBind();
 
                     GridClients.DataSource = Client.ListAllClients();
                     GridClients.DataBind();
@@ -74,7 +74,7 @@ namespace XadamaWebapp
         protected void GridProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridProducts.EditIndex = e.NewEditIndex;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
         protected void GridProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -87,21 +87,21 @@ namespace XadamaWebapp
             string stock = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtStock")).Text;
             string image = ((TextBox)GridProducts.Rows[e.RowIndex].FindControl("txtImage")).Text;
             Product product = new Product(cod, name, float.Parse(price), image, Convert.ToInt32(stock), type, description);
-            //product.Update();
+            product.Update();
             GridProducts.EditIndex = -1;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
         protected void GridProducts_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridProducts.PageIndex = e.NewPageIndex;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
         protected void GridProducts_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridProducts.EditIndex = -1;
-            //GridProducts.DataSource = Product.ListAllProducts();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
 
@@ -116,8 +116,8 @@ namespace XadamaWebapp
             string image = ((TextBox)GridProducts.FooterRow.FindControl("txtImage")).Text;
 
             Product product = new Product(cod, name, float.Parse(price), image, Convert.ToInt32(stock), type, description);
-            //product.Create();
-            //GridProducts.DataSource = Product.ListAllProducts();
+            product.Create();
+            GridProducts.DataSource = Product.ListAllProducts();
             GridProducts.DataBind();
         }
 
