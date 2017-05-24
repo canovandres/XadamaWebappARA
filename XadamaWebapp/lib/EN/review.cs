@@ -18,7 +18,10 @@ namespace lib.EN
 
         public Review(string cod, string description, int score, string hotel, string name = "Unknown", int reports = 0)
         {
-            this.cod = CAD.CADReview.NextCode();
+            if (cod == "")
+                this.cod = CAD.CADReview.NextCode();
+            else
+                this.cod = cod;
             this.name = name;
             this.score = score;
             this.description = description;
