@@ -157,7 +157,14 @@
 
 
                     <asp:View ID="View3" runat="server">
-
+                        <asp:Label runat="server" Text="Schedule" CssClass="padding-16-client form-label xxlarge blue-text "></asp:Label>
+                        <div>
+                            <div class="field">
+                                <asp:Calendar ID="Schedule" runat="server" Format="dd/MM/yyyy" OnDayRender="CalendarDayRender"
+                                              SelectionMode="None" FirstDayOfWeek="Monday" CellPadding="12" TodayDayStyle-BackColor="#FFCC99"
+                                              BackColor="#FFFFCC" BorderColor="#FFFF99" NextPrevFormat="ShortMonth"></asp:Calendar>
+                            </div>
+                        </div>
                     </asp:View>
 
                 </asp:MultiView>

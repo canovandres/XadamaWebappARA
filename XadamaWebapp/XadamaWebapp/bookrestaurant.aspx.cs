@@ -37,6 +37,7 @@ namespace XadamaWebapp
             {
                 reservation = (Reservation)Session["reservation"];
                 Session.Remove("reservation");
+
                 checkReservation(sender, e);
             }
         }
@@ -55,7 +56,7 @@ namespace XadamaWebapp
             noTablesAvailableAm.Visible = false;
             noTablesAvailableAs.Visible = false;
             reservePanel.Visible = false;
-           
+
             if (reservation.ntables == 0)
             {
                 switch (reservation.restaurant)
@@ -85,7 +86,7 @@ namespace XadamaWebapp
             else if (checkAvailable())
             {
                 reserveTable(sender, e);
-                
+
             }
             else
             {
@@ -133,6 +134,7 @@ namespace XadamaWebapp
             }
             int ntables = Int32.Parse(TablesAfrica.Text);
             reservation = new Reservation(email, 0, "E3", TextBox.Text, ntables);
+            confirmationLabel.Text = "Thanks for the reservation at BAOBAB EXOTIC, check your email for more details. ENJOY!";
             Session["reservation"] = reservation;
             Page_Load(sender, e);
         }
@@ -141,6 +143,7 @@ namespace XadamaWebapp
         {
             noTablesAvailableAm.Visible = false;
             reservePanel.Visible = false;
+
             string email = null;
             if (Session["Client"] != null)
             {
@@ -148,6 +151,7 @@ namespace XadamaWebapp
             }
             int ntables = Int32.Parse(TablesAmerica.Text);
             reservation = new Reservation(email, 0, "E4", TextBox1.Text, ntables);
+            confirmationLabel.Text = "Thanks for the reservation at DELICIOUS BURGER, check your email for more details. ENJOY!";
             Session["reservation"] = reservation;
             Page_Load(sender, e);
         }
@@ -162,6 +166,7 @@ namespace XadamaWebapp
             }
             int ntables = Int32.Parse(TablesAsia.Text);
             reservation = new Reservation(email, 0, "E2", TextBox2.Text, ntables);
+            confirmationLabel.Text = "Thanks for the reservation at SUSHI KING, check your email for more details. ENJOY!";
             Session["reservation"] = reservation;
             Page_Load(sender, e);
         }
@@ -190,6 +195,7 @@ namespace XadamaWebapp
             }
             int ntables = Int32.Parse(TablesOceania.Text);
             reservation = new Reservation(email, 0, "E5", TextBox4.Text, ntables);
+            confirmationLabel.Text = "Thanks for the reservation at GREAT BARRIER, check your email for more details. ENJOY!";
             Session["reservation"] = reservation;
             Page_Load(sender, e);
         }

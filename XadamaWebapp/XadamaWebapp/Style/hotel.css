@@ -6,10 +6,29 @@
 .hotel-tittle {
     position: absolute;
     width: 100%;
-    background-color: rgb(3, 56, 80);
     height: 300px;
     border-radius: 100px / 50px;
     margin-top: -100px;
+}
+
+.hotel-tittle-europe {
+    background-color: rgb(3, 56, 80);
+}
+
+.hotel-tittle-africa {
+    background-color: rgb(20, 96, 34);
+}
+
+.hotel-tittle-america {
+    background-color: rgb(100, 22, 22);
+}
+
+.hotel-tittle-asia {
+    background-color: rgb(122, 74, 18);
+}
+
+.hotel-tittle-oceania {
+    background-color: rgb(20, 27, 94);
 }
 
 .rating-star {
