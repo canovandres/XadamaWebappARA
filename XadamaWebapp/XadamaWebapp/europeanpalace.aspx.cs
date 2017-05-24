@@ -43,7 +43,7 @@ namespace XadamaWebapp
 
         protected void sendReview(object sender, EventArgs e)
         {
-            Review review = new Review("EU", TextBoxReview.Text, ReviewRating.CurrentRating, "H1");
+            Review review = new Review("", TextBoxReview.Text, ReviewRating.CurrentRating, "H1");
             if(TextBoxName.Text != "")
             {
                 review.name = TextBoxName.Text;
