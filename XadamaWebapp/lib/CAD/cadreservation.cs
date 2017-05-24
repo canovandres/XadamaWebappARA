@@ -161,7 +161,7 @@ namespace lib.CAD
             }
             catch (Exception ex) { }
             finally { con.Close(); }
-
+            
             return freetables;
         }
         public bool isAvailable(Reservation r)
@@ -183,14 +183,14 @@ namespace lib.CAD
             {
                 if (r.ntables > 0 && isAvailable(r))
                 {
+                    SqlDataAdapter da = new SqlDataAdapter("select * from table where restaurant like '" + r.restaurant + "' and num not in (select table from reservation where date like '" + r.date + "')", con);
+                    da.Fill(bdvirtual, "table");
+
+                    DataTable t = new DataTable();
+                    t = bdvirtual.Tables["table"];
+
                     for (int i = 0; i < r.ntables; i++)
                     {
-                        SqlDataAdapter da = new SqlDataAdapter("select * from table where restaurant like'" + r.restaurant + "' and num not in (select table from reservation where date like '" + r.date + "'", con);
-                        da.Fill(bdvirtual, "table");
-
-                        DataTable t = new DataTable();
-                        t = bdvirtual.Tables["table"];
-
                         int tablenum = Int32.Parse(t.Rows[i][0].ToString());
                         String tablerestaurant = t.Rows[i][1].ToString();
                         Reservation newReservation = new Reservation(r.client, tablenum, tablerestaurant, r.date);

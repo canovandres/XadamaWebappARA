@@ -9,9 +9,8 @@
         <div id="title container" class="padding-64 drop-container center margin-bottom-large content">
             <p><asp:Label ID="ServiceTitle" CssClass="uppercase bold xxlarge" runat="server"></asp:Label></p>
         </div>
-       <!-- <div class="row-padding xlarge center bold" style="color:white; background-color:#457fc6">-->
          <asp:Panel ID="Container" runat="server" CssClass="row2 large container-border" Visible="false">
-            <asp:Panel ID="info" runat="server" CssClass="col info-container"><!-- padding-32-->
+            <asp:Panel ID="info" runat="server" CssClass="col info-container">
                     <div>
                         <asp:Panel ID="pname" runat="server" Visible="false" CssClass="info-items-white xlarge">
                             <asp:Label ID="name" runat="server"></asp:Label>

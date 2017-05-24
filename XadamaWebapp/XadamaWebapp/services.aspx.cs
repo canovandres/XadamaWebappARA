@@ -24,9 +24,6 @@ namespace XadamaWebapp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!Page.IsPostBack)
-            //{
-
                 DataTable aux = new DataTable();
             if (!Page.IsPostBack) {
                 if (Request.QueryString["type"] == "rides")
@@ -62,16 +59,20 @@ namespace XadamaWebapp
                     ListZones.SelectedIndex = 5;
                 }
             }
-                OnListServiceChanged(sender, e);
-           // }
+            setDataTable();
         }
 
         protected void OnListZoneChanged(object sender, EventArgs e)
         {
-            OnListServiceChanged(sender, e);
+            setDataTable();
         }
 
         protected void OnListServiceChanged(object sender, EventArgs e)
+        {
+            setDataTable();
+        }
+
+        protected void setDataTable()
         {
             DataTable aux = new DataTable();
             if (ListServices.SelectedItem.ToString().ToLower() == "--")
@@ -169,14 +170,6 @@ namespace XadamaWebapp
                 Session["Ride"] = null;
                 Session["Show"] = enshow;
             }
-            //Response.Redirect("servicesinfo.aspx");
-            /*ListViewItem item = ListView1.Items[e.NewSelectedIndex];
-            Label c = (Label)item.FindControl("Label1");
-            Label d = (Label)item.FindControl("Label2");
-            Image i = (Image)item.FindControl("Image1");*/
-            /*Session["ServiceName"] = c.Text;
-            Session["ServiceImage"] = i.ImageUrl;
-            Session["ServiceDescription"] = d.Text;*/
             Response.Redirect("servicesinfo.aspx");
         }
     }
