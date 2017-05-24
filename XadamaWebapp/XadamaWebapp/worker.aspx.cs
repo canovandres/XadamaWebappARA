@@ -15,11 +15,12 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Birthdate.Attributes.Add("readonly", "readonly");
+            
             // if (!Page.IsPostBack)
             // {
                 if (Session["Worker"] != null)
                 {
+                    Birthdate.Attributes.Add("readonly", "readonly");
 
                     //
                     Worker w = (Worker)Session["Worker"];
@@ -41,7 +42,7 @@ namespace XadamaWebapp
                 }
                 else
                 {
-                    // TODO: Reenviar a la pagina de LogIn o Inicio
+                    Response.Redirect("register.aspx");
                 }
             // }
         }
