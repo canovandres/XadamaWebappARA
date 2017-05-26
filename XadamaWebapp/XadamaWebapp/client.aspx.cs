@@ -15,12 +15,12 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Birthdate.Attributes.Add("readonly", "readonly");
             // if (!Page.IsPostBack)
             // {
                 if(Session["Client"] != null)
                 {
-                    
+                    Birthdate.Attributes.Add("readonly", "readonly");
+
                     //
                     Client c = (Client)Session["Client"];
                     TextBoxEmail.Text = c.email;
@@ -43,7 +43,7 @@ namespace XadamaWebapp
                 }
                 else
                 {
-                    // TODO: Reenviar a la pagina de LogIn o Inicio
+                    Response.Redirect("register.aspx");
                 }
             //}
         }
