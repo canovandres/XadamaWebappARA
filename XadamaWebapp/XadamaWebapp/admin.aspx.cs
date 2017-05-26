@@ -17,7 +17,7 @@ namespace XadamaWebapp
         {
             if (Review.Reported())
             {
-                MenuAdmin.Items[5].Text = "<span class=\"text-red bold\">Reviews</span>";
+                MenuAdmin.Items[4].Text = "<span class=\"text-red bold\">Reviews</span>";
             }
             
             if (!Page.IsPostBack)
@@ -145,7 +145,7 @@ namespace XadamaWebapp
             string minHeight = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtMinHeight")).Text;
             string speed = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtSpeed")).Text;
             string image = ((TextBox)GridRides.Rows[e.RowIndex].FindControl("txtImage")).Text;
-            Ride ride = new Ride(cod, name, description, zone, Convert.ToInt32(minHeight), Convert.ToInt32(speed), 0, image);
+            Ride ride = new Ride(cod, name, zone, description, float.Parse(minHeight), float.Parse(speed), 0, image);
             ride.update("");
             GridRides.EditIndex = -1;
             GridRides.DataSource = Ride.ListAllRides("");
@@ -174,7 +174,7 @@ namespace XadamaWebapp
             string speed = ((TextBox)GridRides.FooterRow.FindControl("txtSpeed")).Text;
             string image = ((TextBox)GridRides.FooterRow.FindControl("txtImage")).Text;
 
-            Ride ride = new Ride(cod, name, description, zone, Convert.ToInt32(minHeight), Convert.ToInt32(speed), 0, image);
+            Ride ride = new Ride(cod, name, zone, description, float.Parse(minHeight), float.Parse(speed), 0, image);
             ride.save("");
             GridRides.DataSource = Ride.ListAllRides("");
             GridRides.DataBind();
