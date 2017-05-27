@@ -13,11 +13,12 @@ namespace XadamaWebapp
     public partial class tickets : System.Web.UI.Page
     {
         private DataSet bdvirtual = new DataSet();
+        private DataSet bdvirtual2 = new DataSet();
         private DataTable t = new DataTable();
         Ticket ticket;
         float disc = 0;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {/*
             TicketsError.Visible = false;
             TicketsCorrect.Visible = false;
             PromoError.Visible = false;
@@ -25,13 +26,19 @@ namespace XadamaWebapp
             registerPanel.Visible = false;
             
             CalendarExtender1.StartDate = DateTime.Today;
-
+            
             bdvirtual = Ticket.getTypes();
             ListViewTickets.DataSource = bdvirtual;
             ListViewTickets.DataBind();
 
-            signin.UserControlButtonClicked += new
-                    EventHandler(UCButton);
+
+            
+            bdvirtual2 = Ticket.getTypes();
+            ListViewBuyTickets.DataSource = bdvirtual2;
+            ListViewBuyTickets.DataBind();
+
+
+            //signin.UserControlButtonClicked += new EventHandler(UCButton);
 
             if (Session["Ticket"] != null)
             {
@@ -39,8 +46,8 @@ namespace XadamaWebapp
                 Session.Remove("Ticket");
 
                 date.Text = ticket.day;
-                Children.Text = ticket.child.ToString();
-                Adults.Text = ticket.adult.ToString();
+               // Children.Text = ticket.child.ToString();
+               // Adults.Text = ticket.adult.ToString();
 
                 if(checkPromo()){
                     checkPurchase();
@@ -49,6 +56,8 @@ namespace XadamaWebapp
         }
         protected bool checkPromo()
         {
+            return true;
+                /*
             try
             {
                 if(PromoCode.Text == "")
@@ -74,10 +83,10 @@ namespace XadamaWebapp
             {
                 PromoError.Visible = true;
                 return false;
-            }
+            }*/
         }
         protected void checkPurchase()
-        {
+        {/*
             TicketsError.Visible = false;
             TicketsCorrect.Visible = false;
             
@@ -94,11 +103,11 @@ namespace XadamaWebapp
                 Price2.Text = ((ticket.totalPrice()) * (((float)(100 - disc)) / 100)).ToString();
                 //Price2.Text = Math.Round(ticket.totalPrice() - ticket.totalPrice() * (disc / 100), 2).ToString();
                 TicketsCorrect.Visible = true; 
-            }
+            }*/
         }
         
         protected void OnClickBuyNow(object sender, EventArgs e)
-        {
+        {/*
             string email = null;
             if (Session["Client"] != null)
             {
@@ -123,11 +132,11 @@ namespace XadamaWebapp
             {
                 TicketsCorrect.Visible = true;
                 registerPanel.Visible = true;
-            }
+            }*/
         }
 
         protected void sendEmail()
-        {
+        {/*
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
             MailMessage message = new MailMessage();
             try
@@ -151,16 +160,16 @@ namespace XadamaWebapp
             }
             catch (Exception ex)
             {
-            }
+            }*/
         }
 
         private void UCButton(object sender, EventArgs e)
-        {
+        {/*
             if (Session["Client"] != null)
             {
                 signin.Visible = false;
                 TicketsCorrect.Visible = true;
-            }
+            }*/
         }
     }
 }
