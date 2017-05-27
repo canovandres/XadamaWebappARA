@@ -465,10 +465,7 @@
                                     <ItemTemplate>
                                         <asp:Label ID="lblCode" runat="server"
                                         Text='<%# Eval("cod")%>'></asp:Label>
-                                    </ItemTemplate> 
-                                    <FooterTemplate>
-                                        <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
-                                    </FooterTemplate>
+                                    </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ItemStyle-Width = "400px"  HeaderText = "Description">
                                     <ItemTemplate>
