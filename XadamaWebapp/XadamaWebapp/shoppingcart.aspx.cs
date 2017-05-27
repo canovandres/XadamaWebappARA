@@ -25,20 +25,30 @@ namespace XadamaWebapp
                 t = (DataTable)Session["products"];
                 if (t.Rows.Count == 0)
                 {
-                    makeinvisible();                    
+                    makeinvisible();
                 }
                 else
                 {
                     float price = 0;
+
+                                         
                     for (int i = t.Rows.Count - 1; i >= 0; i--)
                     {
                         DataRow dr = t.Rows[i];
-                        float actual= (float)(dr["price"]);
+                        float actual = (float)(dr["price"]);
                         int cant = (int)(dr["quantity"]);
                         price += (cant * actual);
                     }
 
-
+                    if (Session["pricepromos"] != null)
+                    {
+                        int discount = (int)(Session["pricepromos"]);            
+                        float actual = price;
+                        float nuevo = (float)Math.Round(actual - actual * (((float)(100 - discount)) / 100), 2);
+                        float aux = actual - nuevo;
+                        price = aux;
+                    }
+                    
                     Label9.Text = Convert.ToString(price);
                     ListView1.DataSource = t;
                     ListView1.DataBind();
@@ -114,7 +124,16 @@ namespace XadamaWebapp
                 int cant = (int)(dr["quantity"]);
                 price += (cant * actual);
             }
-            
+
+            if (Session["pricepromos"] != null)
+            {
+                int discount = (int)(Session["pricepromos"]);
+                float actual = price;
+                float nuevo = (float)Math.Round(actual - actual * (((float)(100 - discount)) / 100), 2);
+                float aux = actual - nuevo;
+                price = aux;
+            }
+
             Label9.Text = Convert.ToString(price);
             ListView1.DataSource = t;
             ListView1.DataBind();
@@ -281,6 +300,7 @@ namespace XadamaWebapp
                         Session["BookPromo"] = promo.discount;
                         Label9.Text = Convert.ToString(aux);
                         TextBox1.CssClass = "";
+                        Session["pricepromos"] = promo.discount;
                         //Response.Redirect("shoppingcart.aspx");
                     }
                     else
