@@ -66,8 +66,9 @@ namespace XadamaWebapp
 
         protected void GridProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridProducts.PageIndex * GridProducts.PageSize;
             Product product = new Product();
-            GridProducts.DataSource = product.DeleteProduct(e.RowIndex);
+            GridProducts.DataSource = product.DeleteProduct(rowIndex);
             GridProducts.DataBind();
         }
 
@@ -125,8 +126,9 @@ namespace XadamaWebapp
 
         protected void GridRides_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridRides.PageIndex * GridRides.PageSize;
             Ride ride = new Ride("", "", "");
-            GridRides.DataSource = ride.DeleteRide(e.RowIndex, "");
+            GridRides.DataSource = ride.DeleteRide(rowIndex, "");
             GridRides.DataBind();
         }
 
@@ -184,8 +186,9 @@ namespace XadamaWebapp
 
         protected void GridRestaurants_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridRestaurants.PageIndex * GridRestaurants.PageSize;
             Restaurant restaurant = new Restaurant("");
-            GridRestaurants.DataSource = restaurant.DeleteRestaurant(e.RowIndex);
+            GridRestaurants.DataSource = restaurant.DeleteRestaurant(rowIndex);
             GridRestaurants.DataBind();
         }
 
@@ -239,8 +242,9 @@ namespace XadamaWebapp
 
         protected void GridShows_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridShows.PageIndex * GridShows.PageSize;
             Show show = new Show("");
-            GridShows.DataSource = show.DeleteShow(e.RowIndex);
+            GridShows.DataSource = show.DeleteShow(rowIndex);
             GridShows.DataBind();
         }
 
@@ -294,8 +298,9 @@ namespace XadamaWebapp
 
         protected void GridReviews_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridReviews.PageIndex * GridReviews.PageSize;
             Review review = new Review("", "", 0, "");
-            GridReviews.DataSource = review.DeleteReview(e.RowIndex);
+            GridReviews.DataSource = review.DeleteReview(rowIndex);
             GridReviews.DataBind();
         }
 
@@ -356,8 +361,9 @@ namespace XadamaWebapp
 
         protected void GridTickets_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridTickets.PageIndex * GridTickets.PageSize;
             Ticket ticket = new Ticket("", "");
-            GridTickets.DataSource = ticket.DeleteTicket(e.RowIndex);
+            GridTickets.DataSource = ticket.DeleteTicket(rowIndex);
             GridTickets.DataBind();
         }
 
@@ -407,8 +413,9 @@ namespace XadamaWebapp
 
         protected void GridWorkers_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridWorkers.PageIndex * GridWorkers.PageSize;
             Worker worker = new Worker("");
-            GridWorkers.DataSource = worker.DeleteWorker(e.RowIndex);
+            GridWorkers.DataSource = worker.DeleteWorker(rowIndex);
             GridWorkers.DataBind();
         }
 
@@ -475,8 +482,9 @@ namespace XadamaWebapp
 
         protected void GridClients_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int rowIndex = e.RowIndex + GridClients.PageIndex * GridClients.PageSize;
             Client client = new Client("");
-            GridClients.DataSource = client.DeleteClient(e.RowIndex);
+            GridClients.DataSource = client.DeleteClient(rowIndex);
             GridClients.DataBind();
         }
         
