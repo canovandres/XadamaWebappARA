@@ -29,23 +29,37 @@ namespace XadamaWebapp
                     /*
                     TextBoxEmail.Text = Session["email"].ToString();
                     */
-
-                    TextBoxName.Text = c.name;
-                    TextBox1Surname.Text = c.surname1;
-                    TextBox2Surname.Text = c.surname2;
-                    if(c.age != "")
+                    
+                    if(c.name != "" && TextBoxName.Text == c.name)
+                    {
+                        TextBoxName.Text = c.name;  
+                    }
+                    if(c.surname1 != "" && TextBox1Surname.Text == c.surname1)
+                    {
+                        TextBox1Surname.Text = c.surname1;
+                    }
+                    if (c.surname2 != "" && TextBox2Surname.Text == c.surname2)
+                    {
+                        TextBox2Surname.Text = c.surname2;
+                    }
+                    if(c.age != "" && c.age == Birthdate.Text)
                     {
                         Birthdate.Text = c.age;
                     }
-                    if(c.phone != 0)
+                    if(c.phone != 0 && TextBoxPhone.Text == (c.phone).ToString())
                     {
                         TextBoxPhone.Text = (c.phone).ToString();
                     }
-                    if(c.address != "")
+                    if(c.address != "" && TextBoxAddress.Text == c.address)
                     {
                         TextBoxAddress.Text = c.address;
                     }
-                    TextBoxCreditCard.Text = c.creditCard;
+                    if(c.creditCard != "" && TextBoxCreditCard.Text == c.creditCard)
+                    {
+                        TextBoxCreditCard.Text = c.creditCard;
+                    }
+                    
+                    
                 }
                 else
                 {
