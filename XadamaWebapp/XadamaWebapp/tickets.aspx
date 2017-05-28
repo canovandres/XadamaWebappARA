@@ -147,6 +147,10 @@
                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="ValidatorDate" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server"
                     TargetControlID="date" FirstDayOfWeek="Monday" PopupPosition="BottomRight"  Format="dd/MM/yyyy"/>
+                <asp:RangeValidator ID="RangeValidator3" runat="server" ControlToValidate="date" CssClass="error-text" style="display: inline-block" ErrorMessage="Select a valid date" ValidationGroup="booking" Type="Date"></asp:RangeValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" TargetControlID="RangeValidator3" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+
+
             </div>
             <div class="field col seventh">
                <asp:Label runat="server" Text="Children"></asp:Label>
