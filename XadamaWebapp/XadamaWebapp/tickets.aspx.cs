@@ -48,6 +48,11 @@ namespace XadamaWebapp
                 }
             }
         }
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            RangeValidator3.MinimumValue = DateTime.Now.Date.ToString("dd-MM-yyyy");
+            RangeValidator3.MaximumValue = DateTime.Now.Date.AddYears(90).ToString("dd-MM-yyyy");
+        }
         protected bool checkPromo()
         {
             try
