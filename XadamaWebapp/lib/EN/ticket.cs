@@ -17,17 +17,17 @@ namespace lib.EN
         public String client { get; set; }
         public String day { get; set; }
         public float totalprice { get; set; }
-        public string type { get; set; }
-        public int quantity { get; set; }
+        public int adult { get; set; }
+        public int child { get; set; }
 
-        public Ticket(String client, String day, String type="", int quantity = 0, float totalprice = 0, int cod=0)
+        public Ticket(String client, String day, int adult = 0, int child = 0, float totalprice = 0, int cod = 0)
         {
             this.cod = CAD.CADTicket.NextCode();
             this.client = client;
             this.day = day;
             this.totalprice = totalPrice();
-            this.type = type;
-            this.quantity = quantity;
+            this.adult = adult;
+            this.child = child;
         }
 
         public void Create()
@@ -44,8 +44,8 @@ namespace lib.EN
             client = t.client;
             day = t.day;
             totalprice = t.totalprice;
-            type = t.type;
-            quantity = t.quantity;
+            adult = t.adult;
+            child = t.child;
         }
 
         public void Update()

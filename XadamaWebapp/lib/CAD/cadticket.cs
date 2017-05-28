@@ -40,8 +40,8 @@ namespace lib.CAD
                 newrow[1] = ticket.client;
                 newrow[2] = ticket.day;
                 newrow[3] = ticket.totalprice;
-                newrow[4] = ticket.type;
-                newrow[5] = ticket.quantity;
+                newrow[4] = ticket.child;
+                newrow[5] = ticket.adult;
 
                 t.Rows.Add(newrow);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
@@ -74,8 +74,8 @@ namespace lib.CAD
                 ticket.client = t.Rows[0][1].ToString();
                 ticket.day = t.Rows[0][2].ToString();
                 ticket.totalprice = float.Parse(t.Rows[0][3].ToString());
-                ticket.type =t.Rows[0][4].ToString();
-                ticket.quantity = Int32.Parse(t.Rows[0][5].ToString());
+                ticket.child = Int32.Parse(t.Rows[0][4].ToString());
+                ticket.adult = Int32.Parse(t.Rows[0][5].ToString());
             }
             catch (Exception ex)
             {
@@ -105,8 +105,8 @@ namespace lib.CAD
                 t.Rows[0][1] = ticket.client;
                 t.Rows[0][2] = ticket.day;
                 t.Rows[0][3] = ticket.totalprice;
-                t.Rows[0][4] = ticket.type;
-                t.Rows[0][5] = ticket.quantity;
+                t.Rows[0][4] = ticket.child;
+                t.Rows[0][5] = ticket.adult;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "ticket");
@@ -170,25 +170,32 @@ namespace lib.CAD
 
         public float totalPrice(Ticket ti)
         {
-            float price = 0;
+            float total = 0;
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select price from tickettype where type like '"+ ti.type + "'", con);
-                da.Fill(bdvirtual, "currenttype");
-                DataTable t = new DataTable();
-                t = bdvirtual.Tables["currenttype"];
+                SqlDataAdapter da2 = new SqlDataAdapter("select price from tickettype where type like 'Adult'", con);
+                da2.Fill(bdvirtual, "adulttype");
+                DataTable t2 = new DataTable();
+                t2 = bdvirtual.Tables["adulttype"];
 
-                float individualprice = float.Parse(t.Rows[0][0].ToString());
-                    
-                price = (individualprice * ti.quantity);
+                float aprice = float.Parse(t2.Rows[0][0].ToString());
+
+                SqlDataAdapter da3 = new SqlDataAdapter("select price from tickettype where type like 'Child'", con);
+                da3.Fill(bdvirtual, "childtype");
+                DataTable t3 = new DataTable();
+                t3 = bdvirtual.Tables["childtype"];
+
+                float cprice = float.Parse(t3.Rows[0][0].ToString());
+
+                total = (ti.adult * aprice) + (ti.child * cprice);
             }
-            catch (Exception ex) {  }
+            catch (Exception ex) { }
             finally { con.Close(); }
 
-            return price;
+            return total;
         }
 
         public bool buyTickets(Ticket t)
@@ -199,7 +206,7 @@ namespace lib.CAD
             try
             {
                 float price = totalPrice(t);
-                Ticket newTicket = new Ticket(t.client, t.day, t.type, t.quantity, price, t.cod);
+                Ticket newTicket = new Ticket(t.client, t.day, t.adult, t.child, price, t.cod);
                 Create(newTicket);
                 done = true;
             }
@@ -211,7 +218,7 @@ namespace lib.CAD
 
         public DataSet getTypes()//Returns a list of promos active in the date passed by parameter by executing appropiate commands
         {
-            EN.Ticket ticket = new EN.Ticket("","");
+            EN.Ticket ticket = new EN.Ticket("", "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
@@ -321,5 +328,3 @@ namespace lib.CAD
         }
     }
 }
-
-
