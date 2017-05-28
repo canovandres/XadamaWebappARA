@@ -89,13 +89,17 @@ namespace lib.CAD
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataAdapter da = new SqlDataAdapter("select * from restaurant where cod like '" + restaurant.cod + "'", con);
                 da.Fill(bdvirtual, "restaurant");
 
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["restaurant"];
 
                 t.Rows[0][0] = newRestaurant.cod;
+                t.Rows[0][1] = newRestaurant.name;
+                t.Rows[0][2] = newRestaurant.description;
+                t.Rows[0][3] = newRestaurant.zone;
+                t.Rows[0][4] = newRestaurant.image;
 
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "restaurant");
