@@ -112,6 +112,7 @@
 
 
                     <asp:View ID="View2" runat="server">
+                        <asp:Panel runat="server" DefaultButton="Button1">
                         <asp:Label runat="server" Text="Password" CssClass="padding-16-client form-label xxlarge blue-text "></asp:Label>
                         <div>
                             <div class="field half">
@@ -138,9 +139,14 @@
                             <div class="field half">
                                 <asp:Label runat="server" Text="NEW PASSWORD" CssClass="form-label medium"></asp:Label>
                                 <asp:TextBox ID="TextBoxNewPassword" TextMode="Password" runat="server"></asp:TextBox>
+                                <asp:CompareValidator ID="CompareValidator1" ErrorMessage="Password must be different." Display="Dynamic"
+                                                  ForeColor="Red" ControlToCompare="TextBoxPassword"
+                                                  ControlToValidate="TextBoxNewPassword" runat="server" ValidationGroup="ChangePassword" Operator="NotEqual" />
                                 <asp:RequiredFieldValidator ID="NewPasswordValidator" ErrorMessage="New Password Required" Display="Dynamic" ForeColor="Red"
                                                             ControlToValidate="TextBoxNewPassword" runat="server" ValidationGroup="ChangePassword" />
                                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="NewPasswordValidator"
+                                                                        HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender10" runat="server" TargetControlID="CompareValidator1"
                                                                         HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
                             
                                 <div>
@@ -170,6 +176,7 @@
                                             Visible="False"></asp:Label>
                             </div>
                         </div>
+                    </asp:Panel>
                     </asp:View>
 
                 </asp:MultiView>
