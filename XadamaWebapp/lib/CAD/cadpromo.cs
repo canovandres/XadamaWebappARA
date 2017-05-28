@@ -29,6 +29,12 @@ namespace lib.CAD
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
                 DataRow newline = t.NewRow();
+                newline[0] = p.cod;
+                newline[1] = p.name;
+                newline[2] = p.description;
+                newline[3] = p.discount;
+                newline[4] = p.initialdate;
+                newline[5] = p.enddate;
                 t.Rows.Add(newline);
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual,"promocion");
@@ -78,7 +84,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod=" + p.cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod= '" + p.cod +"'", con);
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];
@@ -109,7 +115,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from promo where cod= '" + cod+"'", con);
                 da.Fill(bdvirtual, "promocion");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["promocion"];

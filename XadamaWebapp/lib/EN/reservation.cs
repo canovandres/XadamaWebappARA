@@ -8,7 +8,7 @@ namespace lib.EN
 {
     public class Reservation
     {
-        public Reservation(String client, int table, String restaurant, String date = "", int ntables = 0)
+        public Reservation(String client, int table, String restaurant, String date, int ntables = 0)
         {
             this.client = client;
             this.table = table;
@@ -32,7 +32,7 @@ namespace lib.EN
         void Read()
         {
             CAD.CADReservation r = new CAD.CADReservation();
-            Reservation res = r.Read(client, table, restaurant);
+            Reservation res = r.Read(this);
             client = res.client;
             table = res.table;
             restaurant = res.restaurant;
@@ -48,7 +48,7 @@ namespace lib.EN
         void Delete()
         {
             CAD.CADReservation r = new CAD.CADReservation();
-            r.Delete(client, table, restaurant);
+            r.Delete(this);
         }
 
         public int tablesAvailable()
