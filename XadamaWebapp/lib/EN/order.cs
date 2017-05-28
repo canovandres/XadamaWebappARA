@@ -9,11 +9,11 @@ namespace lib.EN
 {
     public class Order
     {
-        public List<Product> _products = new List<Product>();
 
-        public Order(int cod, Client client = null, String date = "")
+        public Order(int cod, Product p= null, Client client = null, String date = "")
         {
             this.cod = cod;
+            this.p = p;
             this.date = date;
             this.client = client;
         }
@@ -24,22 +24,12 @@ namespace lib.EN
 
         public Client client { get; set; }
 
-        public List<Product> products
-        {
-            get { return _products; }
-        }
+        public Product p { get; set; }
 
-        public void addProduct(Product p)
-        {
-            _products.Add(p);
-        }
+        public int quantity { get; set; }
 
-        public void removeProduct(Product p)
-        {
-            _products.Remove(p);
-        }
 
-        public void save(String dbname)
+        public void create(String dbname)
         {
             CAD.CADOrder cadorder = new CAD.CADOrder(dbname);
             cadorder.Create(this);

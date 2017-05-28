@@ -27,7 +27,7 @@
                 <asp:Label ID="Label3" runat="server" CssClass="text-white" Text="AFRICA"></asp:Label>
                 <div class="text-white">
                     <p>Enjoy the wild animals and beautiful sabannahs</p>
-                    <asp:Button runat="server" text="GO!" CssClass="button-africa button-sign" />
+                    <asp:Button runat="server" text="GO!" CssClass="button-africa button-sign" PostBackUrl="~/zoneafrica.aspx" />
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 <asp:Label ID="Label12" runat="server" CssClass="text-white" Text="AMERICA"></asp:Label>
                 <div class="text-white">
                     <p>Live an authentic american experience</p>
-                    <asp:Button runat="server" text="GO!" CssClass="button-america button-sign" />
+                    <asp:Button runat="server" text="GO!" CssClass="button-america button-sign" PostBackUrl="~/zoneamerica.aspx"/>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <asp:Label ID="Label13" runat="server" CssClass="text-white" Text="EUROPE"></asp:Label>
                 <div class="text-white">
                     <p>Immerse yourself in the different cultures Europe has to offer</p>
-                    <asp:Button runat="server" text="GO!" CssClass="button-europe button-sign" />
+                    <asp:Button runat="server" text="GO!" CssClass="button-europe button-sign" PostBackUrl="~/zoneeurope.aspx" />
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 <asp:Label ID="Label10" runat="server" CssClass="text-white" Text="ASIA"></asp:Label>
                 <div class="text-white">
                     <p>Travel to the amazing China and explore the oriental culture</p>
-                    <asp:Button runat="server" text="GO!" CssClass="button-asia button-sign" />
+                    <asp:Button runat="server" text="GO!" CssClass="button-asia button-sign" PostBackUrl="~/zoneasia.aspx"/>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 <asp:Label ID="Label14" runat="server" CssClass="text-white" Text="OCEANIA"></asp:Label>
                 <div class="text-white">
                     <p>Love the long beaches and the paradisiac landscapes</p>
-                    <asp:Button runat="server" text="GO!" CssClass="button-oceania button-sign" />
+                    <asp:Button runat="server" text="GO!" CssClass="button-oceania button-sign" PostBackUrl="~/zoneoceania.aspx" />
                 </div>
             </div>
         </div>

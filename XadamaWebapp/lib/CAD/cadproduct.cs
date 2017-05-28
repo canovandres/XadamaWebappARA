@@ -32,10 +32,10 @@ namespace lib.CAD
                 newline[0] = c.cod;
                 newline[1] = c.name;
                 newline[2] = c.type;
-                newline[4] = c.description;
-                newline[5] = c.price;
-                newline[6] = c.stock;
-                newline[7] = c.image;
+                newline[3] = c.description;
+                newline[4] = c.price;
+                newline[5] = c.stock;
+                newline[6] = c.image;
                 t.Rows.Add(newline);
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Update(bdvirtual, "producto");
@@ -56,7 +56,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod= '" + cod+"'", con);
                 da.Fill(bdvirtual, "producto");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["producto"];
@@ -85,7 +85,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod=" + c.cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod= '" + c.cod +"'", con);
                 da.Fill(bdvirtual, "producto");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["producto"];
@@ -116,7 +116,7 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod=" + cod, con);
+                SqlDataAdapter da = new SqlDataAdapter("select* from product where cod= '" + cod + "'", con);
                 da.Fill(bdvirtual, "producto");
                 DataTable t = new DataTable();
                 t = bdvirtual.Tables["producto"];
