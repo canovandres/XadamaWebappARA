@@ -57,14 +57,14 @@ namespace lib.CAD
 
         }
 
-        public Reservation Read(String client, int table, String restaurant)
+        public Reservation Read(Reservation r)
         {
             Reservation reservation = new Reservation("", 0, "", "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from reservation where client like '" + client + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from reservation where client like '" + r.client + "and table like '" + r.table + "and restaurant like '" + r.restaurant + "'", con);
                 da.Fill(bdvirtual, "reservation");
 
                 DataTable t = new DataTable();
@@ -113,15 +113,14 @@ namespace lib.CAD
 
         }
 
-        public void Delete(String client, int table, String restaurant)
+        public void Delete(Reservation r)
         {
-            Reservation reservation = new Reservation(client, table, restaurant);
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select * from restaurant where client like '" + reservation.client + "' and table like '" + reservation.table + "' and restaurant like '" + reservation.restaurant + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter("select * from restaurant where client like '" + r.client + "' and table like '" + r.table + "' and restaurant like '" + r.restaurant + "'", con);
                 da.Fill(bdvirtual, "reservation");
 
                 DataTable t = new DataTable();
@@ -151,7 +150,7 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("select count(*) from table where restaurant like '" + r.restaurant + "' and num not in (select table from reservation where day like '" + r.date + "')", con);
+                SqlDataAdapter da = new SqlDataAdapter("select count(*) from table where restaurant ='" + r.restaurant + "' and num not in (select table from reservation where day like '" + r.date + "')", con);
                 da.Fill(virtualdb, "table");
 
                 DataTable t = new DataTable();
@@ -183,16 +182,17 @@ namespace lib.CAD
             {
                 if (r.ntables > 0 && isAvailable(r))
                 {
-                    SqlDataAdapter da = new SqlDataAdapter("select * from table where restaurant like '" + r.restaurant + "' and num not in (select table from reservation where date like '" + r.date + "')", con);
-                    da.Fill(bdvirtual, "table");
-
-                    DataTable t = new DataTable();
-                    t = bdvirtual.Tables["table"];
 
                     for (int i = 0; i < r.ntables; i++)
                     {
-                        int tablenum = Int32.Parse(t.Rows[i][0].ToString());
-                        String tablerestaurant = t.Rows[i][1].ToString();
+                        SqlDataAdapter da = new SqlDataAdapter("select * from table where restaurant like '" + r.restaurant + "' and num not in (select table from reservation where date like '" + r.date + "')", con);
+                        da.Fill(bdvirtual, "table");
+
+                        DataTable t = new DataTable();
+                        t = bdvirtual.Tables["table"];
+
+                        int tablenum = Int32.Parse(t.Rows[0][0].ToString());
+                        String tablerestaurant = t.Rows[0][1].ToString();
                         Reservation newReservation = new Reservation(r.client, tablenum, tablerestaurant, r.date);
                         Create(newReservation);
                     }
