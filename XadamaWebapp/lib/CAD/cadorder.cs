@@ -25,17 +25,19 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from order", con);
-                da.Fill(bdvirtual, "order");
+                SqlDataAdapter da = new SqlDataAdapter("select * from orderin", con);
+                da.Fill(bdvirtual, "orderin");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["order"];
+                t = bdvirtual.Tables["orderin"];
                 DataRow newline = t.NewRow();
                 newline[0] = order.cod;
                 newline[1] = order.client.email;
-                newline[2] = order.date;
+                newline[2] = order.p.cod;
+                newline[3] = order.quantity;
+                newline[4] = order.date;
                 t.Rows.Add(newline);
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
-                da.Update(bdvirtual, "order");
+                da.Update(bdvirtual, "orderin");
             }
             catch (Exception ex)
             {
@@ -49,15 +51,15 @@ namespace lib.CAD
 
         public Order Read(String cod, String email)
         {
-            Order order = new Order(0, null, "");
+            Order order = new Order(0, null,null, "");
             SqlConnection con = new SqlConnection(conString);
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from order where cod="+cod+" and client="+email, con);
-                da.Fill(bdvirtual, "order");
+                SqlDataAdapter da = new SqlDataAdapter("select* from orderk  where cod="+cod+" and client="+email, con);
+                da.Fill(bdvirtual, "orderk ");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["order"];
+                t = bdvirtual.Tables["orderin"];
                 order.cod = Int32.Parse(t.Rows[0][0].ToString());
                 order.client.email = t.Rows[0][1].ToString();
                 order.date = t.Rows[0][2].ToString();
@@ -79,16 +81,16 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from order where cod=" + order.cod, con);
-                da.Fill(bdvirtual, "order");
+                SqlDataAdapter da = new SqlDataAdapter("select* from orderin where cod=" + order.cod, con);
+                da.Fill(bdvirtual, "orderin");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["order"];
+                t = bdvirtual.Tables["orderin"];
                 t.Rows[0][0] = order.cod;
                 t.Rows[0][1] = order.client.email;
                 t.Rows[0][2] = order.date;
-                da.Update(bdvirtual,"order");
+                da.Update(bdvirtual,"orderin");
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
-                da.Update(bdvirtual, "order");
+                da.Update(bdvirtual, "orderin");
             }
             catch(Exception ex)
             {
@@ -106,13 +108,13 @@ namespace lib.CAD
             try
             {
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select* from order where cod=" + cod, con);
-                da.Fill(bdvirtual, "order");
+                SqlDataAdapter da = new SqlDataAdapter("select* from orderin where cod=" + cod, con);
+                da.Fill(bdvirtual, "orderin");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["order"];
+                t = bdvirtual.Tables["orderin"];
                 t.Rows[0].Delete();
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
-                da.Update(bdvirtual, "order");
+                da.Update(bdvirtual, "orderin");
             }
             catch (Exception ex)
             {
@@ -184,11 +186,12 @@ namespace lib.CAD
             {
                 
                 DataSet bdvirtual = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from order", con);
-                da.Fill(bdvirtual, "order");
+                SqlDataAdapter da = new SqlDataAdapter("select max(cod) from orderin", con);
+                da.Fill(bdvirtual, "orderin");
                 DataTable t = new DataTable();
-                t = bdvirtual.Tables["order"];
+                t = bdvirtual.Tables["orderin"];
                 codigo = Int32.Parse(t.Rows[0][0].ToString());
+                codigo++;
             }
             catch (Exception ex)
             {
