@@ -121,6 +121,24 @@ namespace XadamaWebapp {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender3;
         
         /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender4;
+        
+        /// <summary>
         /// Control Adults.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,24 @@ namespace XadamaWebapp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender2;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender5;
         
         /// <summary>
         /// Control PromoCode.

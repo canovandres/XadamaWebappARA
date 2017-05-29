@@ -16,8 +16,8 @@ namespace XadamaWebapp
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            // if (!Page.IsPostBack)
-            // {
+            if (!Page.IsPostBack)
+            {
                 if (Session["Worker"] != null)
                 {
                     Birthdate.Attributes.Add("readonly", "readonly");
@@ -31,23 +31,23 @@ namespace XadamaWebapp
                     TextBoxEmail.Text = Session["email"].ToString();
                     */
 
-                    if(w.name != "" && TextBoxName.Text == w.name)
+                    if(w.name != "")
                     {
                         TextBoxName.Text = w.name;
                     }
-                    if (w.surname1 != "" && TextBox1Surname.Text == w.surname1)
+                    if (w.surname1 != "")
                     {
                         TextBox1Surname.Text = w.surname1;
                     }
-                    if (w.surname2 != "" && TextBox2Surname.Text == w.surname2)
+                    if (w.surname2 != "")
                     {
                         TextBox2Surname.Text = w.surname2;
                     }
-                    if (w.age != "" && Birthdate.Text == w.age)
+                    if (w.age != "")
                     {
                         Birthdate.Text = w.age;
                     }
-                    if (w.phone != 0 && TextBoxPhone.Text == (w.phone).ToString())
+                    if (w.phone != 0)
                     {
                         TextBoxPhone.Text = (w.phone).ToString();
                     }
@@ -56,7 +56,7 @@ namespace XadamaWebapp
                 {
                     Response.Redirect("register.aspx");
                 }
-            // }
+            }
         }
 
         protected void MenuItemClick(object sender, MenuEventArgs e)

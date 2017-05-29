@@ -252,9 +252,16 @@ namespace lib.CAD
             DataSet virtualdb = new DataSet();
             try
             {
+                String[] words = b.board.Split(' ');
+                String selectedBoard = words[0];
+                if (selectedBoard == "Full")
+                {
+                    selectedBoard = "Ful";
+                }
+
                 SqlDataAdapter da2 = new SqlDataAdapter("select individual from typeprices where hotel like '" + b.hotel + "'", conn);
                 SqlDataAdapter da3 = new SqlDataAdapter("select doble from typeprices where hotel like '" + b.hotel + "'", conn);
-                SqlDataAdapter da4 = new SqlDataAdapter("select " + b.board+ " from boardprices where hotel like '" + b.hotel + "'", conn);
+                SqlDataAdapter da4 = new SqlDataAdapter("select " + selectedBoard + " from boardprices where hotel like '" + b.hotel + "'", conn);
                 
                 da2.Fill(virtualdb, "typeprices");
                 da3.Fill(virtualdb, "typeprices2");
