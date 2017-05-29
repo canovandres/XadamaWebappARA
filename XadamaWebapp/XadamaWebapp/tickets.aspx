@@ -47,9 +47,9 @@
                         </div>
                     </div>
                     <div>
-                        <asp:ImageButton ID="infoBtn" runat="server" ImageUrl="~/Media/Icons/info.png" class="info-button margin-left margin-16"> </asp:ImageButton>
+                        <asp:ImageButton ID="infoBtn" runat="server" ImageUrl="~/Media/Icons/info.png" class="info-button margin-left margin-16" CausesValidation="False"> </asp:ImageButton>
                         <asp:Panel ID="InfoPanel" runat="server" class="info-popup text-black " >
-                            <asp:Button ID="closeBtn" runat="server" class="close-button text-white uppercase"  Style="cursor:pointer" Text="x" />
+                            <asp:Button ID="closeBtn" runat="server" class="close-button text-white uppercase"  Style="cursor:pointer" Text="x" CausesValidation="False" />
                             <div class="padding-16">
                                 <asp:Label runat="server" Text="Children: 4-16 years" class="medium"></asp:Label></br>
                                 <asp:Label runat="server" Text="Adults: +17 years" class="medium"></asp:Label></br>
@@ -157,6 +157,8 @@
                <asp:TextBox runat="server" ID="Children" MaxLength="2" TextMode="Number" Text="0"  ValidationGroup="numbers" CssClass="textright text-darkblue large calculo calculo-children"></asp:TextBox>
                <asp:RangeValidator ID="RangeValidator2" Type="Integer" MinimumValue="0"  MaximumValue="99" ControlToValidate="Children" runat="server" CssClass="error-text" ErrorMessage="Incorrect quantity"></asp:RangeValidator>
                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="RangeValidator2" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Children" CssClass="error-text" ErrorMessage="Required"></asp:RequiredFieldValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="RequiredFieldValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
 
             </div>
             <div class="field col seventh">
@@ -164,6 +166,8 @@
                <asp:TextBox runat="server" ID="Adults" MaxLength="2" TextMode="Number" Text="0"  ValidationGroup="numbers" CssClass="textright text-darkblue large calculo calculo-adult"></asp:TextBox>
                <asp:RangeValidator ID="RangeValidator1" Type="Integer" MinimumValue="0"  MaximumValue="99" ControlToValidate="Adults" runat="server" CssClass="error-text" ErrorMessage="Incorrect quantity"></asp:RangeValidator>
                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RangeValidator1" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Adults" CssClass="error-text" ErrorMessage="Required"></asp:RequiredFieldValidator>
+                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="RequiredFieldValidator2" HighlightCssClass="form-error"></ajaxToolkit:ValidatorCalloutExtender>
 
             </div>
             
