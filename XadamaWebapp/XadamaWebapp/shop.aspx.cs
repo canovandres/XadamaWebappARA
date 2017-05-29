@@ -93,7 +93,24 @@ namespace XadamaWebapp
             r[2] = i.ImageUrl;
             r[3] = 1;
             r[4] = c2.Text;
-            ((DataTable)Session["products"]).Rows.Add(r);
+
+            bool found = false;
+
+            for (int j = ((DataTable)Session["products"]).Rows.Count - 1; j >= 0 && !found; j--)
+            {
+                DataRow dr = ((DataTable)Session["products"]).Rows[j];
+                if ((String)dr["cod"] == (String)r[4])
+                {
+                    found = true;
+
+                }
+            }
+
+            if (!found)
+            {
+                ((DataTable)Session["products"]).Rows.Add(r);
+            }
+
 
             /*p1.name = c.Text;
             p1.price = Int32.Parse(c1.Text);
