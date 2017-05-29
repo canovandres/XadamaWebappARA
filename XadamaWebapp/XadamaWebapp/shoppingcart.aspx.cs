@@ -287,17 +287,18 @@ namespace XadamaWebapp
         protected void checkPromo(object sender, EventArgs e)
         {
             Promo promo = new Promo(TextBox1.Text);
-            if (TextBox1 != null && TextBox1.Text[0] == 'P')
+            promo.Read();
+            if (TextBox1 != null && TextBox1.Text[0] == 'P' && promo.discount != 0)
             {
                 try
                 {
-                    if (Session["BookPromo"] == null)
+                    if (Session["ShopPromo"] == null)
                     {
-                        promo.Read();
+                        
                         float actual = float.Parse(Label9.Text);
                         float nuevo = (float)Math.Round(actual - actual * (((float)(100 - promo.discount)) / 100), 2);
                         float aux = actual - nuevo; 
-                        Session["BookPromo"] = promo.discount;
+                        Session["ShopPromo"] = promo.discount;
                         Label9.Text = Convert.ToString(aux);
                         TextBox1.CssClass = "";
                         Session["pricepromos"] = promo.discount;

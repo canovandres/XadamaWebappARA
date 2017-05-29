@@ -23,6 +23,7 @@ namespace XadamaWebapp
             PromoError.Visible = false;
             boughtCorrectly.Visible = false;
             registerPanel.Visible = false;
+            date.Attributes.Add("readonly", "readonly");
 
             CalendarExtender1.StartDate = DateTime.Today;
 

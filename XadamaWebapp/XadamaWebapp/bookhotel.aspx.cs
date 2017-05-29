@@ -161,12 +161,12 @@ namespace XadamaWebapp
         protected void checkPromo(object sender, EventArgs e)
         {
             Promo promo = new Promo(PromoCode.Text);
-            if (PromoCode != null && PromoCode.Text[0] == 'H') {
+            promo.Read();
+            if (PromoCode != null && PromoCode.Text[0] == 'H' && promo.discount != 0) {
                 try
                 {
                     if (Session["BookPromo"] == null)
                     {
-                        promo.Read();
                         booking.price = float.Parse(Price.Text.Substring(0, Price.Text.Length - 2)) * (((float)(100 - promo.discount)) / 100);
                         Session["BookPromo"] = promo.discount;
                         Price.Text = booking.price.ToString() + " €";
