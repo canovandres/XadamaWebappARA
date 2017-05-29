@@ -15,8 +15,8 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // if (!Page.IsPostBack)
-            // {
+            if (!Page.IsPostBack)
+            {
                 if(Session["Client"] != null)
                 {
                     Birthdate.Attributes.Add("readonly", "readonly");
@@ -30,31 +30,31 @@ namespace XadamaWebapp
                     TextBoxEmail.Text = Session["email"].ToString();
                     */
                     
-                    if(c.name != "" && TextBoxName.Text == c.name)
+                    if(c.name != "")
                     {
                         TextBoxName.Text = c.name;  
                     }
-                    if(c.surname1 != "" && TextBox1Surname.Text == c.surname1)
+                    if(c.surname1 != "")
                     {
                         TextBox1Surname.Text = c.surname1;
                     }
-                    if (c.surname2 != "" && TextBox2Surname.Text == c.surname2)
+                    if (c.surname2 != "")
                     {
                         TextBox2Surname.Text = c.surname2;
                     }
-                    if(c.age != "" && c.age == Birthdate.Text)
+                    if(c.age != "")
                     {
                         Birthdate.Text = c.age;
                     }
-                    if(c.phone != 0 && TextBoxPhone.Text == (c.phone).ToString())
+                    if(c.phone != 0)
                     {
                         TextBoxPhone.Text = (c.phone).ToString();
                     }
-                    if(c.address != "" && TextBoxAddress.Text == c.address)
+                    if(c.address != "")
                     {
                         TextBoxAddress.Text = c.address;
                     }
-                    if(c.creditCard != "" && TextBoxCreditCard.Text == c.creditCard)
+                    if(c.creditCard != "")
                     {
                         TextBoxCreditCard.Text = c.creditCard;
                     }
@@ -65,7 +65,7 @@ namespace XadamaWebapp
                 {
                     Response.Redirect("register.aspx");
                 }
-            //}
+            }
         }
 
         protected void MenuItemClick(object sender, MenuEventArgs e)
