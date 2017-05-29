@@ -20,7 +20,7 @@ namespace lib.EN
         public int adult { get; set; }
         public int child { get; set; }
 
-        public Ticket(String client, String day, int adult = 0, int child = 0, float totalprice = 0, int cod=0)
+        public Ticket(String client, String day, int adult = 0, int child = 0, float totalprice = 0, int cod = 0)
         {
             this.cod = CAD.CADTicket.NextCode();
             this.client = client;

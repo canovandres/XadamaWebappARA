@@ -16,7 +16,14 @@ namespace XadamaWebapp
         private DataSet dbvirtual = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Birthdate.Attributes.Add("readonly", "readonly");
+            if (Session["Client"] != null || (Session["Worker"] != null) || (Session["Admin"] != null))
+            {
+                Response.Redirect("main.aspx");
+            }
+            else
+            {
+                Birthdate.Attributes.Add("readonly", "readonly");
+            }
         }
 
         protected void OnCreateClick(object sender, EventArgs e)

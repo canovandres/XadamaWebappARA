@@ -23,7 +23,7 @@ namespace XadamaWebapp
             PromoError.Visible = false;
             boughtCorrectly.Visible = false;
             registerPanel.Visible = false;
-            
+
             CalendarExtender1.StartDate = DateTime.Today;
 
             bdvirtual = Ticket.getTypes();
@@ -42,21 +42,27 @@ namespace XadamaWebapp
                 Children.Text = ticket.child.ToString();
                 Adults.Text = ticket.adult.ToString();
 
-                if(checkPromo()){
+                if (checkPromo())
+                {
                     checkPurchase();
                 }
             }
+        }
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            RangeValidator3.MinimumValue = DateTime.Now.Date.ToString("dd-MM-yyyy");
+            RangeValidator3.MaximumValue = DateTime.Now.Date.AddYears(90).ToString("dd-MM-yyyy");
         }
         protected bool checkPromo()
         {
             try
             {
-                if(PromoCode.Text == "")
+                if (PromoCode.Text == "")
                 {
                     disc = 0;
                     return true;
                 }
-                else if(PromoCode.Text.Substring(0, 1).Equals("T"))
+                else if (PromoCode.Text.Substring(0, 1).Equals("T"))
                 {
                     Promo promo = new Promo(PromoCode.Text);
                     promo.Read();
@@ -68,7 +74,7 @@ namespace XadamaWebapp
                     PromoError.Visible = true;
                     return false;
                 }
-                
+
             }
             catch (Exception exc)
             {
@@ -80,8 +86,8 @@ namespace XadamaWebapp
         {
             TicketsError.Visible = false;
             TicketsCorrect.Visible = false;
-            
-            if (ticket.child <= 0 && ticket.adult <= 0) 
+
+            if (ticket.child <= 0 && ticket.adult <= 0)
             {
                 TicketsError.Visible = true;
             }
@@ -93,10 +99,10 @@ namespace XadamaWebapp
                 Promo2.Text = disc.ToString();
                 Price2.Text = ((ticket.totalPrice()) * (((float)(100 - disc)) / 100)).ToString();
                 //Price2.Text = Math.Round(ticket.totalPrice() - ticket.totalPrice() * (disc / 100), 2).ToString();
-                TicketsCorrect.Visible = true; 
+                TicketsCorrect.Visible = true;
             }
         }
-        
+
         protected void OnClickBuyNow(object sender, EventArgs e)
         {
             string email = null;
@@ -132,15 +138,15 @@ namespace XadamaWebapp
             MailMessage message = new MailMessage();
             try
             {
-                MailAddress fromAddress = new MailAddress("xadama.park@gmail.com", "Xadama Bookings");
+                MailAddress fromAddress = new MailAddress("xadama.park@gmail.com", "Xadama Tickets");
                 MailAddress toAddress = new MailAddress(((Client)Session["Client"]).email, ((Client)Session["Client"]).name + " " + ((Client)Session["Client"]).surname1);
                 message.From = fromAddress;
                 message.To.Add(toAddress);
                 message.Subject = "Xadama Park Ticket Purchase";
                 message.IsBodyHtml = true;
                 message.Body = "<div style=\"margin: 20px\">"
-                                    + "<h1>Dear " + ((Client)Session["Client"]).name +",</h1>"
-                                    + "<p>We are glad to confirm your purchase of " + Children2.Text +" child tickets and " + Adults2.Text + " adult tickets, for the day " + Date2.Text + ".<br>"
+                                    + "<h1>Dear " + ((Client)Session["Client"]).name + ",</h1>"
+                                    + "<p>We are glad to confirm your purchase of " + Children2.Text + " child tickets and " + Adults2.Text + " adult tickets, for the day " + Date2.Text + ".<br>"
                                     + "<p>Please, do not hesitate to contact us if you have any questions. </p>"
                                     + "<p>Best regards from Xadama Park team!"
                                 + "</div>";

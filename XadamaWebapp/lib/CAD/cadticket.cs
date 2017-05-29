@@ -176,14 +176,14 @@ namespace lib.CAD
 
             try
             {
-                SqlDataAdapter da2 = new SqlDataAdapter("select price from tickettype where type like 'Adult'", con);
+                SqlDataAdapter da2 = new SqlDataAdapter("select price from tickettype where type like 'Adults'", con);
                 da2.Fill(bdvirtual, "adulttype");
                 DataTable t2 = new DataTable();
                 t2 = bdvirtual.Tables["adulttype"];
 
                 float aprice = float.Parse(t2.Rows[0][0].ToString());
 
-                SqlDataAdapter da3 = new SqlDataAdapter("select price from tickettype where type like 'Child'", con);
+                SqlDataAdapter da3 = new SqlDataAdapter("select price from tickettype where type like 'Children'", con);
                 da3.Fill(bdvirtual, "childtype");
                 DataTable t3 = new DataTable();
                 t3 = bdvirtual.Tables["childtype"];
@@ -192,7 +192,7 @@ namespace lib.CAD
 
                 total = (ti.adult * aprice) + (ti.child * cprice);
             }
-            catch (Exception ex) {  }
+            catch (Exception ex) { }
             finally { con.Close(); }
 
             return total;
@@ -218,7 +218,7 @@ namespace lib.CAD
 
         public DataSet getTypes()//Returns a list of promos active in the date passed by parameter by executing appropiate commands
         {
-            EN.Ticket ticket = new EN.Ticket("","");
+            EN.Ticket ticket = new EN.Ticket("", "");
             SqlConnection con = new SqlConnection(conString);
             DataSet bdvirtual = new DataSet();
             try
@@ -328,5 +328,3 @@ namespace lib.CAD
         }
     }
 }
-
-

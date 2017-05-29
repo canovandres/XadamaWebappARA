@@ -25,20 +25,30 @@ namespace XadamaWebapp
                 t = (DataTable)Session["products"];
                 if (t.Rows.Count == 0)
                 {
-                    makeinvisible();                    
+                    makeinvisible();
                 }
                 else
                 {
                     float price = 0;
+
+                                         
                     for (int i = t.Rows.Count - 1; i >= 0; i--)
                     {
                         DataRow dr = t.Rows[i];
-                        float actual= (float)(dr["price"]);
+                        float actual = (float)(dr["price"]);
                         int cant = (int)(dr["quantity"]);
                         price += (cant * actual);
                     }
 
-
+                    if (Session["pricepromos"] != null)
+                    {
+                        int discount = (int)(Session["pricepromos"]);            
+                        float actual = price;
+                        float nuevo = (float)Math.Round(actual - actual * (((float)(100 - discount)) / 100), 2);
+                        float aux = actual - nuevo;
+                        price = aux;
+                    }
+                    
                     Label9.Text = Convert.ToString(price);
                     ListView1.DataSource = t;
                     ListView1.DataBind();
@@ -114,7 +124,16 @@ namespace XadamaWebapp
                 int cant = (int)(dr["quantity"]);
                 price += (cant * actual);
             }
-            
+
+            if (Session["pricepromos"] != null)
+            {
+                int discount = (int)(Session["pricepromos"]);
+                float actual = price;
+                float nuevo = (float)Math.Round(actual - actual * (((float)(100 - discount)) / 100), 2);
+                float aux = actual - nuevo;
+                price = aux;
+            }
+
             Label9.Text = Convert.ToString(price);
             ListView1.DataSource = t;
             ListView1.DataBind();
@@ -174,22 +193,9 @@ namespace XadamaWebapp
                     order.client = cliente;
                     order.date = DateTime.Today.ToString("dd/MM/yyyy");
                     order.cod = Order.NextCode();
+                    //order.cod = 3;
                     //order.cod = "022";
-                    List<Product> _products = new List<Product>();
-
-                    for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
-                    {
-                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
-                        Product p = new Product();
-                        p.cod = (String)dr["cod"];
-                        p.name = (String)dr["name"];
-                        p.price = (float)dr["price"];
-                        _products.Add(p);
-
-                    }
-
-                    order._products = _products;
-                    order.save("");
+                    //List<Product> _products = new List<Product>();
 
                     for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
                     {
@@ -197,9 +203,29 @@ namespace XadamaWebapp
                         Product p = new Product();
                         p.cod = (String)dr["cod"];
                         int cantidad = (int)dr["quantity"];
-                        order.buyItems("",p.cod, cantidad);
+                        order.p = p;
+                        order.quantity = cantidad;
+                        order.create("");
+
+                        /*
+                        p.name = (String)dr["name"];
+                        p.price = (float)dr["price"];
+                        _products.Add(p);*/
 
                     }
+
+                    //order._products = _products;
+                    //order.save("");
+
+                    /*for (int i = ((DataTable)Session["products"]).Rows.Count - 1; i >= 0 && !fallo; i--)
+                    {
+                        DataRow dr = ((DataTable)Session["products"]).Rows[i];
+                        Product p = new Product();
+                        p.cod = (String)dr["cod"];
+                        int cantidad = (int)dr["quantity"];
+                        order.buyItems("",p.cod, cantidad);
+
+                    }*/
                     makeinvisible();
                     Label34.Visible = false;
                     t = new DataTable();
@@ -269,10 +295,13 @@ namespace XadamaWebapp
                     {
                         promo.Read();
                         float actual = float.Parse(Label9.Text);
-                        float nuevo = (float)Math.Round(actual - actual * (promo.discount / 100), 2);
+                        float nuevo = (float)Math.Round(actual - actual * (((float)(100 - promo.discount)) / 100), 2);
+                        float aux = actual - nuevo; 
                         Session["BookPromo"] = promo.discount;
-                        Label9.Text = Convert.ToString(nuevo);
+                        Label9.Text = Convert.ToString(aux);
                         TextBox1.CssClass = "";
+                        Session["pricepromos"] = promo.discount;
+                        //Response.Redirect("shoppingcart.aspx");
                     }
                     else
                     {
