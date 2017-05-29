@@ -15,8 +15,8 @@ namespace XadamaWebapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // if (!Page.IsPostBack)
-            // {
+            if (!Page.IsPostBack)
+            {
                 if(Session["Client"] != null)
                 {
                     Birthdate.Attributes.Add("readonly", "readonly");
@@ -29,23 +29,43 @@ namespace XadamaWebapp
                     /*
                     TextBoxEmail.Text = Session["email"].ToString();
                     */
-
-                    TextBoxName.Text = c.name;
-                    TextBox1Surname.Text = c.surname1;
-                    TextBox2Surname.Text = c.surname2;
-                    Birthdate.Text = c.age;
+                    
+                    if(c.name != "")
+                    {
+                        TextBoxName.Text = c.name;  
+                    }
+                    if(c.surname1 != "")
+                    {
+                        TextBox1Surname.Text = c.surname1;
+                    }
+                    if (c.surname2 != "")
+                    {
+                        TextBox2Surname.Text = c.surname2;
+                    }
+                    if(c.age != "")
+                    {
+                        Birthdate.Text = c.age;
+                    }
                     if(c.phone != 0)
                     {
                         TextBoxPhone.Text = (c.phone).ToString();
                     }
-                    TextBoxAddress.Text = c.address;
-                    TextBoxCreditCard.Text = c.creditCard;
+                    if(c.address != "")
+                    {
+                        TextBoxAddress.Text = c.address;
+                    }
+                    if(c.creditCard != "")
+                    {
+                        TextBoxCreditCard.Text = c.creditCard;
+                    }
+                    
+                    
                 }
                 else
                 {
                     Response.Redirect("register.aspx");
                 }
-            //}
+            }
         }
 
         protected void MenuItemClick(object sender, MenuEventArgs e)
@@ -69,12 +89,18 @@ namespace XadamaWebapp
                     TextBoxName.Text = c.name;
                     TextBox1Surname.Text = c.surname1;
                     TextBox2Surname.Text = c.surname2;
-                    Birthdate.Text = c.age;
+                    if (c.age != "")
+                    {
+                        Birthdate.Text = c.age;
+                    }
                     if (c.phone != 0)
                     {
                         TextBoxPhone.Text = (c.phone).ToString();
                     }
-                    TextBoxAddress.Text = c.address;
+                    if (c.address != "")
+                    {
+                        TextBoxAddress.Text = c.address;
+                    }
                     TextBoxCreditCard.Text = c.creditCard;
 
                     SuccessfulyLabel.Visible = false;
