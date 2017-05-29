@@ -254,6 +254,10 @@ namespace lib.CAD
             {
                 String[] words = b.board.Split(' ');
                 String selectedBoard = words[0];
+                if (selectedBoard == "Full")
+                {
+                    selectedBoard = "Ful";
+                }
 
                 SqlDataAdapter da2 = new SqlDataAdapter("select individual from typeprices where hotel like '" + b.hotel + "'", conn);
                 SqlDataAdapter da3 = new SqlDataAdapter("select doble from typeprices where hotel like '" + b.hotel + "'", conn);
