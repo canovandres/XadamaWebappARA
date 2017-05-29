@@ -47,16 +47,34 @@ We have had some problems when doing the Project:
 
 - Also, we have had some organitzation difficulties. We first divided the project, but with the pass of the weeks we had to change      the distribution, because we’ve been doing our respective parts, while those parts needed to be done. So, many pages have been          realized by two or more people or we haven’t done the same CAD/EN of our pages.
 
-### Instructions
+* ### Instructions
 
 - Use sqlexpress (if not, change it in Web.Config)
 
 - Execute it in Chrome
 
 - Users:
-        - Worker:  user: worker@dummy.com password:test
-        - Client:  user: client@dummy.com password:test
-        - Admin: user: admin: password: admin
+  - Worker:  user: worker@dummy.com password:test
+  - Client:  user: client@dummy.com password:test
+  - Admin: user: admin: password: admin
+  
+ * ### Corrections
+  - Reviews can be modified now and the colorof the review menu item changes properly
+  - Rides height and speed changed from Convert.ToInt32() to float.Parse()
+  - Client / Worker
+    - Redirects to the register page in case someone tries to access the client or worker page while not being logged.
+    - Redirects to the main page in case of being logged and trying to access to the register page
+    - When changing the password the user can’t insert the current password
+    - On page_load, !page.ispostback let account save changes work properly
+  - Orders are saved in the table orderin of the database
+  - Fixed product’s promos
+  - Carousel link buttons
+  - Products can be read, created, deleted,and updated now properly and promos can be read, deleted and updated properly now.
+  - Editing in grid views from other pages of the grid view when there is pagination.
+  - Products can’t be added to the shopping cart more than once.
+  - Minor errors in Booking and Tickets. 
+  - Promotions code usage errors fixed
+
   
 * Participants:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;José Aldeguer Sastre (@JoseAlde)  
